@@ -269,7 +269,7 @@ class ControllerCheckoutCart extends Controller {
 		} else {
 			$product_id = 0;
 		}
-
+		//echo $product_id;
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);

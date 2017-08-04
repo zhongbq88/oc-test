@@ -5,3 +5,19 @@
 2017-08-03 9:44:41 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\oc-test\system\library\db\mysqli.php on line 10
 2017-08-03 9:44:41 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\oc-test\system\library\db\mysqli.php on line 10
 2017-08-03 9:55:53 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\oc-test\system\library\mail\mail.php on line 77
+2017-08-04 1:27:36 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\common\content_top.php on line 71
+2017-08-04 3:39:29 - PHP Warning:  substr() expects at least 2 parameters, 1 given in D:\xampp\htdocs\oc-test\catalog\controller\product\product.php on line 261
+2017-08-04 9:18:47 - PHP Warning:  include(shopifyinstall/create_product.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:18:47 - PHP Warning:  include(): Failed opening 'shopifyinstall/create_product.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:22:40 - PHP Warning:  include(shopifyinstall/create_product.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:22:40 - PHP Warning:  include(): Failed opening 'shopifyinstall/create_product.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:22:47 - PHP Warning:  include(shopifyinstall/create_product.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:22:47 - PHP Warning:  include(): Failed opening 'shopifyinstall/create_product.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:22:55 - PHP Warning:  include(shopifyinstall/create_product.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:22:55 - PHP Warning:  include(): Failed opening 'shopifyinstall/create_product.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:25:20 - PHP Warning:  include(shopifyinstall/create_product.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:25:20 - PHP Warning:  include(): Failed opening 'shopifyinstall/create_product.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:27:00 - PHP Warning:  include(shopifyinstall/create_product.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:27:00 - PHP Warning:  include(): Failed opening 'shopifyinstall/create_product.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:27:54 - PHP Warning:  include(shopifyinstall/create_product.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-04 9:27:54 - PHP Warning:  include(): Failed opening 'shopifyinstall/create_product.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3

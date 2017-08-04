@@ -19,12 +19,21 @@ $_['text_all_zones']        = 'All Zones';
 $_['text_pagination']       = 'Showing %d to %d of %d (%d Pages)';
 $_['text_loading']          = 'Loading...';
 $_['text_no_results']       = 'No results!';
-
+$_['variant']           = 'Variant';
+$_['publish_product']           = 'Publish Product';
+$_['cover']           = 'Cover';
+$_['shopify_product_des']           = 'The product title, description, tags and collection will be the same for each variant:';
+$_['product_title']           = 'Product Title:';
+$_['product_description']           = 'Product Description:';
+$_['add_to_shopify_collection']           = 'Add to Shopify Collection:';
+$_['add_product_tags']           = 'Add product tags (optional):';
+$_['your_selling_price_for_this_product']           = 'Your Selling Price for this product:';
 // Buttons
 $_['button_address_add']    = 'Add Address';
 $_['button_back']           = 'Back';
 $_['button_continue']       = 'Continue';
 $_['button_cart']           = 'Add to Cart';
+$_['review_and_publish_designs']           = 'Review and Publish Designs';
 $_['button_cancel']         = 'Cancel';
 $_['button_compare']        = 'Compare this Product';
 $_['button_wishlist']       = 'Add to Wish List';
