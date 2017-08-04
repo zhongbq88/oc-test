@@ -1,5 +1,6 @@
 {{ header }}
 <div id="product-product" class="container">
+ <input type="hidden" name="product_id" value="{{ product_id }}" />
           <div id="product">
       
            {% if options %}
@@ -49,18 +50,13 @@
             {% endfor %}
             {% endif %}
 
-          </div>
-        
-</div>
-</div>
- <input type="hidden" name="product_id" value="{{ product_id }}" />
 <div class="button-group" style="margin:0 auto;">
  <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" style=" width:auto; text-align:center;">{{ review_and_publish_designs }}</button>
    </div>  
    </div>         
 
 <!--edit shopify produce start-->
-<div id="theme-content" style="display:none;" >
+<div id="theme-content"  >
 <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false"   >
 	<div class="vc_span12 wpb_column column_container " >
 		<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div><div class="clearboth"></div>
@@ -429,7 +425,7 @@ $(document).ready(function() {
 			enabled: true
 		}
 	});
-	 $("#heme-content").hide();
+	
 });
 //--></script> 
 <style>.form-control {

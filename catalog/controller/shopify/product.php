@@ -1,6 +1,6 @@
 <?php
 
-include ('shopifyinstall/create_product.php');
+include ('create_product.php');
 
 class ControllerShopifyProduct extends Controller {
 	
@@ -18,12 +18,13 @@ class ControllerShopifyProduct extends Controller {
 		} else {
 			$product_id = 0;
 		}
-		//echo $product_id;
+		//echo __DIR__.'shopifyinstall/create_product.php';
 		$this->load->model('catalog/product');
-
+		echo "product_id".$product_id;
 		$product_info = $this->model_catalog_product->getProduct($product_id);
+		//print_r($product_info);
 		addProducts($product_info);
-		if ($product_info) {
+		/*if ($product_info) {
 			if (isset($this->request->post['quantity'])) {
 				$quantity = (int)$this->request->post['quantity'];
 			} else {
@@ -126,7 +127,7 @@ class ControllerShopifyProduct extends Controller {
 		}
 
 		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
+		$this->response->setOutput(json_encode($json));*/
 	}
 
 	public function edit() {
