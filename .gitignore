@@ -1,7 +1,7 @@
 
 
 # Generated files
-# cache/
+cache/
 upload/
 config.php
 *DS_Store
