@@ -7,7 +7,7 @@
 	require __DIR__.'/conf.php';
 
 	function addProducts($products){
-		echo "products=".$products;
+		//echo "products=".$products;
 		print_r($products);
 		
 		/*$shopify = shopify\client($_SESSION['shop'], SHOPIFY_APP_API_KEY, $_SESSION['oauth_token']);

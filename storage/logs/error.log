@@ -177,3 +177,116 @@
 2017-08-05 1:43:26 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
 2017-08-05 1:43:26 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
 2017-08-05 1:43:26 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:47:16 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1501901236): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:47:16 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:47:16 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:47:16 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:47:16 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:47:16 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:47:16 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1501901236): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:47:16 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:47:16 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:47:16 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:47:16 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:47:16 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:47:17 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1501901237): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:47:17 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:47:17 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:47:17 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:47:17 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:47:17 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:47:17 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1501901237): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:47:17 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:47:17 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:47:17 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:47:17 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:47:17 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:48:07 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1501901287): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:48:07 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:48:07 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:48:07 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:48:07 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:48:07 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:48:07 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1501901287): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:48:07 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:48:07 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:48:07 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:48:07 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:48:07 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:48:07 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1501901287): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:48:07 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:48:07 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:48:07 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:48:07 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:48:07 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:48:07 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1501901287): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:48:07 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:48:07 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:48:07 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:48:07 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:48:07 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:48:34 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1501901314): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:48:34 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:48:34 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:48:34 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:48:34 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:48:34 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:48:34 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1501901314): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:48:34 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:48:34 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:48:34 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:48:34 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:48:34 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:48:35 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1501901315): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:48:35 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:48:35 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:48:35 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:48:35 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:48:35 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:48:35 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1501901315): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:48:35 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:48:35 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:48:35 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:48:35 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:48:35 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:48:35 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1501901315): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:48:35 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:48:35 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:48:35 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:48:35 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:48:35 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 1:48:35 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1501901315): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 1:48:35 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 1:48:35 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 1:48:35 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 1:48:35 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 1:48:35 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 2:06:11 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1501902371): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 2:06:11 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 2:06:11 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 2:06:11 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 2:06:11 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 2:06:11 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 2:06:11 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1501902371): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 2:06:11 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 2:06:11 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 2:06:11 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 2:06:11 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 2:06:11 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 2:06:12 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1501902372): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 2:06:12 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 2:06:12 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 2:06:12 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 2:06:12 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 2:06:12 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 2:06:12 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1501902372): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-05 2:06:12 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-05 2:06:12 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-05 2:06:12 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-05 2:06:12 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-05 2:06:12 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-05 8:38:29 - PHP Warning:  mysqli::mysqli():  in G:\xampp\htdocs\oc-test\system\library\db\mysqli.php on line 7
+2017-08-05 8:38:29 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in G:\xampp\htdocs\oc-test\system\library\db\mysqli.php on line 10
+2017-08-05 8:38:29 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in G:\xampp\htdocs\oc-test\system\library\db\mysqli.php on line 10
+2017-08-05 8:46:23 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 10
+2017-08-05 8:56:37 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 10

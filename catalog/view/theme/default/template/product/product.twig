@@ -4,7 +4,7 @@
           <div id="product">
       
            {% if options %}
-            <hr>
+           
             <h3>{{ text_option }}</h3>
             {% for option in options %}
             {% if option.type == 'file' %}
@@ -45,36 +45,30 @@
         
     </div>
   </div>
-</div>           
+      
+</div>       
             {% endif %}                   
             {% endfor %}
             {% endif %}
-
+</div>   
 <div class="button-group" style="margin:0 auto;">
  <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" style=" width:auto; text-align:center;">{{ review_and_publish_designs }}</button>
-   </div>  
-   </div>         
-
+   </div>        
+</div> 
+</div>
+</div>
 <!--edit shopify produce start-->
-<div id="theme-content"  >
+<div id="theme-content" style=" display:none;" >
 <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false"   >
 	<div class="vc_span12 wpb_column column_container " >
-		<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div><div class="clearboth"></div>
-		
+
 			<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
 				
 				<b> {{cover}} -  {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} {{each}}</b><br>&nbsp;
-				
-				
-				<div class="clearboth"></div>
-			</div> <div class="clearboth"></div>		
 		
-		
+			</div>		
+
 	</div>
-	
-</div>
-	
-</div>
 
 <div  style="border:1px solid #CCC;background-color:#F4F4F4;padding:12px; overflow:hidden; " >
 <form id="pubform">
@@ -159,11 +153,11 @@
 		</div>
 </form>
 </div>
-
-
-<!--edit shopify produce end-->
 </div>
+</div>
+<!--edit shopify produce end-->、
 
+</div>
 <script type="text/javascript"><!--
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 	$.ajax({
@@ -186,11 +180,10 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 //--></script> 
 <script type="text/javascript"><!--
 $('#gopublish').on('click', function() {
-	
 	$.ajax({
 		url: 'index.php?route=shopify/product/add',
 		type: 'post',
-		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+		data: $('input[name=\'product_id\']'),
 		dataType: 'json',
 		beforeSend: function() {
 			$('#button-cart').button('loading');
@@ -257,10 +250,10 @@ $('#button-cart').on('click', function() {
 			$('#button-cart').button('reset');
 		},
 		success: function(json) {
+			alert(json['error']);
 			$('.alert-dismissible, .text-danger').remove();
 			$('.form-group').removeClass('has-error');
-$(".container #product").attr ("style","display:none;");
-				$(".container #theme-content").attr ("style","display:block;");
+
 			if (json['error']) {
 				if (json['error']['option']) {
 					for (i in json['error']['option']) {
@@ -283,7 +276,8 @@ $(".container #product").attr ("style","display:none;");
 			}
 
 			if (json['success']) {
-				
+				$(".container #product").attr ("style","display:none;");
+				$(".container #theme-content").attr ("style","display:block;");
 				$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
 				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');

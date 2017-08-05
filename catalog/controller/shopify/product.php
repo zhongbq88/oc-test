@@ -20,7 +20,7 @@ class ControllerShopifyProduct extends Controller {
 		}
 		//echo __DIR__.'shopifyinstall/create_product.php';
 		$this->load->model('catalog/product');
-		echo "product_id".$product_id;
+		//echo "product_id".$product_id;
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 		//print_r($product_info);
 		addProducts($product_info);
