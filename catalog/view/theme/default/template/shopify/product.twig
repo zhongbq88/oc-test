@@ -1,0 +1,460 @@
+{{ header }}
+<div id="product-product" class="container">
+ <input type="hidden" name="product_id" value="{{ product_id }}" />
+          <div id="product">
+      
+           {% if options %}
+           
+            <h3>{{ text_option }}</h3>
+            {% for option in options %}
+            {% if option.type == 'file' %}
+            
+             <div class="panel-group" id="accordion">         <div class="panel panel-default">
+
+  <div class="panel-heading {% if option.required %} required {% endif %}" style="height:52px;" >
+ 
+   
+    <h4 class="panel-title" style="height:52px;" ><a href="#collapse-coupon" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;"><label class="control-label">{{variant}} {{ loop.index }}</label><i class="fa fa-caret-down" style="margin-left:12px;"></i></a>	<div><input type="text" name="variant[{{ option.product_option_id }}]" value="" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  /><img src="/storage/upload/2.jpg.l3rsDvrrEwgBJgYsCBj4fNyfx5g2mYy0" style=" float:right;  width: auto; height:35px; display:none " id="src-option{{ option.product_option_id }}"  /></div>
+    </h4>
+  </div>
+  <div id="collapse-coupon" class="panel-collapse collapse">
+    <div class="panel-body">
+    <div style="float:left; width:65%; height:auto;" >
+     <label class="control-label">{{ option.name }} </label>
+
+             <div>
+              <button type="button" style="float:left; width:120px" id="button-upload{{ option.product_option_id }}" data-loading-text="{{ text_loading }}"  class="btn btn-primary" ><i class="fa fa-upload"></i> {{ button_upload }}</button>
+              <input type="hidden" name="option[{{ option.product_option_id }}]" value="" id="input-option{{ option.product_option_id }}" />
+             </div>
+    </div>
+       <div style="float: left; padding-left:50px; padding-right:60px;">
+        {% if thumb or images %}
+          <ul class="thumbnails" >
+            {% if thumb %}
+            
+            <li><a class="thumbnail" href="{{ popup }}" title="{{ heading_title }}" style="border:none;"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
+            {% endif %}
+           <!-- {% if images %}
+            {% for image in images %}
+            <li class="image-additional"><a class="thumbnail" href="{{ image.popup }}" title="{{ heading_title }}"> <img src="{{ image.thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
+            {% endfor %}
+            {% endif %}-->
+          </ul>
+          {% endif %}
+       </div>
+      <!--  <input type="button" value="Apply Coupon" id="button-coupon" data-loading-text="Loading..."  class="btn btn-primary" />-->
+        
+    </div>
+  </div>
+      
+</div>       
+            {% endif %}                   
+            {% endfor %}
+            {% endif %}
+</div>   
+<div class="button-group" style="margin:0 auto;">
+ <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" style=" width:auto; text-align:center;">{{ review_and_publish_designs }}</button>
+   </div>        
+</div> 
+
+
+<!--edit shopify produce start-->
+<div id="theme-content" style="display:none" >
+<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false"   >
+	<div class="vc_span12 wpb_column column_container " >
+
+			<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
+				
+				<b> {{cover}} -  {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} {{each}}</b><br>&nbsp;
+		
+			</div>		
+
+	</div>
+
+<div  style="border:1px solid #CCC;background-color:#F4F4F4;padding:12px; overflow:hidden; " >
+<form id="pubform">
+<div style="float:left; width:70%">
+	<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false" >
+		<div style="text-align:left" class="vc_span9 wpb_column column_container ">
+			
+
+				<div id="mk-text-block-221" style=" margin-bottom:10px;text-align: left;font-size:22px;font-weight:bold" class="mk-text-block  ">
+					
+					 {{cover}} - {% if not special %}{{ price }}{% else %}{{ special }}{% endif %}
+					
+				</div>
+				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;font-size:12px" class="mk-text-block  ">
+					{{shopify_product_des}}
+				</div>		
+				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
+					{{product_title}}
+				</div>		
+				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+					<input name="pttl" type="text" style="width:500px" value="{{ heading_title }}">
+				</div>		
+				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
+                {{product_description}}
+					
+				</div>		
+				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+					<textarea name="pdsc" style="width:500px;height:100px">{{ description }}</textarea>
+				</div>	
+
+				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
+                 {{add_to_shopify_collection}}
+					
+				</div>		
+				
+				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+					<select name="pcol" style="width:400px"><option value="0">- None -</option><option value="459306312">Home page</option>
+								</select>
+				</div>
+				
+				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
+					{{add_product_tags}}
+				</div>				
+				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+					<input name="ptag" type="text" style="width:500px" placeholder="Comma-separated tags" value="{% for i in 0..tags|length %}{% if i < (tags|length - 1) %}{{ tags[i].tag}},{% else %}{{tags[i].tag}}{% endif %}{% endfor %}">
+				</div>
+				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
+                {{your_selling_price_for_this_product}}
+					
+				</div>				
+				<div id="mk-text-block-221" style=" margin-bottom:40px;text-align: left;" class="mk-text-block  ">
+					<input name="pspr" type="text" style="width:200px" value="{{ price }}">
+				</div>
+				
+				
+				<div class="mk-button-align fullwidth-button center" style="float:right; margin-right:20%">
+						<a href="" id="gopublish"  class="btn btn-primary btn-lg btn-block" >
+						<i class="mk-moon-arrow-right-6"></i>{{publish_product}}</a></div>
+			
+			
+			
+			
+
+		</div>
+        </div>
+		
+	</div>
+
+
+
+<div style="text-align:center; float:right; margin:0 auto;" class="vc_span3 wpb_column column_container ">
+		
+         {% if thumb or images %}
+          <ul class="thumbnails" >
+            {% if thumb %}
+            <li><a class="thumbnail" href="{{ popup }}" title="{{ heading_title }}" style="border:none;"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
+            {% endif %}
+           
+          </ul>
+          {% endif %}
+	
+		</div>
+</form>
+</div>
+</div>
+</div>
+<!--edit shopify produce end-->、
+</div>
+</div>
+</div>
+<script type="text/javascript"><!--
+$('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
+	$.ajax({
+		url: 'index.php?route=product/product/getRecurringDescription',
+		type: 'post',
+		data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#recurring-description').html('');
+		},
+		success: function(json) {
+			$('.alert-dismissible, .text-danger').remove();
+
+			if (json['success']) {
+				$('#recurring-description').html(json['success']);
+			}
+		}
+	});
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('#gopublish').on('click', function() {
+	$.ajax({
+		url: 'index.php?route=shopify/product/add',
+		type: 'post',
+		data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\'],#product-product select,  #product-product textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-cart').button('loading');
+		},
+		complete: function() {
+			$('#button-cart').button('reset');
+		},
+		success: function(json) {
+			$('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+$(".container #product").attr ("style","display:none;");
+				$(".container #theme-content").attr ("style","display:block;");
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						} else {
+							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+			if (json['success']) {
+				
+				$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+				$('html, body').animate({ scrollTop: 0 }, 'slow');
+
+				$('#cart > ul').load('index.php?route=shopify/category ul li');
+			}
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+});
+//--></script> 
+
+<script type="text/javascript"><!--
+$('#button-cart').on('click', function() {
+	
+	$.ajax({
+		url: 'index.php?route=shopify/product/review',
+		type: 'post',
+		data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\']'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-cart').button('loading');
+		},
+		complete: function() {
+			$('#button-cart').button('reset');
+		},
+		success: function(json) {
+			//alert(json);
+			$('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						} else {
+							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+			if (json['success']) {
+				$(".container #product").attr ("style","display:none;");
+				$(".container #theme-content").attr ("style","display:block;");
+				$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+				$('html, body').animate({ scrollTop: 0 }, 'slow');
+
+				$('#cart > ul').load('index.php?route=common/cart/info ul li');
+			}
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('.date').datetimepicker({
+	language: '{{ datepicker }}',
+	pickTime: false
+});
+
+$('.datetime').datetimepicker({
+	language: '{{ datepicker }}',
+	pickDate: true,
+	pickTime: true
+});
+
+$('.time').datetimepicker({
+	language: '{{ datepicker }}',
+	pickDate: false
+});
+
+$('button[id^=\'button-upload\']').on('click', function() {
+	var node = this;
+
+	$('#form-upload').remove();
+
+	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+	$('#form-upload input[name=\'file\']').trigger('click');
+
+	if (typeof timer != 'undefined') {
+    	clearInterval(timer);
+	}
+
+	timer = setInterval(function() {
+		if ($('#form-upload input[name=\'file\']').val() != '') {
+			clearInterval(timer);
+
+			$.ajax({
+				url: 'index.php?route=tool/upload',
+				type: 'post',
+				dataType: 'json',
+				data: new FormData($('#form-upload')[0]),
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					$(node).button('loading');
+				},
+				complete: function() {
+					$(node).button('reset');
+				},
+				success: function(json) {
+					$('.text-danger').remove();
+
+					if (json['error']) {
+						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+					}
+
+					if (json['success']) {
+						//alert(json['src']);
+						var id = $(node).get(0).getAttribute("id");
+						var option_id = id.substring('button-upload'.length,id.length);
+						//alert(option_id);
+						 document.getElementById("src-option"+option_id).src = json['src'];
+						$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
+						//alert($("#src-option"+option_id).get(0));
+						//$("#src-option"+option_id).src = json['src'];
+						//alert();
+						//$(node).parent().find('input').get(0).value=json['code'];
+						//alert(json['code']);
+						$("#input-option"+option_id).val(json['code']);
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+		}
+	}, 500);
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('#review').delegate('.pagination a', 'click', function(e) {
+    e.preventDefault();
+
+    $('#review').fadeOut('slow');
+
+    $('#review').load(this.href);
+
+    $('#review').fadeIn('slow');
+});
+
+$('#review').load('index.php?route=product/product/review&product_id={{ product_id }}');
+
+$('#button-review').on('click', function() {
+
+	$.ajax({
+		url: 'index.php?route=product/product/write&product_id={{ product_id }}',
+		type: 'post',
+		dataType: 'json',
+		data: $("#form-review").serialize(),
+		beforeSend: function() {
+			$('#button-review').button('loading');
+		},
+		complete: function() {
+			$('#button-review').button('reset');
+		},
+		success: function(json) {
+			$('.alert-dismissible').remove();
+
+			if (json['error']) {
+				$('#review').after('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+			}
+
+			if (json['success']) {
+
+				
+				 //document.getElementById('product').style.display = 'none';
+				 //document.getElementById('heme-content').style.display = 'block';
+				
+				$('#review').after('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+
+				$('input[name=\'name\']').val('');
+				$('textarea[name=\'text\']').val('');
+				$('input[name=\'rating\']:checked').prop('checked', false);
+			}
+		}
+	});
+});
+
+$(document).ready(function() {
+	$('.thumbnails').magnificPopup({
+		type:'image',
+		delegate: 'a',
+		gallery: {
+			enabled: true
+		}
+	});
+	
+});
+//--></script> 
+<style>.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}</style>
+{{ footer }} 

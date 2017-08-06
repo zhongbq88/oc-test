@@ -1,7 +1,19 @@
 <?php
-class ControllerProductCategory extends Controller {
+
+
+	session_start();
+
+	require __DIR__.'/vendor/autoload.php';
+	use phpish\shopify;
+
+	require __DIR__.'/conf.php';
+
+class ControllerShopifyCategory extends Controller {
 	public function index() {
-		$this->load->language('product/category');
+		
+		$this->getToken();
+		
+		$this->load->language('shopify/category');
 
 		$this->load->model('catalog/category');
 
@@ -84,7 +96,7 @@ class ControllerProductCategory extends Controller {
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
-						'href' => $this->url->link('product/category', 'path=' . $path . $url)
+						'href' => $this->url->link('shopify/category', 'path=' . $path . $url)
 					);
 				}
 			}
@@ -106,7 +118,7 @@ class ControllerProductCategory extends Controller {
 			// Set the last category breadcrumb
 			$data['breadcrumbs'][] = array(
 				'text' => $category_info['name'],
-				'href' => $this->url->link('product/category', 'path=' . $reqPath )
+				'href' => $this->url->link('shopify/category', 'path=' . $reqPath )
 			);
 
 			if ($category_info['image']) {
@@ -148,7 +160,7 @@ class ControllerProductCategory extends Controller {
 
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/category', 'path=' . $reqPath  . '_' . $result['category_id'] . $url)
+					'href' => $this->url->link('shopify/category', 'path=' . $reqPath  . '_' . $result['category_id'] . $url)
 				);
 			}
 
@@ -208,7 +220,7 @@ class ControllerProductCategory extends Controller {
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
-					'href'        => $this->url->link('product/product', 'path=' . $reqPath  . '&product_id=' . $result['product_id'] . $url)
+					'href'        => $this->url->link('shopify/product', 'path=' . $reqPath  . '&product_id=' . $result['product_id'] . $url)
 				);
 			}
 
@@ -227,57 +239,57 @@ class ControllerProductCategory extends Controller {
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_default'),
 				'value' => 'p.sort_order-ASC',
-				'href'  => $this->url->link('product/category', 'path=' . $reqPath  . '&sort=p.sort_order&order=ASC' . $url)
+				'href'  => $this->url->link('shopify/category', 'path=' . $reqPath  . '&sort=p.sort_order&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_asc'),
 				'value' => 'pd.name-ASC',
-				'href'  => $this->url->link('product/category', 'path=' . $reqPath  . '&sort=pd.name&order=ASC' . $url)
+				'href'  => $this->url->link('shopify/category', 'path=' . $reqPath  . '&sort=pd.name&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_desc'),
 				'value' => 'pd.name-DESC',
-				'href'  => $this->url->link('product/category', 'path=' . $reqPath  . '&sort=pd.name&order=DESC' . $url)
+				'href'  => $this->url->link('shopify/category', 'path=' . $reqPath  . '&sort=pd.name&order=DESC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_price_asc'),
 				'value' => 'p.price-ASC',
-				'href'  => $this->url->link('product/category', 'path=' . $reqPath  . '&sort=p.price&order=ASC' . $url)
+				'href'  => $this->url->link('shopify/category', 'path=' . $reqPath  . '&sort=p.price&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_price_desc'),
 				'value' => 'p.price-DESC',
-				'href'  => $this->url->link('product/category', 'path=' . $reqPath  . '&sort=p.price&order=DESC' . $url)
+				'href'  => $this->url->link('shopify/category', 'path=' . $reqPath  . '&sort=p.price&order=DESC' . $url)
 			);
 
 			if ($this->config->get('config_review_status')) {
 				$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_desc'),
 					'value' => 'rating-DESC',
-					'href'  => $this->url->link('product/category', 'path=' . $reqPath  . '&sort=rating&order=DESC' . $url)
+					'href'  => $this->url->link('shopify/category', 'path=' . $reqPath  . '&sort=rating&order=DESC' . $url)
 				);
 
 				$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_asc'),
 					'value' => 'rating-ASC',
-					'href'  => $this->url->link('product/category', 'path=' . $reqPath  . '&sort=rating&order=ASC' . $url)
+					'href'  => $this->url->link('shopify/category', 'path=' . $reqPath  . '&sort=rating&order=ASC' . $url)
 				);
 			}
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_model_asc'),
 				'value' => 'p.model-ASC',
-				'href'  => $this->url->link('product/category', 'path=' . $reqPath  . '&sort=p.model&order=ASC' . $url)
+				'href'  => $this->url->link('shopify/category', 'path=' . $reqPath  . '&sort=p.model&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_model_desc'),
 				'value' => 'p.model-DESC',
-				'href'  => $this->url->link('product/category', 'path=' . $reqPath  . '&sort=p.model&order=DESC' . $url)
+				'href'  => $this->url->link('shopify/category', 'path=' . $reqPath  . '&sort=p.model&order=DESC' . $url)
 			);
 
 			$url = '';
@@ -304,7 +316,7 @@ class ControllerProductCategory extends Controller {
 				$data['limits'][] = array(
 					'text'  => $value,
 					'value' => $value,
-					'href'  => $this->url->link('product/category', 'path=' . $reqPath  . $url . '&limit=' . $value)
+					'href'  => $this->url->link('shopify/category', 'path=' . $reqPath  . $url . '&limit=' . $value)
 				);
 			}
 
@@ -330,7 +342,7 @@ class ControllerProductCategory extends Controller {
 			$pagination->total = $product_total;
 			$pagination->page = $page;
 			$pagination->limit = $limit;
-			$pagination->url = $this->url->link('product/category', 'path=' . $reqPath  . $url . '&page={page}');
+			$pagination->url = $this->url->link('shopify/category', 'path=' . $reqPath  . $url . '&page={page}');
 
 			$data['pagination'] = $pagination->render();
 
@@ -338,17 +350,17 @@ class ControllerProductCategory extends Controller {
 
 			// http://googlewebmastercentral.blogspot.com/2011/09/pagination-with-relnext-and-relprev.html
 			if ($page == 1) {
-			    $this->document->addLink($this->url->link('product/category', 'path=' . $category_info['category_id']), 'canonical');
+			    $this->document->addLink($this->url->link('shopify/category', 'path=' . $category_info['category_id']), 'canonical');
 			} else {
-				$this->document->addLink($this->url->link('product/category', 'path=' . $category_info['category_id'] . '&page='. $page), 'canonical');
+				$this->document->addLink($this->url->link('shopify/category', 'path=' . $category_info['category_id'] . '&page='. $page), 'canonical');
 			}
 			
 			if ($page > 1) {
-			    $this->document->addLink($this->url->link('product/category', 'path=' . $category_info['category_id'] . (($page - 2) ? '&page='. ($page - 1) : '')), 'prev');
+			    $this->document->addLink($this->url->link('shopify/category', 'path=' . $category_info['category_id'] . (($page - 2) ? '&page='. ($page - 1) : '')), 'prev');
 			}
 
 			if ($limit && ceil($product_total / $limit) > $page) {
-			    $this->document->addLink($this->url->link('product/category', 'path=' . $category_info['category_id'] . '&page='. ($page + 1)), 'next');
+			    $this->document->addLink($this->url->link('shopify/category', 'path=' . $category_info['category_id'] . '&page='. ($page + 1)), 'next');
 			}
 
 			$data['sort'] = $sort;
@@ -364,7 +376,7 @@ class ControllerProductCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('product/category', $data));
+			$this->response->setOutput($this->load->view('shopify/category', $data));
 		} else {
 			$url = '';
 
@@ -394,7 +406,7 @@ class ControllerProductCategory extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),
-				'href' => $this->url->link('product/category', $url)
+				'href' => $this->url->link('shopify/category', $url)
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));
@@ -412,5 +424,50 @@ class ControllerProductCategory extends Controller {
 
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
+	}
+	
+	public function getToken(){
+		# Step 3: http://docs.shopify.com/api/authentication/oauth#confirming-installation
+	try
+	{
+		//echo 'shop='.$_GET['shop'];
+		//echo 'code='.$_GET['code'];
+		# shopify\access_token can throw an exception
+		$oauth_token = shopify\access_token($_GET['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_GET['code']);
+		
+		//echo $oauth_token;
+		$this->load->model('account/customer');
+		$shop = $_GET['shop'];
+		$shops = explode(".", $shop);
+		$email = $shops[0]."@shopify.com";
+		$customer = $this->model_account_customer->getCustomerByEmail($email);
+		if(empty($customer)){
+			$customer_id = $this->model_account_customer->addShopifyUser($shop,$oauth_token);
+		}
+		$this->customer->login($email, $shop);
+		
+$this->session->data['oauth_token'] = $oauth_token;
+$this->session->data['shop'] = $_GET['shop'];
+		$_SESSION['oauth_token'] = $oauth_token;
+		$_SESSION['shop'] = $_GET['shop'];
+
+		//echo 'App Successfully Installed!';
+	}
+	catch (shopify\ApiException $e)
+	{
+		# HTTP status code was >= 400 or response contained the key 'errors'
+		echo $e;
+		print_R($e->getRequest());
+		print_R($e->getResponse());
+		
+	}
+	catch (shopify\CurlException $e)
+	{
+		# cURL error
+		echo $e;
+		print_R($e->getRequest());
+		print_R($e->getResponse());
+		
+	}
 	}
 }

@@ -295,7 +295,7 @@ class ControllerCheckoutCart extends Controller {
 				}
 			}
 
-			/*if (isset($this->request->post['recurring_id'])) {
+			if (isset($this->request->post['recurring_id'])) {
 				$recurring_id = $this->request->post['recurring_id'];
 			} else {
 				$recurring_id = 0;
@@ -313,7 +313,7 @@ class ControllerCheckoutCart extends Controller {
 				if (!in_array($recurring_id, $recurring_ids)) {
 					$json['error']['recurring'] = $this->language->get('error_recurring_required');
 				}
-			}*/
+			}
 
 			if (!$json) {
 				$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);

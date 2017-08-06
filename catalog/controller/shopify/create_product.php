@@ -6,39 +6,17 @@
 
 	require __DIR__.'/conf.php';
 
-	function addProducts($products){
-		//echo "products=".$products;
-		print_r($products);
+	function addProducts($products,$shop,$oauth_token){
+		echo "shop=".$shop;
+		echo "oauth_token=".$oauth_token;
+		//print_r($products);
 		
-		/*$shopify = shopify\client($_SESSION['shop'], SHOPIFY_APP_API_KEY, $_SESSION['oauth_token']);
+		$shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, $oauth_token);
 
 	try
 	{
 		# Making an API request can throw an exception
-		$product = $shopify('POST /admin/products.json', array(), array
-		(
-			'product' => array
-			(
-				"title" => "Burton Custom Freestlye 151",
-				"body_html" => "<strong>Good snowboard!</strong>",
-				"vendor" => "Burton",
-				"product_type" => "Snowboard",
-				"variants" => array
-				(
-					array
-					(
-						"option1" => "First",
-						"price" => "10.00",
-						"sku" => 123,
-					),
-					array (
-						"option1" => "Second",
-						"price" => "20.00",
-						"sku" => "123"
-					)
-				)
-			)
-		));
+		$product = $shopify('POST /admin/products.json', array(), $products);
 
 		print_r($product);
 		return true;
@@ -56,7 +34,7 @@
 		echo $e;
 		print_r($e->getRequest());
 		print_r($e->getResponse());
-	}*/
+	}
 	return false;
 	}
 ?>

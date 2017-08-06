@@ -290,3 +290,275 @@
 2017-08-05 8:38:29 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in G:\xampp\htdocs\oc-test\system\library\db\mysqli.php on line 10
 2017-08-05 8:46:23 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 10
 2017-08-05 8:56:37 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 10
+2017-08-06 2:20:03 - PHP Notice:  Use of undefined constant REDIRECTION_URL - assumed 'REDIRECTION_URL' in D:\xampp\htdocs\oc-test\catalog\controller\shopify\oauth.php on line 19
+2017-08-06 2:20:17 - PHP Notice:  Use of undefined constant REDIRECTION_URL - assumed 'REDIRECTION_URL' in D:\xampp\htdocs\oc-test\catalog\controller\shopify\oauth.php on line 19
+2017-08-06 2:30:56 - PHP Warning:  array_pop() expects parameter 1 to be array, null given in D:\xampp\htdocs\oc-test\catalog\controller\product\category.php on line 68
+2017-08-06 2:30:56 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\oc-test\catalog\controller\product\category.php on line 70
+2017-08-06 2:37:32 - PHP Notice:  Undefined index: path in D:\xampp\htdocs\oc-test\catalog\controller\product\category.php on line 49
+2017-08-06 2:38:02 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\product\category.php on line 72
+2017-08-06 2:41:14 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 14
+2017-08-06 2:41:14 - PHP Notice:  Undefined index: code in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 14
+2017-08-06 2:41:26 - PHP Notice:  Undefined variable: _SESSION in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 36
+2017-08-06 2:41:26 - PHP Notice:  Undefined variable: _SESSION in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 36
+2017-08-06 2:41:26 - PHP Notice:  Undefined variable: _SESSION in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 40
+2017-08-06 2:41:26 - PHP Notice:  Undefined variable: _SESSION in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 41
+2017-08-06 2:44:18 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 14
+2017-08-06 2:44:18 - PHP Notice:  Undefined index: code in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 14
+2017-08-06 2:44:29 - PHP Notice:  Undefined variable: _SESSION in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 36
+2017-08-06 2:44:29 - PHP Notice:  Undefined variable: _SESSION in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 36
+2017-08-06 2:44:29 - PHP Notice:  Undefined variable: _SESSION in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 40
+2017-08-06 2:44:29 - PHP Notice:  Undefined variable: _SESSION in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getproducts.php on line 41
+2017-08-06 3:20:25 - PHP Notice:  Undefined offset: 233 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 561
+2017-08-06 3:20:25 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 561
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 982
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 983
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 984
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 985
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 986
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 987
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 988
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 989
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 990
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 991
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 992
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 993
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1103
+2017-08-06 4:16:04 - PHP Notice:  Undefined index: payment_method in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1254
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 982
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 983
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 984
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 985
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 986
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 987
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 988
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 989
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 990
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 991
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 992
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 993
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1103
+2017-08-06 4:25:08 - PHP Notice:  Undefined index: payment_method in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1254
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 982
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 983
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 984
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 985
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 986
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 987
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 988
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 989
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 990
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 991
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 992
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 993
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1103
+2017-08-06 4:26:28 - PHP Notice:  Undefined index: payment_method in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1254
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 982
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 983
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 984
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 985
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 986
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 987
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 988
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 989
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 990
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 991
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 992
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_address in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 993
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1103
+2017-08-06 4:30:16 - PHP Notice:  Undefined index: payment_method in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1254
+2017-08-06 4:42:36 - PHP Notice:  Undefined index: order_id in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 672
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1105
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_firstname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_lastname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_company in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_address_1 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_address_2 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_city in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_postcode in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_country in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_country_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_zone in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_zone_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_address_format in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:43:12 - PHP Notice:  Undefined index: payment_method in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1256
+2017-08-06 4:46:53 - PHP Notice:  Undefined index: products in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1260
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1105
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_firstname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_lastname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_company in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_address_1 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_address_2 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_city in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_postcode in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_country in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_country_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_zone in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_zone_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 4:54:21 - PHP Notice:  Undefined index: payment_address_format in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1105
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_firstname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_lastname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_company in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_address_1 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_address_2 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_city in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_postcode in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_country in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_country_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_zone in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_zone_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Undefined index: payment_address_format in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:00:47 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1255
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_firstname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_lastname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_company in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_address_1 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_address_2 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_city in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_postcode in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_country in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_country_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_zone in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_zone_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: payment_address_format in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:04:53 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_firstname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_lastname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_company in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_address_1 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_address_2 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_city in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_postcode in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_country in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_country_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_zone in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_zone_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: payment_address_format in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:05:41 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:09:31 - PHP Notice:  Undefined index: products in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1263
+2017-08-06 5:09:31 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 672
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_firstname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_lastname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_company in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_address_1 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_address_2 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_city in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_postcode in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_country in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_country_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_zone in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_zone_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: payment_address_format in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:16:29 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:21:50 - PHP Notice:  Undefined index: products in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1264
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_firstname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_lastname in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_company in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_address_1 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_address_2 in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_city in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_postcode in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_country in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_country_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_zone in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_zone_id in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: payment_address_format in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:22:50 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:24:51 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:31:49 - PHP Notice:  Undefined index: cart_id in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 675
+2017-08-06 5:33:06 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:33:06 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 673
+2017-08-06 5:33:06 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 673
+2017-08-06 5:33:06 - PHP Notice:  Undefined index: cart_id in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 676
+2017-08-06 5:34:04 - PHP Notice:  Undefined index: comment in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 5:40:16 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 673
+2017-08-06 5:40:16 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 673
+2017-08-06 5:50:30 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 673
+2017-08-06 5:50:30 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 673
+2017-08-06 5:57:35 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 673
+2017-08-06 5:57:35 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 673
+2017-08-06 5:57:57 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 673
+2017-08-06 6:15:21 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 674
+2017-08-06 6:15:21 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 674
+2017-08-06 6:15:21 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 674
+2017-08-06 7:37:47 - PHP Notice:  Undefined index: sku in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1247
+2017-08-06 7:37:47 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 675
+2017-08-06 7:37:47 - PHP Notice:  Undefined index: pdsc in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 687
+2017-08-06 7:37:47 - PHP Notice:  Undefined index: pcol in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 690
+2017-08-06 7:42:52 - PHP Notice:  Undefined index: sku in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1247
+2017-08-06 7:42:52 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 675
+2017-08-06 7:46:58 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 675
+2017-08-06 7:46:58 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 694
+2017-08-06 7:49:23 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 675
+2017-08-06 7:49:23 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 699
+2017-08-06 8:21:48 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 680
+2017-08-06 8:21:48 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 702
+2017-08-06 8:21:48 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 732
+2017-08-06 8:22:50 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 680
+2017-08-06 8:22:50 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 702
+2017-08-06 8:23:34 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 702
+2017-08-06 8:24:51 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 702
+2017-08-06 8:25:40 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 703
+2017-08-06 8:26:33 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 703
+2017-08-06 8:29:02 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 704
+2017-08-06 8:31:56 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 710
+2017-08-06 8:33:41 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 8:43:15 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 710
+2017-08-06 8:43:15 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 13
+2017-08-06 8:43:15 - PHP Notice:  Undefined index: oauth_token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 13
+2017-08-06 8:53:46 - PHP Notice:  Undefined index: oauth_token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 702
+2017-08-06 8:53:46 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 703
+2017-08-06 8:53:46 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 8:53:46 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 13
+2017-08-06 8:53:46 - PHP Notice:  Undefined index: oauth_token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 13
+2017-08-06 8:54:45 - PHP Notice:  Undefined index: oauth_token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 702
+2017-08-06 8:54:45 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 703
+2017-08-06 8:54:45 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 8:54:45 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 13
+2017-08-06 8:54:45 - PHP Notice:  Undefined index: oauth_token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 13
+2017-08-06 8:56:25 - PHP Notice:  Undefined index: oauth_token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 702
+2017-08-06 8:56:25 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 703
+2017-08-06 8:56:25 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 9:09:22 - PHP Notice:  Undefined index: oauth_token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 702
+2017-08-06 9:09:22 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 703
+2017-08-06 9:09:22 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 9:31:13 - PHP Notice:  Undefined index: oauth_token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 702
+2017-08-06 9:31:13 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 703
+2017-08-06 9:31:13 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 9:36:10 - PHP Notice:  Undefined index: code in D:\xampp\htdocs\oc-test\catalog\controller\shopify\oauth.php on line 28
+2017-08-06 9:38:01 - PHP Notice:  Undefined index: code in D:\xampp\htdocs\oc-test\catalog\controller\shopify\oauth.php on line 28
+2017-08-06 9:38:01 - PHP Notice:  Undefined index: code in D:\xampp\htdocs\oc-test\catalog\controller\shopify\oauth.php on line 30
+2017-08-06 9:39:22 - PHP Notice:  Undefined index: code in D:\xampp\htdocs\oc-test\catalog\controller\shopify\oauth.php on line 28
+2017-08-06 9:39:22 - PHP Notice:  Undefined index: code in D:\xampp\htdocs\oc-test\catalog\controller\shopify\oauth.php on line 30
+2017-08-06 9:46:26 - PHP Unknown:  Function split() is deprecated in D:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 440
+2017-08-06 9:46:26 - PHP Warning:  split() expects at least 2 parameters, 1 given in D:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 440
+2017-08-06 9:46:26 - PHP Notice:  Undefined variable: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 440
+2017-08-06 9:46:26 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 441
+2017-08-06 9:46:26 - PHP Unknown:  Function split() is deprecated in D:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 29
+2017-08-06 9:46:26 - PHP Warning:  split() expects at least 2 parameters, 1 given in D:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 29
+2017-08-06 9:46:26 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 35
+2017-08-06 9:46:26 - PHP Notice:  Uninitialized string offset: 1 in D:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 35
+2017-08-06 9:46:26 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 35
+2017-08-06 9:49:13 - PHP Warning:  explode() expects parameter 2 to be string, array given in D:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 29
+2017-08-06 9:49:13 - PHP Warning:  password_hash() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 35
+2017-08-06 9:51:59 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 9:53:25 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 9:54:20 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 9:55:37 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 9:57:26 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 10:00:56 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 10:00:56 - PHP Notice:  Undefined variable: products in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 747
+2017-08-06 10:02:05 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 10:03:17 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 10:04:59 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 10:06:05 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 10:08:03 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 10:08:41 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 10:10:51 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 10:13:05 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 10:16:44 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 10:17:14 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 10:18:32 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 10:19:26 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 10:19:58 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 10:19:58 - PHP Notice:  Undefined variable: product in D:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 21

@@ -5,8 +5,10 @@
 	use phpish\shopify;
 
 	require __DIR__.'/conf.php';
+class ControllerShopifyGetproducts extends Controller {
 
-try
+public function index(){
+	try
 	{
 		# shopify\access_token can throw an exception
 		$oauth_token = shopify\access_token($_GET['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_GET['code']);
@@ -55,4 +57,6 @@ try
 		print_r($e->getRequest());
 		print_r($e->getResponse());
 	}
+}
+}
 ?>

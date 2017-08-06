@@ -21,6 +21,27 @@ class ModelAccountCustomer extends Model {
 		
 		return $customer_id;
 	}
+	
+	public function addShopifyUser($shop,$toke) {
+
+		$customer_group_id = '4';
+		
+		$shops = explode(".", $shop);
+
+		$this->load->model('account/customer_group');
+
+		$customer_group_info = $this->model_account_customer_group->getCustomerGroup($customer_group_id);
+
+		$this->db->query("INSERT INTO " . DB_PREFIX . "customer SET customer_group_id = '" . (int)$customer_group_id . "', store_id = '" . (int)$this->config->get('config_store_id') . "', language_id = '" . (int)$this->config->get('config_language_id') . "', firstname = '" . $this->db->escape($shops[0]) . "', lastname = '" . $this->db->escape($shops[1]) . "', email = '" . $this->db->escape($shops[0]."@shopify.com") . "', telephone = '', custom_field = '', salt = '', password = '" . $this->db->escape(password_hash($shop, PASSWORD_DEFAULT)) . "', newsletter = '', ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "', status = '" . (int)!$customer_group_info['approval'] . "', token = '" . $toke. "', date_added = NOW()");
+
+		$customer_id = $this->db->getLastId();
+
+		if ($customer_group_info['approval']) {
+			$this->db->query("INSERT INTO `" . DB_PREFIX . "customer_approval` SET customer_id = '" . (int)$customer_id . "', type = 'customer', date_added = NOW()");
+		}
+		
+		return $customer_id;
+	}
 
 	public function editCustomer($customer_id, $data) {
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', custom_field = '" . $this->db->escape(isset($data['custom_field']['account']) ? json_encode($data['custom_field']['account']) : '') . "' WHERE customer_id = '" . (int)$customer_id . "'");
