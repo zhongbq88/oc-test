@@ -1,7 +1,6 @@
 <?php
 
-include ('create_product.php');
-
+session_start();
 class ControllerShopifyProduct extends Controller {
 	
 	public function index(){
@@ -217,7 +216,7 @@ class ControllerShopifyProduct extends Controller {
 				'href' => $this->url->link('shopify/product', $url . '&product_id=' . $this->request->get['product_id'])
 			);
 
-			$this->document->setTitle($product_info['meta_title']);
+			$this->document->setTitle($this->language->get('heading_title'));
 			$this->document->setDescription($product_info['meta_description']);
 			$this->document->setKeywords($product_info['meta_keyword']);
 			$this->document->addLink($this->url->link('shopify/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
@@ -678,11 +677,12 @@ class ControllerShopifyProduct extends Controller {
 		}
 		$result_one = $result[0];
 		//echo 'sku='.$product_info;
-			$title = $this->request->post['pttl'];
-			$pdsc = $this->request->post['pdsc'];
-			$ptag = $this->request->post['ptag'];
-			$pspr = $this->request->post['pspr'];
-			$pcol = $this->request->post['pcol'];
+		$title = $this->request->post['pttl'];
+		$pdsc = $this->request->post['pdsc'];
+		$ptag = $this->request->post['ptag'];
+		$pspr = $this->request->post['pspr'];
+		$pcol = $this->request->post['pcol'];
+		$pimgs =array();
 		$variants = array();
 		$images = array();
 		
@@ -692,15 +692,20 @@ class ControllerShopifyProduct extends Controller {
 		} else {
 			$variant = array();
 		}
+		if (isset($this->request->post['option-img'])) {
+			$pimgs = array_filter($this->request->post['option-img']);
+		} else {
+			$pimgs = array();
+		}
 		if (isset($this->request->post['option'])) {
 			$option = array_filter($this->request->post['option']);
 		} else {
 			$option = array();
 		}
 		$count = count($option);
-		print_r($variant);
+		//print_r($variant);
 		//echo 'au='.$this->session->data['oauth_token'] ;
-		echo 'shop='.$this->session->data['shop'] ;
+		//echo 'shop='.$this->session->data['shop'] ;
 		//echo "count=".$count;
 		$index =0;
 		foreach ($option  as $opt) {
@@ -709,146 +714,53 @@ class ControllerShopifyProduct extends Controller {
 			foreach ($order_option  as $order_opt) {
 				if($opt==$order_opt['value']){
 					$sku =  $product_info['sku'].$order_opt['order_option_id'];
-					$optionl = $variant[$order_opt['product_option_id']];
-					if(empty($optionl)){
+					if (isset($variant[$order_opt['product_option_id']])) {
+						$optionl = $variant[$order_opt['product_option_id']];
+					} else {
 						$optionl = 'option'.$index;
 					}
-					$variants = array(
+					if (isset($pimgs[$order_opt['product_option_id']])) {
+						$image = $pimgs[$order_opt['product_option_id']];
+					} else {
+						$image = $opt;
+					}
+					$variants[] = array(
 						"option1"=> $optionl,
         				"price"=>$pspr,
         				"sku"=> $sku
 					);
-					$images = array(
-						"src"=> $opt
+					$images[] = array(
+						"src"=> $image
 					);
 				}	
 			}	
 			$index++;
 		}
 		
-
-		$product = array(
+		//$json = array();
+		$_SESSION['product'] = array(
 		"title"=>$title,
-    //"body_html"=> $pdsc,
+    "body_html"=> $pdsc,
 	"tags"=> $ptag ,
     "vendor"=>  "vivajean",
     "product_type"=>  $product_info['model'],
 	"variants"=>$variants,
 	"images"=>$images
-		);
-		addProducts($product,$this->session->data['shop'],$this->session->data['oauth_token']);
-/*			
-			$title = $this->request->post['pttl'];
-			$title = $this->request->post['pttl'];*/
-			//	echo $option;
-			//echo $pcol;
-		//}
-		//print_r($result);
-		//addProducts($result);
-		/*if ($product_info) {
-			if (isset($this->request->post['quantity'])) {
-				$quantity = (int)$this->request->post['quantity'];
-			} else {
-				$quantity = 1;
-			}
+	);
 
-			if (isset($this->request->post['option'])) {
-				$option = array_filter($this->request->post['option']);
-			} else {
-				$option = array();
-			}
-
-			$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
-
-			foreach ($product_options as $product_option) {
-				if ($product_option['required'] && empty($option[$product_option['product_option_id']])) {
-					$json['error']['option'][$product_option['product_option_id']] = sprintf($this->language->get('error_required'), $product_option['name']);
-				}
-			}
-
-			if (isset($this->request->post['recurring_id'])) {
-				$recurring_id = $this->request->post['recurring_id'];
-			} else {
-				$recurring_id = 0;
-			}
-
-			$recurrings = $this->model_catalog_product->getProfiles($product_info['product_id']);
-
-			if ($recurrings) {
-				$recurring_ids = array();
-
-				foreach ($recurrings as $recurring) {
-					$recurring_ids[] = $recurring['recurring_id'];
-				}
-
-				if (!in_array($recurring_id, $recurring_ids)) {
-					$json['error']['recurring'] = $this->language->get('error_recurring_required');
-				}
-			}
-
-			if (!$json) {
-				$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
-
-				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('shopify/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
-
-				// Unset all shipping and payment methods
-				unset($this->session->data['shipping_method']);
-				unset($this->session->data['shipping_methods']);
-				unset($this->session->data['payment_method']);
-				unset($this->session->data['payment_methods']);
-
-				// Totals
-				$this->load->model('setting/extension');
-
-				$totals = array();
-				$taxes = $this->cart->getTaxes();
-				$total = 0;
-		
-				// Because __call can not keep var references so we put them into an array. 			
-				$total_data = array(
-					'totals' => &$totals,
-					'taxes'  => &$taxes,
-					'total'  => &$total
-				);
-
-				// Display prices
-				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-					$sort_order = array();
-
-					$results = $this->model_setting_extension->getExtensions('total');
-
-					foreach ($results as $key => $value) {
-						$sort_order[$key] = $this->config->get('total_' . $value['code'] . '_sort_order');
-					}
-
-					array_multisort($sort_order, SORT_ASC, $results);
-
-					foreach ($results as $result) {
-						if ($this->config->get('total_' . $result['code'] . '_status')) {
-							$this->load->model('extension/total/' . $result['code']);
-
-							// We have to put the totals in an array so that they pass by reference.
-							$this->{'model_extension_total_' . $result['code']}->getTotal($total_data);
-						}
-					}
-
-					$sort_order = array();
-
-					foreach ($totals as $key => $value) {
-						$sort_order[$key] = $value['sort_order'];
-					}
-
-					array_multisort($sort_order, SORT_ASC, $totals);
-				}
-
-				$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
-			} else {
-				$json['redirect'] = str_replace('&amp;', '&', $this->url->link('shopify/product', 'product_id=' . $this->request->post['product_id']));
-			}
-		}
-
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));*/
+	}
+	
+	public function getImageCode($path){
+		 $type=getimagesize($path);//取得图片的大小，类型等
+     $content=file_get_contents($path);
+     $file_content=chunk_split(base64_encode($content));//base64编码
+     switch($type[2]){//判读图片类型
+         case 1:$img_type="gif";break;
+         case 2:$img_type="jpg";break;
+         case 3:$img_type="png";break;
+     }
+     $img='data:image/'.$img_type.';base64,'.$file_content;//合成图片的base64编码
+     return $img;
 	}
 
 	public function edit() {
@@ -1080,7 +992,7 @@ class ControllerShopifyProduct extends Controller {
 				$order_data['payment_code'] = '';
 			}
 
-			if ($this->cart->hasShipping()) {
+			/*if ($this->cart->hasShipping()) {
 				$order_data['shipping_firstname'] = $this->session->data['shipping_address']['firstname'];
 				$order_data['shipping_lastname'] = $this->session->data['shipping_address']['lastname'];
 				$order_data['shipping_company'] = $this->session->data['shipping_address']['company'];
@@ -1106,7 +1018,7 @@ class ControllerShopifyProduct extends Controller {
 				} else {
 					$order_data['shipping_code'] = '';
 				}
-			} else {
+			} else {*/
 				$order_data['shipping_firstname'] = '';
 				$order_data['shipping_lastname'] = '';
 				$order_data['shipping_company'] = '';
@@ -1122,7 +1034,7 @@ class ControllerShopifyProduct extends Controller {
 				$order_data['shipping_custom_field'] = array();
 				$order_data['shipping_method'] = '';
 				$order_data['shipping_code'] = '';
-			}
+			//}
 
 			$order_data['products'] = array();
 			

@@ -562,3 +562,169 @@
 2017-08-06 10:19:26 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
 2017-08-06 10:19:58 - PHP Notice:  Undefined offset: 222 in D:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
 2017-08-06 10:19:58 - PHP Notice:  Undefined variable: product in D:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 21
+2017-08-06 11:56:01 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1502024161): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-06 11:56:01 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-06 11:56:01 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-06 11:56:01 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-06 11:56:01 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-06 11:56:01 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-06 11:56:01 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1502024161): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-06 11:56:01 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-06 11:56:01 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-06 11:56:01 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-06 11:56:01 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-06 11:56:01 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-06 11:56:02 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1502024162): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-06 11:56:02 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-06 11:56:02 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-06 11:56:02 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-06 11:56:02 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-06 11:56:02 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-06 11:56:02 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1502024162): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-06 11:56:02 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-06 11:56:02 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-06 11:56:02 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-06 11:56:02 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-06 11:56:02 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-06 11:56:04 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1502024164): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-06 11:56:04 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-06 11:56:04 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-06 11:56:04 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-06 11:56:04 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-06 11:56:04 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-06 11:56:04 - PHP Warning:  fopen(G:/xampp/htdocs/oc-test/storage/cache/cache.currency.1502024164): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 49
+2017-08-06 11:56:04 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 51
+2017-08-06 11:56:04 - PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 53
+2017-08-06 11:56:04 - PHP Warning:  fflush() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 55
+2017-08-06 11:56:04 - PHP Warning:  flock() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 57
+2017-08-06 11:56:04 - PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 59
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1084
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1085
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1086
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1087
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1088
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1089
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1090
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1091
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1092
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1093
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1094
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1095
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 11:59:03 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 11:59:04 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 703
+2017-08-06 11:59:04 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 11:59:04 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 739
+2017-08-06 11:59:04 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 739
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1084
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1085
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1086
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1087
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1088
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1089
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1090
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1091
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1092
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1093
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1094
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1095
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 703
+2017-08-06 12:00:35 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 739
+2017-08-06 12:00:35 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 739
+2017-08-06 12:25:55 - PHP Notice:  Undefined index: approval in G:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 35
+2017-08-06 12:25:55 - PHP Notice:  Undefined index: approval in G:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 39
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1084
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1085
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1086
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1087
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1088
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1089
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1090
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1091
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1092
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1093
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1094
+2017-08-06 12:37:51 - PHP Notice:  Undefined index: shipping_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1095
+2017-08-06 12:37:51 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 12:41:28 - PHP Warning:  include(../../../shopify/create_product.php): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-06 12:41:28 - PHP Warning:  include(): Failed opening '../../../shopify/create_product.php' for inclusion (include_path='.;\xampp\php\PEAR') in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-06 12:46:26 - PHP Warning:  unlink(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1502027185): No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 68
+2017-08-06 12:46:27 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 12:47:23 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 12:48:12 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 717
+2017-08-06 12:59:55 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 717
+2017-08-06 12:59:55 - PHP Unknown:  Object of class Closure could not be converted to string in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 746
+2017-08-06 13:03:30 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 715
+2017-08-06 13:05:12 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 13:05:53 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 13:07:18 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 13:07:18 - PHP Unknown:  Object of class Closure could not be converted to string in G:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 18
+2017-08-06 13:14:30 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 13:18:18 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 13:29:35 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 13:29:35 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 747
+2017-08-06 13:29:35 - PHP Unknown:  Object of class Closure could not be converted to string in G:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 18
+2017-08-06 13:30:01 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 13:30:01 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 747
+2017-08-06 13:30:01 - PHP Unknown:  Object of class Closure could not be converted to string in G:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 18
+2017-08-06 13:30:01 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 22
+2017-08-06 13:31:40 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 13:31:40 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 747
+2017-08-06 13:31:40 - PHP Unknown:  Object of class Closure could not be converted to string in G:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 18
+2017-08-06 13:31:40 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 22
+2017-08-06 13:32:38 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 13:32:38 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 747
+2017-08-06 13:32:38 - PHP Unknown:  Object of class Closure could not be converted to string in G:\xampp\htdocs\oc-test\catalog\controller\shopify\create_product.php on line 18
+2017-08-06 13:39:58 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 712
+2017-08-06 13:47:25 - PHP Unknown:  Object of class Closure could not be converted to string in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 18
+2017-08-06 14:14:27 - PHP Warning:  include(create_product.php): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-06 14:14:27 - PHP Warning:  include(): Failed opening 'create_product.php' for inclusion (include_path='.;\xampp\php\PEAR') in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-06 14:14:38 - PHP Warning:  include(create_product.php): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-06 14:14:38 - PHP Warning:  include(): Failed opening 'create_product.php' for inclusion (include_path='.;\xampp\php\PEAR') in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-06 14:14:41 - PHP Warning:  include(create_product.php): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-06 14:14:41 - PHP Warning:  include(): Failed opening 'create_product.php' for inclusion (include_path='.;\xampp\php\PEAR') in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 3
+2017-08-06 14:15:28 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 14:17:07 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 14:19:11 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 14:20:23 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 14:21:11 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 14:24:03 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 14:24:30 - PHP Notice:  Undefined offset: 0 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 678
+2017-08-06 14:24:30 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 708
+2017-08-06 14:26:37 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 14:27:35 - PHP Notice:  Undefined offset: 0 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 678
+2017-08-06 14:27:35 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 708
+2017-08-06 14:30:40 - PHP Notice:  Undefined index: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 17
+2017-08-06 14:30:40 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 15:05:47 - PHP Notice:  Undefined index: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 15
+2017-08-06 15:05:47 - PHP Notice:  Undefined index: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 17
+2017-08-06 15:05:47 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 15:07:15 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 15:07:15 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 15
+2017-08-06 15:09:55 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 15:09:56 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 15
+2017-08-06 15:11:04 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 15:14:13 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 15:18:34 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-06 15:20:24 - PHP Notice:  Undefined offset: 222 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-07 9:58:57 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 241
+2017-08-07 10:37:25 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\system\engine\loader.php on line 83
+2017-08-07 10:39:01 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\system\engine\loader.php on line 83
+2017-08-07 10:40:41 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\system\engine\loader.php on line 83
+2017-08-07 10:41:20 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\system\engine\loader.php on line 83
+2017-08-07 10:42:40 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\system\engine\loader.php on line 83
+2017-08-07 11:09:47 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 436
+2017-08-07 11:09:47 - PHP Notice:  Undefined index: code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 436
+2017-08-07 11:09:51 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 436
+2017-08-07 11:09:51 - PHP Notice:  Undefined index: code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 436

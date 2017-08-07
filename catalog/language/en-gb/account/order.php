@@ -16,8 +16,24 @@ $_['text_payment_method']   = 'Payment Method:';
 $_['text_comment']          = 'Order Comments';
 $_['text_history']          = 'Order History';
 $_['text_success']          = 'Success: You have added <a href="%s">%s</a> to your <a href="%s">shopping cart</a>!';
-$_['text_empty']            = 'You have not made any previous orders!';
+$_['text_empty']            = '<span style="font-size:20px">No orders found</span><br><br>You can find orders by changing your search or filtering options.';
 $_['text_error']            = 'The order you requested could not be found!';
+$_['your_vivajean_profits_orders']            = 'Your Vivajean Profits Orders';
+$_['pending']        = 'Pending:';
+$_['in_production']        = 'In-Production:';
+$_['shipped']        = 'Shipped:';
+$_['on_hold']        = 'On-Hold:';
+$_['cancelled']        = 'Cancelled:';
+$_['payments_sales']        = 'Payments/Sales';
+$_['aug_total']        = 'Aug. Total:';
+$_['aug_charges']        = 'Aug. Charges:';
+$_['add_products']        = 'Add Products';
+$_['add_express_line_products']        = 'Add Express-Line Products';
+$_['view_orders']        = 'View Orders';
+$_['acct_balance_transactions']        = 'Acct Balance &amp; Transactions';
+$_['store_account_settings']        = 'Store/Account Settings';
+$_['reports']        = 'Reports';
+$_['search_for_orders_by_customer_name_or_order_number']        = 'Search for Orders by Customer Name or Order Number';
 
 // Column
 $_['column_order_id']       = 'Order ID';

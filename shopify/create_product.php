@@ -6,11 +6,12 @@
 
 	require __DIR__.'/conf.php';
 
-	function addProducts($products){
+//echo $_SESSION['shop'];
+	//function addProducts($products){
 		
-		print_r($products);
+	//	print_r($products);
 		
-		/*$shopify = shopify\client($_SESSION['shop'], SHOPIFY_APP_API_KEY, $_SESSION['oauth_token']);
+		$shopify = shopify\client($_SESSION['shop'], SHOPIFY_APP_API_KEY, $_SESSION['oauth_token']);
 
 	try
 	{
@@ -41,7 +42,7 @@
 		));
 
 		print_r($product);
-		return true;
+		//return true;
 	}
 	catch (shopify\ApiException $e)
 	{
@@ -56,7 +57,7 @@
 		echo $e;
 		print_r($e->getRequest());
 		print_r($e->getResponse());
-	}*/
-	return false;
 	}
+	//return false;
+	//}
 ?>

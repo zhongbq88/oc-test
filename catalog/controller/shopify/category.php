@@ -1,17 +1,12 @@
 <?php
 
 
-	session_start();
 
-	require __DIR__.'/vendor/autoload.php';
-	use phpish\shopify;
-
-	require __DIR__.'/conf.php';
 
 class ControllerShopifyCategory extends Controller {
 	public function index() {
 		
-		$this->getToken();
+		
 		
 		$this->load->language('shopify/category');
 
@@ -362,7 +357,7 @@ class ControllerShopifyCategory extends Controller {
 			if ($limit && ceil($product_total / $limit) > $page) {
 			    $this->document->addLink($this->url->link('shopify/category', 'path=' . $category_info['category_id'] . '&page='. ($page + 1)), 'next');
 			}
-
+			$this->document->setTitle($this->language->get('heading_title'));
 			$data['sort'] = $sort;
 			$data['order'] = $order;
 			$data['limit'] = $limit;
@@ -426,48 +421,5 @@ class ControllerShopifyCategory extends Controller {
 		}
 	}
 	
-	public function getToken(){
-		# Step 3: http://docs.shopify.com/api/authentication/oauth#confirming-installation
-	try
-	{
-		//echo 'shop='.$_GET['shop'];
-		//echo 'code='.$_GET['code'];
-		# shopify\access_token can throw an exception
-		$oauth_token = shopify\access_token($_GET['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_GET['code']);
-		
-		//echo $oauth_token;
-		$this->load->model('account/customer');
-		$shop = $_GET['shop'];
-		$shops = explode(".", $shop);
-		$email = $shops[0]."@shopify.com";
-		$customer = $this->model_account_customer->getCustomerByEmail($email);
-		if(empty($customer)){
-			$customer_id = $this->model_account_customer->addShopifyUser($shop,$oauth_token);
-		}
-		$this->customer->login($email, $shop);
-		
-$this->session->data['oauth_token'] = $oauth_token;
-$this->session->data['shop'] = $_GET['shop'];
-		$_SESSION['oauth_token'] = $oauth_token;
-		$_SESSION['shop'] = $_GET['shop'];
 
-		//echo 'App Successfully Installed!';
-	}
-	catch (shopify\ApiException $e)
-	{
-		# HTTP status code was >= 400 or response contained the key 'errors'
-		echo $e;
-		print_R($e->getRequest());
-		print_R($e->getResponse());
-		
-	}
-	catch (shopify\CurlException $e)
-	{
-		# cURL error
-		echo $e;
-		print_R($e->getRequest());
-		print_R($e->getResponse());
-		
-	}
-	}
 }

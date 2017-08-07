@@ -1,6 +1,6 @@
 <?php
 // Text
-
+$_['heading_title']            = 'Product Designs';
 $_['text_search']              = 'Search';
 $_['text_brand']               = 'Brand';
 $_['text_manufacturer']        = 'Brand:';
@@ -49,3 +49,20 @@ $_['tab_review']               = 'Reviews (%s)';
 $_['error_name']               = 'Warning: Review Name must be between 3 and 25 characters!';
 $_['error_text']               = 'Warning: Review Text must be between 25 and 1000 characters!';
 $_['error_rating']             = 'Warning: Please select a review rating!';
+
+$_['options_array']            = array(
+1=>"One",
+2=>"Two",
+3=>"Three",
+4=>"Four",
+5=>"Five",
+6=>"Six",
+7=>"Seven",
+8=>"Eight",
+9=>"Nine",
+10=>"Ten",
+11=>"Eleven",
+12=>"Twelve",
+13=>"Thirteen"
+
+);

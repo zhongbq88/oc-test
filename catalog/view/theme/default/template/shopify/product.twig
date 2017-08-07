@@ -2,22 +2,22 @@
 <div id="product-product" class="container">
  <input type="hidden" name="product_id" value="{{ product_id }}" />
           <div id="product">
-      
-           {% if options %}
+ {% if options %}
            
             <h3>{{ text_option }}</h3>
+            <div class="panel-group" id="accordion">  
             {% for option in options %}
             {% if option.type == 'file' %}
-            
-             <div class="panel-group" id="accordion">         <div class="panel panel-default">
+                    <div class="panel panel-default">
 
   <div class="panel-heading {% if option.required %} required {% endif %}" style="height:52px;" >
  
    
-    <h4 class="panel-title" style="height:52px;" ><a href="#collapse-coupon" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;"><label class="control-label">{{variant}} {{ loop.index }}</label><i class="fa fa-caret-down" style="margin-left:12px;"></i></a>	<div><input type="text" name="variant[{{ option.product_option_id }}]" value="" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  /><img src="/storage/upload/2.jpg.l3rsDvrrEwgBJgYsCBj4fNyfx5g2mYy0" style=" float:right;  width: auto; height:35px; display:none " id="src-option{{ option.product_option_id }}"  /></div>
+    <h4 class="panel-title" style="height:52px;" ><a  data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse{{options_array[loop.index]}}" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;"><label class="control-label">{{variant}} {{ loop.index }}</label><i class="fa fa-caret-down" style="margin-left:12px;"></i></a>	<div><input type="text" name="variant[{{ option.product_option_id }}]" value="" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  /><img src="/storage/upload/2.jpg.l3rsDvrrEwgBJgYsCBj4fNyfx5g2mYy0" style=" float:right;  width: auto; height:35px; display:none " id="src-option{{ option.product_option_id }}"  /></div>
     </h4>
   </div>
-  <div id="collapse-coupon" class="panel-collapse collapse">
+  <div id="collapse{{options_array[loop.index]}}" class="panel-collapse collapse {% if loop.index==1 %}in {% endif %}">
     <div class="panel-body">
     <div style="float:left; width:65%; height:auto;" >
      <label class="control-label">{{ option.name }} </label>
@@ -31,19 +31,12 @@
         {% if thumb or images %}
           <ul class="thumbnails" >
             {% if thumb %}
-            
+             <input type="hidden" name="option-img[{{ option.product_option_id }}]" value="{{ thumb }}" id="input-option{{ option.product_option_id }}" />
             <li><a class="thumbnail" href="{{ popup }}" title="{{ heading_title }}" style="border:none;"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
             {% endif %}
-           <!-- {% if images %}
-            {% for image in images %}
-            <li class="image-additional"><a class="thumbnail" href="{{ image.popup }}" title="{{ heading_title }}"> <img src="{{ image.thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a></li>
-            {% endfor %}
-            {% endif %}-->
           </ul>
           {% endif %}
-       </div>
-      <!--  <input type="button" value="Apply Coupon" id="button-coupon" data-loading-text="Loading..."  class="btn btn-primary" />-->
-        
+       </div>    
     </div>
   </div>
       
@@ -126,7 +119,7 @@
 				
 				
 				<div class="mk-button-align fullwidth-button center" style="float:right; margin-right:20%">
-						<a href="" id="gopublish"  class="btn btn-primary btn-lg btn-block" >
+						<a href="index.php?route=shopify/createproduct" id="gopublish"  class="btn btn-primary btn-lg btn-block" >
 						<i class="mk-moon-arrow-right-6"></i>{{publish_product}}</a></div>
 			
 			
@@ -194,41 +187,8 @@ $('#gopublish').on('click', function() {
 			$('#button-cart').button('reset');
 		},
 		success: function(json) {
-			$('.alert-dismissible, .text-danger').remove();
-			$('.form-group').removeClass('has-error');
-$(".container #product").attr ("style","display:none;");
-				$(".container #theme-content").attr ("style","display:block;");
-			if (json['error']) {
-				if (json['error']['option']) {
-					for (i in json['error']['option']) {
-						var element = $('#input-option' + i.replace('_', '-'));
-
-						if (element.parent().hasClass('input-group')) {
-							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						} else {
-							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						}
-					}
-				}
-
-				if (json['error']['recurring']) {
-					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
-				}
-
-				// Highlight any found errors
-				$('.text-danger').parent().addClass('has-error');
-			}
-
-			if (json['success']) {
-				
-				$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-
-				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
-
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
-
-				$('#cart > ul').load('index.php?route=shopify/category ul li');
-			}
+			alert(json['success']);
+			
 		},
         error: function(xhr, ajaxOptions, thrownError) {
             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
