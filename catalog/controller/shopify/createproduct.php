@@ -8,7 +8,7 @@ require __DIR__.'/conf.php';
 
 class ControllerShopifyCreateproduct extends Controller {
 	public function index(){
-			$shopify = shopify\client($_SESSION['shop'], SHOPIFY_APP_API_KEY, $_SESSION['oauth_token']);
+		$shopify = shopify\client($_SESSION['shop'], SHOPIFY_APP_API_KEY, $_SESSION['oauth_token']);
 
 	try
 	{
@@ -16,25 +16,25 @@ class ControllerShopifyCreateproduct extends Controller {
 		//echo 'product='.$_SESSION['product'];
 		# Making an API request can throw an exception
 		$product = $shopify('POST /admin/products.json', array(), array('product' => $_SESSION['product']));
-		print_r($product);
-		return true;
+		//print_r($product);
+		//return true;
 	}
 	catch (shopify\ApiException $e)
 	{
 		# HTTP status code was >= 400 or response contained the key 'errors'
-		echo $e;
+		//echo $e;
 		print_r($e->getRequest());
 		print_r($e->getResponse());
 	}
 	catch (shopify\CurlException $e)
 	{
 		# cURL error
-		echo $e;
+		//echo $e;
 		print_r($e->getRequest());
 		print_r($e->getResponse());
 	}
-	return false;
-
+	//return false;
+		$this->response->redirect($this->url->link('shopify/dashboard', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 	}
 }
 
