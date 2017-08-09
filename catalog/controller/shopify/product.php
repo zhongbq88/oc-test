@@ -275,7 +275,7 @@ class ControllerShopifyProduct extends Controller {
 			foreach ($results as $result) {
 				$data['images'][] = array(
 					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')),
-					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_additional_height'))
+					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_height'))
 				);
 			}
 
@@ -342,7 +342,7 @@ class ControllerShopifyProduct extends Controller {
 					'required'             => $option['required']
 				);
 			}
-
+			//sort($data['options']);
 			if ($product_info['minimum']) {
 				$data['minimum'] = $product_info['minimum'];
 			} else {
@@ -553,18 +553,46 @@ class ControllerShopifyProduct extends Controller {
 			} else {
 				$option = array();
 			}
-			//echo $option;
-			$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
+			if (isset($this->request->post['option-img'])) {
+			$pimgs = array_filter($this->request->post['option-img']);
+		} else {
+			$pimgs = array();
+		}
+		if (isset($this->request->post['option-img-two'])) {
+			$pimgstwo = array_filter($this->request->post['option-img-two']);
+		} else {
+			$pimgstwo = array();
+		}
+		//echo 'pimgstwo'.json_encode($pimgstwo);
+		$images = array();
+		//echo $option;
+		$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
 
-			foreach ($product_options as $product_option) {
-				//echo $product_option['required']."---".$option[$product_option['product_option_id']];
-				//echo "1\t";
-				if ($product_option['required'] && empty($option[$product_option['product_option_id']])) {
-					//echo "2";
-					$json['error']['option'][$product_option['product_option_id']] = sprintf($this->language->get('error_required'), $product_option['name']);
+		foreach ($product_options as $product_option) {
+			//echo $product_option['required']."---".$option[$product_option['product_option_id']];
+			//echo "1\t";
+			if ($product_option['required'] && empty($option[$product_option['product_option_id']])) {
+				//echo "2";
+				$json['error']['option'][$product_option['product_option_id']] = sprintf($this->language->get('error_required'), $product_option['name'		                ]);
+			}else{
+				if(!empty($pimgs[$product_option['product_option_id']])){
+					$image = $pimgs[$product_option['product_option_id']];
+					if(!empty($pimgstwo[$product_option['product_option_id']])){
+							$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
+							$imgs[1] = str_replace(HTTP_SERVER,'/',$pimgstwo[$product_option['product_option_id']]);
+							$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
+							$imgs[1] = str_replace('/image/',DIR_IMAGE,$imgs[1]);
+							$image = 'catalog/designs/'.$product_option['product_option_id'].".jpg";
+							$this->createImage($imgs,DIR_IMAGE.$image);
+							$image = "image/".$image;
+					}
+					$images[$product_option['product_option_id']] =$image;
 				}
 			}
-
+		}
+			
+			
+			//echo json_encode($images);
 			if (isset($this->request->post['recurring_id'])) {
 				$recurring_id = $this->request->post['recurring_id'];
 			} else {
@@ -586,6 +614,7 @@ class ControllerShopifyProduct extends Controller {
 			}
 
 			if (!$json) {
+				$json['images'] = $images;
 				$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
 
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('shopify/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
@@ -647,7 +676,7 @@ class ControllerShopifyProduct extends Controller {
 		}
 
 	
-		
+		//echo json_encode($json);
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
@@ -692,8 +721,8 @@ class ControllerShopifyProduct extends Controller {
 		} else {
 			$variant = array();
 		}
-		if (isset($this->request->post['option-img'])) {
-			$pimgs = array_filter($this->request->post['option-img']);
+		if (isset($this->request->post['imgs'])) {
+			$pimgs = array_filter($this->request->post['imgs']);
 		} else {
 			$pimgs = array();
 		}
@@ -703,11 +732,12 @@ class ControllerShopifyProduct extends Controller {
 			$option = array();
 		}
 		$count = count($option);
-		//print_r($variant);
+		echo(json_encode($pimgs));
 		//echo 'au='.$this->session->data['oauth_token'] ;
 		//echo 'shop='.$this->session->data['shop'] ;
 		//echo "count=".$count;
 		$index =0;
+		$imgs    = array();
 		foreach ($option  as $opt) {
 			//$opt = $option[$index];
 			//echo "opt=".$opt;
@@ -720,7 +750,7 @@ class ControllerShopifyProduct extends Controller {
 						$optionl = 'option'.$index;
 					}
 					if (isset($pimgs[$order_opt['product_option_id']])) {
-						$image = $pimgs[$order_opt['product_option_id']];
+						$image = HTTP_SERVER.$pimgs[$order_opt['product_option_id']];
 					} else {
 						$image = $opt;
 					}
@@ -736,7 +766,7 @@ class ControllerShopifyProduct extends Controller {
 			}	
 			$index++;
 		}
-		
+		//echo 'images='.$images;
 		//$json = array();
 		$_SESSION['product'] = array(
 		"title"=>$title,
@@ -1252,5 +1282,31 @@ class ControllerShopifyProduct extends Controller {
 		//echo "123";
 		return $order_result;
 		//$this->response->setOutput($this->load->view('shopify/confirm', $data));
+	}
+	
+	public function createImage($imgs,$savePath){
+
+		$source = array();
+ 
+		foreach ($imgs as $k => $v) {
+    		$source[$k]['source'] = Imagecreatefromjpeg($v);
+     
+    		$source[$k]['size'] = getimagesize($v);
+     
+		}
+ 		$padding = 200;
+		//创建一个新的，和大图一样大的画布
+		$target_img     = imageCreatetruecolor(imagesx( $source[0]['source'])+ $padding*2,imagesy( $source[0]['source'])*2);
+		$color = imagecolorallocate($target_img, 255, 255, 255);
+		imagefill($target_img, 0, 0, $color);
+		$num1 = 0;
+		$num  = 1;
+		$tmp  = 2;
+		$tmpy = 0; //图片之间的间距
+		for ($i = 0; $i < 2; $i++) {
+			imagecopy($target_img, $source[$i]['source'],$padding, $tmpy, 0, 0, $source[$i]['size'][0], $source[$i]['size'][1]);
+			$tmpy =  $tmpy+ $source[$i]['size'][1];
+		}
+		Imagejpeg($target_img, $savePath);
 	}
 }

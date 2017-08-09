@@ -728,3 +728,639 @@
 2017-08-07 11:09:47 - PHP Notice:  Undefined index: code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 436
 2017-08-07 11:09:51 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 436
 2017-08-07 11:09:51 - PHP Notice:  Undefined index: code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 436
+2017-08-08 12:18:54 - PHP Warning:  imagecreatefrompng(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 93
+2017-08-08 12:18:54 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 12:18:54 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 12:18:54 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 12:18:54 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 98
+2017-08-08 12:18:54 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 99
+2017-08-08 12:18:54 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 117
+2017-08-08 12:18:54 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 12:18:54 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 12:18:54 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 12:18:54 - PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 127
+2017-08-08 12:20:10 - PHP Warning:  imagecreatefrompng(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 93
+2017-08-08 12:20:10 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 12:20:10 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 12:20:10 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 12:20:10 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 98
+2017-08-08 12:20:10 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 99
+2017-08-08 12:20:10 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 117
+2017-08-08 12:20:10 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 12:20:10 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 12:20:10 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 12:20:10 - PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 127
+2017-08-08 12:31:08 - PHP Warning:  imagecreatefrompng(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 93
+2017-08-08 12:31:08 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 12:31:08 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 12:31:08 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 12:31:08 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 98
+2017-08-08 12:31:08 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 99
+2017-08-08 12:31:08 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 117
+2017-08-08 12:31:08 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 12:31:08 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 12:31:08 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 12:31:08 - PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 127
+2017-08-08 13:32:36 - PHP Warning:  imagecreatefrompng(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 93
+2017-08-08 13:32:36 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 13:32:36 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 13:32:36 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 13:32:36 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 98
+2017-08-08 13:32:36 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 99
+2017-08-08 13:32:36 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 117
+2017-08-08 13:32:36 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 13:32:36 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 13:32:36 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 13:32:36 - PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 127
+2017-08-08 13:38:17 - PHP Warning:  imagecreatefrompng(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 93
+2017-08-08 13:38:17 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 13:38:17 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 13:38:17 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 13:38:17 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 98
+2017-08-08 13:38:17 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 99
+2017-08-08 13:38:17 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 117
+2017-08-08 13:38:17 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 13:38:17 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 13:38:17 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 13:38:17 - PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 127
+2017-08-08 13:38:55 - PHP Warning:  imagecreatefrompng(): 'http://127.0.0.1:8080/image/cache/catalog/3200378-3-4x-228x228.jpg' is not a valid PNG file in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 93
+2017-08-08 13:38:55 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 13:38:55 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 13:38:55 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
+2017-08-08 13:38:55 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 98
+2017-08-08 13:38:55 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 99
+2017-08-08 13:38:55 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 117
+2017-08-08 13:38:55 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 13:38:55 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 13:38:55 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 119
+2017-08-08 13:38:55 - PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 127
+2017-08-08 13:46:32 - PHP Warning:  imagecreatefrompng(): 'http://127.0.0.1:8080/image/cache/catalog/3200378-3-4x-228x228.jpg' is not a valid PNG file in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 94
+2017-08-08 13:46:32 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 97
+2017-08-08 13:46:32 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 97
+2017-08-08 13:46:32 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 97
+2017-08-08 13:46:32 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 99
+2017-08-08 13:46:32 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 100
+2017-08-08 13:46:32 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 118
+2017-08-08 13:46:32 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 120
+2017-08-08 13:46:32 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 120
+2017-08-08 13:46:32 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 120
+2017-08-08 13:46:32 - PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 128
+2017-08-08 14:10:12 - PHP Warning:  imagecreatefrompng(G:/xampp/htdocs/oc-test/image/catalog/3200378-3-4x-228x228.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 98
+2017-08-08 14:10:12 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:10:12 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:10:12 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:10:12 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 103
+2017-08-08 14:10:12 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 104
+2017-08-08 14:10:12 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 122
+2017-08-08 14:10:12 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:10:12 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:10:12 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:10:12 - PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 132
+2017-08-08 14:13:36 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 79
+2017-08-08 14:13:36 - PHP Warning:  imagecreatefrompng(G:/xampp/htdocs/oc-test/image/catalog/3200378-3-4x-228x228.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 98
+2017-08-08 14:13:36 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:13:36 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:13:36 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:13:36 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 103
+2017-08-08 14:13:36 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 104
+2017-08-08 14:13:36 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 122
+2017-08-08 14:13:36 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:13:36 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:13:36 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:13:36 - PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 132
+2017-08-08 14:15:10 - PHP Warning:  imagecreatefrompng(G:/xampp/htdocs/oc-test/image/catalog/3200378-3-4x-): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 98
+2017-08-08 14:15:10 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:15:10 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:15:10 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:15:10 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 103
+2017-08-08 14:15:10 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 104
+2017-08-08 14:15:10 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 122
+2017-08-08 14:15:10 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:15:10 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:15:10 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:15:10 - PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 132
+2017-08-08 14:15:49 - PHP Warning:  imagecreatefrompng(): 'G:/xampp/htdocs/oc-test/image/catalog/3200378-3-4x.jpg' is not a valid PNG file in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 98
+2017-08-08 14:15:49 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:15:49 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:15:49 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 101
+2017-08-08 14:15:49 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 103
+2017-08-08 14:15:49 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 104
+2017-08-08 14:15:49 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 122
+2017-08-08 14:15:49 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:15:49 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:15:49 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 124
+2017-08-08 14:15:49 - PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 132
+2017-08-09 0:19:32 - PHP Warning:  imagepng(/storage/upload/51251920x1440_n.png): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 132
+2017-08-09 0:20:15 - PHP Warning:  imagepng(/storage/upload/51251920x1440_n.png): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 132
+2017-08-09 3:54:53 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 3:54:53 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 3:54:53 - PHP Notice:  Undefined index: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 18
+2017-08-09 3:54:57 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 3:54:57 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 3:54:57 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 3:54:57 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 3:54:57 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 3:54:57 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:01:16 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:01:16 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:01:16 - PHP Notice:  Undefined index: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 4:01:16 - PHP Notice:  Undefined index: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 18
+2017-08-09 4:03:49 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:03:49 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:03:49 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:03:49 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:03:49 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:03:49 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:03:49 - PHP Warning:  imagejpeg(http://127.0.0.1:8080/image/catalog/designs/560jpg): failed to open stream: HTTP wrapper does not support writeable connections in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1294
+2017-08-09 4:03:49 - PHP Warning:  imagejpeg(http://127.0.0.1:8080/image/catalog/designs/561jpg): failed to open stream: HTTP wrapper does not support writeable connections in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1294
+2017-08-09 4:03:49 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 753
+2017-08-09 4:03:49 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:03:49 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:03:49 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 4:17:13 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:17:13 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:17:13 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:17:13 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:17:13 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:17:13 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:17:14 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 753
+2017-08-09 4:17:14 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:17:14 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:17:14 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 4:19:52 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:19:52 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:19:52 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 4:19:56 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:19:56 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:19:56 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:19:56 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:19:56 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:19:56 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:19:56 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-09 4:19:56 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 753
+2017-08-09 4:30:27 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:30:27 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:30:27 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:30:27 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:30:27 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:30:27 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:30:27 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-09 4:30:27 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1276
+2017-08-09 4:30:27 - PHP Warning:  getimagesize(/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1278
+2017-08-09 4:30:27 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1276
+2017-08-09 4:30:27 - PHP Warning:  getimagesize(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1278
+2017-08-09 4:30:27 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1283
+2017-08-09 4:30:27 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1283
+2017-08-09 4:30:27 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1283
+2017-08-09 4:30:27 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:30:27 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1285
+2017-08-09 4:30:27 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1291
+2017-08-09 4:30:27 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1291
+2017-08-09 4:30:27 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1294
+2017-08-09 4:30:27 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1276
+2017-08-09 4:30:27 - PHP Warning:  getimagesize(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1278
+2017-08-09 4:30:27 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/keai200910171920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1276
+2017-08-09 4:30:27 - PHP Warning:  getimagesize(/image/catalog/designs/keai200910171920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1278
+2017-08-09 4:30:27 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1283
+2017-08-09 4:30:27 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1283
+2017-08-09 4:30:27 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1283
+2017-08-09 4:30:27 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:30:27 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1285
+2017-08-09 4:30:27 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1291
+2017-08-09 4:30:27 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1291
+2017-08-09 4:30:27 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1294
+2017-08-09 4:30:27 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 753
+2017-08-09 4:30:27 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:30:27 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:30:27 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 4:33:53 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:33:53 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:33:53 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:33:53 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:33:53 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:33:53 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:33:53 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-09 4:33:53 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/1_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:33:53 - PHP Warning:  getimagesize(/image/catalog/designs/1_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:33:53 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:33:53 - PHP Warning:  getimagesize(/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:33:53 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:33:53 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:33:53 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:33:53 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1285
+2017-08-09 4:33:53 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1286
+2017-08-09 4:33:53 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:33:53 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:33:53 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1295
+2017-08-09 4:33:53 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:33:53 - PHP Warning:  getimagesize(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:33:53 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:33:53 - PHP Warning:  getimagesize(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:33:53 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:33:53 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:33:53 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:33:53 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1285
+2017-08-09 4:33:53 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1286
+2017-08-09 4:33:53 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:33:53 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:33:53 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1295
+2017-08-09 4:33:53 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 754
+2017-08-09 4:33:53 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:33:53 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:33:53 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 4:36:52 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:36:52 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:36:52 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:36:52 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:36:52 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:36:52 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:36:52 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-09 4:36:52 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/1_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:36:52 - PHP Warning:  getimagesize(/image/catalog/designs/1_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:36:52 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:36:52 - PHP Warning:  getimagesize(/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:36:52 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:36:52 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:36:52 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:36:52 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1285
+2017-08-09 4:36:52 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1286
+2017-08-09 4:36:52 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:36:52 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:36:52 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1295
+2017-08-09 4:36:52 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:36:52 - PHP Warning:  getimagesize(/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:36:52 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:36:52 - PHP Warning:  getimagesize(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:36:52 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:36:52 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:36:52 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:36:52 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1285
+2017-08-09 4:36:52 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1286
+2017-08-09 4:36:52 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:36:52 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:36:52 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1295
+2017-08-09 4:36:52 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 754
+2017-08-09 4:36:52 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:36:52 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:36:52 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 4:38:59 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:38:59 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:38:59 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:38:59 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:38:59 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:38:59 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:38:59 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-09 4:38:59 - PHP Warning:  imagecreatefromjpeg(/G:/xampp/htdocs/oc-test/image/catalog/designs/1_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:38:59 - PHP Warning:  getimagesize(/G:/xampp/htdocs/oc-test/image/catalog/designs/1_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:38:59 - PHP Warning:  imagecreatefromjpeg(/G:/xampp/htdocs/oc-test/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:38:59 - PHP Warning:  getimagesize(/G:/xampp/htdocs/oc-test/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:38:59 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:38:59 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:38:59 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:38:59 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1285
+2017-08-09 4:38:59 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1286
+2017-08-09 4:38:59 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:38:59 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:38:59 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1295
+2017-08-09 4:38:59 - PHP Warning:  imagecreatefromjpeg(/G:/xampp/htdocs/oc-test/image/catalog/designs/821583_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:38:59 - PHP Warning:  getimagesize(/G:/xampp/htdocs/oc-test/image/catalog/designs/821583_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:38:59 - PHP Warning:  imagecreatefromjpeg(/G:/xampp/htdocs/oc-test/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:38:59 - PHP Warning:  getimagesize(/G:/xampp/htdocs/oc-test/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:38:59 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:38:59 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:38:59 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:38:59 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1285
+2017-08-09 4:38:59 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1286
+2017-08-09 4:38:59 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:38:59 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:38:59 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1295
+2017-08-09 4:38:59 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 754
+2017-08-09 4:39:00 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:39:00 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:39:00 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 4:40:13 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:40:13 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:40:13 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:40:13 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:40:13 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:40:13 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:40:13 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-09 4:40:13 - PHP Warning:  imagecreatefromjpeg(/G:/xampp/htdocs/oc-test/image//catalog/designs/1_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:40:13 - PHP Warning:  getimagesize(/G:/xampp/htdocs/oc-test/image//catalog/designs/1_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:40:13 - PHP Warning:  imagecreatefromjpeg(/G:/xampp/htdocs/oc-test/image//catalog/designs/51251920x1440_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:40:13 - PHP Warning:  getimagesize(/G:/xampp/htdocs/oc-test/image//catalog/designs/51251920x1440_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:40:13 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:40:13 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:40:13 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:40:13 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1285
+2017-08-09 4:40:13 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1286
+2017-08-09 4:40:13 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:40:13 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:40:13 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1295
+2017-08-09 4:40:13 - PHP Warning:  imagecreatefromjpeg(/G:/xampp/htdocs/oc-test/image//catalog/designs/1_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:40:13 - PHP Warning:  getimagesize(/G:/xampp/htdocs/oc-test/image//catalog/designs/1_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:40:13 - PHP Warning:  imagecreatefromjpeg(/G:/xampp/htdocs/oc-test/image//catalog/designs/51251920x1440_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1277
+2017-08-09 4:40:13 - PHP Warning:  getimagesize(/G:/xampp/htdocs/oc-test/image//catalog/designs/51251920x1440_n.jpg): failed to open stream: Invalid argument in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1279
+2017-08-09 4:40:13 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:40:13 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:40:13 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1284
+2017-08-09 4:40:13 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1285
+2017-08-09 4:40:13 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1286
+2017-08-09 4:40:13 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:40:13 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1292
+2017-08-09 4:40:13 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1295
+2017-08-09 4:40:13 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 754
+2017-08-09 4:40:13 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:40:13 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:40:13 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 4:40:38 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:40:38 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:40:38 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 4:41:05 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:41:05 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 4:41:05 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 4:41:09 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:41:09 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:41:09 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:41:09 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:41:09 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:41:09 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 4:41:09 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 711
+2017-08-09 4:41:10 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 754
+2017-08-09 4:51:55 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:51:55 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:51:55 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:51:55 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:51:56 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:51:56 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:51:56 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:51:56 - PHP Warning:  imagecreatefromjpeg(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:51:56 - PHP Warning:  getimagesize(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:51:56 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:51:56 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:51:56 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:51:56 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:51:56 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:51:56 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1304
+2017-08-09 4:51:56 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1305
+2017-08-09 4:51:56 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:51:56 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:51:56 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 4:51:56 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:51:56 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:51:56 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:51:56 - PHP Warning:  imagecreatefromjpeg(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:51:56 - PHP Warning:  getimagesize(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:51:56 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:51:56 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:51:56 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:51:56 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:51:56 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:51:56 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1304
+2017-08-09 4:51:56 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1305
+2017-08-09 4:51:56 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:51:56 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:51:56 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 4:52:07 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:52:07 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:52:08 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:52:08 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:52:08 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:52:08 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:52:08 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:52:08 - PHP Warning:  imagecreatefromjpeg(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:52:08 - PHP Warning:  getimagesize(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:52:08 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:52:08 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:52:08 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:52:08 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:52:08 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:52:08 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1304
+2017-08-09 4:52:08 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1305
+2017-08-09 4:52:08 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:52:08 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:52:08 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 4:52:08 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:52:08 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:52:08 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:52:08 - PHP Warning:  imagecreatefromjpeg(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:52:08 - PHP Warning:  getimagesize(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:52:08 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:52:08 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:52:08 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:52:08 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:52:08 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:52:08 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1304
+2017-08-09 4:52:08 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1305
+2017-08-09 4:52:08 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:52:08 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:52:08 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 4:53:24 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:53:24 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:53:24 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/1_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:53:24 - PHP Warning:  getimagesize(/image/catalog/designs/1_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:53:24 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:53:24 - PHP Warning:  getimagesize(/image/catalog/designs/51251920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:53:24 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:53:24 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:53:24 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:53:24 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1304
+2017-08-09 4:53:24 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1305
+2017-08-09 4:53:24 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:53:24 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:53:24 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 4:53:24 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:53:24 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:53:24 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:53:24 - PHP Warning:  getimagesize(/image/catalog/designs/821583_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:53:24 - PHP Warning:  imagecreatefromjpeg(/image/catalog/designs/keai200910171920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:53:24 - PHP Warning:  getimagesize(/image/catalog/designs/keai200910171920x1440_n.jpg): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:53:24 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:53:24 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:53:24 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:53:24 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1304
+2017-08-09 4:53:24 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1305
+2017-08-09 4:53:24 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:53:24 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:53:24 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 4:53:24 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:53:24 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:53:24 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:53:24 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:53:24 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:53:24 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:53:24 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:53:24 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:53:24 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:53:24 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:53:24 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:53:24 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:54:35 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:54:35 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:54:35 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:54:35 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:54:36 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:54:36 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:54:36 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:54:36 - PHP Warning:  imagecreatefromjpeg(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:54:36 - PHP Warning:  getimagesize(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:54:36 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:54:36 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:54:36 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:54:36 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:54:36 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:54:36 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1304
+2017-08-09 4:54:36 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1305
+2017-08-09 4:54:36 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:54:36 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:54:36 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 4:54:36 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:54:36 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:54:36 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 4:54:36 - PHP Warning:  imagecreatefromjpeg(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:54:36 - PHP Warning:  getimagesize(http://127.0.0.1:8080G:/xampp/htdocs/oc-test/image/cache/catalog/3200378-3-4x-228x228.jpg): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:54:36 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1296
+2017-08-09 4:54:36 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:54:36 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:54:36 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:54:36 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1303
+2017-08-09 4:54:36 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1304
+2017-08-09 4:54:36 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1305
+2017-08-09 4:54:36 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:54:36 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1311
+2017-08-09 4:54:36 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 4:56:45 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:56:45 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:56:45 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:56:45 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:56:46 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:56:46 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:56:46 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:56:46 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:56:46 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1300
+2017-08-09 4:56:46 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1313
+2017-08-09 4:56:46 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:56:46 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:56:46 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:56:46 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:56:46 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1300
+2017-08-09 4:56:46 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1313
+2017-08-09 4:57:18 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:57:18 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:57:18 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:57:18 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:57:19 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:57:19 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:57:19 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:57:19 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:57:19 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1300
+2017-08-09 4:57:19 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1313
+2017-08-09 4:57:19 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:57:19 - PHP Notice:  Undefined variable: result_one in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:57:19 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:57:19 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:57:19 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1300
+2017-08-09 4:57:19 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1313
+2017-08-09 4:58:26 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:58:27 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:58:27 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:58:27 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:58:27 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:58:27 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1300
+2017-08-09 4:58:27 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1313
+2017-08-09 4:58:27 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:58:27 - PHP Notice:  Undefined variable: index in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 583
+2017-08-09 4:58:27 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:58:27 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1300
+2017-08-09 4:58:27 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1313
+2017-08-09 4:59:05 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:59:05 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:59:05 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1300
+2017-08-09 4:59:05 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1313
+2017-08-09 4:59:05 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 580
+2017-08-09 4:59:05 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1298
+2017-08-09 4:59:05 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1300
+2017-08-09 4:59:05 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1313
+2017-08-09 5:14:45 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 566
+2017-08-09 5:14:46 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 5:14:46 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1299
+2017-08-09 5:14:46 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1301
+2017-08-09 5:14:46 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 5:14:46 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 5:14:46 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1299
+2017-08-09 5:14:46 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1301
+2017-08-09 5:14:46 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 5:15:04 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 566
+2017-08-09 5:15:05 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 5:15:05 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1299
+2017-08-09 5:15:05 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1301
+2017-08-09 5:15:05 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 5:15:05 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 5:15:05 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1299
+2017-08-09 5:15:05 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1301
+2017-08-09 5:15:05 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 5:15:49 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 5:15:49 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1299
+2017-08-09 5:15:49 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1301
+2017-08-09 5:15:49 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 5:15:49 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 5:15:49 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1299
+2017-08-09 5:15:49 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1301
+2017-08-09 5:15:49 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 5:17:16 - PHP Notice:  Undefined offset: 243 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 5:17:16 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1299
+2017-08-09 5:17:16 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1301
+2017-08-09 5:17:16 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 5:17:16 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 581
+2017-08-09 5:17:16 - PHP Warning:  imagecreatefromjpeg(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1299
+2017-08-09 5:17:16 - PHP Warning:  getimagesize(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1301
+2017-08-09 5:17:16 - PHP Warning:  imagecopy() expects parameter 2 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 1314
+2017-08-09 6:01:51 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:01:51 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:01:51 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:01:51 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:01:51 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:01:51 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:01:53 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 769
+2017-08-09 6:01:53 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 6:01:53 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 6:01:53 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 6:02:51 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:02:51 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:02:51 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:02:51 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:02:51 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:02:51 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:02:51 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 6:02:51 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 6:02:51 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 6:05:41 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:05:41 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:05:41 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:05:41 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:05:41 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:05:41 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:05:41 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 6:05:41 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 6:05:41 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+2017-08-09 6:08:43 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:08:43 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:08:43 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:08:43 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:08:43 - PHP Notice:  Undefined index: email in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:08:43 - PHP Notice:  Undefined index: telephone in G:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 4
+2017-08-09 6:08:43 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 6:08:43 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
+2017-08-09 6:08:43 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16

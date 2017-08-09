@@ -32,6 +32,9 @@ $_['text_semi_month']          = 'half-month';
 $_['text_month']               = 'month';
 $_['text_year']                = 'year';
 
+$_['button_upload_left']               = 'Upload File Left';
+$_['button_upload_right']                = 'Upload File Right';
+
 // Entry
 $_['entry_qty']                = 'Qty';
 $_['entry_name']               = 'Your Name';
