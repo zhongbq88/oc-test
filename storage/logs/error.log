@@ -728,6 +728,7 @@
 2017-08-07 11:09:47 - PHP Notice:  Undefined index: code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 436
 2017-08-07 11:09:51 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 436
 2017-08-07 11:09:51 - PHP Notice:  Undefined index: code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 436
+<<<<<<< HEAD
 2017-08-08 12:18:54 - PHP Warning:  imagecreatefrompng(): Filename cannot be empty in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 93
 2017-08-08 12:18:54 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
 2017-08-08 12:18:54 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 96
@@ -1364,3 +1365,15 @@
 2017-08-09 6:08:43 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
 2017-08-09 6:08:43 - PHP Notice:  Undefined index: oauth_token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 11
 2017-08-09 6:08:43 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 16
+=======
+2017-08-08 3:30:08 - PHP Notice:  Undefined index: token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-08 3:30:08 - PHP Notice:  Undefined variable: url in D:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-08 3:30:08 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 110
+2017-08-08 3:30:08 - PHP Notice:  Undefined index: code in D:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 110
+2017-08-08 3:30:45 - PHP Notice:  Undefined index: token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-08 3:30:45 - PHP Notice:  Undefined variable: url in D:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-08 3:30:45 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 110
+2017-08-08 3:30:45 - PHP Notice:  Undefined index: code in D:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 110
+2017-08-08 3:33:17 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 110
+2017-08-08 3:33:17 - PHP Notice:  Undefined index: code in D:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 110
+>>>>>>> 648b84cd24f791644ed9989146db4120b2336c4f

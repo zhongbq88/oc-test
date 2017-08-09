@@ -10,9 +10,9 @@ require 'conf.php';
 	class ControllerShopifyDashboard extends Controller {
 
 		public function index(){
-			
-			$this->getToken();
-			
+			if(empty($_SESSION['shop'])){
+				$this->getToken();
+			}
 			if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/order', '', true);
 
@@ -130,7 +130,7 @@ $this->session->data['shop'] = $_GET['shop'];
 	catch (shopify\ApiException $e)
 	{
 		# HTTP status code was >= 400 or response contained the key 'errors'
-		echo $e;
+		//echo $e;
 		print_R($e->getRequest());
 		print_R($e->getResponse());
 		
@@ -138,7 +138,7 @@ $this->session->data['shop'] = $_GET['shop'];
 	catch (shopify\CurlException $e)
 	{
 		# cURL error
-		echo $e;
+		//echo $e;
 		print_R($e->getRequest());
 		print_R($e->getResponse());
 		
