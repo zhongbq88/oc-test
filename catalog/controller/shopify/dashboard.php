@@ -60,8 +60,8 @@ class ControllerShopifyDashboard extends Controller {
 		$data['cancelled'] = $cancelled; 
 		$data['aug_total'] = $total; 
 		$data['aug_charges'] = $charges; 
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['footer'] = $this->load->controller('shopify/footer');
+		$data['header'] = $this->load->controller('shopify/header');
 		$this->response->setOutput($this->load->view('shopify/dashboard', $data));
 		
 		

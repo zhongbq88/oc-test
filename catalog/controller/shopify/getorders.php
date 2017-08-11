@@ -15,11 +15,11 @@ class ControllerShopifyGetorders extends Controller {
 		//print_r();
 		//echo print_r('product='.$_SESSION['product']);
 		# Making an API request can throw an exception
-		//$orders = $shopify('GET  /admin/orders.json?financial_status=authorized');
+		$orders = $shopify('GET  /admin/orders.json?financial_status=authorized');
 		$this->load->model('localisation/order_status');
 
 		$order_statuses = $this->model_localisation_order_status->getOrderStatuses();
-		$json = '{
+		/*$json = '{
 "orders": [
     {
       "id": 1073459963,
@@ -352,7 +352,7 @@ class ControllerShopifyGetorders extends Controller {
     }
   ]
 }';
-		$orders = json_decode($json, true);
+		$orders = json_decode($json, true);*/
 		$this->load->model('account/customer');
 		$customer_info = array();
 		if ($this->customer->isLogged()) {
