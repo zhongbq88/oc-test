@@ -1,0 +1,90 @@
+2017-08-10 11:48:07 - {"body":"","subject":"Your Store","total_amount":"5005","out_trade_no":"1073459965","product_code":"FAST_INSTANT_TRADE_PAY"}
+2017-08-10 11:48:07 - response: array (
+  'biz_content' => '{&quot;body&quot;:&quot;&quot;,&quot;subject&quot;:&quot;Your Store&quot;,&quot;total_amount&quot;:&quot;5005&quot;,&quot;out_trade_no&quot;:&quot;1073459965&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;}',
+  'app_id' => '545687',
+  'version' => '1.0',
+  'format' => 'json',
+  'sign_type' => 'RSA2',
+  'method' => 'alipay.trade.page.pay',
+  'timestamp' => '2017-08-10 11:48:07',
+  'alipay_sdk' => 'alipay-sdk-php-20161101',
+  'notify_url' => 'http://127.0.0.1:8080/payment_callback/alipay',
+  'return_url' => 'http://127.0.0.1:8080/index.php?route=checkout/success',
+  'charset' => 'UTF-8',
+  'gateway_url' => 'https://openapi.alipaydev.com/gateway.do',
+)
+2017-08-10 12:24:02 - {"body":"","subject":"Your Store","total_amount":"5005","out_trade_no":"1073459966","product_code":"FAST_INSTANT_TRADE_PAY"}
+2017-08-10 12:24:02 - response: array (
+  'biz_content' => '{&quot;body&quot;:&quot;&quot;,&quot;subject&quot;:&quot;Your Store&quot;,&quot;total_amount&quot;:&quot;5005&quot;,&quot;out_trade_no&quot;:&quot;1073459966&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;}',
+  'app_id' => '545687',
+  'version' => '1.0',
+  'format' => 'json',
+  'sign_type' => 'RSA2',
+  'method' => 'alipay.trade.page.pay',
+  'timestamp' => '2017-08-10 12:24:02',
+  'alipay_sdk' => 'alipay-sdk-php-20161101',
+  'notify_url' => 'http://127.0.0.1:8080/payment_callback/alipay',
+  'return_url' => 'http://127.0.0.1:8080/index.php?route=checkout/success',
+  'charset' => 'UTF-8',
+  'gateway_url' => 'https://openapi.alipaydev.com/gateway.do',
+)
+2017-08-10 12:28:17 - {"body":"","subject":"Your Store","total_amount":"5005","out_trade_no":"1073459967","product_code":"FAST_INSTANT_TRADE_PAY"}
+2017-08-10 12:28:17 - response: array (
+  'biz_content' => '{&quot;body&quot;:&quot;&quot;,&quot;subject&quot;:&quot;Your Store&quot;,&quot;total_amount&quot;:&quot;5005&quot;,&quot;out_trade_no&quot;:&quot;1073459967&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;}',
+  'app_id' => '545687',
+  'version' => '1.0',
+  'format' => 'json',
+  'sign_type' => 'RSA2',
+  'method' => 'alipay.trade.page.pay',
+  'timestamp' => '2017-08-10 12:28:17',
+  'alipay_sdk' => 'alipay-sdk-php-20161101',
+  'notify_url' => 'http://127.0.0.1:8080/payment_callback/alipay',
+  'return_url' => 'http://127.0.0.1:8080/index.php?route=checkout/success',
+  'charset' => 'UTF-8',
+  'gateway_url' => 'https://openapi.alipaydev.com/gateway.do',
+)
+2017-08-11 5:04:01 - {"body":"","subject":"Your Store","total_amount":"5005","out_trade_no":"1073459968","product_code":"FAST_INSTANT_TRADE_PAY"}
+2017-08-11 5:04:01 - response: array (
+  'biz_content' => '{&quot;body&quot;:&quot;&quot;,&quot;subject&quot;:&quot;Your Store&quot;,&quot;total_amount&quot;:&quot;5005&quot;,&quot;out_trade_no&quot;:&quot;1073459968&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;}',
+  'app_id' => '545687',
+  'version' => '1.0',
+  'format' => 'json',
+  'sign_type' => 'RSA2',
+  'method' => 'alipay.trade.page.pay',
+  'timestamp' => '2017-08-11 05:04:01',
+  'alipay_sdk' => 'alipay-sdk-php-20161101',
+  'notify_url' => 'http://127.0.0.1:8080/payment_callback/alipay',
+  'return_url' => 'http://127.0.0.1:8080/index.php?route=checkout/success',
+  'charset' => 'UTF-8',
+  'gateway_url' => 'https://openapi.alipaydev.com/gateway.do',
+)
+2017-08-11 5:09:36 - {"body":"","subject":"Your Store","total_amount":"5005","out_trade_no":"1073459969","product_code":"FAST_INSTANT_TRADE_PAY"}
+2017-08-11 5:09:36 - response: array (
+  'biz_content' => '{&quot;body&quot;:&quot;&quot;,&quot;subject&quot;:&quot;Your Store&quot;,&quot;total_amount&quot;:&quot;5005&quot;,&quot;out_trade_no&quot;:&quot;1073459969&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;}',
+  'app_id' => '545687',
+  'version' => '1.0',
+  'format' => 'json',
+  'sign_type' => 'RSA2',
+  'method' => 'alipay.trade.page.pay',
+  'timestamp' => '2017-08-11 05:09:36',
+  'alipay_sdk' => 'alipay-sdk-php-20161101',
+  'notify_url' => 'http://127.0.0.1:8080/payment_callback/alipay',
+  'return_url' => 'http://127.0.0.1:8080/index.php?route=checkout/success',
+  'charset' => 'UTF-8',
+  'gateway_url' => 'https://openapi.alipaydev.com/gateway.do',
+)
+2017-08-11 5:29:04 - {"body":"","subject":"Your Store","total_amount":"5005","out_trade_no":"1073459970","product_code":"FAST_INSTANT_TRADE_PAY"}
+2017-08-11 5:29:04 - response: array (
+  'biz_content' => '{&quot;body&quot;:&quot;&quot;,&quot;subject&quot;:&quot;Your Store&quot;,&quot;total_amount&quot;:&quot;5005&quot;,&quot;out_trade_no&quot;:&quot;1073459970&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;}',
+  'app_id' => '545687',
+  'version' => '1.0',
+  'format' => 'json',
+  'sign_type' => 'RSA2',
+  'method' => 'alipay.trade.page.pay',
+  'timestamp' => '2017-08-11 05:29:04',
+  'alipay_sdk' => 'alipay-sdk-php-20161101',
+  'notify_url' => 'http://127.0.0.1:8080/payment_callback/alipay',
+  'return_url' => 'http://127.0.0.1:8080/index.php?route=checkout/success',
+  'charset' => 'UTF-8',
+  'gateway_url' => 'https://openapi.alipaydev.com/gateway.do',
+)
