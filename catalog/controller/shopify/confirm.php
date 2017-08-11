@@ -4,23 +4,14 @@ class ControllerShopifyConfirm extends Controller {
 		$redirect = '';
 
 		// Validate minimum quantity requirements.
-		$products = $this->cart->getProducts();
-
-		foreach ($products as $product) {
-			$product_total = 0;
-
-			foreach ($products as $product_2) {
-				if ($product_2['product_id'] == $product['product_id']) {
-					$product_total += $product_2['quantity'];
-				}
-			}
-
-			if ($product['minimum'] > $product_total) {
-				$redirect = $this->url->link('checkout/cart');
-
-				break;
-			}
+		if (isset($this->request->get['order_id'])) {
+			$order_id = $this->request->get['order_id'];
+		} else {
+			$order_id = 0;
 		}
+		// Validate minimum quantity requirements.
+		$this->load->model('shopify/order');
+		$products = $this->model_shopify_order->getOrderProducts($order_id);
 
 		if (!$redirect) {
 			$order_data = array();
@@ -177,7 +168,7 @@ class ControllerShopifyConfirm extends Controller {
 
 			$order_data['products'] = array();
 
-			foreach ($this->cart->getProducts() as $product) {
+			/*foreach ($products as $product) {
 				$option_data = array();
 
 				foreach ($product['option'] as $option) {
@@ -205,10 +196,10 @@ class ControllerShopifyConfirm extends Controller {
 					'tax'        => $this->tax->getTax($product['price'], $product['tax_class_id']),
 					'reward'     => $product['reward']
 				);
-			}
+			}*/
 
 			// Gift Voucher
-			$order_data['vouchers'] = array();
+			/*$order_data['vouchers'] = array();
 
 			if (!empty($this->session->data['vouchers'])) {
 				foreach ($this->session->data['vouchers'] as $voucher) {
@@ -224,7 +215,7 @@ class ControllerShopifyConfirm extends Controller {
 						'amount'           => $voucher['amount']
 					);
 				}
-			}
+			}*/
 
 			$order_data['comment'] = $this->session->data['comment'];
 			$order_data['total'] = $total_data['total'];
@@ -296,62 +287,20 @@ class ControllerShopifyConfirm extends Controller {
 
 			$data['products'] = array();
 
-			foreach ($this->cart->getProducts() as $product) {
+			foreach ($products as $product) {
 				$option_data = array();
 
-				foreach ($product['option'] as $option) {
-					if ($option['type'] != 'file') {
-						$value = $option['value'];
-					} else {
-						$upload_info = $this->model_tool_upload->getUploadByCode($option['value']);
-
-						if ($upload_info) {
-							$value = $upload_info['name'];
-						} else {
-							$value = '';
-						}
-					}
-
-					$option_data[] = array(
-						'name'  => $option['name'],
-						'value' => (utf8_strlen($value) > 20 ? utf8_substr($value, 0, 20) . '..' : $value)
-					);
-				}
-
-				$recurring = '';
-
-				if ($product['recurring']) {
-					$frequencies = array(
-						'day'        => $this->language->get('text_day'),
-						'week'       => $this->language->get('text_week'),
-						'semi_month' => $this->language->get('text_semi_month'),
-						'month'      => $this->language->get('text_month'),
-						'year'       => $this->language->get('text_year'),
-					);
-
-					if ($product['recurring']['trial']) {
-						$recurring = sprintf($this->language->get('text_trial_description'), $this->currency->format($this->tax->calculate($product['recurring']['trial_price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['trial_cycle'], $frequencies[$product['recurring']['trial_frequency']], $product['recurring']['trial_duration']) . ' ';
-					}
-
-					if ($product['recurring']['duration']) {
-						$recurring .= sprintf($this->language->get('text_payment_description'), $this->currency->format($this->tax->calculate($product['recurring']['price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['cycle'], $frequencies[$product['recurring']['frequency']], $product['recurring']['duration']);
-					} else {
-						$recurring .= sprintf($this->language->get('text_payment_cancel'), $this->currency->format($this->tax->calculate($product['recurring']['price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['cycle'], $frequencies[$product['recurring']['frequency']], $product['recurring']['duration']);
-					}
-				}
 
 				$data['products'][] = array(
-					'cart_id'    => $product['cart_id'],
+					'order_id'    => $product['order_id'],
 					'product_id' => $product['product_id'],
 					'name'       => $product['name'],
 					'model'      => $product['model'],
 					'option'     => $option_data,
-					'recurring'  => $recurring,
 					'quantity'   => $product['quantity'],
-					'subtract'   => $product['subtract'],
-					'price'      => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']),
-					'total'      => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')) * $product['quantity'], $this->session->data['currency']),
-					'href'       => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+					'price'      => $this->currency->format($this->tax->calculate($product['price'], 0, $this->config->get('config_tax')), $this->session->data['currency']),
+					'total'      => $this->currency->format($this->tax->calculate($product['price'], 0, $this->config->get('config_tax')) * $product['quantity'], $this->session->data['currency']),
+					'href'       => $this->url->link('shopify/product', 'product_id=' . $product['product_id'])
 				);
 			}
 

@@ -9,19 +9,20 @@ class ControllerShopifyCheckout extends Controller {
 		}
 		// Validate minimum quantity requirements.
 		$this->load->model('shopify/order');
-
+		//echo $order_id;
 		$products = $this->model_shopify_order->getOrderProducts($order_id);
+		//print_r($products);
 		//$products = $this->cart->getProducts();
-		foreach ($products as $product) {
+		//foreach ($products as $product) {
 			$product_total = 0;
 
 			foreach ($products as $product_2) {
-				if ($product_2['product_id'] == $product['product_id']) {
+				//if ($product_2['product_id'] == $product['product_id']) {
 					$product_total += $product_2['quantity'];
-				}
+				//}
 			}
-		}
-
+		//}
+//echo $product_total;
 		$this->load->language('shopify/checkout');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -37,7 +38,7 @@ class ControllerShopifyCheckout extends Controller {
 		}
 
 		$data['breadcrumbs'] = array();
-
+		$data['order_id'] = $order_id;
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/home')

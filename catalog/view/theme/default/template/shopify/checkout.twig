@@ -124,7 +124,7 @@ $(document).delegate('#button-payment-method', 'click', function() {
                 }
             } else {
                 $.ajax({
-                    url: 'index.php?route=checkout/confirm',
+                    url: 'index.php?route=shopify/confirm&order_id={{order_id}}',
                     dataType: 'html',
                     complete: function() {
                         $('#button-payment-method').button('reset');

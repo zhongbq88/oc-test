@@ -368,8 +368,6 @@ class ControllerShopifyOrders extends Controller {
 					$order_product_id = $opt[0]['order_product_id'];
 				}
 			}
-			
-			
             $products = $this->model_shopify_order->getOrderProducts($orderid);
 			foreach ($products as $product) {
 				$option_data = array();
@@ -408,8 +406,8 @@ class ControllerShopifyOrders extends Controller {
 					'model'    => $product['model'],
 					'option'   => $option_data,
 					'quantity' => $product['quantity'],
-					'price'    => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
-					'total'    => $this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),
+					'price'    => $product['price'],
+					'total'    => $product['total'],
 					'reorder'  => $reorder,
 					'return'   => $this->url->link('account/return/add', 'order_id=' . $order_info['order_id'] . '&product_id=' . $product['product_id'], true)
 				);
@@ -435,7 +433,7 @@ class ControllerShopifyOrders extends Controller {
 			foreach ($totals as $total) {
 				$data['totals'][] = array(
 					'title' => $total['title'],
-					'text'  => $this->currency->format($total['value'], $order_info['currency_code'], $order_info['currency_value']),
+					'text'  => $total['value'],
 				);
 			}
 
@@ -456,7 +454,7 @@ class ControllerShopifyOrders extends Controller {
 
 			$data['continue'] = $this->url->link('shopify/orders', '', true);
 			
-			$data['paid'] = $this->url->link('shopify/checkout', 'order_id=' . $this->request->get['order_id'] . $url, true);
+			$data['paid'] = $this->url->link('shopify/checkout', 'order_id=' . $orderid . $url, true);
 
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
