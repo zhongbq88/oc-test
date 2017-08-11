@@ -901,18 +901,28 @@ class ControllerSaleOrder extends Controller {
 			);
 
 			$data['shipping_address'] = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
-
+			//echo $data['shipping_address'];
 			// Uploaded files
 			$this->load->model('tool/upload');
 
 			$data['products'] = array();
-
-			$products = $this->model_sale_order->getOrderProducts($this->request->get['order_id']);
-
+			$orderid = $this->request->get['order_id'];
+			$order_product_id;
+			if($order_info['customer_group_id']==4){
+				
+				$order_option_id = substr( $order_info['invoice_prefix'],2);
+			
+				$opt = $this->model_sale_order->getOrderOption($order_option_id);
+				$orderid = $opt[0]['order_id'];
+				$order_product_id = $opt[0]['order_product_id'];
+			}
+			
+			
+            $products = $this->model_sale_order->getOrderProducts($orderid);
 			foreach ($products as $product) {
 				$option_data = array();
 
-				$options = $this->model_sale_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);
+				$options = $this->model_sale_order->getOrderOptions($orderid, empty($order_product_id)?$product['order_product_id']:$order_product_id);
 
 				foreach ($options as $option) {
 					if ($option['type'] != 'file') {
@@ -977,7 +987,7 @@ class ControllerSaleOrder extends Controller {
 
 			$data['reward'] = $order_info['reward'];
 
-			$data['reward_total'] = $this->model_customer_customer->getTotalCustomerRewardsByOrderId($this->request->get['order_id']);
+			$data['reward_total'] = $this->model_customer_customer->getTotalCustomerRewardsByOrderId($orderid);
 
 			$data['affiliate_firstname'] = $order_info['affiliate_firstname'];
 			$data['affiliate_lastname'] = $order_info['affiliate_lastname'];
@@ -992,7 +1002,7 @@ class ControllerSaleOrder extends Controller {
 
 			$this->load->model('customer/customer');
 
-			$data['commission_total'] = $this->model_customer_customer->getTotalTransactionsByOrderId($this->request->get['order_id']);
+			$data['commission_total'] = $this->model_customer_customer->getTotalTransactionsByOrderId($orderid);
 
 			$this->load->model('localisation/order_status');
 
@@ -1562,6 +1572,7 @@ class ControllerSaleOrder extends Controller {
 					'{address_2}',
 					'{city}',
 					'{postcode}',
+
 					'{zone}',
 					'{zone_code}',
 					'{country}'

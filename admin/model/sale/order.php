@@ -237,6 +237,11 @@ class ModelSaleOrder extends Model {
 
 		return $query->rows;
 	}
+	
+	public function getOrderOption($order_option_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_option WHERE order_option_id = '" . (int)$order_option_id . "'");
+		return $query->rows;
+	}
 
 	public function getOrderVouchers($order_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_voucher WHERE order_id = '" . (int)$order_id . "'");

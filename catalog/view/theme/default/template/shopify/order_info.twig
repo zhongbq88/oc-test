@@ -1,10 +1,6 @@
 {{ header }}
 <div id="account-order" class="container">
-  <ul class="breadcrumb">
-    {% for breadcrumb in breadcrumbs %}
-    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-    {% endfor %}
-  </ul>
+ 
   {% if success %}
   <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -15,14 +11,7 @@
     <button type="button" class="close" data-dismiss="alert">&times;</button>
   </div>
   {% endif %}
-  <div class="row">{{ column_left }}
-    {% if column_left and column_right %}
-    {% set class = 'col-sm-6' %}
-    {% elseif column_left or column_right %}
-    {% set class = 'col-sm-9' %}
-    {% else %}
-    {% set class = 'col-sm-12' %}
-    {% endif %}
+  <div class="row">
     <div id="content" class="{{ class }}">{{ content_top }}
       <h2>{{ heading_title }}</h2>
       <table class="table table-bordered table-hover">
@@ -157,7 +146,11 @@
       </table>
       {% endif %}
       <div class="buttons clearfix">
+      	{% if order_status_id==1 %}
+         <div class="pull-right"><a href="{{ paid }}" class="btn btn-danger">{{ text_paid }}</a></div>
+        {% else %}
         <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+        {% endif %}
       </div>
       {{ content_bottom }}</div>
     {{ column_right }}</div>

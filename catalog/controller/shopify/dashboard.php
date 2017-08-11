@@ -7,143 +7,113 @@ use phpish\shopify;
 
 require 'conf.php';
 	
-	class ControllerShopifyDashboard extends Controller {
+class ControllerShopifyDashboard extends Controller {
 
-		public function index(){
-			if(empty($_SESSION['shop'])){
-				$this->getToken();
-			}
-			if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/order', '', true);
-
+	public function index(){
+		if(empty($_SESSION['shop'])){
+			$this->getToken();
+		}
+		if (!$this->customer->isLogged()) {
+			$this->session->data['redirect'] = $this->url->link('shopify/order', '', true);
+	
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
 
-		$this->load->language('account/order');
+		$this->load->language('shopify/dashboard');
 
-		$this->document->setTitle($this->language->get('v'));
+		$this->document->setTitle($this->language->get('heading_title'));
 		
-		$url = '';
+		$data = array();
 
-		if (isset($this->request->get['page'])) {
-			$url .= '&page=' . $this->request->get['page'];
-		}
-		
-		$data['breadcrumbs'] = array();
+		$this->load->model('shopify/order');
 
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
-		);
+		$results = $this->model_shopify_order->getStatusTotalOrders();
 
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
-		);
-		
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('account/order', $url, true)
-		);
-
-		if (isset($this->request->get['page'])) {
-			$page = $this->request->get['page'];
-		} else {
-			$page = 1;
-		}
-
-		$data['orders'] = array();
-
-		$this->load->model('account/order');
-
-		$order_total = $this->model_account_order->getTotalOrders();
-
-		$results = $this->model_account_order->getOrders(($page - 1) * 10, 10);
-
+		$pending =0;
+		$in_production =0;
+		$shipped =0;
+		$on_hold =0;
+		$cancelled =0;
+		$total =0;
+		$charges =0;
 		foreach ($results as $result) {
-			$product_total = $this->model_account_order->getTotalOrderProductsByOrderId($result['order_id']);
-			$voucher_total = $this->model_account_order->getTotalOrderVouchersByOrderId($result['order_id']);
-
-			$data['orders'][] = array(
-				'order_id'   => $result['order_id'],
-				'name'       => $result['firstname'] . ' ' . $result['lastname'],
-				'status'     => $result['status'],
-				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				'products'   => ($product_total + $voucher_total),
-				'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
-				'view'       => $this->url->link('account/order/info', 'order_id=' . $result['order_id'], true),
-			);
+			$total+=(float)$result['total'];
+			if($result['order_status_id']==1){
+				$pending+=1;
+			}else if($result['order_status_id']==17){
+				$in_production+=1;
+			}else if($result['order_status_id']==3){
+				$shipped+=1;
+			}else if($result['order_status_id']==18){
+				$on_hold+=1;
+			}else if($result['order_status_id']==7){
+				$cancelled+=1;
+			}
+			if($result['order_status_id']==17 || $result['order_status_id']==13 || $result['order_status_id']==17|| $result['order_status_id']==5|| $result['order_status_id']==3){
+				$charges+=(float)$result['total'];
+			}
 		}
-
-		$pagination = new Pagination();
-		$pagination->total = $order_total;
-		$pagination->page = $page;
-		$pagination->limit = 10;
-		$pagination->url = $this->url->link('account/order', 'page={page}', true);
-
-		$data['pagination'] = $pagination->render();
-
-		$data['results'] = sprintf($this->language->get('text_pagination'), ($order_total) ? (($page - 1) * 10) + 1 : 0, ((($page - 1) * 10) > ($order_total - 10)) ? $order_total : ((($page - 1) * 10) + 10), $order_total, ceil($order_total / 10));
-
-		$data['continue'] = $this->url->link('account/account', '', true);
-
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
+		$data['pending'] = $pending; 
+		$data['in_production'] = $in_production; 
+		$data['shipped'] = $shipped; 
+		$data['on_hold'] = $on_hold; 
+		$data['cancelled'] = $cancelled; 
+		$data['aug_total'] = $total; 
+		$data['aug_charges'] = $charges; 
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
-
-
 		$this->response->setOutput($this->load->view('shopify/dashboard', $data));
 		
 		
 		}
 		
-			public function getToken(){
+	public function getToken(){
 		# Step 3: http://docs.shopify.com/api/authentication/oauth#confirming-installation
-	try
-	{
-		//echo 'shop='.$_GET['shop'];
-		//echo 'code='.$_GET['code'];
-		# shopify\access_token can throw an exception
-		$oauth_token = shopify\access_token($_GET['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_GET['code']);
-		
-		//echo $oauth_token;
-		$this->load->model('account/customer');
-		$shop = $_GET['shop'];
-		$shops = explode(".", $shop);
-		$email = $shops[0]."@shopify.com";
-		$customer = $this->model_account_customer->getCustomerByEmail($email);
-		if(empty($customer)){
-			$customer_id = $this->model_account_customer->addShopifyUser($shop,$oauth_token);
+		if(!isset($_GET['shop'])){
+			return;
 		}
-		$this->customer->login($email, $shop);
-		
-$this->session->data['oauth_token'] = $oauth_token;
-$this->session->data['shop'] = $_GET['shop'];
-		$_SESSION['oauth_token'] = $oauth_token;
-		$_SESSION['shop'] = $_GET['shop'];
-		return $_SESSION['shop'];
-		//echo 'App Successfully Installed!';
-	}
-	catch (shopify\ApiException $e)
-	{
-		# HTTP status code was >= 400 or response contained the key 'errors'
-		//echo $e;
-		print_R($e->getRequest());
-		print_R($e->getResponse());
-		
-	}
-	catch (shopify\CurlException $e)
-	{
-		# cURL error
-		//echo $e;
-		print_R($e->getRequest());
-		print_R($e->getResponse());
-		
-	}
-	}
+		try
+		{
+			//echo 'shop='.$_GET['shop'];
+			//echo 'code='.$_GET['code'];
+			# shopify\access_token can throw an exception
+			$oauth_token = shopify\access_token($_GET['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_GET['code']);
+			
+			//echo $oauth_token;
+			$this->load->model('account/customer');
+			$shop = $_GET['shop'];
+			$shops = explode(".", $shop);
+			$email = $shops[0]."@shopify.com";
+			$customer = $this->model_account_customer->getCustomerByEmail($email);
+			if(empty($customer)){
+				$customer_id = $this->model_account_customer->addShopifyUser($shop,$oauth_token);
+			}
+			$this->customer->login($email, $shop);
+			
+	$this->session->data['oauth_token'] = $oauth_token;
+	$this->session->data['shop'] = $_GET['shop'];
+			$_SESSION['oauth_token'] = $oauth_token;
+			$_SESSION['shop'] = $_GET['shop'];
+			return $_SESSION['shop'];
+			//echo 'App Successfully Installed!';
+		}
+		catch (shopify\ApiException $e)
+		{
+			# HTTP status code was >= 400 or response contained the key 'errors'
+			//echo $e;
+			print_R($e->getRequest());
+			print_R($e->getResponse());
+			
+		}
+		catch (shopify\CurlException $e)
+		{
+			# cURL error
+			//echo $e;
+			print_R($e->getRequest());
+			print_R($e->getResponse());
+			
+		}
+		}
 	
 	}
 

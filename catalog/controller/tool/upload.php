@@ -135,7 +135,7 @@ function spliceImage($photo,$kuang,$savepath){
     //获得要保存的文件名
     $photoArray =   explode('/',$photo);
     $fileName   =   explode('.',end($photoArray));
-    $fileName   =   $fileName[0].'_n.jpg';
+    $fileName   =   $fileName[0]."_".time().'_n.jpg';
     //将图片保存为png格式
     //存储图片路径
     $newImage   =   $fileName;

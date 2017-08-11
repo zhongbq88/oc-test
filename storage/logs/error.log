@@ -1377,3 +1377,473 @@
 2017-08-08 3:33:17 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 110
 2017-08-08 3:33:17 - PHP Notice:  Undefined index: code in D:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 110
 >>>>>>> 648b84cd24f791644ed9989146db4120b2336c4f
+2017-08-10 3:47:34 - PHP Notice:  Undefined index: id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 354
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: invoice_no in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 385
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: invoice_prefix in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 386
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: store_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 387
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: store_name in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 388
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: store_url in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 389
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: customer_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 390
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: customer in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 391
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 392
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 393
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 394
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 398
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 399
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_company in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 400
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_address_1 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 401
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_address_2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 402
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_postcode in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 403
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_city in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 404
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_zone_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 405
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_zone in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 406
+2017-08-10 5:46:46 - PHP Notice:  Undefined variable: payment_zone_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 407
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_country_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 408
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_country in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 409
+2017-08-10 5:46:46 - PHP Notice:  Undefined variable: payment_iso_code_2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 410
+2017-08-10 5:46:46 - PHP Notice:  Undefined variable: payment_iso_code_3 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 411
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 412
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_custom_field in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 413
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 414
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: payment_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 415
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: postcode in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 421
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: zone_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 423
+2017-08-10 5:46:46 - PHP Notice:  Undefined variable: shipping_zone_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 425
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: country_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 426
+2017-08-10 5:46:46 - PHP Notice:  Undefined variable: shipping_iso_code_2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 428
+2017-08-10 5:46:46 - PHP Notice:  Undefined variable: shipping_iso_code_3 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 429
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 430
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 432
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: comment in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 434
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: total in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 435
+2017-08-10 5:46:46 - PHP Notice:  Undefined variable: reward in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 436
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 437
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: affiliate_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 439
+2017-08-10 5:46:46 - PHP Notice:  Undefined variable: affiliate_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 440
+2017-08-10 5:46:46 - PHP Notice:  Undefined variable: affiliate_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 441
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: commission in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 442
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: language_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 443
+2017-08-10 5:46:46 - PHP Notice:  Undefined variable: language_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 444
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: currency_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 445
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: currency_value in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 447
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 448
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: forwarded_ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 449
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: user_agent in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 450
+2017-08-10 5:46:46 - PHP Notice:  Undefined index: accept_language in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 451
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 398
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 399
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_company in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 400
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_address_1 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 401
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_address_2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 402
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_postcode in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 403
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_city in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 404
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_zone_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 405
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_zone in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 406
+2017-08-10 5:52:10 - PHP Notice:  Undefined variable: payment_zone_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 407
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_country_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 408
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_country in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 409
+2017-08-10 5:52:10 - PHP Notice:  Undefined variable: payment_iso_code_2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 410
+2017-08-10 5:52:10 - PHP Notice:  Undefined variable: payment_iso_code_3 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 411
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 412
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_custom_field in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 413
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 414
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: payment_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 415
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: postcode in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 421
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: zone_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 423
+2017-08-10 5:52:10 - PHP Notice:  Undefined variable: shipping_zone_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 425
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: country_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 426
+2017-08-10 5:52:10 - PHP Notice:  Undefined variable: shipping_iso_code_2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 428
+2017-08-10 5:52:10 - PHP Notice:  Undefined variable: shipping_iso_code_3 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 429
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 430
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 432
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: comment in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 434
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: total in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 435
+2017-08-10 5:52:10 - PHP Notice:  Undefined variable: reward in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 436
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 437
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: affiliate_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 439
+2017-08-10 5:52:10 - PHP Notice:  Undefined variable: affiliate_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 440
+2017-08-10 5:52:10 - PHP Notice:  Undefined variable: affiliate_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 441
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: commission in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 442
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: language_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 443
+2017-08-10 5:52:10 - PHP Notice:  Undefined variable: language_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 444
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: currency_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 445
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: currency_value in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 447
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 448
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: forwarded_ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 449
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: user_agent in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 450
+2017-08-10 5:52:10 - PHP Notice:  Undefined index: accept_language in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 451
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 399
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_company in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 400
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_address_1 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 401
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_address_2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 402
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_postcode in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 403
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_city in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 404
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_zone_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 405
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_zone in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 406
+2017-08-10 5:52:53 - PHP Notice:  Undefined variable: payment_zone_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 407
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_country_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 408
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_country in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 409
+2017-08-10 5:52:53 - PHP Notice:  Undefined variable: payment_iso_code_2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 410
+2017-08-10 5:52:53 - PHP Notice:  Undefined variable: payment_iso_code_3 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 411
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 412
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_custom_field in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 413
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 414
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: payment_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 415
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: postcode in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 421
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: zone_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 423
+2017-08-10 5:52:53 - PHP Notice:  Undefined variable: shipping_zone_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 425
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: country_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 426
+2017-08-10 5:52:53 - PHP Notice:  Undefined variable: shipping_iso_code_2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 428
+2017-08-10 5:52:53 - PHP Notice:  Undefined variable: shipping_iso_code_3 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 429
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 430
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 432
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: comment in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 434
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: total in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 435
+2017-08-10 5:52:53 - PHP Notice:  Undefined variable: reward in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 436
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 437
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: affiliate_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 439
+2017-08-10 5:52:53 - PHP Notice:  Undefined variable: affiliate_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 440
+2017-08-10 5:52:53 - PHP Notice:  Undefined variable: affiliate_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 441
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: commission in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 442
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: language_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 443
+2017-08-10 5:52:53 - PHP Notice:  Undefined variable: language_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 444
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: currency_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 445
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: currency_value in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 447
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 448
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: forwarded_ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 449
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: user_agent in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 450
+2017-08-10 5:52:53 - PHP Notice:  Undefined index: accept_language in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 451
+2017-08-10 5:56:24 - PHP Notice:  Undefined variable: payment_zone_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 407
+2017-08-10 5:56:24 - PHP Notice:  Undefined variable: payment_iso_code_2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 410
+2017-08-10 5:56:24 - PHP Notice:  Undefined variable: payment_iso_code_3 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 411
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: payment_custom_field in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 413
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: postcode in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 421
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: zone_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 423
+2017-08-10 5:56:24 - PHP Notice:  Undefined variable: shipping_zone_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 425
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: country_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 426
+2017-08-10 5:56:24 - PHP Notice:  Undefined variable: shipping_iso_code_2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 428
+2017-08-10 5:56:24 - PHP Notice:  Undefined variable: shipping_iso_code_3 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 429
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 430
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 432
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: comment in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 434
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: total in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 435
+2017-08-10 5:56:24 - PHP Notice:  Undefined variable: reward in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 436
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 437
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: affiliate_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 439
+2017-08-10 5:56:24 - PHP Notice:  Undefined variable: affiliate_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 440
+2017-08-10 5:56:24 - PHP Notice:  Undefined variable: affiliate_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 441
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: commission in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 442
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: language_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 443
+2017-08-10 5:56:24 - PHP Notice:  Undefined variable: language_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 444
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: currency_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 445
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: currency_value in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 447
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 448
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: forwarded_ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 449
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: user_agent in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 450
+2017-08-10 5:56:24 - PHP Notice:  Undefined index: accept_language in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 451
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: payment_custom_field in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 413
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: postcode in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 421
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: zone_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 423
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: country_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 426
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 430
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 432
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: comment in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 434
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: total in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 435
+2017-08-10 5:57:31 - PHP Notice:  Undefined variable: reward in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 436
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 437
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: affiliate_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 439
+2017-08-10 5:57:31 - PHP Notice:  Undefined variable: affiliate_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 440
+2017-08-10 5:57:31 - PHP Notice:  Undefined variable: affiliate_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 441
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: commission in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 442
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: language_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 443
+2017-08-10 5:57:31 - PHP Notice:  Undefined variable: language_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 444
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: currency_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 445
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: currency_value in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 447
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 448
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: forwarded_ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 449
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: user_agent in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 450
+2017-08-10 5:57:31 - PHP Notice:  Undefined index: accept_language in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 451
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: postcode in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 421
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: zone_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 423
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: country_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 426
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 430
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 432
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: comment in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 434
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: total in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 435
+2017-08-10 5:58:17 - PHP Notice:  Undefined variable: reward in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 436
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 437
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: affiliate_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 439
+2017-08-10 5:58:17 - PHP Notice:  Undefined variable: affiliate_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 440
+2017-08-10 5:58:17 - PHP Notice:  Undefined variable: affiliate_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 441
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: commission in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 442
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: language_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 443
+2017-08-10 5:58:17 - PHP Notice:  Undefined variable: language_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 444
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: currency_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 445
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: currency_value in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 447
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 448
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: forwarded_ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 449
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: user_agent in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 450
+2017-08-10 5:58:17 - PHP Notice:  Undefined index: accept_language in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 451
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: zone_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 423
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: country_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 426
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 430
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 432
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: comment in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 434
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: total in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 435
+2017-08-10 5:58:46 - PHP Notice:  Undefined variable: reward in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 436
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 437
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: affiliate_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 439
+2017-08-10 5:58:46 - PHP Notice:  Undefined variable: affiliate_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 440
+2017-08-10 5:58:46 - PHP Notice:  Undefined variable: affiliate_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 441
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: commission in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 442
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: language_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 443
+2017-08-10 5:58:46 - PHP Notice:  Undefined variable: language_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 444
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: currency_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 445
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: currency_value in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 447
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 448
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: forwarded_ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 449
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: user_agent in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 450
+2017-08-10 5:58:46 - PHP Notice:  Undefined index: accept_language in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 451
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: country_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 426
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 430
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 432
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: comment in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 434
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: total in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 435
+2017-08-10 5:59:05 - PHP Notice:  Undefined variable: reward in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 436
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 437
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: affiliate_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 439
+2017-08-10 5:59:05 - PHP Notice:  Undefined variable: affiliate_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 440
+2017-08-10 5:59:05 - PHP Notice:  Undefined variable: affiliate_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 441
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: commission in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 442
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: language_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 443
+2017-08-10 5:59:05 - PHP Notice:  Undefined variable: language_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 444
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: currency_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 445
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: currency_value in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 447
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 448
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: forwarded_ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 449
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: user_agent in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 450
+2017-08-10 5:59:05 - PHP Notice:  Undefined index: accept_language in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 451
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: address_format in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 430
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: method in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 432
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: comment in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 434
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: total in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 435
+2017-08-10 5:59:18 - PHP Notice:  Undefined variable: reward in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 436
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 437
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: affiliate_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 439
+2017-08-10 5:59:18 - PHP Notice:  Undefined variable: affiliate_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 440
+2017-08-10 5:59:18 - PHP Notice:  Undefined variable: affiliate_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 441
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: commission in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 442
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: language_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 443
+2017-08-10 5:59:18 - PHP Notice:  Undefined variable: language_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 444
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: currency_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 445
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: currency_value in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 447
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 448
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: forwarded_ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 449
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: user_agent in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 450
+2017-08-10 5:59:18 - PHP Notice:  Undefined index: accept_language in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 451
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: comment in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 434
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: total in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 435
+2017-08-10 5:59:40 - PHP Notice:  Undefined variable: reward in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 436
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 437
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: affiliate_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 439
+2017-08-10 5:59:40 - PHP Notice:  Undefined variable: affiliate_firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 440
+2017-08-10 5:59:40 - PHP Notice:  Undefined variable: affiliate_lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 441
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: commission in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 442
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: language_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 443
+2017-08-10 5:59:40 - PHP Notice:  Undefined variable: language_code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 444
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: currency_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 445
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: currency_value in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 447
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 448
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: forwarded_ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 449
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: user_agent in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 450
+2017-08-10 5:59:40 - PHP Notice:  Undefined index: accept_language in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 451
+2017-08-10 6:08:52 - PHP Notice:  Undefined index: currency_value in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 447
+2017-08-10 6:29:02 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\system\engine\loader.php on line 83
+2017-08-10 6:29:39 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\system\engine\loader.php on line 83
+2017-08-10 6:30:35 - PHP Notice:  Undefined index: marketing_id in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 480
+2017-08-10 6:30:35 - PHP Notice:  Undefined index: tracking in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 480
+2017-08-10 9:24:19 - PHP Notice:  Undefined index: order_option_id in G:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 910
+2017-08-10 9:24:19 - PHP Notice:  Undefined index: order_id in G:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 913
+2017-08-10 9:24:19 - PHP Notice:  Undefined variable: products in G:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 914
+2017-08-10 9:24:19 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 914
+2017-08-10 9:25:23 - PHP Notice:  Undefined index: order_id in G:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 913
+2017-08-10 9:25:23 - PHP Notice:  Undefined variable: products in G:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 914
+2017-08-10 9:25:23 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 914
+2017-08-10 9:27:06 - PHP Notice:  Undefined variable: products in G:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 914
+2017-08-10 9:27:06 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 914
+2017-08-10 11:12:57 - PHP Warning:  imagecreatefrompng(.png): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 108
+2017-08-10 11:12:57 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 111
+2017-08-10 11:12:57 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 111
+2017-08-10 11:12:57 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 111
+2017-08-10 11:12:57 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 113
+2017-08-10 11:12:57 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 114
+2017-08-10 11:12:57 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 132
+2017-08-10 11:12:57 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 134
+2017-08-10 11:12:57 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 134
+2017-08-10 11:12:57 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 134
+2017-08-10 11:12:57 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 142
+2017-08-10 11:12:57 - PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 143
+2017-08-10 11:13:10 - PHP Warning:  imagecreatefrompng(.png): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 108
+2017-08-10 11:13:10 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 111
+2017-08-10 11:13:10 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 111
+2017-08-10 11:13:10 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 111
+2017-08-10 11:13:10 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 113
+2017-08-10 11:13:10 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 114
+2017-08-10 11:13:10 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 132
+2017-08-10 11:13:10 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 134
+2017-08-10 11:13:10 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 134
+2017-08-10 11:13:10 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 134
+2017-08-10 11:13:10 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 142
+2017-08-10 11:13:10 - PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 143
+2017-08-10 11:13:15 - PHP Warning:  imagecreatefrompng(.png): failed to open stream: No such file or directory in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 108
+2017-08-10 11:13:15 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 111
+2017-08-10 11:13:15 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 111
+2017-08-10 11:13:15 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 111
+2017-08-10 11:13:15 - PHP Warning:  imagecolorallocate() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 113
+2017-08-10 11:13:15 - PHP Warning:  imagefill() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 114
+2017-08-10 11:13:15 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 132
+2017-08-10 11:13:15 - PHP Warning:  imagesx() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 134
+2017-08-10 11:13:15 - PHP Warning:  imagesy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 134
+2017-08-10 11:13:15 - PHP Warning:  imagecopy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 134
+2017-08-10 11:13:15 - PHP Warning:  imagejpeg() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 142
+2017-08-10 11:13:15 - PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in G:\xampp\htdocs\oc-test\catalog\controller\tool\upload.php on line 143
+2017-08-10 11:48:07 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 25
+2017-08-10 11:48:07 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 26
+2017-08-10 11:48:07 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 27
+2017-08-10 11:48:07 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 30
+2017-08-10 11:48:07 - PHP Warning:  openssl_sign(): supplied key param cannot be coerced into a private key in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 207
+2017-08-10 12:24:02 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 25
+2017-08-10 12:24:02 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 26
+2017-08-10 12:24:02 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 27
+2017-08-10 12:24:02 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 30
+2017-08-10 12:24:02 - PHP Warning:  openssl_sign(): supplied key param cannot be coerced into a private key in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 207
+2017-08-10 12:28:17 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 25
+2017-08-10 12:28:17 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 26
+2017-08-10 12:28:17 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 27
+2017-08-10 12:28:17 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 30
+2017-08-10 12:28:17 - PHP Warning:  openssl_sign(): supplied key param cannot be coerced into a private key in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 207
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-10 12:59:42 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:00:03 - PHP Notice:  Undefined index: shop in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 110
+2017-08-11 2:00:03 - PHP Notice:  Undefined index: code in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 110
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: firstname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: lastname in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 57
+2017-08-11 2:01:30 - PHP Notice:  Undefined index: status in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 58
+2017-08-11 2:07:43 - PHP Notice:  Undefined index: customer_group_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 242
+2017-08-11 2:15:35 - PHP Notice:  Undefined offset: 0 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 247
+2017-08-11 2:15:35 - PHP Notice:  Undefined offset: 0 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 248
+2017-08-11 2:16:24 - PHP Notice:  Undefined offset: 0 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 248
+2017-08-11 2:16:24 - PHP Notice:  Undefined offset: 0 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 249
+2017-08-11 2:45:54 - PHP Notice:  Undefined variable: page in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 32
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 42
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 44
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 46
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 48
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 50
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 42
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 44
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 46
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 48
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 50
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 42
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 44
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 46
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 48
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 50
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 2:45:54 - PHP Notice:  Undefined index: order_status_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\dashboard.php on line 53
+2017-08-11 4:42:49 - PHP Notice:  Undefined index: payment_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\payment_method.php on line 53
+2017-08-11 4:42:49 - PHP Notice:  Undefined index: payment_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\payment_method.php on line 53
+2017-08-11 4:42:49 - PHP Notice:  Undefined index: payment_address in G:\xampp\htdocs\oc-test\catalog\controller\shopify\payment_method.php on line 53
+2017-08-11 4:44:17 - PHP Warning:  Illegal string offset 'country_id' in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\cod.php on line 6
+2017-08-11 4:44:17 - PHP Notice:  Uninitialized string offset: 0 in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\cod.php on line 6
+2017-08-11 4:44:17 - PHP Warning:  Illegal string offset 'zone_id' in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\cod.php on line 6
+2017-08-11 4:44:17 - PHP Notice:  Uninitialized string offset: 0 in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\cod.php on line 6
+2017-08-11 4:44:17 - PHP Warning:  Illegal string offset 'country_id' in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 22
+2017-08-11 4:44:17 - PHP Notice:  Uninitialized string offset: 0 in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 22
+2017-08-11 4:44:17 - PHP Warning:  Illegal string offset 'zone_id' in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 22
+2017-08-11 4:44:17 - PHP Notice:  Uninitialized string offset: 0 in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 22
+2017-08-11 4:49:34 - PHP Warning:  Illegal string offset 'country_id' in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\cod.php on line 6
+2017-08-11 4:49:34 - PHP Warning:  Illegal string offset 'zone_id' in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\cod.php on line 6
+2017-08-11 4:49:34 - PHP Warning:  Illegal string offset 'country_id' in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 22
+2017-08-11 4:49:34 - PHP Warning:  Illegal string offset 'zone_id' in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 22
+2017-08-11 5:04:01 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 25
+2017-08-11 5:04:01 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 26
+2017-08-11 5:04:01 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 27
+2017-08-11 5:04:01 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 30
+2017-08-11 5:04:01 - PHP Warning:  openssl_sign(): supplied key param cannot be coerced into a private key in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 207
+2017-08-11 5:09:36 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 25
+2017-08-11 5:09:36 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 26
+2017-08-11 5:09:36 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 27
+2017-08-11 5:09:36 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 30
+2017-08-11 5:09:36 - PHP Warning:  openssl_sign(): supplied key param cannot be coerced into a private key in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 207
+2017-08-11 5:29:04 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 25
+2017-08-11 5:29:04 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 26
+2017-08-11 5:29:04 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 27
+2017-08-11 5:29:04 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 30
+2017-08-11 5:29:04 - PHP Warning:  openssl_sign(): supplied key param cannot be coerced into a private key in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 207

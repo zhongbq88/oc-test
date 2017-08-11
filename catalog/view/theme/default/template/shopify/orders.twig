@@ -33,13 +33,13 @@
             <select name="filter_order_status_id" id="input-order-status" class="form-control">
               <option value=""></option>
               
-              {% if filter_order_status_id == '0' %}
+            <!--  {% if filter_order_status_id == '0' %}
               
               <option value="0" selected="selected">{{ text_missing }}</option>
               
               {% else %}
               
-              <option value="0">{{ text_missing }}</option>
+              <option value="0">{{ text_missing }}</option>-->
               
               {% endif %}
               {% for order_status in order_statuses %}
@@ -118,10 +118,6 @@
           </tbody>
         </table>
       </div>
-      <div class="row">
-        <div class="col-sm-6 text-left">{{ pagination }}</div>
-        <div class="col-sm-6 text-right">{{ results }}</div>
-      </div>
       {% else %}
       <p>{{ text_empty }}</p>
       {% endif %}
@@ -174,7 +170,7 @@ $('#button-filter').on('click', function() {
 		url += '&filter_date_modified=' + encodeURIComponent(filter_date_modified);
 	}
 
-	location = 'index.php?route=sale/order&user_token={{ user_token }}' + url;
+	location = 'index.php?route=shopify/orders/filter&user_token={{ user_token }}' + url;
 });
 //--></script> 
   <script type="text/javascript"><!--

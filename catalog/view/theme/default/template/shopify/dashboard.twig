@@ -25,17 +25,17 @@
 				&nbsp;
 			</div>
 			<div class="vc_span2 wpb_column column_container" style="float:left; width:20%; padding:10px;">
-				<div style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0" class="orderib" data-filter="Pending">
+				<div  class="orderib" data-filter="Pending">
 					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
 						<i class="mk-moon-file-9"></i>
 					</div>
 				
 					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
-						{{pending}}
+						{{text_pending}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
-						0
+						{{pending}}
 					</div>				
 				</div>
 			</div>
@@ -43,66 +43,66 @@
 		
 			
 			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;">
-				<div style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0" class="orderib" data-filter="InProd">
+				<div  class="orderib" data-filter="InProd">
 					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
 						<i class="mk-moon-file-9"></i>
 					</div>
 				
 					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
-						{{in_production}}
+						{{text_in_production}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
-						0
+						{{in_production}}
 					</div>				
 				</div>
 			</div>
 
 			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;">
-				<div style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0" class="orderib" data-filter="Shipped">
+				<div  class="orderib" data-filter="Shipped">
 					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
 						<i class="mk-moon-file-9"></i>
 					</div>
 				
 					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
-						{{shipped}}
+						{{text_shipped}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
-						0
+					{{shipped}}
 					</div>				
 				</div>
 			</div>				
 			
 			
 			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;">
-				<div style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0" class="orderib" data-filter="OnHold">
+				<div  class="orderib" data-filter="OnHold">
 					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
 						<i class="mk-moon-file-9"></i>
 					</div>
 				
 					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
-						{{on_hold}}
+						{{text_on_hold}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
-						0
+						{{on_hold}}
 					</div>				
 				</div>
 			</div>
 
 			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;" >
-				<div style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0" class="orderib" data-filter="Cancelled">
+				<div  class="orderib" data-filter="Cancelled">
 					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
 						<i class="mk-moon-file-9"></i>
 					</div>
 				
 					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
-						{{cancelled}}
+						{{text_cancelled}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
-						0
+						{{cancelled}}
 					</div>				
 				</div>
 			</div>
@@ -121,33 +121,33 @@
 			</div>
 			<div>
             <div class="vc_span2 wpb_column column_container"  style=" width:18%; float:left; margin-left:20px" >
-				<div style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0">
+				<div style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0" >
 					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
 						<i class="mk-icon-money" style="background-image:url(../image/notepad-117597_640.png)"></i>
 					</div>
 				
 					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
-						{{aug_total}}
+						{{text_aug_total}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:24px;">
-						$0.00
+						{{aug_total}}
 					</div>				
 				</div>
 			</div>
 
 			<div class="vc_span2 wpb_column column_container" style=" width:18%; float:left; margin-left:20px" >
-				<div style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0">
+				<div  style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0">
 					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
 						<i class="mk-icon-money"></i>
 					</div>
 				
 					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
-						{{aug_charges}}
+						{{text_aug_charges}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:24px;">
-						$0.00
+						{{aug_charges}}
 					</div>				
 				</div>
 			</div>
@@ -307,5 +307,18 @@ App Start
 		color: #ff0000 !important;
 		text-shadow: 0 1px rgba(0, 0, 0, 0.4);
 		}
+		 .orderib{
+			background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0
+			}
+	.orderib:hover {
+           background-color: #87CEFA;border:1px solid #DDD;padding:5px 0 5px 0;
+
+        }
     </style>
+    <script type="text/javascript">
+$('.orderib').on('click', function() {
+	window.location.href='index.php?route=shopify/orders/filter&filter_order_status_id='+ this.getAttribute('data-filter'); 
+});
+
+</script>
 {{ footer }}

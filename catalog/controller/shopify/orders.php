@@ -26,7 +26,7 @@ class ControllerShopifyOrders extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->link('shopify/account', '', true)
 		);
 		
 		$data['breadcrumbs'][] = array(
@@ -42,15 +42,15 @@ class ControllerShopifyOrders extends Controller {
 
 		$data['orders'] = array();
 
-		$this->load->model('account/order');
+		$this->load->model('shopify/order');
 
-		$order_total = $this->model_account_order->getTotalOrders();
+		$order_total = $this->model_shopify_order->getTotalOrders();
 
-		$results = $this->model_account_order->getOrders(($page - 1) * 10, 10);
+		$results = $this->model_shopify_order->getOrders(($page - 1) * 10, 10);
 
 		foreach ($results as $result) {
-			$product_total = $this->model_account_order->getTotalOrderProductsByOrderId($result['order_id']);
-			$voucher_total = $this->model_account_order->getTotalOrderVouchersByOrderId($result['order_id']);
+			$product_total = $this->model_shopify_order->getTotalOrderProductsByOrderId($result['order_id']);
+			$voucher_total = $this->model_shopify_order->getTotalOrderVouchersByOrderId($result['order_id']);
 
 			$data['orders'][] = array(
 				'order_id'   => $result['order_id'],
@@ -59,25 +59,144 @@ class ControllerShopifyOrders extends Controller {
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 				'products'   => ($product_total + $voucher_total),
 				'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
-				'view'       => $this->url->link('account/order/info', 'order_id=' . $result['order_id'], true),
+				'view'       => $this->url->link('shopify/orders/info', 'order_id=' . $result['order_id'], true),
 			);
 		}
 
 		$this->load->model('localisation/order_status');
 
 		$data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
-
+		$index = 0;
+		foreach($data['order_statuses'] as $result){
+			if($result['order_status_id']!=1 && $result['order_status_id']!=3 && $result['order_status_id']!=7&& $result['order_status_id']!=17&& $result[	'order_status_id']!=18){
+				unset($data['order_statuses'][$index]);
+			}
+			$index++;
+		}
 		$pagination = new Pagination();
 		$pagination->total = $order_total;
 		$pagination->page = $page;
 		$pagination->limit = 10;
-		$pagination->url = $this->url->link('account/order', 'page={page}', true);
+		$pagination->url = $this->url->link('shopify/orders', 'page={page}', true);
 
 		$data['pagination'] = $pagination->render();
 
 		$data['results'] = sprintf($this->language->get('text_pagination'), ($order_total) ? (($page - 1) * 10) + 1 : 0, ((($page - 1) * 10) > ($order_total - 10)) ? $order_total : ((($page - 1) * 10) + 10), $order_total, ceil($order_total / 10));
 
-		$data['continue'] = $this->url->link('account/account', '', true);
+		$data['continue'] = $this->url->link('shopify/account', '', true);
+
+		$data['footer'] = $this->load->controller('common/footer');
+		$data['header'] = $this->load->controller('common/header');
+
+		$this->response->setOutput($this->load->view('shopify/orders', $data));
+	}
+	
+	public function filter(){
+		$filter = array();
+		if (isset($this->request->get['filter_order_status_id'])) {
+			$filterstr =  $this->request->get['filter_order_status_id'];
+			if($filterstr=='Pending'){
+				$filter['filter_order_status_id'] = 1;
+			}elseif($filterstr=='InProd'){
+				$filter['filter_order_status_id'] = 17;
+			}else if($filterstr=='Shipped'){
+				$filter['filter_order_status_id'] = 3;
+			}else if($filterstr=='OnHold'){
+				$filter['filter_order_status_id'] = 18;
+			}else if($filterstr=='Cancelled'){
+				$filter['filter_order_status_id'] = 7;
+			}
+		}
+		if (isset($this->request->get['filter_customer'])) {
+			$filter['filter_customer'] =  $this->request->get['filter_customer'];
+		}
+		if (isset($this->request->get['filter_order_id'])) {
+			$filter['filter_order_id'] =  $this->request->get['filter_order_id'];
+		}
+		if (!$this->customer->isLogged()) {
+			$this->session->data['redirect'] = $this->url->link('account/order', '', true);
+
+			$this->response->redirect($this->url->link('account/login', '', true));
+		}
+
+		$this->load->language('shopify/order');
+
+		$this->document->setTitle($this->language->get('heading_title'));
+		
+		$url = '';
+
+		if (isset($this->request->get['page'])) {
+			$url .= '&page=' . $this->request->get['page'];
+		}
+		
+		$data['breadcrumbs'] = array();
+
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('text_home'),
+			'href' => $this->url->link('common/home')
+		);
+
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('text_account'),
+			'href' => $this->url->link('shopify/account', '', true)
+		);
+		
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('heading_title'),
+			'href' => $this->url->link('account/order', $url, true)
+		);
+
+		if (isset($this->request->get['page'])) {
+			$page = $this->request->get['page'];
+		} else {
+			$page = 1;
+		}
+
+		$data['orders'] = array();
+
+		$this->load->model('shopify/order');
+
+		$order_total = $this->model_shopify_order->geFiltertTotalOrders($filter);
+
+		$results = $this->model_shopify_order->getFilterOrders(($page - 1) * 10, 10,$filter);
+
+		foreach ($results as $result) {
+			$product_total = $this->model_shopify_order->getTotalOrderProductsByOrderId($result['order_id']);
+			$voucher_total = $this->model_shopify_order->getTotalOrderVouchersByOrderId($result['order_id']);
+
+			$data['orders'][] = array(
+				'order_id'   => $result['order_id'],
+				'name'       => $result['firstname'] . ' ' . $result['lastname'],
+				'status'     => $result['status'],
+				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
+				'products'   => ($product_total + $voucher_total),
+				'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+				'view'       => $this->url->link('shopify/orders/info', 'order_id=' . $result['order_id'], true),
+			);
+		}
+
+		$this->load->model('localisation/order_status');
+
+		$data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
+		$index = 0;
+		foreach($data['order_statuses'] as $result){
+			if($result['order_status_id']!=1 && $result['order_status_id']!=3 && $result['order_status_id']!=7&& $result['order_status_id']!=17&& $result[	'order_status_id']!=18){
+				unset($data['order_statuses'][$index]);
+			}
+			$index++;
+		}
+
+		$pagination = new Pagination();
+		$pagination->total = $order_total;
+		$pagination->page = $page;
+		$pagination->limit = 10;
+		$pagination->url = $this->url->link('shopify/orders', 'page={page}', true);
+
+		$data['pagination'] = $pagination->render();
+
+		$data['results'] = sprintf($this->language->get('text_pagination'), ($order_total) ? (($page - 1) * 10) + 1 : 0, ((($page - 1) * 10) > ($order_total - 10)) ? $order_total : ((($page - 1) * 10) + 10), $order_total, ceil($order_total / 10));
+
+		$data['continue'] = $this->url->link('shopify/account', '', true);
 
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
@@ -86,7 +205,7 @@ class ControllerShopifyOrders extends Controller {
 	}
 
 	public function info() {
-		$this->load->language('account/order');
+		$this->load->language('shopify/order');
 
 		if (isset($this->request->get['order_id'])) {
 			$order_id = $this->request->get['order_id'];
@@ -95,14 +214,14 @@ class ControllerShopifyOrders extends Controller {
 		}
 
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/order/info', 'order_id=' . $order_id, true);
+			$this->session->data['redirect'] = $this->url->link('shopify/orders/info', 'order_id=' . $order_id, true);
 
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
 
-		$this->load->model('account/order');
+		$this->load->model('shopify/order');
 
-		$order_info = $this->model_account_order->getOrder($order_id);
+		$order_info = $this->model_shopify_order->getOrder($order_id);
 
 		if ($order_info) {
 			$this->document->setTitle($this->language->get('text_order'));
@@ -112,7 +231,7 @@ class ControllerShopifyOrders extends Controller {
 			if (isset($this->request->get['page'])) {
 				$url .= '&page=' . $this->request->get['page'];
 			}
-
+			$data['order_status_id'] = $order_info['order_status_id'];
 			$data['breadcrumbs'] = array();
 
 			$data['breadcrumbs'][] = array(
@@ -122,7 +241,7 @@ class ControllerShopifyOrders extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_account'),
-				'href' => $this->url->link('account/account', '', true)
+				'href' => $this->url->link('shopify/account', '', true)
 			);
 
 			$data['breadcrumbs'][] = array(
@@ -132,7 +251,7 @@ class ControllerShopifyOrders extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_order'),
-				'href' => $this->url->link('account/order/info', 'order_id=' . $this->request->get['order_id'] . $url, true)
+				'href' => $this->url->link('shopify/orders/info', 'order_id=' . $this->request->get['order_id'] . $url, true)
 			);
 
 			if (isset($this->session->data['error'])) {
@@ -237,13 +356,25 @@ class ControllerShopifyOrders extends Controller {
 
 			// Products
 			$data['products'] = array();
-
-			$products = $this->model_account_order->getOrderProducts($this->request->get['order_id']);
-
+			$orderid = $this->request->get['order_id'];
+			$order_product_id;
+			if($order_info['customer_group_id']==4){
+				
+				$order_option_id = substr( $order_info['invoice_prefix'],2);
+			
+				$opt = $this->model_shopify_order->getOrderOption($order_option_id);
+				if(isset($opt[0])){
+					$orderid = $opt[0]['order_id'];
+					$order_product_id = $opt[0]['order_product_id'];
+				}
+			}
+			
+			
+            $products = $this->model_shopify_order->getOrderProducts($orderid);
 			foreach ($products as $product) {
 				$option_data = array();
 
-				$options = $this->model_account_order->getOrderOptions($this->request->get['order_id'], $product['order_product_id']);
+				$options = $this->model_shopify_order->getOrderOptions($orderid, empty($order_product_id)?$product['order_product_id']:$order_product_id);
 
 				foreach ($options as $option) {
 					if ($option['type'] != 'file') {
@@ -287,7 +418,7 @@ class ControllerShopifyOrders extends Controller {
 			// Voucher
 			$data['vouchers'] = array();
 
-			$vouchers = $this->model_account_order->getOrderVouchers($this->request->get['order_id']);
+			$vouchers = $this->model_shopify_order->getOrderVouchers($orderid);
 
 			foreach ($vouchers as $voucher) {
 				$data['vouchers'][] = array(
@@ -299,7 +430,7 @@ class ControllerShopifyOrders extends Controller {
 			// Totals
 			$data['totals'] = array();
 
-			$totals = $this->model_account_order->getOrderTotals($this->request->get['order_id']);
+			$totals = $this->model_shopify_order->getOrderTotals($orderid);
 
 			foreach ($totals as $total) {
 				$data['totals'][] = array(
@@ -313,7 +444,7 @@ class ControllerShopifyOrders extends Controller {
 			// History
 			$data['histories'] = array();
 
-			$results = $this->model_account_order->getOrderHistories($this->request->get['order_id']);
+			$results = $this->model_shopify_order->getOrderHistories($orderid);
 
 			foreach ($results as $result) {
 				$data['histories'][] = array(
@@ -323,16 +454,14 @@ class ControllerShopifyOrders extends Controller {
 				);
 			}
 
-			$data['continue'] = $this->url->link('account/order', '', true);
+			$data['continue'] = $this->url->link('shopify/orders', '', true);
+			
+			$data['paid'] = $this->url->link('shopify/checkout', 'order_id=' . $this->request->get['order_id'] . $url, true);
 
-			$data['column_left'] = $this->load->controller('common/column_left');
-			$data['column_right'] = $this->load->controller('common/column_right');
-			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('account/order_info', $data));
+			$this->response->setOutput($this->load->view('shopify/order_info', $data));
 		} else {
 			return new Action('error/not_found');
 		}
@@ -347,9 +476,9 @@ class ControllerShopifyOrders extends Controller {
 			$order_id = 0;
 		}
 
-		$this->load->model('account/order');
+		$this->load->model('shopify/order');
 
-		$order_info = $this->model_account_order->getOrder($order_id);
+		$order_info = $this->model_shopify_order->getOrder($order_id);
 
 		if ($order_info) {
 			if (isset($this->request->get['order_product_id'])) {
@@ -358,7 +487,7 @@ class ControllerShopifyOrders extends Controller {
 				$order_product_id = 0;
 			}
 
-			$order_product_info = $this->model_account_order->getOrderProduct($order_id, $order_product_id);
+			$order_product_info = $this->model_shopify_order->getOrderProduct($order_id, $order_product_id);
 
 			if ($order_product_info) {
 				$this->load->model('catalog/product');
@@ -368,7 +497,7 @@ class ControllerShopifyOrders extends Controller {
 				if ($product_info) {
 					$option_data = array();
 
-					$order_options = $this->model_account_order->getOrderOptions($order_product_info['order_id'], $order_product_id);
+					$order_options = $this->model_shopify_order->getOrderOptions($order_product_info['order_id'], $order_product_id);
 
 					foreach ($order_options as $order_option) {
 						if ($order_option['type'] == 'select' || $order_option['type'] == 'radio' || $order_option['type'] == 'image') {
@@ -396,6 +525,6 @@ class ControllerShopifyOrders extends Controller {
 			}
 		}
 
-		$this->response->redirect($this->url->link('account/order/info', 'order_id=' . $order_id));
+		$this->response->redirect($this->url->link('shopify/orders/info', 'order_id=' . $order_id));
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']              = 'Orders';
+$_['heading_title']              = 'Dashboard';
 
 // Text
 $_['text_success']               = 'Success: You have modified orders!';
@@ -60,7 +60,6 @@ $_['text_commission_removed']    = 'Success: Commission removed!';
 $_['text_restock']               = 'Success: Products have been restocked!';
 $_['text_upload']                = 'Your file was successfully uploaded!';
 $_['text_picklist']              = 'Dispatch Note';
-$_['text_paid']                  = 'Paid';
 
 // Column
 $_['column_order_id']            = 'Order ID';
@@ -125,14 +124,14 @@ $_['entry_date_modified']        = 'Date Modified';
 $_['text_empty']            = '<span style="font-size:20px">No orders found</span><br><br>You can find orders by changing your search or filtering options.';
 $_['text_error']            = 'The order you requested could not be found!';
 $_['your_vivajean_profits_orders']            = 'Your Vivajean Profits Orders';
-$_['pending']        = 'Pending:';
-$_['in_production']        = 'In-Production:';
-$_['shipped']        = 'Shipped:';
-$_['on_hold']        = 'On-Hold:';
-$_['cancelled']        = 'Cancelled:';
+$_['text_pending']        = 'Pending:';
+$_['text_in_production']        = 'In-Production:';
+$_['text_shipped']        = 'Shipped:';
+$_['text_on_hold']        = 'On-Hold:';
+$_['text_cancelled']        = 'Cancelled:';
 $_['payments_sales']        = 'Payments/Sales';
-$_['aug_total']        = 'Aug. Total:';
-$_['aug_charges']        = 'Aug. Charges:';
+$_['text_aug_total']        = 'Aug. Total:';
+$_['text_aug_charges']        = 'Aug. Charges:';
 $_['add_products']        = 'Add Products';
 $_['add_express_line_products']        = 'Add Express-Line Products';
 $_['view_orders']        = 'View Orders';
