@@ -45,6 +45,12 @@
 {% for analytic in analytics %}
 {{ analytic }}
 {% endfor %}
+<script type="text/javascript">
+$(document).ready(function() {
+	 var type = '{{tabindex}}';
+	 $(".mainnav li").eq(type).addClass ("active");
+});
+</script>
 </head>
 <body>
 <div class="navbar navbar-fixed-top">
@@ -83,10 +89,10 @@
   <div class="subnavbar-inner">
     <div class="container">
       <ul class="mainnav">
-        <li class="active"><a href="index.php?route=shopify/dashboard"><i class="icon-dashboard"></i><span>{{ dashboard }}</span> </a> </li>
-        <li><a href="index.php?route=shopify/category"><i class="icon-reorder"></i><span>{{add_products}}</span> </a></li>
+        <li><a href="index.php?route=shopify/dashboard"><i class="icon-dashboard"></i><span>{{ dashboard }}</span> </a> </li>
+        <li><a href="index.php?route=shopify/category"><i class=" icon-th-large"></i><span>{{add_products}}</span> </a></li>
         <li><a href="index.php?route=shopify/orders"><i class="icon-reorder"></i><span>{{view_orders}}</span> </a></li>
-        <li><a href="index.php?route=shopify/orders"><i class="icon-list-alt"></i><span>{{acct_balance_transactions}}</span> </a> </li>
+        <li><a href="index.php?route=shopify/orders"><i class="icon-briefcase"></i><span>{{acct_balance_transactions}}</span> </a> </li>
         <li><a href="index.php?route=shopify/reports"><i class="icon-list-alt"></i><span>{{reports}}</span> </a> </li>
        <!-- <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">

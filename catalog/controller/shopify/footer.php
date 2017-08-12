@@ -1,7 +1,7 @@
 <?php
 class ControllerShopifyFooter extends Controller {
 	public function index() {
-		$this->load->language('common/footer');
+		$this->load->language('shopify/footer');
 
 		$this->load->model('catalog/information');
 

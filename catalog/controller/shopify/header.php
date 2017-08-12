@@ -25,7 +25,7 @@ class ControllerShopifyHeader extends Controller {
 		}
 
 		$data['title'] = $this->document->getTitle();
-
+		$data['tabindex'] = $this->document->getTabIndex();
 		$data['base'] = $server;
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();
@@ -43,7 +43,7 @@ class ControllerShopifyHeader extends Controller {
 			$data['logo'] = '';
 		}
 
-		$this->load->language('common/header');
+		$this->load->language('shopify/header');
 
 		// Wishlist
 		if ($this->customer->isLogged()) {

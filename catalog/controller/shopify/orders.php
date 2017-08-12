@@ -10,7 +10,7 @@ class ControllerShopifyOrders extends Controller {
 		$this->load->language('shopify/order');
 
 		$this->document->setTitle($this->language->get('heading_title'));
-		
+		$this->document->setTabIndex(2);
 		$url = '';
 
 		if (isset($this->request->get['page'])) {
@@ -85,8 +85,8 @@ class ControllerShopifyOrders extends Controller {
 
 		$data['continue'] = $this->url->link('shopify/account', '', true);
 
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['footer'] = $this->load->controller('shopify/footer');
+		$data['header'] = $this->load->controller('shopify/header');
 
 		$this->response->setOutput($this->load->view('shopify/orders', $data));
 	}
@@ -122,7 +122,7 @@ class ControllerShopifyOrders extends Controller {
 		$this->load->language('shopify/order');
 
 		$this->document->setTitle($this->language->get('heading_title'));
-		
+		$this->document->setTabIndex(2);
 		$url = '';
 
 		if (isset($this->request->get['page'])) {
@@ -198,8 +198,8 @@ class ControllerShopifyOrders extends Controller {
 
 		$data['continue'] = $this->url->link('shopify/account', '', true);
 
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['footer'] = $this->load->controller('shopify/footer');
+		$data['header'] = $this->load->controller('shopify/header');
 
 		$this->response->setOutput($this->load->view('shopify/orders', $data));
 	}
@@ -225,7 +225,7 @@ class ControllerShopifyOrders extends Controller {
 
 		if ($order_info) {
 			$this->document->setTitle($this->language->get('text_order'));
-
+			$this->document->setTabIndex(2);
 			$url = '';
 
 			if (isset($this->request->get['page'])) {
@@ -456,8 +456,8 @@ class ControllerShopifyOrders extends Controller {
 			
 			$data['paid'] = $this->url->link('shopify/checkout', 'order_id=' . $orderid . $url, true);
 
-			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');
+			$data['footer'] = $this->load->controller('shopify/footer');
+			$data['header'] = $this->load->controller('shopify/header');
 
 			$this->response->setOutput($this->load->view('shopify/order_info', $data));
 		} else {

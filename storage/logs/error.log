@@ -1999,3 +1999,6 @@
 2017-08-11 6:47:44 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 27
 2017-08-11 6:47:44 - PHP Notice:  Undefined index: CNY in G:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 30
 2017-08-11 6:47:44 - PHP Warning:  openssl_sign(): supplied key param cannot be coerced into a private key in G:\xampp\htdocs\oc-test\catalog\model\extension\payment\alipay.php on line 207
+2017-08-12 7:58:48 - PHP Warning:  Illegal string offset 'tabtype' in G:\xampp\htdocs\oc-test\catalog\controller\shopify\category.php on line 373
+2017-08-12 11:58:30 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-12 11:59:06 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32

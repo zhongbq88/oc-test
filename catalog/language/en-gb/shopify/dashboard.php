@@ -1,5 +1,6 @@
 <?php
 // Heading
+$_['tab_index'] = 0;
 $_['heading_title']              = 'Dashboard';
 
 // Text
@@ -135,7 +136,7 @@ $_['text_aug_charges']        = 'Aug. Charges:';
 $_['add_products']        = 'Add Products';
 $_['add_express_line_products']        = 'Add Express-Line Products';
 $_['view_orders']        = 'View Orders';
-$_['acct_balance_transactions']        = 'Acct Balance &amp; Transactions';
+$_['acct_balance_transactions']        = 'Transactions';
 $_['store_account_settings']        = 'Store/Account Settings';
 $_['reports']        = 'Reports';
 $_['search_for_orders_by_customer_name_or_order_number']        = 'Search for Orders by Customer Name or Order Number';

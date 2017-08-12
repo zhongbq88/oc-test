@@ -14,6 +14,7 @@ class Document {
 	private $title;
 	private $description;
 	private $keywords;
+	private $tabIndex;
 	private $links = array();
 	private $styles = array();
 	private $scripts = array();
@@ -34,6 +35,24 @@ class Document {
      */
 	public function getTitle() {
 		return $this->title;
+	}
+
+/**
+     * 
+     *
+     * @param	string	$tabIndex
+     */
+	public function setTabIndex($tabIndex) {
+		$this->tabIndex = $tabIndex;
+	}
+
+	/**
+     * 
+	 * 
+	 * @return	string
+     */
+	public function getTabIndex() {
+		return $this->tabIndex;
 	}
 
 	/**
