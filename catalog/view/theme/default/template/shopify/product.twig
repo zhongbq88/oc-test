@@ -4,7 +4,7 @@
           <div id="product">
  {% if options %}
            
-            <h3>{{ text_option }}</h3>
+           <!-- <h3>{{ text_option }}</h3>-->
             <div class="panel-group" id="accordion">  
             {% for option in options %}
             {% if option.type == 'file' %}
@@ -14,7 +14,7 @@
  
   {% if option.name=='TwoFile' %}
   <div class="panel panel-default">
-     <div class="panel-heading {% if option.required %} required {% endif %}" style="height:52px;" >
+     <div class="panel-heading {% if option.required %} required {% endif %}" style="height:52px; background:#FFF" >
     <h4 class="panel-title" style="height:52px;" ><a  data-toggle="collapse" data-parent="#accordion" 
 				   href="#collapse{{options_array[loop.index]}}" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;"><label class="control-label">{{variant}} {{ loop.index }}</label><i class="fa fa-caret-down" style="margin-left:12px;"></i></a>	<div><input type="text" name="variant[{{ option.product_option_id }}]" value="" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  />
                    <img  style=" float:right;  width: auto; height:35px; " id="src-option-two{{ option.product_option_id }}"  />
@@ -38,15 +38,15 @@
     </div>
        <div style="float: left; padding-left:50px; padding-right:60px;">
         {% if thumb or images %}
-          <ul class="thumbnails" >
+          
             {% if thumb %}
              <input type="hidden" name="product-img[{{ option.product_option_id }}]" id="product-img{{ option.product_option_id }}" value="{{ thumb }}" />
              <input type="hidden" name="option-img[{{ option.product_option_id }}]" value="" id="option-img{{ option.product_option_id }}" />
-            <li><a class="thumbnail" id="thumbnail{{ option.product_option_id }}" href="{{ popup }}" title="{{ heading_title }}" style="border:none;"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}"  id="preimg-option{{ option.product_option_id }}"   style="width: auto; height: 160px;" /></a></li>
+            <div><a class="thumbnail" id="thumbnail{{ option.product_option_id }}" href="{{ popup }}" title="{{ heading_title }}" style="border:none;"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}"  id="preimg-option{{ option.product_option_id }}"   style="width: auto; height: 160px;" /></a></div>
              <input type="hidden" name="product-img-two[{{ option.product_option_id }}]" id="product-img-two{{ option.product_option_id }}" value="{{ images[0].thumb }}" />
              <input type="hidden" name="option-img-two[{{ option.product_option_id }}]" value="" id="option-img-two{{ option.product_option_id }}" />
               
-             <li><a class="thumbnail" id="thumbnail-two{{ option.product_option_id }}" href="{{ images[0].popup }}" title="{{ heading_title }}" style="border:none;"><img src="{{ images[0].thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}"  id="preimg-option-two{{ option.product_option_id }}"   style="width: auto; height: 160px;" /></a></li>
+             <div><a class="thumbnail" id="thumbnail-two{{ option.product_option_id }}" href="{{ images[0].popup }}" title="{{ heading_title }}" style="border:none;"><img src="{{ images[0].thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}"  id="preimg-option-two{{ option.product_option_id }}"   style="width: auto; height: 160px;" /></a></div>
            
             {% endif %}
           </ul>

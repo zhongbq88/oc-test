@@ -82,61 +82,82 @@
         </div>
       </div>
     </div>
-    <div class="col-md-9 col-md-pull-3 col-sm-12">
+    
+     <div class="col-md-9 col-md-pull-3 col-sm-12">
       <div class="panel panel-default">
         <!--<div class="panel-heading">
           <h3 class="panel-title"><i class="fa fa-list"></i> {{ text_list }}</h3>
         </div>-->
         <div class="panel-body">
           <form method="post" action="" enctype="multipart/form-data" id="form-order">
-            {% if orders %}
-      <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <td class="text-right">{{ column_order_id }}</td>
-              <td class="text-left">{{ column_customer }}</td>
-              <td class="text-right">{{ column_product }}</td>
-              <td class="text-left">{{ column_status }}</td>
-              <td class="text-right">{{ column_total }}</td>
-              <td class="text-left">{{ column_date_added }}</td>
-               <td class="text-right">{{ text_paid }}</td>
-              <td></td>
-            </tr>
-          </thead>
-          <tbody>
-           {% for order in orders %}
-            <tr>
-              <td class="text-right">#{{ order.order_id }}</td>
-              <td class="text-left">{{ order.name }}</td>
-              <td class="text-right">{{ order.products }}</td>
-              <td class="text-left">{{ order.status }}</td>
-              <td class="text-right">{{ order.total }}</td>
-              <td class="text-left">{{ order.date_added }}</td>
-             <td class="text-left"> <div class="buttons clearfix" style="margin-left:20px;">
-      	{% if order.status=='Pending' %}
-         <div class="pull-left"><a href="{{ paid }}" class="btn btn-danger">{{ text_paid }}</a></div>
-        {% else %}
-        <!--<div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>-->
-        {% endif %}
-      </div></td>
-              <td class="text-right"><a href="{{ order.view }}" data-toggle="tooltip" title="{{ button_view }}" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-      {% else %}
-      <p>{{ text_empty }}</p>
-      {% endif %}
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+                    <td class="text-right">{% if sort == 'o.order_id' %} <a href="{{ sort_order }}" class="{{ order|lower }}">{{ column_order_id }}</a> {% else %} <a href="{{ sort_order }}">{{ column_order_id }}</a> {% endif %}</td>
+                    <td class="text-left">{% if sort == 'customer' %} <a href="{{ sort_customer }}" class="{{ order|lower }}">{{ column_customer }}</a> {% else %} <a href="{{ sort_customer }}">{{ column_customer }}</a> {% endif %}</td>
+                     <td class="text-left">{% if sort == 'product' %} <a href="{{ column_product }}" class="{{ order|lower }}">{{ column_product }}</a> {% else %} <a href="{{ sort_product }}">{{ column_product }}</a> {% endif %}</td>
+                    <td class="text-left">{% if sort == 'order_status' %} <a href="{{ sort_status }}" class="{{ order|lower }}">{{ column_status }}</a> {% else %} <a href="{{ sort_status }}">{{ column_status }}</a> {% endif %}</td>
+                    <td class="text-right">{% if sort == 'o.total' %} <a href="{{ sort_total }}" class="{{ order|lower }}">{{ column_total }}</a> {% else %} <a href="{{ sort_total }}">{{ column_total }}</a> {% endif %}</td>
+                    <td class="text-left">{% if sort == 'o.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+                    <!--<td class="text-left">{% if sort == 'o.date_modified' %} <a href="{{ sort_date_modified }}" class="{{ order|lower }}">{{ column_date_modified }}</a> {% else %} <a href="{{ sort_date_modified }}">{{ column_date_modified }}</a> {% endif %}</td>-->
+                    <td class="text-right" style=" text-align:right">{{ column_action }}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                {% if orders %}
+                {% for order in orders %}
+                <tr>
+                  <td class="text-center"> {% if order.order_id in selected %}
+                    <input type="checkbox" {% if order.status!='Pending' %} disabled {% endif%} name="selected[]" value="{{ order.order_id }}"  />
+                    {% else %}
+                    <input type="checkbox" {% if order.status!='Pending' %} disabled {% endif%} name="selected[]" value="{{ order.order_id }}" />
+                    {% endif %}
+                    <input type="hidden" name="shipping_code[]" value="{{ order.shipping_code }}" /></td>
+                  <td class="text-right">{{ order.order_id }}</td>
+                  <td class="text-left">{{ order.name }}</td>
+                  <td class="text-left">{{ order.products }}</td>
+                  <td class="text-left">{{ order.status }}</td>
+                  <td class="text-right">{{ order.total }}</td>
+                  <td class="text-left">{{ order.date_added }}</td>
+                  <!--<td class="text-left">{{ order.date_modified }}</td>-->
+                  <td class="text-right"><div style="float:right">
+                   <div class="btn-group" style="float:left;"><a href="{{order.pay}}"  data-toggle="tooltip" {% if order.status!='Pending' %} disabled {% endif%}  class="btn btn-danger" >{{ text_paid }}</a></div>
+                      <div class="btn-group"  style="float:left; margin-left:20px;"> <a href="{{ order.view }}" data-toggle="tooltip" title="{{ button_view }}" class="btn btn-primary"><i class="fa fa-eye"></i>{{ button_view }}</a>
+                        <button type="button" {% if order.status!='Pending' %} disabled {% endif%}  data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                          <li><a href="{{ order.edit }}"><i class="fa fa-pencil"></i> {{ button_edit }}</a></li>
+                          <li><a href="{{ order.order_id }}"><i class="fa fa-trash-o"></i> {{ button_delete }}</a></li>
+                        </ul>
+                      </div>
+                    </div></td>
+                </tr>
+                {% endfor %}
+
+                {% else %}
+                <tr>
+                  <td class="text-center" colspan="8">{{ text_no_results }}</td>
+                </tr>
+                {% endif %}
+                  </tbody>
+                
+              </table>
+            </div>
+            <div class="row">
+             <div class="btn-group" style="float: right;"><a href="javascript:pay();" data-toggle="tooltip" title="{{ text_paid_selected }}" class="btn btn-danger" >{{ text_paid_selected }}</a></div>
+          </div>
           </form>
-          <div class="row" style="display:none">
+          
+          <!--<div class="row">
             <div class="col-sm-6 text-left">{{ pagination }}</div>
             <div class="col-sm-6 text-right">{{ results }}</div>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
+    
   </div>
   <script type="text/javascript"><!--
 $('#button-filter').on('click', function() {
@@ -182,6 +203,56 @@ $('#button-filter').on('click', function() {
 });
 //--></script> 
   <script type="text/javascript"><!--
+  
+  function pay(){
+	  var selected = $('input[name^=\'selected\']:checked');
+	  if(selected.length<=0){
+		   alert('Please select a payment order!');
+		   return;
+	  }
+	 
+	  var formData =  new FormData();
+	  formData.append("total", 1);
+	   //alert(123);
+	  $.ajax({
+				url: 'index.php?route=shopify/orders/pay',
+				type: 'post',
+				dataType: 'json',
+				data: formData,
+				cache: false,
+				contentType: false,
+				processData: false,
+				/*beforeSend: function() {
+					$(node).button('loading');
+				},
+				complete: function() {
+					$(node).button('reset');
+				},*/
+				success: function(json) {
+					window.location.href="index.php?route=extension/payment/pp_express/spcheckout";
+					//alert(json);
+					/*$('.text-danger').remove();
+
+					if (json['error']) {
+						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+					}
+
+					if (json['success']) {
+						document.getElementById("src-option"+option_id).src = json['src'];
+						document.getElementById("preimg-option"+option_id).src = json['preimg'];
+						$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
+						$('#thumbnail'+option_id).attr('href',json['preimg']); 
+						$("#option-img"+option_id).val(json['preimg']);
+						$("#input-option"+option_id).val(json['code']);
+					}*/
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+	}
+  
+  
 $('input[name=\'filter_customer\']').autocomplete({
 	'source': function(request, response) {
 		$.ajax({
@@ -202,6 +273,7 @@ $('input[name=\'filter_customer\']').autocomplete({
 	}
 });
 //--></script> 
+
   <script type="text/javascript"><!--
 $('input[name^=\'selected\']').on('change', function() {
 	$('#button-shipping, #button-invoice').prop('disabled', true);

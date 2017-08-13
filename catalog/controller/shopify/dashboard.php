@@ -14,7 +14,7 @@ class ControllerShopifyDashboard extends Controller {
 			$this->getToken();
 		}
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('shopify/order', '', true);
+			$this->session->data['redirect'] = $this->url->link('shopify/dashboard', '', true);
 	
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
@@ -69,14 +69,11 @@ class ControllerShopifyDashboard extends Controller {
 		}
 		
 	public function getToken(){
-		/*if (isset($this->session->data['payment_address']['address_id']) && ($this->request->get['address_id'] == $this->session->data['payment_address']['address_id'])) {
-				$this->load->model('account/address');
-				$this->session->data['payment_address'] = $this->model_account_address->getAddress(1);
-				unset($this->session->data['payment_method']);
-				unset($this->session->data['payment_methods']);
-			}*/
-		# Step 3: http://docs.shopify.com/api/authentication/oauth#confirming-installation
 		if(!isset($_GET['shop'])){
+			if ($this->customer->isLogged()) {
+				$_SESSION['oauth_token'] = $this->customer->getToken();
+				$_SESSION['shop'] = $this->customer->getFirstName().".myshopify.com";
+			}
 			return;
 		}
 		try

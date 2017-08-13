@@ -1254,6 +1254,103 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 			$this->response->redirect($redirect);
 		}
 	}
+	
+	public function spcheckout() {
+		/*if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
+			$this->response->redirect($this->url->link('checkout/cart'));
+		}*/
+		/*echo '<script language="javascript">window.alert("'.$this->request->post['total'].'");</script>';*/
+		if (!isset($this->session->data['total'])) {
+			return;
+		}
+		$this->load->model('extension/payment/pp_express');
+		$this->load->model('tool/image');
+		$this->load->model('shopify/order');
+		//$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
+		$max_amount = $this->session->data['total'];
+		$max_amount = $this->currency->format($max_amount, isset($this->session->data['currency'])?$this->session->data['currency']:'USD', '', false);
+		unset($this->session->data['total']);
+		if ($this->cart->hasShipping()) {
+			$shipping = 0;
+
+			// PayPal requires some countries to use zone code (not name) to be sent in SHIPTOSTATE
+			$ship_to_state_codes = array(
+				'30', // Brazil
+				'38', // Canada
+				'105', // Italy
+				'138', // Mexico
+				'223', // USA
+			);
+
+			if (in_array($order_info['shipping_country_id'], $ship_to_state_codes)) {
+				$ship_to_state = $order_info['shipping_zone_code'];
+			} else {
+				$ship_to_state = $order_info['shipping_zone'];
+			}
+
+			$data_shipping = array(
+				'PAYMENTREQUEST_0_SHIPTONAME'        => html_entity_decode($order_info['shipping_firstname'] . ' ' . $order_info['shipping_lastname'], ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOSTREET'      => html_entity_decode($order_info['shipping_address_1'], ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOSTREET2'     => html_entity_decode($order_info['shipping_address_2'], ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOCITY'        => html_entity_decode($order_info['shipping_city'], ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOSTATE'       => html_entity_decode($ship_to_state, ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOZIP'         => html_entity_decode($order_info['shipping_postcode'], ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE' => $order_info['shipping_iso_code_2'],
+				'ADDROVERRIDE' 						 => 1,
+			);
+		} else {
+			$shipping = 1;
+			$data_shipping = array();
+		}
+
+		$data = array(
+			'METHOD'             => 'SetExpressCheckout',
+			'MAXAMT'             => $max_amount,
+			'RETURNURL'          => $this->url->link('extension/payment/pp_express/checkoutReturn', '', true),
+			'CANCELURL'          => $this->url->link('checkout/checkout', '', true),
+			'REQCONFIRMSHIPPING' => 0,
+			'NOSHIPPING'         => $shipping,
+			'LOCALECODE'         => 'EN',
+			'LANDINGPAGE'        => 'Login',
+			'HDRIMG'             => $this->model_tool_image->resize($this->config->get('payment_pp_express_logo'), 750, 90),
+			'PAYFLOWCOLOR'       => $this->config->get('payment_pp_express_colour'),
+			'CHANNELTYPE'        => 'Merchant',
+			'ALLOWNOTE'          => $this->config->get('payment_pp_express_allow_note')
+		);
+
+		$data = array_merge($data, $data_shipping);
+
+		if (isset($this->session->data['pp_login']['seamless']['access_token']) && (isset($this->session->data['pp_login']['seamless']['customer_id']) && $this->session->data['pp_login']['seamless']['customer_id'] == $this->customer->getId()) && $this->config->get('module_pp_login_seamless')) {
+			$data['IDENTITYACCESSTOKEN'] = $this->session->data['pp_login']['seamless']['access_token'];
+		}
+
+		$data = array_merge($data, $this->model_extension_payment_pp_express->paymentRequestInfo());
+
+		$result = $this->model_extension_payment_pp_express->call($data);
+
+		/**
+		 * If a failed PayPal setup happens, handle it.
+		 */
+		if (!isset($result['TOKEN'])) {
+			$this->session->data['error'] = $result['L_LONGMESSAGE0'];
+			/**
+			 * Unable to add error message to user as the session errors/success are not
+			 * used on the cart or checkout pages - need to be added?
+			 * If PayPal debug log is off then still log error to normal error log.
+			 */
+			$this->log->write('Unable to create Paypal session' . json_encode($result));
+
+			$this->response->redirect($this->url->link('checkout/checkout', '', true));
+		}
+
+		$this->session->data['paypal']['token'] = $result['TOKEN'];
+
+		if ($this->config->get('payment_pp_express_test') == 1) {
+			header('Location: https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=' . $result['TOKEN'] . '&useraction=commit');
+		} else {
+			header('Location: https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=' . $result['TOKEN'] . '&useraction=commit');
+		}
+	}
 
 	public function checkout() {
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {

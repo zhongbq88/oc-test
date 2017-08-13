@@ -9,6 +9,7 @@ class Customer {
 	private $telephone;
 	private $newsletter;
 	private $address_id;
+	private $token;
 
 	public function __construct($registry) {
 		$this->config = $registry->get('config');
@@ -28,7 +29,7 @@ class Customer {
 				$this->telephone = $customer_query->row['telephone'];
 				$this->newsletter = $customer_query->row['newsletter'];
 				$this->address_id = $customer_query->row['address_id'];
-
+				$this->token= $customer_query->row['token'];
 				$this->db->query("UPDATE " . DB_PREFIX . "customer SET language_id = '" . (int)$this->config->get('config_language_id') . "', ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "' WHERE customer_id = '" . (int)$this->customer_id . "'");
 
 				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_ip WHERE customer_id = '" . (int)$this->session->data['customer_id'] . "' AND ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "'");
@@ -68,7 +69,7 @@ class Customer {
 			$this->telephone = $customer_query->row['telephone'];
 			$this->newsletter = $customer_query->row['newsletter'];
 			$this->address_id = $customer_query->row['address_id'];
-
+			$this->token= $customer_query->row['token'];
 			$this->db->query("UPDATE " . DB_PREFIX . "customer SET " . ((isset($new_password_hashed)) ? "salt = '', password = '" . $this->db->escape($new_password_hashed) . "', " : "") . "language_id = '" . (int)$this->config->get('config_language_id') . "', ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "' WHERE customer_id = '" . (int)$this->customer_id . "'");
 
 			return true;
@@ -112,6 +113,10 @@ class Customer {
 
 	public function getEmail() {
 		return $this->email;
+	}
+	
+	public function getToken() {
+		return $this->token;
 	}
 
 	public function getTelephone() {

@@ -49,17 +49,20 @@ class ControllerShopifyOrders extends Controller {
 		$results = $this->model_shopify_order->getOrders(($page - 1) * 10, 10);
 
 		foreach ($results as $result) {
-			$product_total = $this->model_shopify_order->getTotalOrderProductsByOrderId($result['order_id']);
-			$voucher_total = $this->model_shopify_order->getTotalOrderVouchersByOrderId($result['order_id']);
-
+			//echo $result['order_id'];
+			$orderProducts = $this->model_shopify_order->getOrderProducts($result['order_id']);
+			$total = isset($orderProducts[0])?$orderProducts[0]['total']:0;
 			$data['orders'][] = array(
 				'order_id'   => $result['order_id'],
-				'name'       => $result['firstname'] . ' ' . $result['lastname'],
+				'name'       => isset($result['shipping_firstname'])?$result['shipping_firstname'] . ' ' . $result['shipping_lastname']:$result['firstname'] . ' ' . $result['lastname'],
 				'status'     => $result['status'],
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				'products'   => ($product_total + $voucher_total),
-				'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+				'products'   => isset($orderProducts[0])?$orderProducts[0]['name']:'',
+				'quantity'   => isset($orderProducts[0])?$orderProducts[0]['quantity']:'',
+				'total'      => "$".$total,
+				'total_paid' => $total,
 				'view'       => $this->url->link('shopify/orders/info', 'order_id=' . $result['order_id'], true),
+				'pay'       => $this->url->link('shopify/orders/pay', 'total=' . $total, true),
 			);
 		}
 
@@ -87,6 +90,7 @@ class ControllerShopifyOrders extends Controller {
 
 		$data['footer'] = $this->load->controller('shopify/footer');
 		$data['header'] = $this->load->controller('shopify/header');
+		$data['paid'] = $this->url->link('extension/payment/pp_express/ipn', '', true);
 
 		$this->response->setOutput($this->load->view('shopify/orders', $data));
 	}
@@ -463,6 +467,19 @@ class ControllerShopifyOrders extends Controller {
 		} else {
 			return new Action('error/not_found');
 		}
+	}
+	
+	public function pay(){
+		//$this->response->redirect($this->url->link('extension/payment/pp_express/spcheckout', '', true));
+		/*echo '<script language="javascript">window.alert("123");</script>';*/
+		if (!isset($this->request->get['total'])) {
+			$this->response->addHeader('Content-Type: application/json');
+			$json = array();
+			$this->response->setOutput(json_encode($json));
+			return;
+		}
+		$this->session->data['total'] = $this->request->get['total'];
+		$this->response->redirect($this->url->link('extension/payment/pp_express/spcheckout', '', true));
 	}
 
 	public function reorder() {

@@ -8,6 +8,7 @@ require __DIR__.'/conf.php';
 
 class ControllerShopifyGetorders extends Controller {
 	public function index(){
+		//echo $_SESSION['shop']."--".$_SESSION['oauth_token'];
 		$shopify = shopify\client($_SESSION['shop'], SHOPIFY_APP_API_KEY, $_SESSION['oauth_token']);
 
 	try
@@ -15,9 +16,9 @@ class ControllerShopifyGetorders extends Controller {
 		//print_r();
 		//echo print_r('product='.$_SESSION['product']);
 		# Making an API request can throw an exception
-		$orders = $shopify('GET /admin/orders.json');
+		$orders = $shopify('GET /admin/orders.json?status=any');
 		$this->load->model('localisation/order_status');
-
+		print_r($orders);
 		$order_statuses = $this->model_localisation_order_status->getOrderStatuses();
 	
 		$this->load->model('account/customer');
@@ -29,9 +30,10 @@ class ControllerShopifyGetorders extends Controller {
 		$this->load->model('shopify/order');
 		foreach($orders as $order){
 			$od = $this->initOrder($order,$order_statuses,$customer_info);
+			
 			print_r($od);
-			$order_id = $this->model_shopify_order->addOrder($od);
-			echo $order_id;
+			//$order_id = $this->model_shopify_order->addOrder($od);
+			//echo $order_id;
 		}
 		
 		//return true;
@@ -140,7 +142,15 @@ class ControllerShopifyGetorders extends Controller {
 			$order_data['invoice_prefix'] = $order['line_items'][0]['sku'];
 			$order_data['store_id'] = $this->config->get('config_store_id');
 			$order_data['store_name'] = $this->config->get('config_name');
-
+			echo preg_replace('/\D/s', '',$order_data['invoice_prefix']);
+			$orderProducts = $this->model_shopify_order->getOrderProducts(preg_replace('/\D/s', '',$order_data['invoice_prefix']));
+			print_r($orderProducts);
+			if(count($orderProducts)>0){
+				$od['products'] = $orderProducts[0];
+				$od['products']['order_id'] = $order_data['order_id'];
+				$od['products']['quantity'] = count($order['line_items']);
+				$od['products']['total'] = $order['price']*$od['products']['quantity'];
+			}
 			if ($order_data['store_id']) {
 				$order_data['store_url'] = $this->config->get('config_url');
 			} else {
