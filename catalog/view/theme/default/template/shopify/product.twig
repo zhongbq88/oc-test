@@ -1,4 +1,4 @@
-{{ header }}
+
 <div id="product-product" class="container">
  <input type="hidden" name="product_id" value="{{ product_id }}" />
           <div id="product">
@@ -100,150 +100,11 @@
    </div>        
 </div> 
 
-
-<!--edit shopify produce start-->
-<div id="theme-content" style="display:none" >
-<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false"   >
-	<div class="vc_span12 wpb_column column_container " >
-
-			<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-				
-				<b> {{cover}} -  {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} {{each}}</b><br>&nbsp;
-		
-			</div>		
-
-	</div>
-
-<div  style="border:1px solid #CCC;background-color:#F4F4F4;padding:12px; overflow:hidden; " >
-<form id="pubform">
-<div style="float:left; width:70%">
-	<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false" >
-		<div style="text-align:left" class="vc_span9 wpb_column column_container ">
-			
-
-				<div id="mk-text-block-221" style=" margin-bottom:10px;text-align: left;font-size:22px;font-weight:bold" class="mk-text-block  ">
-					
-					 {{cover}} - {% if not special %}{{ price }}{% else %}{{ special }}{% endif %}
-					
-				</div>
-				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;font-size:12px" class="mk-text-block  ">
-					{{shopify_product_des}}
-				</div>		
-				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-					{{product_title}}
-				</div>		
-				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
-					<input name="pttl" type="text" style="width:500px" value="{{ heading_title }}">
-				</div>		
-				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-                {{product_description}}
-					
-				</div>		
-				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
-					<textarea name="pdsc" style="width:500px;height:100px">{{ description }}</textarea>
-				</div>	
-
-				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-                 {{add_to_shopify_collection}}
-					
-				</div>		
-				
-				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
-					<select name="pcol" style="width:400px"><option value="0">- None -</option><option value="459306312">Home page</option>
-								</select>
-				</div>
-				
-				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-					{{add_product_tags}}
-				</div>				
-				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
-					<input name="ptag" type="text" style="width:500px" placeholder="Comma-separated tags" value="{% for i in 0..tags|length %}{% if i < (tags|length - 1) %}{{ tags[i].tag}},{% else %}{{tags[i].tag}}{% endif %}{% endfor %}">
-				</div>
-				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-                {{your_selling_price_for_this_product}}
-					
-				</div>				
-				<div id="mk-text-block-221" style=" margin-bottom:40px;text-align: left;" class="mk-text-block  ">
-					<input name="pspr" type="text" style="width:200px" value="{{ price }}">
-				</div>
-				
-				
-				<div class="mk-button-align fullwidth-button center" style="float:right; margin-right:20%">
-						<a href="index.php?route=shopify/createproduct" id="gopublish"  class="btn btn-primary btn-lg btn-block" >
-						<i class="mk-moon-arrow-right-6"></i>{{publish_product}}</a></div>
-			
-			
-			
-			
-
-		</div>
-        </div>
-		
-	</div>
-
-
-
-<div style="text-align:center; float:right; margin:0 auto;" class="vc_span3 wpb_column column_container ">
-		
-          <ul class="preview-thumbnails" >
-
-          </ul>
-
-	
-		</div>
-</form>
 </div>
 </div>
 </div>
-<!--edit shopify produce end-->、
-</div>
-</div>
-</div>
-<script type="text/javascript"><!--
-$('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
-	$.ajax({
-		url: 'index.php?route=product/product/getRecurringDescription',
-		type: 'post',
-		data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
-		dataType: 'json',
-		beforeSend: function() {
-			$('#recurring-description').html('');
-		},
-		success: function(json) {
-			$('.alert-dismissible, .text-danger').remove();
 
-			if (json['success']) {
-				$('#recurring-description').html(json['success']);
-			}
-		}
-	});
-});
-//--></script> 
-<script type="text/javascript"><!--
-$('#gopublish').on('click', function() {
-	$.ajax({
-		url: 'index.php?route=shopify/product/add',
-		type: 'post',
-		data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\'],#product-product select,  #product-product textarea'),
-		dataType: 'json',
-		beforeSend: function() {
-			$('#button-cart').button('loading');
-		},
-		complete: function() {
-			$('#button-cart').button('reset');
-		},
-		success: function(json) {
-			//alert(json['success']);
-			
-		},
-        error: function(xhr, ajaxOptions, thrownError) {
-            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-        }
-	});
-});
-//--></script> 
-
-<script type="text/javascript"><!--
+<script type="text/javascript">
 $('#button-cart').on('click', function() {
 	
 	$.ajax({
@@ -311,23 +172,8 @@ $('#button-cart').on('click', function() {
         }
 	});
 });
-//--></script> 
-<script type="text/javascript"><!--
-$('.date').datetimepicker({
-	language: '{{ datepicker }}',
-	pickTime: false
-});
-
-$('.datetime').datetimepicker({
-	language: '{{ datepicker }}',
-	pickDate: true,
-	pickTime: true
-});
-
-$('.time').datetimepicker({
-	language: '{{ datepicker }}',
-	pickDate: false
-});
+</script> 
+<script type="text/javascript">
 
 $('button[id^=\'button-upload\']').on('click', function() {
 	var node = this;
@@ -445,56 +291,8 @@ $('button[id^=\'button-two-upload\']').on('click', function() {
 		}
 	}, 500);
 });
-//--></script> 
-<script type="text/javascript"><!--
-$('#review').delegate('.pagination a', 'click', function(e) {
-    e.preventDefault();
-
-    $('#review').fadeOut('slow');
-
-    $('#review').load(this.href);
-
-    $('#review').fadeIn('slow');
-});
-
-$('#review').load('index.php?route=product/product/review&product_id={{ product_id }}');
-
-$('#button-review').on('click', function() {
-
-	$.ajax({
-		url: 'index.php?route=product/product/write&product_id={{ product_id }}',
-		type: 'post',
-		dataType: 'json',
-		data: $("#form-review").serialize(),
-		beforeSend: function() {
-			$('#button-review').button('loading');
-		},
-		complete: function() {
-			$('#button-review').button('reset');
-		},
-		success: function(json) {
-			$('.alert-dismissible').remove();
-
-			if (json['error']) {
-				$('#review').after('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
-			}
-
-			if (json['success']) {
-
-				
-				 //document.getElementById('product').style.display = 'none';
-				 //document.getElementById('heme-content').style.display = 'block';
-				
-				$('#review').after('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
-
-				$('input[name=\'name\']').val('');
-				$('textarea[name=\'text\']').val('');
-				$('input[name=\'rating\']:checked').prop('checked', false);
-			}
-		}
-	});
-});
-
+</script> 
+<script type="text/javascript">
 $(document).ready(function() {
 	$('.thumbnails').magnificPopup({
 		type:'image',
@@ -505,29 +303,5 @@ $(document).ready(function() {
 	});
 	
 });
-//--></script> 
-<style>.form-control {
-  display: block;
-  width: 100%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
-.form-control:focus {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-}</style>
-{{ footer }} 
+</script> 
+

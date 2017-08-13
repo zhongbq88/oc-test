@@ -69,6 +69,12 @@ class ControllerShopifyDashboard extends Controller {
 		}
 		
 	public function getToken(){
+		/*if (isset($this->session->data['payment_address']['address_id']) && ($this->request->get['address_id'] == $this->session->data['payment_address']['address_id'])) {
+				$this->load->model('account/address');
+				$this->session->data['payment_address'] = $this->model_account_address->getAddress(1);
+				unset($this->session->data['payment_method']);
+				unset($this->session->data['payment_methods']);
+			}*/
 		# Step 3: http://docs.shopify.com/api/authentication/oauth#confirming-installation
 		if(!isset($_GET['shop'])){
 			return;
@@ -89,12 +95,15 @@ class ControllerShopifyDashboard extends Controller {
 			if(empty($customer)){
 				$customer_id = $this->model_account_customer->addShopifyUser($shop,$oauth_token);
 			}
+			
 			$this->customer->login($email, $shop);
 			
 	$this->session->data['oauth_token'] = $oauth_token;
 	$this->session->data['shop'] = $_GET['shop'];
 			$_SESSION['oauth_token'] = $oauth_token;
 			$_SESSION['shop'] = $_GET['shop'];
+			
+			
 			return $_SESSION['shop'];
 			//echo 'App Successfully Installed!';
 		}
