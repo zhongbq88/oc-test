@@ -231,6 +231,11 @@ $sql .="ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit;
 
 		return $query->rows;
 	}
+	public function getOrderProductsByOrderProductId($order_product_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$order_product_id . "'");
+
+		return $query->rows;
+	}
 
 	public function getOrderOption($order_option_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_option WHERE order_option_id = '" . (int)$order_option_id . "'");

@@ -143,13 +143,13 @@ class ControllerShopifyGetorders extends Controller {
 			$order_data['store_id'] = $this->config->get('config_store_id');
 			$order_data['store_name'] = $this->config->get('config_name');
 			echo preg_replace('/\D/s', '',$order_data['invoice_prefix']);
-			$orderProducts = $this->model_shopify_order->getOrderProducts(preg_replace('/\D/s', '',$order_data['invoice_prefix']));
+			$orderProducts = $this->model_shopify_order->getOrderProductsByOrderProductId(preg_replace('/\D/s', '',$order_data['invoice_prefix']));
 			print_r($orderProducts);
 			if(count($orderProducts)>0){
 				$od['products'] = $orderProducts[0];
 				$od['products']['order_id'] = $order_data['order_id'];
 				$od['products']['quantity'] = count($order['line_items']);
-				$od['products']['total'] = $order['price']*$od['products']['quantity'];
+				$od['products']['total'] = $orderProducts[0]['price']*$od['products']['quantity'];
 			}
 			if ($order_data['store_id']) {
 				$order_data['store_url'] = $this->config->get('config_url');

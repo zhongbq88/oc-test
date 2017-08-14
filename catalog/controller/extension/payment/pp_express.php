@@ -1267,7 +1267,7 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 		$this->load->model('tool/image');
 		$this->load->model('shopify/order');
 		//$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
-		$max_amount = $this->session->data['total'];
+		$max_amount = this->session->data['total'];
 		$max_amount = $this->currency->format($max_amount, isset($this->session->data['currency'])?$this->session->data['currency']:'USD', '', false);
 		unset($this->session->data['total']);
 		if ($this->cart->hasShipping()) {
@@ -1340,7 +1340,7 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 			 */
 			$this->log->write('Unable to create Paypal session' . json_encode($result));
 
-			$this->response->redirect($this->url->link('checkout/checkout', '', true));
+			$this->response->redirect($this->url->link('shopify/orders', '', true));
 		}
 
 		$this->session->data['paypal']['token'] = $result['TOKEN'];
