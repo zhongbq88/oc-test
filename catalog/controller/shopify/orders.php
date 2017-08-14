@@ -65,6 +65,7 @@ class ControllerShopifyOrders extends Controller {
 				'status'     => $result['status'],
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 				//'products'   => isset($orderProduct)?$orderProduct['name']:'',
+				'cancel' => $this->url->link('shopify/orders/cancel', 'order_id=' . $result['order_id'] . $url, true),
 				'quantity'   => $quantity,
 				'total'      => "$".$total,
 				'total_paid' => $total,
@@ -468,6 +469,7 @@ class ControllerShopifyOrders extends Controller {
 			$data['continue'] = $this->url->link('shopify/orders', '', true);
 			
 			$data['paid'] = $this->url->link('shopify/orders/pay', 'order_id=' . $orderid . $url, true);
+			
 
 			$data['footer'] = $this->load->controller('shopify/footer');
 			$data['header'] = $this->load->controller('shopify/header');
@@ -476,6 +478,17 @@ class ControllerShopifyOrders extends Controller {
 		} else {
 			return new Action('error/not_found');
 		}
+	}
+	
+	public function cancel(){
+		if (isset($this->request->post['order_id'])) {
+			$order_product_id = $this->request->post['order_id'];
+			//$quantity = $this->request->post['quantity'];
+			$this->load->model('shopify/order');
+		    $this->model_shopify_order->updateOrderProduct($order_id,7);
+			$this->response->redirect($this->url->link('shopify/orders', '', true));
+		}
+	
 	}
 	
 	public function update(){

@@ -248,6 +248,11 @@ $sql .="ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit;
 		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET quantity = '" . (int)$quantity . "' WHERE order_product_id = '" . (int)$order_product_id . "'");
 
 	}
+	
+	public function updateOrderStatus($order_id,$order_status_id){
+		$this->db->query("UPDATE `" . DB_PREFIX . "order` SET order_status_id = '" . (int)$order_status_id . "' WHERE order_id = '" . $order_id . "'");
+
+	}
 
 	public function getOrderOption($order_option_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_option WHERE order_option_id = '" . (int)$order_option_id . "'");
