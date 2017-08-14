@@ -51,19 +51,27 @@ class ControllerShopifyOrders extends Controller {
 		foreach ($results as $result) {
 			//echo $result['order_id'];
 			$orderProducts = $this->model_shopify_order->getOrderProducts($result['order_id']);
-			$total = isset($orderProducts[0])?$orderProducts[0]['total']:0;
+			//$total = isset($orderProducts[0])?$orderProducts[0]['total']:0;
+			$total = 0;
+			$quantity = 0;
+			foreach($orderProducts as $orderProduct){
+				$total += isset($orderProduct)?$orderProduct['total']:0;
+				$quantity += isset($orderProduct)?$orderProduct['quantity']:0;
+			}
 			$data['orders'][] = array(
 				'order_id'   => $result['order_id'],
+				//'order_product_id' =>isset($$orderProduct)?$orderProduct['name']:'0',
 				'name'       => isset($result['shipping_firstname'])?$result['shipping_firstname'] . ' ' . $result['shipping_lastname']:$result['firstname'] . ' ' . $result['lastname'],
 				'status'     => $result['status'],
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				'products'   => isset($orderProducts[0])?$orderProducts[0]['name']:'',
-				'quantity'   => isset($orderProducts[0])?$orderProducts[0]['quantity']:'',
+				//'products'   => isset($orderProduct)?$orderProduct['name']:'',
+				'quantity'   => $quantity,
 				'total'      => "$".$total,
 				'total_paid' => $total,
 				'view'       => $this->url->link('shopify/orders/info', 'order_id=' . $result['order_id'], true),
 				'pay'       => $this->url->link('shopify/orders/pay', 'order_id=' . $result['order_id'], true),
 			);
+			
 		}
 
 		$this->load->model('localisation/order_status');
@@ -412,6 +420,7 @@ class ControllerShopifyOrders extends Controller {
 					'quantity' => $product['quantity'],
 					'price'    => $product['price'],
 					'total'    => $product['total'],
+					'order_product_id'    => $product['order_product_id'],
 					'reorder'  => $reorder,
 					'return'   => $this->url->link('account/return/add', 'order_id=' . $order_info['order_id'] . '&product_id=' . $product['product_id'], true)
 				);
@@ -458,7 +467,7 @@ class ControllerShopifyOrders extends Controller {
 
 			$data['continue'] = $this->url->link('shopify/orders', '', true);
 			
-			$data['paid'] = $this->url->link('shopify/checkout', 'order_id=' . $orderid . $url, true);
+			$data['paid'] = $this->url->link('shopify/orders/pay', 'order_id=' . $orderid . $url, true);
 
 			$data['footer'] = $this->load->controller('shopify/footer');
 			$data['header'] = $this->load->controller('shopify/header');
@@ -469,17 +478,36 @@ class ControllerShopifyOrders extends Controller {
 		}
 	}
 	
+	public function update(){
+		if (isset($this->request->post['order_product_id'])) {
+			$order_product_id = $this->request->post['order_product_id'];
+			$quantity = $this->request->post['quantity'];
+			$this->load->model('shopify/order');
+		    $order_info = $this->model_shopify_order->updateOrderProduct($order_product_id,$quantity);
+			$json['success'] ='1';
+			$this->response->addHeader('Content-Type: application/json');
+			$this->response->setOutput(json_encode($json));
+		}
+	
+	}
+	
 	public function pay(){
 		//$this->response->redirect($this->url->link('extension/payment/pp_express/spcheckout', '', true));
 		/*echo '<script language="javascript">window.alert("123");</script>';*/
 		if (!isset($this->request->get['order_id'])) {
-			$this->response->addHeader('Content-Type: application/json');
 			$json = array();
+			if(isset($this->request->post['order_id'])){
+				$this->session->data['order_id'] = explode(",", $this->request->post['order_id']);
+				$json['success'] ='1';
+			}
+			$this->response->addHeader('Content-Type: application/json');
 			$this->response->setOutput(json_encode($json));
-			return;
+		}else {
+			$this->session->data['order_id'] = array($this->request->get['order_id']);
+			$this->response->redirect($this->url->link('extension/payment/pp_express/checkout', '', true));
 		}
-		$this->session->data['order_id'] = $this->request->get['order_id'];
-		$this->response->redirect($this->url->link('extension/payment/pp_express/checkout', '', true));
+			
+			
 	}
 
 	public function reorder() {

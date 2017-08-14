@@ -78,12 +78,16 @@ class ControllerToolUpload extends Controller {
 			$srcfilenames =  explode('-', $paths[count($paths)-1]);
 			$src =  str_replace('-'.$srcfilenames[count($srcfilenames)-1],"",$src).".png";
 			$savepat = DIR_IMAGE."/catalog/designs/";
-			$ttt =  $this->spliceImage(DIR_UPLOAD . $file,$src,$savepat);
+			
 			
 			$json['src'] = "/storage/upload/" . $file;
-			$json['preimg'] = "/image/catalog/designs/" . $ttt;
+			if(file_exists($src)){
+				$ttt =  $this->spliceImage(DIR_UPLOAD . $file,$src,$savepat);
+				$json['preimg'] = "/image/catalog/designs/" . $ttt;
+			}
+			
 			/*$this->load->model('tool/image');
-			if ($json['src']) {
+			if ($json['src']) { 
 				$json['src'] = $this->model_tool_image->resize($json['src'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_height'));
 			}
 			if ($json['preimg']) {
@@ -104,6 +108,9 @@ class ControllerToolUpload extends Controller {
  * $kuang:边框路径：与$photo格式相同
  */
 function spliceImage($photo,$kuang,$savepath){
+	if(!file_exists($kuang)){
+		return '';
+	}
     //将两幅图分别取到两个画布中
     $image_kuang = imagecreatefrompng($kuang);
     $image_photo = imagecreatefromjpeg($photo);

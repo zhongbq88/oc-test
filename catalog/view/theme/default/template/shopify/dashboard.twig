@@ -1,295 +1,320 @@
 {{ header }}
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span6">
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3> {{payments_sales}}</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div class="widget big-stats-container">
-                <div class="widget-content">
-                  <h6 class="bigstats">If this is your first time here, please see our <a href="" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Quick Start Guide</a> for more information.</h6>
-                  <div id="big_stats" class="cf">
-                    <div class="stat"> <i class="icon-money"></i>
-                    <div style=" margin-bottom:10px;text-align: center;font-size:16px">
-						{{text_aug_total}}
+<div id="account-order" class="container">
+  <div id="product-product" class="container">
+          <div id="product">
+<div class="theme-content">
+<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false">
+	<div style="" class="vc_span12 wpb_column column_container ">
+		<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div><div class="clearboth"></div>
+
+			
+			<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
+				Welcome to the <strong> Profits </strong> Shopify app.<br>
+				If this is your first time here, please see our <a href="" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Quick Start Guide</a> for more information.
+				<div class="clearboth"></div>
+			</div> <div class="clearboth"></div>		
+		
+		
+	</div>
+	<div style="background-color:#F8F8F8;border:1px solid #DDD;padding:15px 5px 5px 5px;margin-top:15px" class="vc_span12 wpb_column column_container ">
+
+		<b>{{your_vivajean_profits_orders}}</b>:
+	
+		<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false" style="margin-top:10px;margin-bottom:20px; padding-left:20px; padding-right:20px;">	
+			<div style="" class="vc_span1 wpb_column column_container " style="float:left; width:10%; padding:10px;" >
+				&nbsp;
+			</div>
+			<div class="vc_span2 wpb_column column_container" style="float:left; width:20%; padding:10px;">
+				<div  class="orderib" data-filter="Pending">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-moon-file-9"></i>
 					</div>
-                    <span class="value">{{aug_total}}</span> </div>
-                    <!-- .stat -->
-                    
-                    <div class="stat"> <i class="icon-money"></i> 
-                    <div style=" margin-bottom:10px;text-align: center;font-size:16px">
-						{{text_aug_charges}}
-					</div>
-                    <span class="value">{{aug_charges}}</span> </div>
-                    <!-- .stat -->
-                    
-                    <!--<div class="stat"> <i class="icon-twitter-sign"></i> <span class="value">922</span> </div>-->
-                    <!-- .stat -->
-                    
-                  <!--  <div class="stat"> <i class="icon-bullhorn"></i> <span class="value">25%</span> </div>-->
-                    <!-- .stat --> 
-                  </div>
-                </div>
-                <!-- /widget-content --> 
-                
-              </div>
-            </div>
-          </div>
-          <!-- /widget -->
-           <div class="widget">
-            <div class="widget-header"> <i class="icon-signal"></i>
-              <h3> Area Chart</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <canvas id="area-chart" class="chart-holder" height="250" width="538"> </canvas>
-              <!-- /area-chart --> 
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-          
-        </div>
-        <!-- /span6 -->
-        <div class="copyrights"></div>
-        <div class="span6">
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-bookmark"></i>
-              <h3>{{your_vivajean_profits_orders}}</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div class="shortcuts"> <a href="javascript:;" class="shortcut">
-              <!--<i class="shortcut-icon icon-list-alt"></i>--><span
-                                        class="shortcut-label"><div style=" margin-bottom:10px;text-align: center;font-size:16px; margin-top:5px;">
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
 						{{text_pending}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
 						{{pending}}
-					</div>	</span> </a><a href="javascript:;" class="shortcut">
-                                       <!-- <i class="shortcut-icon icon-bookmark"></i>--><span class="shortcut-label"><div style=" margin-bottom:10px;text-align: center;font-size:16px; margin-top:5px;">
+					</div>				
+				</div>
+			</div>
+
+		
+			
+			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;">
+				<div  class="orderib" data-filter="InProd">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-moon-file-9"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
 						{{text_in_production}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
 						{{in_production}}
-					</div>	</span> </a><a href="javascript:;" class="shortcut">
-                                       <!-- <i class="shortcut-icon icon-signal"></i>-->
-                                         <span class="shortcut-label"><div style=" margin-bottom:10px;text-align: center;font-size:16px; margin-top:5px;">
+					</div>				
+				</div>
+			</div>
+
+			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;">
+				<div  class="orderib" data-filter="Shipped">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-moon-file-9"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
 						{{text_shipped}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
 					{{shipped}}
-					</div>			</span> </a><a href="javascript:;" class="shortcut"> 
-                                       <!--  <i class="shortcut-icon icon-user"></i>--><span
-                                                class="shortcut-label"><div style=" margin-bottom:10px;text-align: center;font-size:16px; margin-top:5px;">
+					</div>				
+				</div>
+			</div>				
+			
+			
+			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;">
+				<div  class="orderib" data-filter="OnHold">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-moon-file-9"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
 						{{text_on_hold}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
 						{{on_hold}}
-					</div>		</span> </a><a href="javascript:;" class="shortcut"> 
-                                              <!--  <i class="shortcut-icon icon-file"></i>--><span class="shortcut-label"><div style=" margin-bottom:10px;text-align: center;font-size:16px; margin-top:5px;">
+					</div>				
+				</div>
+			</div>
+
+			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;" >
+				<div  class="orderib" data-filter="Cancelled">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-moon-file-9"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
 						{{text_cancelled}}
 					</div>
 					
 					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
 						{{cancelled}}
-					</div>		</span></a> <!--</a><a href="javascript:;" class="shortcut">-->
-                                              <!--  <i class="shortcut-icon icon-picture"></i> <span class="shortcut-label">Photos</span> </a><a href="javascript:;" class="shortcut"> 
-                                                <i class="shortcut-icon icon-tag"></i><span class="shortcut-label">Tags</span> </a>--> </div>
-              <!-- /shortcuts --> 
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-          <div class="widget widget-nopad">
-            <div class="widget-header"> <i class=" icon-exclamation-sign"></i>
-              <h3>FAQ</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content" height="250" >
-              <ul class="news-items">
-                <li>
-                    <div class="news-item-date"> <span class="news-item-day">1</span> <!--<span class="news-item-month">Jun</span> --></div>
-                  <div class="news-item-detail"> <a href="http://www.by EGrappler/retina-ready-responsive-app-landing-page-website-template-app-landing/" class="news-item-title" target="_blank">Frequently Asked Questions</a>
-                    <p class="news-item-preview">Frequently Asked Questions Frequently Asked Questions Frequently Asked Questions.</p>
-                  </div>
-                   
-                  
-                </li>
-                <li>
-                  
-                  <div class="news-item-date"> <span class="news-item-day">2</span> <!--<span class="news-item-month">Jun</span> --></div>
-                  <div class="news-item-detail"> <a href="http://www.by EGrappler/retina-ready-responsive-app-landing-page-website-template-app-landing/" class="news-item-title" target="_blank">Watch Our How-To Video on Adding Products</a>
-                    <p class="news-item-preview">Watch Our How-To Video on Adding Products Watch Our How-To Video on Adding Products.</p>
-                  </div>
-                  
-                </li>
-                <li>
-                  
-                  <div class="news-item-date"> <span class="news-item-day">3</span> <!--<span class="news-item-month">Oct</span>--> </div>
-                  <div class="news-item-detail"> <a href="" class="news-item-title" target="_blank">Product Specifications and Pricing</a>
-                    <p class="news-item-preview">Product Specifications and Pricing Product Specifications and Pricing Frequently Asked Questions Product Specifications and Pricing Product Specifications and Pricing Frequently Asked Questions.</p>
-                  </div>
-                  
-                </li>
-              </ul>
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-         
-          
-         
-        </div>
-        <!-- /span6 --> 
-      </div>
-      <!-- /row --> 
-    </div>
-    <!-- /container --> 
-  </div>
-  <!-- /main-inner --> 
-</div>
-<!-- /main -->
-<!-- Le javascript
-================================================== --> 
-<!-- Placed at the end of the document so the pages load faster --> 
-<script src="catalog/view/javascript/shopify/js/jquery-1.7.2.min.js"></script> 
-<script src="catalog/view/javascript/shopify/js/excanvas.min.js"></script> 
-<script src="catalog/view/javascript/shopify/js/chart.min.js" type="text/javascript"></script> 
-<script src="catalog/view/javascript/shopify/js/bootstrap.js"></script>
-<script language="javascript" type="text/javascript" src="catalog/view/javascript/shopify/js/full-calendar/fullcalendar.min.js"></script>
- 
-<script src="js/base.js"></script> 
-<script>     
+					</div>				
+				</div>
+			</div>
 
-        var lineChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-				{
-				    fillColor: "rgba(220,220,220,0.5)",
-				    strokeColor: "rgba(220,220,220,1)",
-				    pointColor: "rgba(220,220,220,1)",
-				    pointStrokeColor: "#fff",
-				    data: [65, 59, 90, 81, 56, 55, 40]
-				},
-				{
-				    fillColor: "rgba(151,187,205,0.5)",
-				    strokeColor: "rgba(151,187,205,1)",
-				    pointColor: "rgba(151,187,205,1)",
-				    pointStrokeColor: "#fff",
-				    data: [28, 48, 40, 19, 96, 27, 100]
-				}
-			]
+
+			
+
+		</div><div class="clearboth"></div>
+
+
+		<b>{{payments_sales}}</b>:
+	
+		<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false" style="margin-top:10px;margin-bottom:100px; padding-left:10px;">	
+			<div style="" class="vc_span1 wpb_column column_container ">
+				&nbsp;
+			</div>
+			<div>
+            <div class="vc_span2 wpb_column column_container"  style=" width:18%; float:left; margin-left:20px" >
+				<div style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0" >
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-icon-money" style="background-image:url(../image/notepad-117597_640.png)"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
+						{{text_aug_total}}
+					</div>
+					
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px;">
+						{{aug_total}}
+					</div>				
+				</div>
+			</div>
+
+			<div class="vc_span2 wpb_column column_container" style=" width:18%; float:left; margin-left:20px" >
+				<div  style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-icon-money"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
+						{{text_aug_charges}}
+					</div>
+					
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px;">
+						{{aug_charges}}
+					</div>				
+				</div>
+			</div>
+            </div>
+
+		</div><div class="clearboth"></div>
+
+		
+	</div>		
+</div>
+	</div>
+	
+ <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false">
+	<div style="text-align:center" class="vc_span12 wpb_column column_container ">
+
+
+
+
+	<!--
+App Start
+-->
+<div style="background-color:#F8F8F8;border:1px solid #DDD;padding:15px 5px 5px 5px;margin-top:20px" class="vc_span12 wpb_column column_container ">
+
+
+<div class="clearboth"></div>	
+<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div>
+<div class="clearboth"></div>
+<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false">
+	<div style="" class="vc_span1 wpb_column column_container ">
+			
+	</div>
+	<div   style=" float:left; width:50%; padding-left:50px; padding-right:25px;">
+			<div  class="button-group">
+				<a href="index.php?route=shopify/category" target="_self" class="btn btn-primary btn-lg btn-block" style="width: auto;">
+				<i class="mk-moon-upload-5"></i>{{add_products}}</a>
+			</div>
+			
+			<div class="mk-button-align fullwidth-button center" style="margin-top:20px; "  >
+				<a href="index.php?route=shopify/category" target="_self" class="btn btn-primary btn-lg btn-block" style="background: #FC3;color: #900">
+				<i class="mk-moon-airplane-2"></i>{{add_express_line_products}}</a>
+			</div>
+			
+
+
+
+	
+	
+
+	</div>
+
+	<div class="vc_span4 wpb_column column_container "
+    style=" float:left; width:50%;padding-left:50px; padding-right:25px;">
+			<div class="mk-button-align fullwidth-button center">
+			<a href="index.php?route=shopify/orders" target="_self"  class="btn btn-primary btn-lg btn-block">
+			<i class="mk-icon-reorder"></i>{{view_orders}}</a></div>
+
+	
+
+    <div class="clearboth"></div>
+	<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div><div class="clearboth"></div>
+	<div class="mk-button-align fullwidth-button center"><a href="index.php?route=shopify/order" target="_self"  class="btn btn-primary btn-lg btn-block">
+	<i class="mk-icon-list-alt"></i>{{acct_balance_transactions}}</a></div>
+			
+			
+	
+    <div class="clearboth"></div>
+	<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div><div class="clearboth"></div>
+	<div class="mk-button-align fullwidth-button center"><a href="index.php?route=shopify/accountsettings" target="_self"  class="btn btn-primary btn-lg btn-block">
+	<i class="mk-moon-cog-2"></i>{{store_account_settings}}</a></div>
+
+    <div class="clearboth"></div>
+	<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div><div class="clearboth"></div>
+	<div class="mk-button-align fullwidth-button center"><a href="index.php?route=shopify/reports" target="_self"  class="btn btn-primary btn-lg btn-block">
+	<i class="mk-moon-cog-2"></i>{{reports}}</a></div>
+
+	</div>
+<!--
+	<div style="" class="vc_span1 wpb_column column_container ">
+			
+	</div>
+	-->
+	
+	</div><div class="clearboth"></div>
+	
+	<div class="mk-shortcode mk-padding-shortcode" style="height:22px"></div><div class="clearboth"></div>
+	
+	 <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false">
+		<div style="text-align:center" class="vc_span12 wpb_column column_container ">
+			<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
+				<a href="faqs/" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Frequently Asked Questions</a><br><br>
+				<a href="app-resources/" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Watch Our How-To Video on Adding Products</a><br><br>
+				<a href="product-specs-and-pricing/" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Product Specifications and Pricing</a><br><br>
+			</div>	
+		</div>
+		<div style="text-align:center" class="vc_span12 wpb_column column_container ">
+		
+		
+		
+		</div>
+	</div><div class="clearboth"></div>
+	
+
+	<div class="mk-shortcode mk-padding-shortcode" style="height:22px"></div><div class="clearboth"></div>
+
+
+
+</div></div></div></div></div>
+</div>
+<style type="text/css">
+    .button-204 {
+                margin-bottom: 100px;
+                margin-top: 0px;
 
         }
 
-        var myLine = new Chart(document.getElementById("area-chart").getContext("2d")).Line(lineChartData);
+        .button-204 {
+                background-color:#479ccf;
 
+        }
+        
+         .button-204:hover {
+                background-color:#4291c1;
 
-        var barChartData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-				{
-				    fillColor: "rgba(220,220,220,0.5)",
-				    strokeColor: "rgba(220,220,220,1)",
-				    data: [65, 59, 90, 81, 56, 55, 40]
-				},
-				{
-				    fillColor: "rgba(151,187,205,0.5)",
-				    strokeColor: "rgba(151,187,205,1)",
-				    data: [28, 48, 40, 19, 96, 27, 100]
-				}
-			]
+        }
+        .button-204.three-dimension  {
+             box-shadow: 0px 3px 0px 0px #397da6;
+        }
+        .button-204.three-dimension:active  {
+             box-shadow: 0px 1px 0px 0px #397da6;
+        } 
+	.button-204a {
+                margin-bottom: 100px;
+                margin-top: 0px;
 
-        }    
+        }
 
-        $(document).ready(function() {
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-        var calendar = $('#calendar').fullCalendar({
-          header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
-          },
-          selectable: true,
-          selectHelper: true,
-          select: function(start, end, allDay) {
-            var title = prompt('Event Title:');
-            if (title) {
-              calendar.fullCalendar('renderEvent',
-                {
-                  title: title,
-                  start: start,
-                  end: end,
-                  allDay: allDay
-                },
-                true // make the event "stick"
-              );
-            }
-            calendar.fullCalendar('unselect');
-          },
-          editable: true,
-          events: [
-            {
-              title: 'All Day Event',
-              start: new Date(y, m, 1)
-            },
-            {
-              title: 'Long Event',
-              start: new Date(y, m, d+5),
-              end: new Date(y, m, d+7)
-            },
-            {
-              id: 999,
-              title: 'Repeating Event',
-              start: new Date(y, m, d-3, 16, 0),
-              allDay: false
-            },
-            {
-              id: 999,
-              title: 'Repeating Event',
-              start: new Date(y, m, d+4, 16, 0),
-              allDay: false
-            },
-            {
-              title: 'Meeting',
-              start: new Date(y, m, d, 10, 30),
-              allDay: false
-            },
-            {
-              title: 'Lunch',
-              start: new Date(y, m, d, 12, 0),
-              end: new Date(y, m, d, 14, 0),
-              allDay: false
-            },
-            {
-              title: 'Birthday Party',
-              start: new Date(y, m, d+1, 19, 0),
-              end: new Date(y, m, d+1, 22, 30),
-              allDay: false
-            },
-            {
-              title: 'by EGrappler',
-              start: new Date(y, m, 28),
-              end: new Date(y, m, 29),
-              url: 'http://by EGrappler/'
-            }
-          ]
-        });
-      });
-    </script><!-- /Calendar -->
+        .button-204a {
+                background-color:#FFC300;
+
+        }
+        
+         .button-204a:hover {
+                background-color:#F2BE00;
+
+        }
+        .button-204a.three-dimension  {
+             box-shadow: 0px 3px 0px 0px #D6A800;
+        }
+        .button-204a.three-dimension:active  {
+             box-shadow: 0px 1px 0px 0px #D6A800;
+        }
+	.exp-color {
+		color: #ff0000 !important;
+		
+		}
+	.exp-color2 {
+		color: #ff0000 !important;
+		text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+		}
+		 .orderib{
+			background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0
+			}
+	.orderib:hover {
+           background-color: #87CEFA;border:1px solid #DDD;padding:5px 0 5px 0;
+
+        }
+    </style>
     <script type="text/javascript">
 $('.orderib').on('click', function() {
 	window.location.href='index.php?route=shopify/orders/filter&filter_order_status_id='+ this.getAttribute('data-filter'); 

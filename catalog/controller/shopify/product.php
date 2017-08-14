@@ -443,7 +443,8 @@ class ControllerShopifyProduct extends Controller {
 
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
 			
-
+$data['footer'] = $this->load->controller('shopify/footer');
+		$data['header'] = $this->load->controller('shopify/header');
 			$this->response->setOutput($this->load->view('shopify/product', $data));
 		} else {
 			$url = '';

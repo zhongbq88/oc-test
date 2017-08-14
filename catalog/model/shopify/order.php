@@ -231,10 +231,22 @@ $sql .="ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit;
 
 		return $query->rows;
 	}
+	
+	public function getOrderProductsByIdList($order_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id in ('" . implode("','",$order_id). "')");
+
+		return $query->rows;
+	}
+	
 	public function getOrderProductsByOrderProductId($order_product_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$order_product_id . "'");
 
 		return $query->rows;
+	}
+	
+	public function updateOrderProduct($order_product_id,$quantity){
+		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET quantity = '" . (int)$quantity . "' WHERE order_product_id = '" . (int)$order_product_id . "'");
+
 	}
 
 	public function getOrderOption($order_option_id) {
@@ -269,6 +281,11 @@ $sql .="ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit;
 	public function getStatusTotalOrders() {
 		$query = $this->db->query("SELECT o.total,o.order_status_id FROM `" . DB_PREFIX . "order` o WHERE customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "'");
 
+		return $query->rows;
+	}
+	
+	public function getOrdersStatusByOrderId($order_id) {
+		$query = $this->db->query("SELECT o.order_status_id FROM `" . DB_PREFIX . "order` o WHERE order_id = '" . $order_id . "'");
 		return $query->rows;
 	}
 	

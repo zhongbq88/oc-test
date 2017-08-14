@@ -3,7 +3,7 @@
   <div class="row">
       {% for product in products %}
       
-      <div class="span3" style="width:260px;" data="{{ product.href }}">
+      <div class="span3" data="{{ product.href }}">
 	      		
 	      		<div class="widget">
 	      			
@@ -57,10 +57,21 @@
 	margin-right:-15px;
 	margin-bottom:-15px;
 }
+.span3 {
+	width: 220px;
+}
 .caption h4{
 	color:#CCC;
 	}
 	.caption p{
 	color: #999;
 	}
+	.row-fluid > .span3 {
+	width: 23.404255317%;
+}
+table .span3 {
+	float: none;
+	width: 204px;
+	margin-left: 0;
+}
 </style>

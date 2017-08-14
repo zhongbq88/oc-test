@@ -66,8 +66,10 @@ class ModelExtensionPaymentPPExpress extends Model {
 			`amount` = '" . (float)$transaction_data['amount'] . "',
 			`debug_data` = '" . $this->db->escape($transaction_data['debug_data']) . "'");
 	}
+	
+	
 
-	public function paymentRequestInfo() {
+	public function paymentRequestInfoss() {
 
 		$data['PAYMENTREQUEST_0_SHIPPINGAMT'] = '';
 		$data['PAYMENTREQUEST_0_CURRENCYCODE'] = $this->session->data['currency'];

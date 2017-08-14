@@ -1255,68 +1255,80 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 		}
 	}
 	
-	public function paymentRequestInfo() {
-		$this->load->model('shopify/order');
-		$order_product = $this->model_shopify_order->getOrderProductsByIdList($this->session->data['order_id']);
-		$paymentProduct = array();
-		$i = 0;
-		$item_total = 0;
-		if ($order_product ) {
-			$paymentProduct['PAYMENTREQUEST_0_ITEMAMT'] = number_format($item_total, 2, '.', '');
-			$paymentProduct['PAYMENTREQUEST_0_AMT'] = number_format($item_total, 2, '.', '');
-			foreach ($order_product as $item) {
-				
-				$paymentProduct['L_PAYMENTREQUEST_0_NUMBER' . $i] = $item['model'];
-					$paymentProduct['L_PAYMENTREQUEST_0_NAME' . $i] = $item['name'];
-					$paymentProduct['L_PAYMENTREQUEST_0_AMT' . $i] = $this->currency->format($item['total'], $this->session->data['currency'], false, false);
-					$paymentProduct['L_PAYMENTREQUEST_0_QTY' . $i] = 1;
-			
-			$item_total += $item['total'];
-			$i++;
-			}
-		}
-		$paymentProduct['PAYMENTREQUEST_0_ITEMAMT'] = $item_total ;
-		$paymentProduct['PAYMENTREQUEST_0_AMT']  = $item_total;
-		return $paymentProduct;
-	}
-	
 	public function checkout() {
+		/*if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
+			$this->response->redirect($this->url->link('checkout/cart'));
+		}*/
+		/*echo '<script language="javascript">window.alert("'.$this->request->post['total'].'");</script>';*/
 		if (!isset($this->session->data['order_id'])) {
 			return;
 		}
 		$this->load->model('extension/payment/pp_express');
 		$this->load->model('tool/image');
-		$paymentProduct = $this->paymentRequestInfo();
-		$max_amount = $paymentProduct['PAYMENTREQUEST_0_AMT']*1.5;
+		$this->load->model('shopify/order');
+		$order_info = $this->model_shopify_order->getOrder($this->session->data['order_id']);
+		$order_product = $this->model_shopify_order->getOrderProducts($this->session->data['order_id']);
+		$max_amount = $order_product[0]['total']*1.5;
 		echo $max_amount;
 		$max_amount = $this->currency->format($max_amount, isset($this->session->data['currency'])?$this->session->data['currency']:'USD', '', false);
-		
+		unset($this->session->data['total']);
+		if ($order_info ) {
+			$shipping = 0;
+
+			// PayPal requires some countries to use zone code (not name) to be sent in SHIPTOSTATE
+			$ship_to_state_codes = array(
+				'30', // Brazil
+				'38', // Canada
+				'105', // Italy
+				'138', // Mexico
+				'223', // USA
+			);
+
+			if (in_array($order_info['shipping_country_id'], $ship_to_state_codes)) {
+				$ship_to_state = $order_info['shipping_zone_code'];
+			} else {
+				$ship_to_state = $order_info['shipping_zone'];
+			}
+
+			$data_shipping = array(
+				'PAYMENTREQUEST_0_SHIPTONAME'        => html_entity_decode('test', ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOSTREET'      => html_entity_decode('test', ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOSTREET2'     => html_entity_decode('test', ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOCITY'        => html_entity_decode('test', ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOSTATE'       => html_entity_decode($ship_to_state, ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOZIP'         => html_entity_decode('test', ENT_QUOTES, 'UTF-8'),
+				'PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE' => 'test',
+				'ADDROVERRIDE' 						 => 1,
+			);
+		} else {
+			$shipping = 1;
+			$data_shipping = array();
+		}
+
 		$data = array(
 			'METHOD'             => 'SetExpressCheckout',
 			'MAXAMT'             => $max_amount,
 			'RETURNURL'          => $this->url->link('extension/payment/pp_express/checkoutReturn', '', true),
 			'CANCELURL'          => $this->url->link('shopify/orders', '', true),
 			'REQCONFIRMSHIPPING' => 0,
-			'NOSHIPPING'         => 1,
+			'NOSHIPPING'         => $shipping,
 			'LOCALECODE'         => 'EN',
 			'LANDINGPAGE'        => 'Login',
 			'HDRIMG'             => $this->model_tool_image->resize($this->config->get('payment_pp_express_logo'), 750, 90),
 			'PAYFLOWCOLOR'       => $this->config->get('payment_pp_express_colour'),
 			'CHANNELTYPE'        => 'Merchant',
-			'ALLOWNOTE'          => $this->config->get('payment_pp_express_allow_note'),
-			'PAYMENTREQUEST_0_SHIPPINGAMT' =>'',
-			'PAYMENTREQUEST_0_CURRENCYCODE' => $this->session->data['currency'],
-			'PAYMENTREQUEST_0_PAYMENTACTION' => $this->config->get('payment_pp_express_transaction')
+			'ALLOWNOTE'          => $this->config->get('payment_pp_express_allow_note')
 		);
 
-		//$data = array_merge($data, $data_shipping);
+		$data = array_merge($data, $data_shipping);
 
 		if (isset($this->session->data['pp_login']['seamless']['access_token']) && (isset($this->session->data['pp_login']['seamless']['customer_id']) && $this->session->data['pp_login']['seamless']['customer_id'] == $this->customer->getId()) && $this->config->get('module_pp_login_seamless')) {
 			$data['IDENTITYACCESSTOKEN'] = $this->session->data['pp_login']['seamless']['access_token'];
 		}
-		
-		$data = array_merge($data, $paymentProduct);
-		
+
+		$data = array_merge($data, $this->model_extension_payment_pp_express->paymentRequestInfo());
+		$data['PAYMENTREQUEST_0_ITEMAMT'] = $max_amount ;
+		$data['PAYMENTREQUEST_0_AMT']  = $max_amount;
 print_r($data);
 		$result = $this->model_extension_payment_pp_express->call($data);
 		print_r($result);
@@ -1470,7 +1482,7 @@ print_r($data);
 			'RETURNFMFDETAILS'           => 1
 		);
 
-		$paypal_data = array_merge($paypal_data, $this->paymentRequestInfo());
+		$paypal_data = array_merge($paypal_data, $this->model_extension_payment_pp_express->paymentRequestInfo());
 
 		$result = $this->model_extension_payment_pp_express->call($paypal_data);
 
@@ -1504,10 +1516,8 @@ print_r($data);
 				case 'Reversed':
 					$order_status_id = $this->config->get('payment_pp_express_reversed_status_id');
 					break;
-				case 'In-Production':
-					$order_status_id = $this->config->get('payment_pp_express_in_production_status_id');
-				case 'On-Hold':
-					$order_status_id = $this->config->get('payment_pp_express_on_hold_status_id');
+				case 'Voided':
+					$order_status_id = $this->config->get('payment_pp_express_voided_status_id');
 					break;
 			}
 
