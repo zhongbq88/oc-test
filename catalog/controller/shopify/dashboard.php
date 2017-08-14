@@ -99,8 +99,7 @@ class ControllerShopifyDashboard extends Controller {
 	$this->session->data['shop'] = $_GET['shop'];
 			$_SESSION['oauth_token'] = $oauth_token;
 			$_SESSION['shop'] = $_GET['shop'];
-			
-			
+			$this->load->controller('shopify/getorders');
 			return $_SESSION['shop'];
 			//echo 'App Successfully Installed!';
 		}

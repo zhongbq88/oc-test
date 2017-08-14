@@ -57,9 +57,9 @@
             
             </select>
           </div>
-          <div class="form-group" style="display:none;">
-            <label class="control-label" for="input-total">{{ entry_total }}</label>
-            <input type="text" name="filter_total" value="{{ filter_total }}" placeholder="{{ entry_total }}" id="input-total" class="form-control" />
+           <div class="form-group" style=" float:right; margin-top:20px;">
+          <a href="javascript:syn();" data-toggle="tooltip" title="Synchronize orders" class="btn btn-danger"><i class="fa fa-refresh"></i>  Synchronize</a>
+          </div>
           </div>
           <div class="form-group" style="display:none;">
             <label class="control-label" for="input-date-added">{{ entry_date_added }}</label>
@@ -208,7 +208,22 @@ $('#button-filter').on('click', function() {
 });
 //--></script> 
   <script type="text/javascript"><!--
- 
+  function syn(){
+	  $.ajax({
+				url: 'index.php?route=shopify/getorders',
+				type: 'get',
+				dataType: 'json',
+				cache: false,
+				contentType: false,
+				processData: false,
+				success: function(json) {
+					
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+	}
   function pay(){
 	  var selected = $('input[name^=\'selected\']:checked');
 	  if(selected.length<=0){
