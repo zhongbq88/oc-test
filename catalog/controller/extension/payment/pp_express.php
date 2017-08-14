@@ -1255,19 +1255,21 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 		}
 	}
 	
-	public function spcheckout() {
+	public function checkout() {
 		/*if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
 			$this->response->redirect($this->url->link('checkout/cart'));
 		}*/
 		/*echo '<script language="javascript">window.alert("'.$this->request->post['total'].'");</script>';*/
-		if (!isset($this->session->data['total'])) {
+		if (!isset($this->session->data['order_id'])) {
 			return;
 		}
 		$this->load->model('extension/payment/pp_express');
 		$this->load->model('tool/image');
 		$this->load->model('shopify/order');
-		//$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
-		$max_amount = this->session->data['total'];
+		$order_info = $this->model_shopify_order->getOrder($this->session->data['order_id']);
+		$order_product = $this->model_shopify_order->getOrderProducts($this->session->data['order_id']);
+		$max_amount = $order_product[0]['total']*1.5;
+		echo $max_amount;
 		$max_amount = $this->currency->format($max_amount, isset($this->session->data['currency'])?$this->session->data['currency']:'USD', '', false);
 		unset($this->session->data['total']);
 		if ($this->cart->hasShipping()) {
@@ -1307,7 +1309,7 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 			'METHOD'             => 'SetExpressCheckout',
 			'MAXAMT'             => $max_amount,
 			'RETURNURL'          => $this->url->link('extension/payment/pp_express/checkoutReturn', '', true),
-			'CANCELURL'          => $this->url->link('checkout/checkout', '', true),
+			'CANCELURL'          => $this->url->link('shopify/orders', '', true),
 			'REQCONFIRMSHIPPING' => 0,
 			'NOSHIPPING'         => $shipping,
 			'LOCALECODE'         => 'EN',
@@ -1327,7 +1329,7 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 		$data = array_merge($data, $this->model_extension_payment_pp_express->paymentRequestInfo());
 
 		$result = $this->model_extension_payment_pp_express->call($data);
-
+		print_r($result);
 		/**
 		 * If a failed PayPal setup happens, handle it.
 		 */
@@ -1340,7 +1342,8 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 			 */
 			$this->log->write('Unable to create Paypal session' . json_encode($result));
 
-			$this->response->redirect($this->url->link('shopify/orders', '', true));
+			//$this->response->redirect($this->url->link('shopify/orders', '', true));
+			return;
 		}
 
 		$this->session->data['paypal']['token'] = $result['TOKEN'];
@@ -1351,8 +1354,10 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 			header('Location: https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=' . $result['TOKEN'] . '&useraction=commit');
 		}
 	}
+	
+	
 
-	public function checkout() {
+	/*public function checkout() {
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
 			$this->response->redirect($this->url->link('checkout/cart'));
 		}
@@ -1427,14 +1432,14 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 		/**
 		 * If a failed PayPal setup happens, handle it.
 		 */
-		if (!isset($result['TOKEN'])) {
+		/*if (!isset($result['TOKEN'])) {
 			$this->session->data['error'] = $result['L_LONGMESSAGE0'];
 			/**
 			 * Unable to add error message to user as the session errors/success are not
 			 * used on the cart or checkout pages - need to be added?
 			 * If PayPal debug log is off then still log error to normal error log.
 			 */
-			$this->log->write('Unable to create Paypal session' . json_encode($result));
+		/*	$this->log->write('Unable to create Paypal session' . json_encode($result));
 
 			$this->response->redirect($this->url->link('checkout/checkout', '', true));
 		}
@@ -1446,13 +1451,14 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 		} else {
 			header('Location: https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=' . $result['TOKEN'] . '&useraction=commit');
 		}
-	}
+	}*/
 
 	public function checkoutReturn() {
 		$this->load->language('extension/payment/pp_express');
 
 		$this->load->model('extension/payment/pp_express');
 		$this->load->model('checkout/order');
+		
 
 		$data = array(
 			'METHOD' => 'GetExpressCheckoutDetails',
@@ -1543,10 +1549,10 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 			);
 			$this->model_extension_payment_pp_express->addTransaction($paypal_transaction_data);
 
-			$recurring_products = $this->cart->getRecurringProducts();
+			/*$products = $this->model_checkout_order->getOrderProducts($order_id);
 
 			//loop through any products that are recurring items
-			if ($recurring_products) {
+			if ($products) {
 				$this->load->model('checkout/recurring');
 
 				$billing_period = array(
@@ -1557,7 +1563,7 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 					'year'       => 'Year'
 				);
 
-				foreach ($recurring_products as $item) {
+				foreach ($products as $item) {
 					$data = array(
 						'METHOD'             => 'CreateRecurringPaymentsProfile',
 						'TOKEN'              => $this->session->data['paypal']['token'],
@@ -1608,13 +1614,13 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 
 					}
 				}
-			}
+			}*/
 
 			if (isset($result['REDIRECTREQUIRED']) && $result['REDIRECTREQUIRED'] == true) {
 				//- handle german redirect here
 				$this->response->redirect('https://www.paypal.com/cgi-bin/webscr?cmd=_complete-express-checkout&token=' . $this->session->data['paypal']['token']);
 			} else {
-				$this->response->redirect($this->url->link('checkout/success'));
+				$this->response->redirect($this->url->link('shopify/orders/success'));
 			}
 		} else {
 			if ($result['L_ERRORCODE0'] == '10486') {
@@ -1665,12 +1671,12 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 
 			$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');
 
-			$data['column_left'] = $this->load->controller('common/column_left');
+			/*$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
-			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');
+			$data['content_bottom'] = $this->load->controller('common/content_bottom');*/
+			$data['footer'] = $this->load->controller('shopify/footer');
+			$data['header'] = $this->load->controller('shopify/header');
 
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}

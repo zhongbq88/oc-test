@@ -62,7 +62,7 @@ class ControllerShopifyOrders extends Controller {
 				'total'      => "$".$total,
 				'total_paid' => $total,
 				'view'       => $this->url->link('shopify/orders/info', 'order_id=' . $result['order_id'], true),
-				'pay'       => $this->url->link('shopify/orders/pay', 'total=' . $total, true),
+				'pay'       => $this->url->link('shopify/orders/pay', 'order_id=' . $result['order_id'], true),
 			);
 		}
 
@@ -472,14 +472,14 @@ class ControllerShopifyOrders extends Controller {
 	public function pay(){
 		//$this->response->redirect($this->url->link('extension/payment/pp_express/spcheckout', '', true));
 		/*echo '<script language="javascript">window.alert("123");</script>';*/
-		if (!isset($this->request->get['total'])) {
+		if (!isset($this->request->get['order_id'])) {
 			$this->response->addHeader('Content-Type: application/json');
 			$json = array();
 			$this->response->setOutput(json_encode($json));
 			return;
 		}
-		$this->session->data['total'] = $this->request->get['total'];
-		$this->response->redirect($this->url->link('extension/payment/pp_express/spcheckout', '', true));
+		$this->session->data['order_id'] = $this->request->get['order_id'];
+		$this->response->redirect($this->url->link('extension/payment/pp_express/checkout', '', true));
 	}
 
 	public function reorder() {
