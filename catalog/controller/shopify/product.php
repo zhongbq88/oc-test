@@ -537,39 +537,44 @@ $data['footer'] = $this->load->controller('shopify/footer');
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 
 		if ($product_info) {
-			if (isset($this->request->post['quantity'])) {
+			/*if (isset($this->request->post['quantity'])) {
 				$quantity = (int)$this->request->post['quantity'];
-			} else {
+			} else {*/
 				$quantity = 1;
-			}
+			//}
 
 			if (isset($this->request->post['option'])) {
 				$option = array_filter($this->request->post['option']);
 			} else {
 				$option = array();
 			}
+			if (isset($this->request->post['option-two'])) {
+				$optiontwo = array_filter($this->request->post['option-two']);
+			} else {
+				$optiontwo = array();
+			}
 			if (isset($this->request->post['option-img'])) {
-			$pimgs = array_filter($this->request->post['option-img']);
-		} else {
-			$pimgs = array();
-		}
-		if (isset($this->request->post['option-img-two'])) {
-			$pimgstwo = array_filter($this->request->post['option-img-two']);
-		} else {
-			$pimgstwo = array();
-		}
-		//echo 'pimgstwo'.json_encode($pimgstwo);
-		$images = array();
-		//echo $option;
-		$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
-
-		foreach ($product_options as $product_option) {
-			//echo $product_option['required']."---".$option[$product_option['product_option_id']];
-			//echo "1\t";
-			if ($product_option['required'] && empty($option[$product_option['product_option_id']])) {
-				//echo "2";
-				$json['error']['option'][$product_option['product_option_id']] = sprintf($this->language->get('error_required'), $product_option['name'		                ]);
-			}else{
+				$pimgs = array_filter($this->request->post['option-img']);
+			} else {
+				$pimgs = array();
+			}
+			if (isset($this->request->post['option-img-two'])) {
+				$pimgstwo = array_filter($this->request->post['option-img-two']);
+			} else {
+				$pimgstwo = array();
+			}
+			foreach ($option as $k=>$v) {
+				if(isset($optiontwo[$k])){
+					$option[$k] = 'left:'.$v.";".'right:'.$optiontwo[$k];
+				}
+			}
+			//print_r($optiontwo);
+			//echo 'pimgstwo'.json_encode($pimgstwo);
+			$images = array();
+			//print_r($option);
+			$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
+	
+			foreach ($product_options as $product_option) {
 				if(!empty($pimgs[$product_option['product_option_id']])){
 					$image = $pimgs[$product_option['product_option_id']];
 					if(!empty($pimgstwo[$product_option['product_option_id']])){
@@ -583,8 +588,8 @@ $data['footer'] = $this->load->controller('shopify/footer');
 					}
 					$images[$product_option['product_option_id']] =$image;
 				}
+				
 			}
-		}
 			
 			
 			//echo json_encode($images);
@@ -727,33 +732,58 @@ $data['footer'] = $this->load->controller('shopify/footer');
 			$option = array();
 		}
 		$count = count($option);
-		echo(json_encode($pimgs));
+		//echo(json_encode($pimgs));
 		//echo 'au='.$this->session->data['oauth_token'] ;
 		//echo 'shop='.$this->session->data['shop'] ;
 		//echo "count=".$count;
 		$index =0;
 		$imgs    = array();
+		$productoption = $this->model_catalog_product->getProductOptions($product_id);
+		$option_data = array();
+		$options = array();
+		foreach ($productoption as $opt) {
+			if($opt['type']=='select'){
+				$option_data[$index] = array();
+				$options[$index]['name'] = $opt['name'];
+				$value = array();
+				foreach ($opt['product_option_value'] as $option_value) {
+					$option_data[$index][] = $opt['name'].":".$option_value['name'];
+					$value[] = $option_value['name'];
+				}
+				$options[$index]['values']  = $value;
+				$index++;
+			}		
+		}
+		//print_r($options);
+		$index =0;
+		$count = count($option_data);
+		//print_r($option_data);
+		//$result = array();
+		$result = $this->calculateCombination($option_data, 0,$arr = array());
+		//print_r('result'.$result);
 		foreach ($option  as $opt) {
 			//$opt = $option[$index];
 			//echo "opt=".$opt;
 			foreach ($order_option  as $order_opt) {
 				if($opt==$order_opt['value']){
-					$sku =  $product_info['sku'].$order_opt['order_option_id'];
-					if (isset($variant[$order_opt['product_option_id']])) {
-						$optionl = $variant[$order_opt['product_option_id']];
-					} else {
-						$optionl = 'option'.$index;
+					foreach ($result  as $v) {
+						$sku =  $product_info['sku'].$order_opt['order_option_id'];
+						if (isset($variant[$order_opt['product_option_id']])) {
+							$optionl = $variant[$order_opt['product_option_id']];
+						} else {
+							$optionl = 'option'.$index;
+						}
+						$variants[] = array(
+							"option1"=> $optionl,
+							"price"=>$pspr,
+							"sku"=> $sku
+						);
 					}
 					if (isset($pimgs[$order_opt['product_option_id']])) {
-						$image = HTTP_SERVER.$pimgs[$order_opt['product_option_id']];
-					} else {
-						$image = $opt;
-					}
-					$variants[] = array(
-						"option1"=> $optionl,
-        				"price"=>$pspr,
-        				"sku"=> $sku
-					);
+							$image = HTTP_SERVER.$pimgs[$order_opt['product_option_id']];
+						} else {
+							$image = $opt;
+						}
 					$images[] = array(
 						"src"=> $image
 					);
@@ -770,10 +800,23 @@ $data['footer'] = $this->load->controller('shopify/footer');
     "vendor"=>  "vivajean",
     "product_type"=>  $product_info['model'],
 	"variants"=>$variants,
-	"images"=>$images
+	"options"=>$options,
+	"images"=>$images,
+	'result'=>$result
 	);
 
 	}
+	
+	 public function calculateCombination($inputList, $beginIndex, $arr) {
+        if($beginIndex == count($inputList)){
+			print_r($arr);
+            return $arr;
+        }
+        foreach($inputList[$beginIndex] as $c){
+            $arr[] = $c;
+            $this->calculateCombination($inputList, $beginIndex + 1,$arr);
+        }
+    }
 	
 	public function getImageCode($path){
 		 $type=getimagesize($path);//取得图片的大小，类型等
@@ -1183,6 +1226,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 
 			$data['products'] = array();
 			//echo 'orderid='.$this->session->data['order_id'];
+			
 			foreach ($this->cart->getProducts() as $product) {
 				$option_data = array();
 

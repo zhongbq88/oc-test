@@ -397,5 +397,13 @@ if (isset($data['products'])) {
 		return $order_id;
 	}
 	
+	public function addProductSku($data){
+		if ($data) {
+			foreach ($data as $product) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_sku SET order_id = '" . $product['order_id'] . "', product_id = '" . (int)$product['product_id'] . "', sku = '" . $this->db->escape($product['sku']) . "', model = '" . $this->db->escape($product['model']) . "', order_product_id = '" . (int)$product['order_product_id'] . "', product_size = '" . (int)$product['product_size'] . "', product_color = '" . $this->db->escape($product['product_color']) . "', design_file = '" . $this->db->escape($product['design_file']) . "', customer_id = '" . (int)$product['customer_id'] . "'");
+			}
+				//$order_product_id = $this->db->getLastId();
+		}
+	}
 	
 }

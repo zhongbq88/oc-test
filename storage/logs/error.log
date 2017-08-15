@@ -3070,3 +3070,33 @@
 2017-08-15 3:49:08 - PHP Notice:  Undefined index: shopify_price in G:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 210
 2017-08-15 4:37:55 - PHP Notice:  Undefined index: forwarded_ip in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 249
 2017-08-15 5:03:20 - PHP Notice:  Undefined variable: saletotal in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 438
+2017-08-15 10:11:13 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 567
+2017-08-15 10:11:13 - PHP Notice:  Undefined offset: 241 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 567
+2017-08-15 10:11:13 - PHP Notice:  Undefined offset: 240 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 567
+2017-08-15 10:11:13 - PHP Notice:  Undefined offset: 244 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 567
+2017-08-15 10:12:18 - PHP Notice:  Undefined offset: 242 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 567
+2017-08-15 10:12:18 - PHP Notice:  Undefined offset: 241 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 567
+2017-08-15 10:12:18 - PHP Notice:  Undefined offset: 240 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 567
+2017-08-15 10:12:18 - PHP Notice:  Undefined offset: 244 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 567
+2017-08-15 10:18:19 - PHP Notice:  Undefined index: token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-15 10:18:19 - PHP Notice:  Undefined variable: url in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-15 12:00:04 - PHP Notice:  Undefined index: option in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 742
+2017-08-15 12:00:04 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 742
+2017-08-15 12:00:34 - PHP Notice:  Undefined index: option in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 742
+2017-08-15 12:00:34 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 742
+2017-08-15 12:02:06 - PHP Notice:  Undefined index: option in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 742
+2017-08-15 12:02:06 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 742
+2017-08-15 12:06:18 - PHP Notice:  Undefined index: name in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 747
+2017-08-15 12:06:18 - PHP Notice:  Undefined index: name in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 747
+2017-08-15 12:06:18 - PHP Notice:  Undefined index: name in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 747
+2017-08-15 12:06:18 - PHP Notice:  Undefined offset: 0 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 808
+2017-08-15 12:06:18 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 808
+2017-08-15 12:06:47 - PHP Notice:  Undefined offset: 0 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 808
+2017-08-15 12:06:47 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 808
+2017-08-15 12:16:03 - PHP Notice:  Undefined offset: 0 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 808
+2017-08-15 12:16:03 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 808
+2017-08-15 12:16:51 - PHP Notice:  Undefined offset: 0 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 809
+2017-08-15 12:16:51 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 809
+2017-08-15 13:11:46 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 804
+2017-08-15 13:11:46 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 804
+2017-08-15 13:11:46 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 804

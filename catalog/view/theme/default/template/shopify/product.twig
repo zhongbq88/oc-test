@@ -12,7 +12,7 @@
 
  
  
-  {% if option.name=='TwoFile' %}
+  {% if option.name =='TwoFile' %}
   <div class="panel panel-default">
      <div class="panel-heading {% if option.required %} required {% endif %}" style="height:52px;" >
     <h4 class="panel-title" style="height:52px;" ><a  data-toggle="collapse" data-parent="#accordion" 
@@ -260,7 +260,7 @@ $('#button-cart').on('click', function() {
 		success: function(json) {
 			//alert(json);
 			if (json['error']) {
-				alert('error='+json);
+				//alert('error='+json);
 				if (json['error']['option']) {
 					for (i in json['error']['option']) {
 						var element = $('#input-option' + i.replace('_', '-'));
@@ -444,7 +444,7 @@ $('button[id^=\'button-two-upload\']').on('click', function() {
 						
 						$("#src-option-two"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
 					
-						$("#input-option"+option_id).val(json['code']);
+						$("#input-option-two"+option_id).val(json['code']);
 					}
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
