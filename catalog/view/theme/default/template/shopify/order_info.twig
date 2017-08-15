@@ -23,7 +23,7 @@
         <tbody>
           <tr>
             <td class="text-left" style="width: 50%;">{% if invoice_no %} <b>{{ text_invoice_no }}</b> {{ invoice_no }}<br />
-              {% endif %} <b>{{ text_order_id }}</b> #{{ order_id }}<br />
+              {% endif %} <b>{{ text_order_id }}</b> #{{ sale_order_id }}<br />
               <b>{{ text_date_added }}</b> {{ date_added }}</td>
             <td class="text-left" style="width: 50%;">{% if payment_method %} <b>{{ text_payment_method }}</b> {{ payment_method }}<br />
               {% endif %}
@@ -56,6 +56,7 @@
               <td class="text-right">{{ column_quantity }}</td>
               <td class="text-right">{{ column_price }}</td>
               <td class="text-right">{{ column_total }}</td>
+              <td class="text-right">{{ column_sale_price }}</td>
               <!--{% if products %}
               <td style="width: 20px;"></td>
               {% endif %} --></tr>
@@ -69,13 +70,14 @@
               &nbsp;<small> - {{ option.name }}: {{ option.value }}</small> {% endfor %}</td>
             <td class="text-left">{{ product.model }}</td>
             <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
-                  <input type="text" name="quantity[{{ product.order_product_id }}]" value="{{ product.quantity }}" size="1" class="form-control" />
+                  <input type="text" {% if order_status_id!=1 %} disabled {% endif %} name="quantity[{{ product.order_product_id }}]" value="{{ product.quantity }}" size="1" class="form-control" />
                   <span class="input-group-btn">
-                  <button type="button" data-toggle="tooltip" onclick="update('{{ product.order_product_id }}',this);" title="{{ button_update }}" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-                  <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="updateOrderProduct('{{ product.order_product_id }}',0);"><i class="fa fa-times-circle"></i></button>
+                  <button type="button" {% if  order_status_id!=1 %} disabled {% endif %} data-toggle="tooltip" onclick="update('{{ product.order_product_id }}',this);" title="{{ button_update }}" {% if order_status_id!=1 %} disabled {% endif %} class="btn btn-primary"><i class="fa fa-refresh"></i></button>
+                  <button type="button" {% if order_status_id!=1 %} disabled {% endif %} data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="updateOrderProduct('{{ product.order_product_id }}',0);"><i class="fa fa-times-circle"></i></button>
                   </span></div></td>
             <td class="text-right">{{ product.price }}</td>
             <td class="text-right">{{ product.total }}</td>
+            <td class="text-right">{{ product.sale_total }}</td>
             <!--<td class="text-right" style="white-space: nowrap;">{% if product.reorder %} <a href="{{ product.reorder }}" data-toggle="tooltip" title="{{ button_reorder }}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></a> {% endif %} <a href="{{ product.return }}" data-toggle="tooltip" title="{{ button_return }}" class="btn btn-danger"><i class="fa fa-reply"></i></a></td>-->
           </tr>
           {% endfor %}
@@ -86,6 +88,7 @@
             <td class="text-right">1</td>
             <td class="text-right">{{ voucher.amount }}</td>
             <td class="text-right">{{ voucher.amount }}</td>
+            <td></td>
             <!--{% if products %}
             <td></td>
             {% endif %}--> </tr>
@@ -99,6 +102,8 @@
             <td colspan="3"></td>
             <td class="text-right"><b>{{ total.title }}</b></td>
             <td class="text-right">{{ total.text }}</td>
+             <td class="text-right">{{ total.text2 }}</td>
+          
             <!--{% if products %}
             <td></td>
             {% endif %}--> </tr>
@@ -121,7 +126,7 @@
         </tbody>
       </table>
       {% endif %}
-      {% if histories %}
+    <!--  {% if histories %}
       <h3>{{ text_history }}</h3>
       <table class="table table-bordered table-hover">
         <thead>
@@ -149,10 +154,10 @@
           </tbody>
         
       </table>
-      {% endif %}
+      {% endif %}-->
       <div class="buttons clearfix">
       	{% if order_status_id==1 %}
-         <div class="pull-right"><a href="{{ paid }}" class="btn btn-danger">{{ text_paid }}</a></div>
+         <div class="pull-right"><a href="{{ paid }}"  class="btn btn-danger">{{ text_paid }}</a></div>
         {% else %}
         <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
         {% endif %}

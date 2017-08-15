@@ -13,14 +13,12 @@ class ControllerShopifyGetorders extends Controller {
 
 	try
 	{
+		
+		//echo REDIRECTION_URL;
 		//print_r();
 		//echo print_r('product='.$_SESSION['product']);
 		# Making an API request can throw an exception
-		$orders = $shopify('GET /admin/orders.json?status=any');
-		$this->load->model('localisation/order_status');
-		print_r($orders);
-		$order_statuses = $this->model_localisation_order_status->getOrderStatuses();
-	
+		
 		$this->load->model('account/customer');
 		$customer_info = array();
 		if ($this->customer->isLogged()) {
@@ -28,11 +26,19 @@ class ControllerShopifyGetorders extends Controller {
 				
 		}
 		$this->load->model('shopify/order');
+		$adddate = $this->model_shopify_order->getOrderLastAddDate($customer_info['customer_group_id']);
+		$adddate = str_replace(' ',"T",$adddate)."+00:00";
+		//print_r(date(DATE_ATOM, mktime(0, 0, 0, 7, 1, 2000)));
+		$orders = $shopify('GET /admin/orders.json?status=any'/*&processed_at_min='.$adddate.'&created_at_min='.$adddate*/);
+		$this->load->model('localisation/order_status');
+		print_r($orders);
+		$order_statuses = $this->model_localisation_order_status->getOrderStatuses();
+
 		foreach($orders as $order){
 			$od = $this->initOrder($order,$order_statuses,$customer_info);
 			
-			print_r($od);
-			//$order_id = $this->model_shopify_order->addOrder($od);
+			//print_r($od);
+			$order_id = $this->model_shopify_order->addOrder($od);
 			//echo $order_id;
 		}
 		
@@ -57,13 +63,12 @@ class ControllerShopifyGetorders extends Controller {
 	}
 	
 	public function initOrder($order,$order_statuses,$customer_info){
-		
 	
 	$order_data =  array(
 				'order_id'                => $order['id'],
 				'email'                   => $order['email'],
 				'telephone'               => isset($order['shipping_address'])?$order['shipping_address']['phone']:'',
-				'custom_field'            => json_encode($order, true),
+				'custom_field'            => json_encode($order['line_items']),
 				'payment_firstname'       => $this->getValue($order,'payment_firstname'),
 				'payment_lastname'        => $this->getValue($order,'payment_lastname'),
 				'payment_company'         => $this->getValue($order,'payment_company'),
@@ -103,7 +108,7 @@ class ControllerShopifyGetorders extends Controller {
 				'comment'                 => $order['note'],
 				'total'                   => $order['total_price'],
 				'reward'                  => '',
-				'order_status_id'         =>1,
+				'order_status_id'         => $this->getOrderStatus(!empty($order['fulfillment_status'])?$order['fulfillment_status']:$order['financial_status']),
 				'order_status'            => !empty($order['fulfillment_status'])?$order['fulfillment_status']:$order['financial_status'],
 				'affiliate_id'            => '',
 				'affiliate_firstname'     => '',
@@ -115,7 +120,7 @@ class ControllerShopifyGetorders extends Controller {
 				'currency_code'           => $order['currency'],
 				'currency_value'          => '',
 				'ip'                      => $order['browser_ip'],
-				'forwarded_ip'            => '',
+				'forwarded_ip'            => $order['id'],
 				'user_agent'              =>  $this->getValue(isset($order['client_details'])?$order['client_details']:'','user_agent'),
 				'accept_language'         =>  $this->getValue(isset($order['client_details'])?$order['client_details']:'','accept_language'),
 				'date_added'              => $order['created_at'],
@@ -139,18 +144,92 @@ class ControllerShopifyGetorders extends Controller {
 				//$order_data['telephone'] = $this->session->data['guest']['telephone'];
 				$order_data['custom_field'] = $this->session->data['guest']['custom_field'];
 			}
-			$order_data['invoice_prefix'] = $order['line_items'][0]['sku'];
 			$order_data['store_id'] = $this->config->get('config_store_id');
 			$order_data['store_name'] = $this->config->get('config_name');
-			echo preg_replace('/\D/s', '',$order_data['invoice_prefix']);
+			$od = array();
+			if($order['line_items']){
+				/*foreach($order['line_items'] as $items){
+					print_r($items['sku']);
+				}*/
+				$order_data['invoice_prefix'] = $order['line_items'][0]['sku'];
+				$sku='';
+				$quantity=0;
+				foreach($order['line_items'] as $items){
+					if($items['sku']){
+						if($items['sku']==$sku){
+							$quantity+=$items['quantity'];
+						}else{
+							if($quantity>0){
+								$orderProducts = $this->model_shopify_order->getOrderProductsByOrderProductId(preg_replace('/\D/s', '',$sku));
+								if(count($orderProducts)>0){
+									$orderProducts[0]['name'] = $items['name'];
+									$orderProducts[0]['shopify_price'] = $items['price'];
+									$orderProducts[0]['order_id'] = $order_data['order_id'];
+									$orderProducts[0]['quantity'] = count($order['line_items']);
+									$orderProducts[0]['total'] = $orderProducts[0]['price']*$orderProducts[0]['quantity'];
+									$od[] = $orderProducts[0];
+								}else{
+									$od[] = array(
+									'name'=> $items['name'],
+									'order_id'=> $order['id'],
+									'product_id'=> $items['product_id'],
+									'name'=> $items['name'],
+									'model'=> $items['title'],
+									'quantity'=> $items['quantity'],
+									'price'=> 0,
+									'total'=> 0,
+									'shopify_price'=> $items['price'],
+									'tax'=> 0,
+									'reward'=> ''
+									);
+								}
+							}
+							$quantity=$items['quantity'];
+							$sku = $items['sku'];
+							}
+						}
+					
+				}
+				if($quantity>0){
+					  $orderProducts = $this->model_shopify_order->getOrderProductsByOrderProductId(preg_replace('/\D/s', '',$sku));
+					  if(count($orderProducts)>0){
+						  $orderProducts[0]['name'] = $items['name'];
+						  $orderProducts[0]['shopify_price'] = $items['price'];
+						  $orderProducts[0]['order_id'] = $order_data['order_id'];
+						  $orderProducts[0]['quantity'] = count($order['line_items']);
+						  $orderProducts[0]['total'] = $orderProducts[0]['price']*$orderProducts[0]['quantity'];
+						  $od[] = $orderProducts[0];
+					  }else{
+						  $od[] = array(
+						  'name'=> $items['name'],
+						  'order_id'=> $order['id'],
+						  'product_id'=> $items['product_id'],
+						  'name'=> $items['name'],
+						  'model'=> $items['title'],
+						  'quantity'=> $items['quantity'],
+						  'price'=> 0,
+						  'total'=> 0,
+						  'shopify_price'=> $items['price'],
+						  'tax'=> 0,
+						  'reward'=> ''
+						  );
+					 }
+				}
+				if(!empty($od)){
+					$order_data['products'] = $od;
+					print_r($order_data['products']);
+				}
+				
+			}
+			/*echo preg_replace('/\D/s', '',$order_data['invoice_prefix']);
 			$orderProducts = $this->model_shopify_order->getOrderProductsByOrderProductId(preg_replace('/\D/s', '',$order_data['invoice_prefix']));
 			print_r($orderProducts);
 			if(count($orderProducts)>0){
-				$od['products'] = $orderProducts[0];
-				$od['products']['order_id'] = $order_data['order_id'];
-				$od['products']['quantity'] = count($order['line_items']);
-				$od['products']['total'] = $orderProducts[0]['price']*$od['products']['quantity'];
-			}
+				$order_data['products'] = $orderProducts[0];
+				$order_data['products']['order_id'] = $order_data['order_id'];
+				$order_data['products']['quantity'] = count($order['line_items']);
+				$order_data['products']['total'] = $orderProducts[0]['price']*$orderProducts[0]['quantity'];
+			}*/
 			if ($order_data['store_id']) {
 				$order_data['store_url'] = $this->config->get('config_url');
 			} else {
@@ -201,6 +280,21 @@ class ControllerShopifyGetorders extends Controller {
 			return $order[$key];
 		}
 		return '';
+	}
+	
+	public function getOrderStatus($status){
+		switch($status) {
+			case 'canceled':
+				return $this->config->get('payment_pp_express_canceled_reversal_status_id');
+				break;
+			case 'refunded':
+				return  $this->config->get('payment_pp_express_refunded_status_id');
+			case 'reversed':
+				return  $this->config->get('payment_pp_express_reversed_status_id');
+			case 'voided':
+				return  $this->config->get('payment_pp_express_voided_status_id');
+		}
+		return 1;
 	}
 }
 

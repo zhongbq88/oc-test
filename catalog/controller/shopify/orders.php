@@ -60,6 +60,7 @@ class ControllerShopifyOrders extends Controller {
 			}
 			$data['orders'][] = array(
 				'order_id'   => $result['order_id'],
+				'shopify_order_id'   => $result['forwarded_ip'],
 				//'order_product_id' =>isset($$orderProduct)?$orderProduct['name']:'0',
 				'name'       => isset($result['shipping_firstname'])?$result['shipping_firstname'] . ' ' . $result['shipping_lastname']:$result['firstname'] . ' ' . $result['lastname'],
 				'status'     => $result['status'],
@@ -179,6 +180,7 @@ class ControllerShopifyOrders extends Controller {
 
 			$data['orders'][] = array(
 				'order_id'   => $result['order_id'],
+				'shopify_order_id'   => $result['forwarded_ip'],
 				'name'       => $result['firstname'] . ' ' . $result['lastname'],
 				'status'     => $result['status'],
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
@@ -219,7 +221,6 @@ class ControllerShopifyOrders extends Controller {
 
 	public function info() {
 		$this->load->language('shopify/order');
-
 		if (isset($this->request->get['order_id'])) {
 			$order_id = $this->request->get['order_id'];
 		} else {
@@ -245,6 +246,7 @@ class ControllerShopifyOrders extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 			$data['order_status_id'] = $order_info['order_status_id'];
+			$data['sale_order_id'] = $order_info['forwarded_ip'];
 			$data['breadcrumbs'] = array();
 
 			$data['breadcrumbs'][] = array(
@@ -377,11 +379,16 @@ class ControllerShopifyOrders extends Controller {
 			
 				$opt = $this->model_shopify_order->getOrderOption($order_option_id);
 				if(isset($opt[0])){
-					$orderid = $opt[0]['order_id'];
+					//$orderid = $opt[0]['order_id'];
 					$order_product_id = $opt[0]['order_product_id'];
 				}
 			}
-            $products = $this->model_shopify_order->getOrderProducts($orderid);
+            $products = $this->model_shopify_order->getOrderProducts($this->request->get['order_id']);
+			$subtotal=0;
+			$tax=0;
+			$shipping=0;
+			$total=0;
+			$saletotal=0;
 			foreach ($products as $product) {
 				$option_data = array();
 
@@ -399,13 +406,13 @@ class ControllerShopifyOrders extends Controller {
 							$value = '';
 						}
 					}
-
+					
 					$option_data[] = array(
 						'name'  => $option['name'],
 						'value' => (utf8_strlen($value) > 20 ? utf8_substr($value, 0, 20) . '..' : $value)
 					);
 				}
-
+				
 				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
 
 				if ($product_info) {
@@ -420,13 +427,34 @@ class ControllerShopifyOrders extends Controller {
 					'option'   => $option_data,
 					'quantity' => $product['quantity'],
 					'price'    => $product['price'],
+					'sale_total'    => $product['shopify_price']*$product['quantity'],
 					'total'    => $product['total'],
 					'order_product_id'    => $product['order_product_id'],
 					'reorder'  => $reorder,
 					'return'   => $this->url->link('account/return/add', 'order_id=' . $order_info['order_id'] . '&product_id=' . $product['product_id'], true)
 				);
+				$subtotal+= $product['total'];
+				$tax+= $product['tax'];
+				$saletotal+= $product['shopify_price']*$product['quantity'];
+				
 			}
-
+			$data['totals'] = array();
+			$data['totals'][] = array(
+					'title' => "Sub-Total:",
+					'text'  => $subtotal,
+					'text2'  => $saletotal
+				);
+				
+				$data['totals'][] = array(
+					'title' => "tax:",
+					'text'  => $tax,
+					'text2'  => 0
+				);
+				$data['totals'][] = array(
+					'title' => "Total:",
+					'text'  => $subtotal+$tax,
+					'text2'  => ''
+				);
 			// Voucher
 			$data['vouchers'] = array();
 
@@ -440,16 +468,9 @@ class ControllerShopifyOrders extends Controller {
 			}
 
 			// Totals
-			$data['totals'] = array();
+			
 
-			$totals = $this->model_shopify_order->getOrderTotals($orderid);
-
-			foreach ($totals as $total) {
-				$data['totals'][] = array(
-					'title' => $total['title'],
-					'text'  => $total['value'],
-				);
-			}
+			
 
 			$data['comment'] = nl2br($order_info['comment']);
 
@@ -470,7 +491,7 @@ class ControllerShopifyOrders extends Controller {
 			
 			$data['paid'] = $this->url->link('shopify/orders/pay', 'order_id=' . $orderid . $url, true);
 			
-
+			//$data['status'] = $this->request->get['status'];
 			$data['footer'] = $this->load->controller('shopify/footer');
 			$data['header'] = $this->load->controller('shopify/header');
 
