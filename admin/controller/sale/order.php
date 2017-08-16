@@ -939,9 +939,8 @@ class ControllerSaleOrder extends Controller {
 							);
 						}
 					}
-				}
-
-				$options = $this->model_sale_order->getOrderOptions($orderid, empty($order_product_id)?$product['order_product_id']:$order_product_id);
+					
+					$options = $this->model_sale_order->getOrderOptionsByOptionId($option['order_option_id']);
 
 				foreach ($options as $option) {
 					if ($option['type'] == 'file' && isset($option['value'])) {
@@ -984,6 +983,9 @@ class ControllerSaleOrder extends Controller {
 						
 					}
 				}
+				}
+
+				
 
 				$data['products'][] = array(
 					'order_product_id' => $product['order_product_id'],
