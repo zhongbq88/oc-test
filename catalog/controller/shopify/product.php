@@ -826,6 +826,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 						
 						
 						$variants[] = array(
+							'option1' => isset($variant[$index])?$variant[$index]:'option'.$index,
 							"price"=>$pspr,
 							"sku"=> $product_info['sku'].".".$sku_id
 						);
