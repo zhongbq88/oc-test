@@ -849,8 +849,9 @@ $data['footer'] = $this->load->controller('shopify/footer');
     "product_type"=>  $product_info['model'],
 	"variants"=>$variants,
 	"options"=>$options,
-	"images"=>$images
-	//'result'=>$order_option
+	"images"=>$images,
+	'result'=>$option,
+	'order_option'=>$order_option
 	);
 
 	}
