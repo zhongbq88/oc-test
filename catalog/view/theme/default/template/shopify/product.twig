@@ -169,13 +169,9 @@
 				
 				
 				<div class="mk-button-align fullwidth-button center" style="float:right; margin-right:20%">
-						<a href="index.php?route=shopify/createproduct" id="gopublish"  class="btn btn-primary btn-lg btn-block" >
-						<i class="mk-moon-arrow-right-6"></i>{{publish_product}}</a></div>
+                 <button type="button" id="gopublish"  class="btn btn-primary btn-lg btn-block" ><i class="mk-moon-arrow-right-6"></i>{{publish_product}}</button>
+						</div>
 			
-			
-			
-			
-
 		</div>
         </div>
 		
@@ -234,10 +230,14 @@ $('#gopublish').on('click', function() {
 		},
 		success: function(json) {
 			//alert(json['success']);
+			if (json['success']) {
+				window.location.href="index.php?route=shopify/createproduct";
+			}
+			
 			
 		},
         error: function(xhr, ajaxOptions, thrownError) {
-            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            //alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
         }
 	});
 });

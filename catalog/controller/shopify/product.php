@@ -747,7 +747,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 				$options[$index]['name'] = $opt['name'];
 				$value = array();
 				foreach ($opt['product_option_value'] as $option_value) {
-					$option_data[$index][] = $option_value['name'];
+					$option_data[$index][] = $opt['name'].":".$option_value['name'];
 					$value[] = $option_value['name'];
 				}
 				$options[$index]['values']  = $value;
@@ -800,7 +800,8 @@ $data['footer'] = $this->load->controller('shopify/footer');
 						);
 						$optionIndex =1;
 						foreach($v  as $o){
-							$variant1["option".$optionIndex] = $o;
+							$oo = explode(":",$o);
+							$variant1["option".$optionIndex] = $oo[1];
 							$optionIndex++;
 						}
 						$variants[]  = $variant1;
@@ -853,8 +854,13 @@ $data['footer'] = $this->load->controller('shopify/footer');
 	"images"=>$images
 	//'result'=>$option,
 	//'order_option'=>$order_option
+	
 	);
-
+		$json = array();
+		$json['success'] = 'success';
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+		//$this->response->redirect($this->url->link('shopify/createproduct', '', true));
 	}
 	
 	public function calculateCombination($inputList, $beginIndex, $arr,$arr2) {

@@ -375,9 +375,9 @@ class ControllerShopifyOrders extends Controller {
 			$order_product_id;
 			if($order_info['customer_group_id']==4){
 				
-				$order_option_id = substr( $order_info['invoice_prefix'],2);
+				$order_option_id = substr($order_info['invoice_prefix'],3);
 			
-				$opt = $this->model_shopify_order->getOrderOption($order_option_id);
+				$opt = $this->model_shopify_order->getProductSku($order_option_id);
 				if(isset($opt[0])){
 					//$orderid = $opt[0]['order_id'];
 					$order_product_id = $opt[0]['order_product_id'];
@@ -391,28 +391,21 @@ class ControllerShopifyOrders extends Controller {
 			$saletotal=0;
 			foreach ($products as $product) {
 				$option_data = array();
-
-				$options = $this->model_shopify_order->getOrderOptions($orderid, empty($order_product_id)?$product['order_product_id']:$order_product_id);
-
+				//print_r($product['shopify_sku']);
+				$options = $this->model_shopify_order->getProductSku(preg_replace('/\D/s', '',$product['shopify_sku']));
+				//print_r( $options);
+				$image='';
+				$model ='';
 				foreach ($options as $option) {
-					if ($option['type'] != 'file') {
-						$value = $option['value'];
-					} else {
-						$upload_info = $this->model_tool_upload->getUploadByCode($option['value']);
-
-						if ($upload_info) {
-							$value = $upload_info['name'];
-						} else {
-							$value = '';
-						}
-					}
-					
-					$option_data[] = array(
-						'name'  => $option['name'],
-						'value' => (utf8_strlen($value) > 20 ? utf8_substr($value, 0, 20) . '..' : $value)
+					$opts = json_decode($option['product_options'],true);
+					$image = $option['design_file'];
+					$model = $option['product_model'];
+					foreach ($opts as $opt) {
+						$option_data[] = array(
+						'value' => $opt
 					);
+					}
 				}
-				
 				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
 
 				if ($product_info) {
@@ -423,9 +416,10 @@ class ControllerShopifyOrders extends Controller {
 
 				$data['products'][] = array(
 					'name'     => $product['name'],
-					'model'    => $product['model'],
+					'model'    => $model,
 					'option'   => $option_data,
 					'quantity' => $product['quantity'],
+					'design_file'    => $image,
 					'price'    => $product['price'],
 					'sale_total'    => $product['shopify_price']*$product['quantity'],
 					'total'    => $product['total'],

@@ -355,7 +355,7 @@ $sql .="ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit;
 		$result = array();
 if (isset($data['products'])) {
 			foreach ($data['products'] as $product) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "order_product SET order_id = '" . $order_id . "', product_id = '" . (int)$product['product_id'] . "', name = '" . $this->db->escape($product['name']) . "', model = '" . $this->db->escape($product['model']) . "', quantity = '" . (int)$product['quantity'] . "', price = '" . (float)$product['price'] . "', total = '" . (float)$product['total'] . "', tax = '" . (float)$product['tax'] . "', reward = '" . (int)$product['reward'] . "', shopify_price = '" . (float)$product['shopify_price'] . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "order_product SET order_id = '" . $order_id . "', product_id = '" . (int)$product['product_id'] . "', name = '" . $this->db->escape($product['name']) . "', model = '" . $this->db->escape($product['model']) . "', quantity = '" . (int)$product['quantity'] . "', price = '" . (float)$product['price'] . "', total = '" . (float)$product['total'] . "', tax = '" . (float)$product['tax'] . "', reward = '" . (int)$product['reward'] . "', shopify_price = '" . (float)$product['shopify_price'] . "',shopify_sku = '" . $this->db->escape($product['shopify_sku']) . "'");
 				$result[] = $this->db->getLastId();
 			}
 			
@@ -408,6 +408,20 @@ if (isset($data['products'])) {
 			return $this->db->getLastId();
 		}
 		return 0;
+	}
+	
+	public function getProductSku($sku_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_sku WHERE sku_id = '" . (int)$sku_id . "' ");
+
+		return $query->rows;
+	}
+	
+	public function getOrderProductsBySku($sku_id) {
+		$query1 = $this->db->query("SELECT order_product_id FROM " . DB_PREFIX . "product_sku WHERE sku_id = '" . (int)$sku_id . "' ");
+		if(count($query1->rows)>0){
+			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$query1->rows[0]['order_product_id'] . "'");
+			return $query->rows;
+		}
 	}
 	
 }

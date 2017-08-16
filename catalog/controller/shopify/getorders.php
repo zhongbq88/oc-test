@@ -160,13 +160,20 @@ class ControllerShopifyGetorders extends Controller {
 							$quantity+=$items['quantity'];
 						}else{
 							if($quantity>0){
-								$orderProducts = $this->model_shopify_order->getOrderProductsByOrderProductId(preg_replace('/\D/s', '',$sku));
+								$skus = explode('.', $items['sku']);
+								$sk = $skus[count($skus)-1];
+								if(empty($sk) || $sk==$items['sku']){
+						  			$sk = preg_replace('/\D/s', '',$items['sku']);
+					  			}
+								//echo $sk.",";
+								$orderProducts = $this->model_shopify_order->getOrderProductsBySku($sk);
 								if(count($orderProducts)>0){
 									$orderProducts[0]['name'] = $items['name'];
 									$orderProducts[0]['shopify_price'] = $items['price'];
 									$orderProducts[0]['order_id'] = $order_data['order_id'];
 									$orderProducts[0]['quantity'] = count($order['line_items']);
 									$orderProducts[0]['total'] = $orderProducts[0]['price']*$orderProducts[0]['quantity'];
+									$orderProducts[0]['shopify_sku'] = $sk;
 									$od[] = $orderProducts[0];
 								}else{
 									$od[] = array(
@@ -179,6 +186,7 @@ class ControllerShopifyGetorders extends Controller {
 									'price'=> 0,
 									'total'=> 0,
 									'shopify_price'=> $items['price'],
+									'shopify_sku'=> $items['sku'],
 									'tax'=> 0,
 									'reward'=> ''
 									);
@@ -191,13 +199,20 @@ class ControllerShopifyGetorders extends Controller {
 					
 				}
 				if($quantity>0){
-					  $orderProducts = $this->model_shopify_order->getOrderProductsByOrderProductId(preg_replace('/\D/s', '',$sku));
+					 $skus = explode('.', $items['sku']);
+					  $sk = $skus[count($skus)-1];
+					  if(empty($sk) || $sk==$items['sku'] ){
+						  $sk = preg_replace('/\D/s', '',$items['sku']);
+					  }
+					  //echo $sk.",";
+					  $orderProducts = $this->model_shopify_order->getOrderProductsBySku($sk);
 					  if(count($orderProducts)>0){
 						  $orderProducts[0]['name'] = $items['name'];
 						  $orderProducts[0]['shopify_price'] = $items['price'];
 						  $orderProducts[0]['order_id'] = $order_data['order_id'];
 						  $orderProducts[0]['quantity'] = count($order['line_items']);
 						  $orderProducts[0]['total'] = $orderProducts[0]['price']*$orderProducts[0]['quantity'];
+						  $orderProducts[0]['shopify_sku'] = $sk;
 						  $od[] = $orderProducts[0];
 					  }else{
 						  $od[] = array(
@@ -210,6 +225,7 @@ class ControllerShopifyGetorders extends Controller {
 						  'price'=> 0,
 						  'total'=> 0,
 						  'shopify_price'=> $items['price'],
+						  'shopify_sku'=> $items['sku'],
 						  'tax'=> 0,
 						  'reward'=> ''
 						  );
@@ -217,7 +233,7 @@ class ControllerShopifyGetorders extends Controller {
 				}
 				if(!empty($od)){
 					$order_data['products'] = $od;
-					print_r($order_data['products']);
+					//print_r($order_data['products']);
 				}
 				
 			}

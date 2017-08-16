@@ -3147,3 +3147,32 @@
 2017-08-16 1:31:18 - PHP Warning:  unlink(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1502850676): No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 68
 2017-08-16 1:33:24 - PHP Warning:  unlink(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1502850800): No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 68
 2017-08-16 1:47:23 - PHP Warning:  unlink(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1502851015): No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 68
+2017-08-16 3:19:49 - PHP Notice:  Undefined variable: query in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Trying to get property of non-object in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Undefined variable: query in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Trying to get property of non-object in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Undefined variable: query in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Trying to get property of non-object in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Undefined variable: query in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Trying to get property of non-object in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Undefined variable: query in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Trying to get property of non-object in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Undefined variable: query in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Trying to get property of non-object in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Undefined variable: query in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Trying to get property of non-object in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Undefined variable: query in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:19:49 - PHP Notice:  Trying to get property of non-object in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 421
+2017-08-16 3:20:25 - PHP Notice:  Undefined variable: query in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 422
+2017-08-16 3:20:25 - PHP Notice:  Trying to get property of non-object in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 422
+2017-08-16 3:20:25 - PHP Notice:  Undefined variable: query in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 422
+2017-08-16 3:20:25 - PHP Notice:  Trying to get property of non-object in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 422
+2017-08-16 4:06:18 - PHP Notice:  Undefined variable: image in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 420
+2017-08-16 4:06:18 - PHP Notice:  Undefined variable: image in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 420
+2017-08-16 4:08:08 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 395
+2017-08-16 4:08:08 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 395
+2017-08-16 4:20:34 - PHP Notice:  Undefined index: token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-16 4:20:34 - PHP Notice:  Undefined variable: url in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-16 4:20:34 - PHP Warning:  Cannot modify header information - headers already sent by (output started at G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php:16) in G:\xampp\htdocs\oc-test\system\library\response.php on line 36
+2017-08-16 4:34:14 - PHP Notice:  Undefined index: token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-16 4:34:14 - PHP Notice:  Undefined variable: url in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
