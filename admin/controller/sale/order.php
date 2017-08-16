@@ -920,18 +920,28 @@ class ControllerSaleOrder extends Controller {
 			
 			$this->load->model('tool/image');
             $products = $this->model_sale_order->getOrderProducts($orderid);
+			$subtotal=0;
+			$tax=0;
+			$shipping=0;
+			$total=0;
+			$saletotal=0;
 			foreach ($products as $product) {
+				if($product['shopify_price']==0){
+					continue;
+				}
 				$option_data1 = array();
 				$option_data = array();
 				$options1 = $this->model_sale_order->getProductSku(preg_replace('/\D/s', '',$product['shopify_sku']));
 				//print_r($product['shopify_sku']);
-				print_r( $options1);
+				//print_r($options1);
 				$image='';
 				$model ='';
+				$sku ='';
 				foreach ($options1 as $option) {
 					$opts = json_decode($option['product_options'],true);
 					$image = $option['design_file'];
 					$model = $option['product_model'];
+					$sku = "SKU: ".$option['sku'].".".$option['sku_id'];
 					if(isset($opts)){
 						foreach ($opts as $opt) {
 							$option_data1[] = array(
@@ -944,13 +954,7 @@ class ControllerSaleOrder extends Controller {
 
 				foreach ($options as $option) {
 					if ($option['type'] == 'file' && isset($option['value'])) {
-						/*$option_data[] = array(
-							'name'  => $option['name'],
-							'value' => $option['value'],
-							'type'  => $option['type']
-						);
-					} else {*/
-						//echo $option['value'].',';
+						
 						$tmparray = explode(';',$option['value']);
 						if(count($tmparray)>1){
 							$left = str_replace("left:","",$tmparray[0]);
@@ -959,6 +963,7 @@ class ControllerSaleOrder extends Controller {
 							$upload_info_right = $this->model_tool_upload->getUploadByCode($right);
 							if ($upload_info_left ) {
 								$option_data[] = array(
+									
 									'name'  => $option['name']." Left",
 									'value' => $upload_info_left['name'],
 									'type'  => $option['type'],
@@ -967,6 +972,7 @@ class ControllerSaleOrder extends Controller {
 							}
 							if ($upload_info_right ) {
 								$option_data[] = array(
+									
 									'name'  => $option['name']." Right",
 									'value' => $upload_info_right['name'],
 									'type'  => $option['type'],
@@ -994,6 +1000,7 @@ class ControllerSaleOrder extends Controller {
 				
 
 				$data['products'][] = array(
+				    'sku'   => $sku,
 					'order_product_id' => $product['order_product_id'],
 					'product_id'       => $product['product_id'],
 					'name'    	 	   => $product['name'],
@@ -1002,12 +1009,16 @@ class ControllerSaleOrder extends Controller {
 					'option1'   	   => $option_data1,
 					'option'   		   => $option_data,
 					'quantity'		   => $product['quantity'],
-					'price'    		   => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
-					'total'    		   => $this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']),
+					'price'    		   => $product['price'],
+					'total'    		   => $product['total'],
+					'sale_total'       => $product['shopify_price']*$product['quantity'],
 					'href'     		   => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product['product_id'], true)
 				);
+				$subtotal+= $product['total'];
+			$tax+= $product['tax'];
+			$saletotal+= $product['shopify_price']*$product['quantity'];
 			}
-
+			
 			$data['vouchers'] = array();
 
 			$vouchers = $this->model_sale_order->getOrderVouchers($this->request->get['order_id']);
@@ -1021,15 +1032,31 @@ class ControllerSaleOrder extends Controller {
 			}
 
 			$data['totals'] = array();
+			$data['totals'][] = array(
+					'title' => "Sub-Total:",
+					'text'  => $subtotal,
+					'text2'  => $saletotal
+				);
+				
+				$data['totals'][] = array(
+					'title' => "tax:",
+					'text'  => $tax,
+					'text2'  => 0
+				);
+				$data['totals'][] = array(
+					'title' => "Total:",
+					'text'  => $subtotal+$tax,
+					'text2'  => ''
+				);
 
-			$totals = $this->model_sale_order->getOrderTotals($this->request->get['order_id']);
+		/*	$totals = $this->model_sale_order->getOrderTotals($this->request->get['order_id']);
 
 			foreach ($totals as $total) {
 				$data['totals'][] = array(
 					'title' => $total['title'],
 					'text'  => $this->currency->format($total['value'], $order_info['currency_code'], $order_info['currency_value'])
 				);
-			}
+			}*/
 
 			$data['comment'] = nl2br($order_info['comment']);
 

@@ -149,6 +149,7 @@
               <td class="text-right">{{ column_quantity }}</td>
               <td class="text-right">{{ column_price }}</td>
               <td class="text-right">{{ column_total }}</td>
+               <td class="text-right">{{ column_sale_price }}</td>
             </tr>
           </thead>
           <tbody>
@@ -156,6 +157,9 @@
           {% for product in products %}
           <tr>
             <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a>
+            <br />
+             
+              &nbsp;<small> - {{ product.sku }}</small>
             {% for option in product.option1 %} <br />
              
               &nbsp;<small> - {{ option.value }}</small>
@@ -163,9 +167,6 @@
               {% endfor %}
              {% for option in product.option %} <br />
               &nbsp;<small> - {{ option.name }}: <a href="{{ option.href }}">{{ option.value }}</a></small> 
-               {% if option.pop %}
-              <!--<div style="float:left;"><a class="thumbnail" style="border:none;"><img src="{{  option.pop }}"   style="width: auto; height: 100px;" /></a></div>-->
-               {% endif %}
               {% endfor %}
               
               {% if product.design_file %}
@@ -177,6 +178,7 @@
             <td class="text-right">{{ product.quantity }}</td>
             <td class="text-right">{{ product.price }}</td>
             <td class="text-right">{{ product.total }}</td>
+             <td class="text-right">{{ product.sale_total }}</td>
           </tr>
           {% endfor %}
           {% for voucher in vouchers %}
@@ -192,6 +194,7 @@
           <tr>
             <td colspan="4" class="text-right">{{ total.title }}</td>
             <td class="text-right">{{ total.text }}</td>
+               <td class="text-right">{{ total.text2 }}</td>
           </tr>
           {% endfor %}
             </tbody>

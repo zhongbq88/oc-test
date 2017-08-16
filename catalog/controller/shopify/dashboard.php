@@ -10,12 +10,13 @@ require 'conf.php';
 class ControllerShopifyDashboard extends Controller {
 
 	public function index(){
+		
+		
 		if(empty($_SESSION['shop'])){
 			$this->getToken();
 		}
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('shopify/dashboard', '', true);
-	
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
 

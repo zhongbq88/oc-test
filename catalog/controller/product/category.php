@@ -1,7 +1,8 @@
 <?php
 class ControllerProductCategory extends Controller {
 	public function index() {
-		$this->load->language('product/category');
+		$this->response->redirect($this->url->link('shopify/dashboard', '', true));
+		/*$this->load->language('product/category');
 
 		$this->load->model('catalog/category');
 
@@ -410,7 +411,7 @@ class ControllerProductCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('error/not_found', $data));
+			$this->response->setOutput($this->load->view('error/not_found', $data));*/
 		}
 	}
 }
