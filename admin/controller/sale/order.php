@@ -227,6 +227,7 @@ class ControllerSaleOrder extends Controller {
 		foreach ($results as $result) {
 			$data['orders'][] = array(
 				'order_id'      => $result['order_id'],
+				'shopify_order_id'      => $result['forwarded_ip'],
 				'customer'      => $result['customer'],
 				'order_status'  => $result['order_status'] ? $result['order_status'] : $this->language->get('text_missing'),
 				'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
@@ -907,41 +908,80 @@ class ControllerSaleOrder extends Controller {
 
 			$data['products'] = array();
 			$orderid = $this->request->get['order_id'];
-			$order_product_id;
-			if($order_info['customer_group_id']==4){
+			//$order_product_id;
+			/*if($order_info['customer_group_id']==4){
 				
 				$order_option_id = substr( $order_info['invoice_prefix'],2);
 			
 				$opt = $this->model_sale_order->getOrderOption($order_option_id);
 				$orderid = $opt[0]['order_id'];
 				$order_product_id = $opt[0]['order_product_id'];
-			}
+			}*/
 			
 			
             $products = $this->model_sale_order->getOrderProducts($orderid);
 			foreach ($products as $product) {
+				$option_data1 = array();
 				$option_data = array();
+				$options1 = $this->model_sale_order->getProductSku(preg_replace('/\D/s', '',$product['shopify_sku']));
+				//print_r($product['shopify_sku']);
+				//print_r( $options1);
+				$image='';
+				$model ='';
+				foreach ($options1 as $option) {
+					$opts = json_decode($option['product_options'],true);
+					$image = $option['design_file'];
+					$model = $option['product_model'];
+					if(isset($opts)){
+						foreach ($opts as $opt) {
+							$option_data1[] = array(
+							'value' => $opt
+							);
+						}
+					}
+				}
 
 				$options = $this->model_sale_order->getOrderOptions($orderid, empty($order_product_id)?$product['order_product_id']:$order_product_id);
 
 				foreach ($options as $option) {
-					if ($option['type'] != 'file') {
-						$option_data[] = array(
+					if ($option['type'] == 'file' && isset($option['value'])) {
+						/*$option_data[] = array(
 							'name'  => $option['name'],
 							'value' => $option['value'],
 							'type'  => $option['type']
 						);
-					} else {
-						$upload_info = $this->model_tool_upload->getUploadByCode($option['value']);
-
-						if ($upload_info) {
-							$option_data[] = array(
-								'name'  => $option['name'],
-								'value' => $upload_info['name'],
-								'type'  => $option['type'],
-								'href'  => $this->url->link('tool/upload/download', 'user_token=' . $this->session->data['user_token'] . '&code=' . $upload_info['code'], true)
-							);
+					} else {*/
+						//echo $option['value'].',';
+						$tmparray = explode(';',$option['value']);
+						if(count($tmparray)>1){
+							$left = str_replace("left:","",$tmparray[0]);
+							$right =  str_replace("right:","",$tmparray[1]);
+							$upload_info_left = $this->model_tool_upload->getUploadByCode($left);
+							$upload_info_right = $this->model_tool_upload->getUploadByCode($right);
+							if ($upload_info_left || $upload_info_right) {
+								$option_data[] = array(
+									'name'  => $option['name']." Left",
+									'value' => $upload_info_left['name'],
+									'type'  => $option['type'],
+									'href'  => $this->url->link('tool/upload/download', 'user_token=' . $this->session->data['user_token'] . '&code=' . $upload_info_left['code'], true),
+									'name_right'  => $option['name']." Right",
+									'value_right' => $upload_info_right['name'],
+									'href_right'  => $this->url->link('tool/upload/download', 'user_token=' . $this->session->data['user_token'] . '&code=' . $upload_info_right['code'], true)
+								);
+							}
+							
+						}else{
+							$upload_info = $this->model_tool_upload->getUploadByCode($option['value']);
+							if ($upload_info) {
+								$option_data[] = array(
+									'name'  => $option['name'],
+									'value' => $upload_info['name'],
+									'type'  => $option['type'],
+									'href'  => $this->url->link('tool/upload/download', 'user_token=' . $this->session->data['user_token'] . '&code=' . $upload_info['code'], true)
+								);
+							}
 						}
+						
 					}
 				}
 
@@ -950,6 +990,8 @@ class ControllerSaleOrder extends Controller {
 					'product_id'       => $product['product_id'],
 					'name'    	 	   => $product['name'],
 					'model'    		   => $product['model'],
+					'design_file'      => $image,
+					'option1'   	   => $option_data1,
 					'option'   		   => $option_data,
 					'quantity'		   => $product['quantity'],
 					'price'    		   => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),

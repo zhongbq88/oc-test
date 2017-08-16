@@ -126,7 +126,7 @@
                     <input type="checkbox" name="selected[]" value="{{ order.order_id }}" />
                     {% endif %}
                     <input type="hidden" name="shipping_code[]" value="{{ order.shipping_code }}" /></td>
-                  <td class="text-right">{{ order.order_id }}</td>
+                  <td class="text-right"> {% if order.shopify_order_id %} {{ order.shopify_order_id }}  {% else %}{{order.order_id }}{% endif %}</td>
                   <td class="text-left">{{ order.customer }}</td>
                   <td class="text-left">{{ order.order_status }}</td>
                   <td class="text-right">{{ order.total }}</td>

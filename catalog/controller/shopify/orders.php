@@ -398,7 +398,7 @@ class ControllerShopifyOrders extends Controller {
 					continue;
 				}
 				$option_data = array();
-				//print_r($product['shopify_sku']);
+				//print_r($product['shopify_sku'].'-id='.$this->request->get['order_id']);
 				$options = $this->model_shopify_order->getProductSku(preg_replace('/\D/s', '',$product['shopify_sku']));
 				//print_r( $options);
 				$image='';

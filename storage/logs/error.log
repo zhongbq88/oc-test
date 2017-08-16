@@ -3225,3 +3225,18 @@
 2017-08-16 7:19:50 - PHP Notice:  Undefined index: oauth_token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 12
 2017-08-16 7:20:45 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 410
 2017-08-16 7:20:45 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 410
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:29:26 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 230
+2017-08-16 7:33:51 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 917
+2017-08-16 7:33:51 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 918

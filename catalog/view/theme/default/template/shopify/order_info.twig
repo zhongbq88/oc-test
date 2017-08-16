@@ -69,7 +69,9 @@
             <div style="float:left">{{ product.name }}
               {% for option in product.option %} <br />
               &nbsp;<small>{{ option.value }}</small> {% endfor %}</div>
+             {% if product.design_file %}
               <div style="float: right"><a class="thumbnail" style="border:none;"><img src="{{  product.design_file }}"   style="width: auto; height: 120px;" /></a></div>
+              {% endif %}
               </td>
             <td class="text-left">{{ product.model }}</td>
             <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
