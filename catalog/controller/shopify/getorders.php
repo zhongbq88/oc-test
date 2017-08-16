@@ -31,7 +31,7 @@ class ControllerShopifyGetorders extends Controller {
 		//print_r(date(DATE_ATOM, mktime(0, 0, 0, 7, 1, 2000)));
 		$orders = $shopify('GET /admin/orders.json?status=any'/*&processed_at_min='.$adddate.'&created_at_min='.$adddate*/);
 		$this->load->model('localisation/order_status');
-		print_r($orders);
+		//print_r($orders);
 		$order_statuses = $this->model_localisation_order_status->getOrderStatuses();
 
 		foreach($orders as $order){
@@ -155,7 +155,7 @@ class ControllerShopifyGetorders extends Controller {
 				$sku='';
 				$quantity=0;
 				foreach($order['line_items'] as $items){
-					if($items['sku']){
+					/*if($items['sku']){
 						if($items['sku']==$sku){
 							$quantity+=$items['quantity'];
 						}else{
@@ -192,13 +192,15 @@ class ControllerShopifyGetorders extends Controller {
 									);
 								}
 							}
+							echo $quantity.",";
 							$quantity=$items['quantity'];
 							$sku = $items['sku'];
 							}
 						}
 					
-				}
-				if($quantity>0){
+				}*/
+				//if($quantity>0){
+					 $sku = $items['sku'];
 					 $skus = explode('.', $items['sku']);
 					  $sk = $skus[count($skus)-1];
 					  if(empty($sk) || $sk==$items['sku'] ){
@@ -210,8 +212,8 @@ class ControllerShopifyGetorders extends Controller {
 						  $orderProducts[0]['name'] = $items['name'];
 						  $orderProducts[0]['shopify_price'] = $items['price'];
 						  $orderProducts[0]['order_id'] = $order_data['order_id'];
-						  $orderProducts[0]['quantity'] = count($order['line_items']);
-						  $orderProducts[0]['total'] = $orderProducts[0]['price']*$orderProducts[0]['quantity'];
+						  $orderProducts[0]['quantity'] = $items['quantity'];
+						  $orderProducts[0]['total'] = $orderProducts[0]['price']*$items['quantity'];
 						  $orderProducts[0]['shopify_sku'] = $sk;
 						  $od[] = $orderProducts[0];
 					  }else{
@@ -230,12 +232,12 @@ class ControllerShopifyGetorders extends Controller {
 						  'reward'=> ''
 						  );
 					 }
+				//}
+					if(!empty($od)){
+						$order_data['products'] = $od;
+						//print_r($order_data['products']);
+					}
 				}
-				if(!empty($od)){
-					$order_data['products'] = $od;
-					//print_r($order_data['products']);
-				}
-				
 			}
 			/*echo preg_replace('/\D/s', '',$order_data['invoice_prefix']);
 			$orderProducts = $this->model_shopify_order->getOrderProductsByOrderProductId(preg_replace('/\D/s', '',$order_data['invoice_prefix']));
