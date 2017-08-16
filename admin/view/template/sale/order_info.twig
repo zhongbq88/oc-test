@@ -163,8 +163,13 @@
               {% endfor %}
              {% for option in product.option %} <br />
               &nbsp;<small> - {{ option.name }}: <a href="{{ option.href }}">{{ option.value }}</a></small> 
+               {% if option.pop %}
+              <!--<div style="float:left;"><a class="thumbnail" style="border:none;"><img src="{{  option.pop }}"   style="width: auto; height: 100px;" /></a></div>-->
+               {% endif %}
               {% endfor %}
+              
               {% if product.design_file %}
+              
               <div style="float: right"><a class="thumbnail" style="border:none;"><img src="{{  product.design_file }}"   style="width: auto; height: 120px;" /></a></div>
               {% endif %}
               </td>

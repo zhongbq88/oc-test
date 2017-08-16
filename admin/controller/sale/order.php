@@ -918,14 +918,14 @@ class ControllerSaleOrder extends Controller {
 				$order_product_id = $opt[0]['order_product_id'];
 			}*/
 			
-			
+			$this->load->model('tool/image');
             $products = $this->model_sale_order->getOrderProducts($orderid);
 			foreach ($products as $product) {
 				$option_data1 = array();
 				$option_data = array();
 				$options1 = $this->model_sale_order->getProductSku(preg_replace('/\D/s', '',$product['shopify_sku']));
 				//print_r($product['shopify_sku']);
-				//print_r( $options1);
+				print_r( $options1);
 				$image='';
 				$model ='';
 				foreach ($options1 as $option) {
@@ -940,7 +940,7 @@ class ControllerSaleOrder extends Controller {
 						}
 					}
 					
-					$options = $this->model_sale_order->getOrderOptionsByOptionId($option['order_option_id']);
+				$options = $this->model_sale_order->getOrderOptionsByOptionId($option['order_option_id']);
 
 				foreach ($options as $option) {
 					if ($option['type'] == 'file' && isset($option['value'])) {
@@ -957,21 +957,27 @@ class ControllerSaleOrder extends Controller {
 							$right =  str_replace("right:","",$tmparray[1]);
 							$upload_info_left = $this->model_tool_upload->getUploadByCode($left);
 							$upload_info_right = $this->model_tool_upload->getUploadByCode($right);
-							if ($upload_info_left || $upload_info_right) {
+							if ($upload_info_left ) {
 								$option_data[] = array(
 									'name'  => $option['name']." Left",
 									'value' => $upload_info_left['name'],
 									'type'  => $option['type'],
 									'href'  => $this->url->link('tool/upload/download', 'user_token=' . $this->session->data['user_token'] . '&code=' . $upload_info_left['code'], true),
-									'name_right'  => $option['name']." Right",
-									'value_right' => $upload_info_right['name'],
-									'href_right'  => $this->url->link('tool/upload/download', 'user_token=' . $this->session->data['user_token'] . '&code=' . $upload_info_right['code'], true)
+								);
+							}
+							if ($upload_info_right ) {
+								$option_data[] = array(
+									'name'  => $option['name']." Right",
+									'value' => $upload_info_right['name'],
+									'type'  => $option['type'],
+									'href'  => $this->url->link('tool/upload/download', 'user_token=' . $this->session->data['user_token'] . '&code=' . $upload_info_right['code'], true),
 								);
 							}
 							
 						}else{
 							$upload_info = $this->model_tool_upload->getUploadByCode($option['value']);
 							if ($upload_info) {
+								$pop = DIR_UPLOAD.$upload_info['filename'];
 								$option_data[] = array(
 									'name'  => $option['name'],
 									'value' => $upload_info['name'],
