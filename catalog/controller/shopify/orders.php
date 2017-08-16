@@ -390,6 +390,9 @@ class ControllerShopifyOrders extends Controller {
 			$total=0;
 			$saletotal=0;
 			foreach ($products as $product) {
+				if($product['shopify_price']==0){
+					continue;
+				}
 				$option_data = array();
 				//print_r($product['shopify_sku']);
 				$options = $this->model_shopify_order->getProductSku(preg_replace('/\D/s', '',$product['shopify_sku']));
