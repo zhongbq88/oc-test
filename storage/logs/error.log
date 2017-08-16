@@ -3176,3 +3176,17 @@
 2017-08-16 4:20:34 - PHP Warning:  Cannot modify header information - headers already sent by (output started at G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php:16) in G:\xampp\htdocs\oc-test\system\library\response.php on line 36
 2017-08-16 4:34:14 - PHP Notice:  Undefined index: token in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
 2017-08-16 4:34:14 - PHP Notice:  Undefined variable: url in G:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59
+2017-08-16 5:06:12 - PHP Notice:  Undefined variable: product in G:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 59

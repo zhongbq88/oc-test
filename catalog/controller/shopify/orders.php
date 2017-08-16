@@ -52,9 +52,13 @@ class ControllerShopifyOrders extends Controller {
 			//echo $result['order_id'];
 			$orderProducts = $this->model_shopify_order->getOrderProducts($result['order_id']);
 			//$total = isset($orderProducts[0])?$orderProducts[0]['total']:0;
+			
 			$total = 0;
 			$quantity = 0;
 			foreach($orderProducts as $orderProduct){
+				if($orderProduct['shopify_price']==0){
+					continue;
+				}
 				$total += isset($orderProduct)?$orderProduct['total']:0;
 				$quantity += isset($orderProduct)?$orderProduct['quantity']:0;
 			}
