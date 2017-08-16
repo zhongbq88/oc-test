@@ -773,8 +773,8 @@ $data['footer'] = $this->load->controller('shopify/footer');
 						} else {
 							$image = $value;
 						}
-						
-					foreach ($result  as $v) {
+					if(count($result)>0){
+						foreach ($result  as $v) {
 						$sku =  array(
 							'product_id'  => $product_id,
 							'order_id'       => $this->session->data['order_id'],
@@ -804,7 +804,33 @@ $data['footer'] = $this->load->controller('shopify/footer');
 							$optionIndex++;
 						}
 						$variants[]  = $variant1;
+						}
+					}else{
+						$sku =  array(
+							'product_id'  => $product_id,
+							'order_id'       => $this->session->data['order_id'],
+							'sku'        => $product_info['sku'],
+							'model'        => $product_info['model'],
+							'order_option_id'  => $order_opt['order_option_id'],
+							'order_product_id'  => $order_opt['order_product_id'],
+							'product_options'       => '',
+							'design_file'        => $image
+							//'customer_id'  => $product_info['customer_id']
+						);
+						$sku_id = $this->model_shopify_order->addProductSku($sku);
+						/*if (isset($variant[$order_opt['product_option_id']])) {
+							$optionl = $variant[$order_opt['product_option_id']];
+						} else {
+							$optionl = 'option'.$index;
+						}*/
+						
+						
+						$variants[] = array(
+							"price"=>$pspr,
+							"sku"=> $product_info['sku'].".".$sku_id
+						);
 					}
+
 					
 					$images[] = array(
 						"src"=> $image
