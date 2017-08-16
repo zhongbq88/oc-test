@@ -46,7 +46,7 @@ class ControllerShopifyDashboard extends Controller {
 				$shipped+=1;
 			}else if($result['order_status_id']==18){
 				$on_hold+=1;
-			}else if($result['order_status_id']==7){
+			}else if($result['order_status_id']==7 || $result['order_status_id']==11||$result['order_status_id']==10||$result['order_status_id']==14){
 				$cancelled+=1;
 			}
 			if($result['order_status_id']==17 || $result['order_status_id']==13 || $result['order_status_id']==17|| $result['order_status_id']==5|| $result['order_status_id']==3){
