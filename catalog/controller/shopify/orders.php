@@ -407,11 +407,14 @@ class ControllerShopifyOrders extends Controller {
 					$opts = json_decode($option['product_options'],true);
 					$image = $option['design_file'];
 					$model = $option['product_model'];
-					foreach ($opts as $opt) {
+					if(isset($opts)){
+						foreach ($opts as $opt) {
 						$option_data[] = array(
 						'value' => $opt
 					);
 					}
+					}
+					
 				}
 				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
 
