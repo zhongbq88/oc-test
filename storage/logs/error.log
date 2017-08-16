@@ -3100,3 +3100,49 @@
 2017-08-15 13:11:46 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 804
 2017-08-15 13:11:46 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 804
 2017-08-15 13:11:46 - PHP Warning:  Invalid argument supplied for foreach() in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 804
+2017-08-16 0:42:43 - PHP Notice:  Array to string conversion in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 763
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined offset: 2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 792
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined offset: 3 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 792
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined offset: 4 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 792
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined offset: 5 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 792
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined offset: 6 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 792
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined offset: 7 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 792
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined offset: 8 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 792
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined offset: 9 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 792
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined offset: 10 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 792
+2017-08-16 0:49:29 - PHP Notice:  Undefined index: order_product_id in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 781
+2017-08-16 0:49:29 - PHP Notice:  Undefined offset: 11 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 792
+2017-08-16 0:58:24 - PHP Notice:  Undefined offset: 2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 793
+2017-08-16 0:58:24 - PHP Notice:  Undefined offset: 3 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 793
+2017-08-16 0:58:24 - PHP Notice:  Undefined offset: 4 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 793
+2017-08-16 0:58:24 - PHP Notice:  Undefined offset: 5 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 793
+2017-08-16 0:58:24 - PHP Notice:  Undefined offset: 6 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 793
+2017-08-16 0:58:24 - PHP Notice:  Undefined offset: 7 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 793
+2017-08-16 0:58:24 - PHP Notice:  Undefined offset: 8 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 793
+2017-08-16 0:58:24 - PHP Notice:  Undefined offset: 9 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 793
+2017-08-16 0:58:24 - PHP Notice:  Undefined offset: 10 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 793
+2017-08-16 0:58:24 - PHP Notice:  Undefined offset: 11 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 793
+2017-08-16 1:08:14 - PHP Notice:  Undefined index: model in G:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 406
+2017-08-16 1:21:02 - PHP Notice:  Undefined offset: 2 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 795
+2017-08-16 1:21:02 - PHP Notice:  Undefined offset: 3 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 795
+2017-08-16 1:21:02 - PHP Notice:  Undefined offset: 4 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 795
+2017-08-16 1:21:02 - PHP Notice:  Undefined offset: 5 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 795
+2017-08-16 1:21:02 - PHP Notice:  Undefined offset: 6 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 795
+2017-08-16 1:21:02 - PHP Notice:  Undefined offset: 7 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 795
+2017-08-16 1:21:02 - PHP Notice:  Undefined offset: 8 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 795
+2017-08-16 1:21:02 - PHP Notice:  Undefined offset: 9 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 795
+2017-08-16 1:21:02 - PHP Notice:  Undefined offset: 10 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 795
+2017-08-16 1:21:02 - PHP Notice:  Undefined offset: 11 in G:\xampp\htdocs\oc-test\catalog\controller\shopify\product.php on line 795
+2017-08-16 1:31:18 - PHP Warning:  unlink(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1502850676): No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 68
+2017-08-16 1:33:24 - PHP Warning:  unlink(G:/xampp/htdocs/oc-test/storage/cache/cache.catalog.language.1502850800): No such file or directory in G:\xampp\htdocs\oc-test\system\library\cache\file.php on line 68

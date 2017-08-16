@@ -747,7 +747,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 				$options[$index]['name'] = $opt['name'];
 				$value = array();
 				foreach ($opt['product_option_value'] as $option_value) {
-					$option_data[$index][] = $opt['name'].":".$option_value['name'];
+					$option_data[$index][] = $option_value['name'];
 					$value[] = $option_value['name'];
 				}
 				$options[$index]['values']  = $value;
@@ -759,31 +759,53 @@ $data['footer'] = $this->load->controller('shopify/footer');
 		$count = count($option_data);
 		//print_r($option_data);
 		//$result = array();
-		$result = $this->calculateCombination($option_data, 0,$arr = array());
+		$result = $this->calculateCombination($option_data, 0,$arr = array(),$arr2=array());
 		//print_r('result'.$result);
-		foreach ($option  as $opt) {
+		$this->load->model('shopify/order');
+		foreach ($option as $key => $value) {
 			//$opt = $option[$index];
 			//echo "opt=".$opt;
 			foreach ($order_option  as $order_opt) {
-				if($opt==$order_opt['value']){
+				if($key==$order_opt['product_option_id']){
+					//$sku =  $product_info['sku'].;
+					if (isset($pimgs[$key])) {
+							$image = HTTP_SERVER.$pimgs[$key];
+						} else {
+							$image = $value;
+						}
+						
 					foreach ($result  as $v) {
-						$sku =  $product_info['sku'].$order_opt['order_option_id'];
-						if (isset($variant[$order_opt['product_option_id']])) {
+						$sku =  array(
+							'product_id'  => $product_id,
+							'order_id'       => $this->session->data['order_id'],
+							'sku'        => $product_info['sku'],
+							'model'        => $product_info['model'],
+							'order_option_id'  => $order_opt['order_option_id'],
+							'order_product_id'  => $order_opt['order_product_id'],
+							'product_options'       => json_encode($v),
+							'design_file'        => $image
+							//'customer_id'  => $product_info['customer_id']
+						);
+						$sku_id = $this->model_shopify_order->addProductSku($sku);
+						/*if (isset($variant[$order_opt['product_option_id']])) {
 							$optionl = $variant[$order_opt['product_option_id']];
 						} else {
 							$optionl = 'option'.$index;
-						}
-						$variants[] = array(
-							"option1"=> $optionl,
+						}*/
+						
+						
+						$variant1 = array(
 							"price"=>$pspr,
-							"sku"=> $sku
+							"sku"=> $product_info['sku'].".".$sku_id
 						);
-					}
-					if (isset($pimgs[$order_opt['product_option_id']])) {
-							$image = HTTP_SERVER.$pimgs[$order_opt['product_option_id']];
-						} else {
-							$image = $opt;
+						$optionIndex =1;
+						foreach($v  as $o){
+							$variant1["option".$optionIndex] = $o;
+							$optionIndex++;
 						}
+						$variants[]  = $variant1;
+					}
+					
 					$images[] = array(
 						"src"=> $image
 					);
@@ -801,22 +823,27 @@ $data['footer'] = $this->load->controller('shopify/footer');
     "product_type"=>  $product_info['model'],
 	"variants"=>$variants,
 	"options"=>$options,
-	"images"=>$images,
-	'result'=>$result
+	"images"=>$images
+	//'result'=>$order_option
 	);
 
 	}
 	
-	 public function calculateCombination($inputList, $beginIndex, $arr) {
+	public function calculateCombination($inputList, $beginIndex, $arr,$arr2) {
+	    global $arr2;
         if($beginIndex == count($inputList)){
-			print_r($arr);
-            return $arr;
+			//print_r($beginIndex);
+			$arr2[] = $arr;
+			//print_r($arr);
+			//print_r($arr2);
+            return ;
         }
         foreach($inputList[$beginIndex] as $c){
-            $arr[] = $c;
-            $this->calculateCombination($inputList, $beginIndex + 1,$arr);
+            $arr[$beginIndex] = $c;
+            $this->calculateCombination($inputList, $beginIndex + 1,$arr,$arr2);
         }
-    }
+		return $arr2;
+   }
 	
 	public function getImageCode($path){
 		 $type=getimagesize($path);//取得图片的大小，类型等

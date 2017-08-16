@@ -15,8 +15,8 @@ class ControllerShopifyCreateproduct extends Controller {
 		//print_r();
 		echo print_r($_SESSION['product']);
 		# Making an API request can throw an exception
-		//$product = $shopify('POST /admin/products.json', array(), array('product' => $_SESSION['product']));
-		//print_r($product);
+		$product = $shopify('POST /admin/products.json', array(), array('product' => $_SESSION['product']));
+		print_r($product);
 		//return true;
 	}
 	catch (shopify\ApiException $e)
