@@ -1,39 +1,1226 @@
-<!doctype html>
-<html>
-<head>
-<meta https-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src 'self' https://127.0.0.1:448/test.html"
-<title>无标题文档</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdn.shopify.com/s/assets/external/app.js"></script>
-  <script type="text/javascript">
-    ShopifyApp.init({
-      apiKey: '960bd2566abc4ce62a0a0c2eb13d7aa9',
-      shopOrigin: 'https://vivajean.myshopify.com'
-	  //debug: false,
-  	  //forceRedirect: true
-    });
-  </script>
-  <script type="text/javascript">
-  ShopifyApp.ready(function(){
-    ShopifyApp.Bar.initialize({
-      //icon: 'http://localhost:8080/assets/header-icon.png',
-      title: 'customDR',
-      buttons: {
-        primary: {
-          label: 'Save',
-          message: 'save',
-          callback: function(){
-            ShopifyApp.Bar.loadingOn();
-            doSomeCustomAction();
-          }
-        }
-      }
-    });
-  });
-</script>
-</head>
+<html lang="en"><head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Shopify App</title>
+        <style>
+            .fileinput-button {
+                margin:5px;
+            }
+        </style>
 
-<body>
-<p>12345678</p>
-</body>
-</html>
+    </head>
+    <body>
+
+    <script src="https://cdn.shopify.com/s/assets/external/app.js"></script>
+
+    <script type="text/javascript">
+    ShopifyApp.init({
+      apiKey: '50822163d1bb133c501db37fa9332265',
+      shopOrigin: 'https://vivajean.myshopify.com',
+      debug: false,
+      forceRedirect: false
+    });
+
+    ShopifyApp.ready(function(){
+     ShopifyApp.Bar.loadingOff();
+    });
+
+  </script>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header vd_bg-blue vd_white">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title" id="myModalLabel">Detail</h4>
+                </div>
+                <div class="modal-body" id="model_contents">
+
+                </div>
+                <div class="modal-footer background-login">
+                    <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    
+   <div style="display: none;">
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" id="paypal_form" name="paypal_form" target="_parent" method="post">
+        <input type="hidden" id="business" name="business" value="itsjeremy.j@gmail.com">
+        <input type="hidden" id="return" name="return" value="https://vivajean.myshopify.com/admin/apps/product-maker">
+        <input type="hidden" id="cancel_return" name="cancel_return" value="https://vivajean.myshopify.com/admin/apps/product-maker">
+        <input type="hidden" id="notify_url" name="notify_url" value="https://printtrendz.com/productmaker/index.php?view=paypall_notify">
+        <input type="hidden" id="cmd" name="cmd" value="_xclick">
+        <input type="hidden" id="no_note" name="no_note" value="1">
+        <input type="hidden" id="no_shipping" name="no_shipping" value="1">
+        <input type="hidden" id="currency_code" name="currency_code" value="USD">
+        <input type="hidden" id="country" name="country" value="USA">
+        <input type="hidden" id="item_name" name="item_name" value="Sneacker">
+        <input type="hidden" id="amount" name="amount" value="1000">
+        <input type="hidden" id="custom" name="custom" value="vivajean.myshopify.com">
+        <input type="hidden" id="quantity" name="quantity" value="1">
+        </form>
+    </div>
+
+
+    <input type="hidden" id="active_section" value="-1">
+    <br>
+   <div class="container">
+    <div class="pull-left" style="width: 30%">
+
+                                           <h2><img src="/productmaker/admin_assets/img/printtrendz3.png" width="100%"></h2>
+       </div>
+
+ 
+
+    <div class="pull_right pull-right" style="width: 70%; text-align: right; padding-top: 20px;">
+                                            <button id="load_products" class="btn btn-default" onclick="load_products()"><span class="fa fa-plus"></span>  Add Products</button>
+                                            <button id="view_orders" class="btn btn-default" onclick="view_orders(1, -1)"><span class="fa fa-file-text"></span> View Orders</button>
+                                            <button id="view_transactions" class="btn btn-default" onclick="view_transactions(1)">View Transactions</button>
+                                            <button id="view_payment" class="btn btn-warning" onclick="view_settings()">Account Settings</button>
+                                            <button id="view_transactions" class="btn btn-primary" onclick="location.reload();"><span class="fa fa-credit-card"></span> Dashboard</button>
+                                            <div class="pull_right pull-right" style="width: 70%; text-align: right; padding: 10px 0;">
+                                            <button id="contact-us" class="btn btn-default"><a href="http://printtrendzinc.com/contact.php" target="_blank"> SUPPORT</a></button>
+                                            <button id="faq" class="btn btn-default"><a href="http://printtrendzinc.com/faq.html" target="_blank">  FAQs</a></button>
+                                            <button id="prod-specs" class="btn btn-default"><a href="http://printtrendzinc.com/specs.html" target="_blank">  Product Specs</a></button>
+                                            </div>
+     </div>
+ 
+
+
+
+   <div style="clear: both"></div>
+
+  </div>
+
+    <div id="main_contents" class="widget block container row">
+        <div id="before_contents" style="background-color: #fff; padding:10px; margin:5px;">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a onclick="location.reload()">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 container">
+                <div class="panel">
+
+                    <div class="panel-body table-responsive">
+                        <div class="panel-body">
+                            <h3 class="mgtp--5"> Dashboard</h3>
+
+                            
+
+                            <div class="alert alert-warning">There are no payment methods set for you accout yet. Please, set up at least one payment method on your
+
+      <button id="view_payment2" class="btn btn-sm  btn-warning" onclick="view_settings()">Account Settings</button>
+      page</div>
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="content-grid column-xs-3 column-sm-4 column-md-5 column-lg-6 height-xs-4">
+                                <div class="">
+                                    <div class="row">
+                                        <div class="col-md-12" style="background: linear-gradient(to top, #428bca, rgba(226, 226, 227, 0.34)); padding:30px;     border: 1px solid #ccc;">
+
+                                            <p><b>Your Orders</b></p>
+
+
+
+                                            <div class="row text-center">
+                                                <div class="currency_box" onclick="set_search_filter(0)">
+                                                    <span>Pending:<br><br><b>0</b></span>
+                                                </div>
+                                                <div class="currency_box" onclick="set_search_filter(1)">
+                                                    <span>Paid:<br><br><b>0</b></span>
+                                                </div>
+
+                                                <div class="currency_box" onclick="set_search_filter(2)">
+                                                    <span>In-Production:<br><br><b>0</b></span>
+                                                </div>
+                                                <div class="currency_box" onclick="set_search_filter(3)">
+                                                    <span>Shipped:<br><br><b>0</b></span>
+                                                </div>
+                                                <div class="currency_box" onclick="set_search_filter(4)">
+                                                    <span>On Hold:<br><br><b>0</b></span>
+                                                </div>
+                                                <div class="currency_box" onclick="set_search_filter(5)">
+                                                    <span>Cancelled:<br><br><b>0</b></span>
+                                                </div>
+                                            </div>
+
+
+                                            <p><b>Shopify Status</b></p>
+                                            <div class="row text-center">
+
+                                                <div class="currency_box" onclick="set_search_filter(3)">
+                                                    <span>Fulfilled:<br><br><b>0</b></span>
+                                                </div>
+                                                <div class="currency_box" onclick="set_search_filter(99)">
+                                                    <span>Unfulfilled:<br><br><b>0</b></span>
+                                                </div>
+                                            </div>
+
+                                            <p><b>Payments/Sales</b></p>
+                                            <div class="row text-center">
+                                                <div class="currency_box" style="cursor: default;">
+                                                    <span>This Month <br>Income:<br><br><b>$0</b></span>
+                                                </div>
+                                                <div class="currency_box" style="cursor: default;">
+                                                    <span>This Month <br>Charges:<br><br><b>$0</b></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+                            <!-- content-grid -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Panel Widget -->
+            </div>
+            <!-- col-md-12 -->
+        </div>
+
+    </div>
+    <script src="jquery.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="theme.js"></script>
+    <script src="jquery.blockUI.js"></script>
+    <script src="jquery.tagsinput.min.js"></script>
+
+    <!-- Specific Page Scripts Put Here -->
+    <!-- Flot Chart  -->
+    <script type="text/javascript" src="flot/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="flot/jquery.flot.resize.min.js"></script>
+    <script type="text/javascript" src="flot/jquery.flot.pie.min.js"></script>
+    <script type="text/javascript" src="flot/jquery.flot.categories.min.js"></script>
+    <script type="text/javascript" src="flot/jquery.flot.time.min.js"></script>
+    <script type="text/javascript" src="flot/jquery.flot.animator.min.js"></script>
+
+    <script type="text/javascript" src="tagsInput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+    <script type="text/javascript" src="daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(window).load(function(){
+            $( "#datepicker-icon" ).datepicker({ dateFormat: 'dd M yy'});
+        });
+
+        $(function(){
+            $( ".draggable" ).draggable();
+            $( ".droppable" ).droppable({
+                drop: function( event, ui ) {
+                    $( this ).addClass( "ui-state-highlight" );
+                    alert('file dropped');
+                }
+            });
+        });
+
+        function create_on_shopify(){ /// create product on shopify form submission action
+
+            var value = editor.getData();
+
+            $("#description_html").val(value);
+
+            if (parseInt($("#compare_price").val()) > 0 && parseInt($("#compare_price").val()) < parseInt($("#product_price").val()))
+            {
+             alert('Product Compare Price should be GREATER than product Sale Price or omitted ');
+             return false;
+            }
+
+            valid_prices = true;
+            $(".variant_body").each(function() {
+              if (parseInt($(this).find(".variant_compare").val()) > 0 && parseInt($(this).find(".variant_compare").val()) < parseInt($(this).find(".variant_price").val()))
+              {
+                valid_prices = false;
+                return false;
+              }
+            });
+
+            if (!valid_prices)
+            {
+             alert('Variant Compare Price should be GREATER than variant Sale Price or omitted ');
+             return false;
+            }
+
+
+
+            show_loading();
+
+            var formData = $("#publish_product_form").serialize();
+            $.ajax({
+                url:'',
+                type:'POST',
+                data:formData,
+                success:function(data){
+                    if (data.indexOf('alert-danger') > 0)
+                    {
+                     $('#main_contents').unblock();
+
+                     alert($(data).text()+'. Check your data and try again please');
+                    }
+                    else
+                    {
+                     $("#main_contents").html(data);
+                     $('#main_contents').unblock();
+                    }
+                    //location.reload();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+
+                }
+            })
+            return false;
+        }
+
+        function show_loading(){
+            $('#main_contents').block({
+                message: '<h2><i class="fa fa-spinner fa-spin vd_green"></i></h2>',
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    background: 'none',
+                },
+                overlayCSS: { backgroundColor: '#FFF' }
+            });
+        }
+
+
+        function load_products(){
+            show_loading();
+            $.ajax({
+                url:'https://printtrendz.com/productmaker/index.php?view=get_shopify_products',
+                type:'POST',
+                data:{ajax:1, page:'dashboard'},
+                success:function(data){
+                    $("#main_contents").html(data);
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+                }
+            })
+        }
+
+        function _load_category(product_id, for_section=0, e){
+            show_loading();
+            var parent_div = $(e).closest('.list-wrapper');
+            $.ajax({
+                url:'https://printtrendz.com/productmaker/index.php?view=get_shopify_products',
+                type:'POST',
+                data:{ajax:1, category_id:product_id, for_section: for_section},
+                success:function(data){
+                    if (for_section > 0) {
+                        parent_div.html(data);
+                    }
+                    else {
+                        $("#main_contents").html(data);
+                    }
+
+                    $('#main_contents').unblock();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+
+                }
+            })
+        }
+        function load_category(product_id){
+            var data = _load_category(product_id);
+        }
+        function load_category_in_section(product_id, e){
+            var data = _load_category(product_id, 1, e);
+        }
+        function _load_colors(product_id, for_section=0, e){
+            var parent_div = $(e).closest('.list-wrapper');
+            show_loading();
+            $.ajax({
+                url:'https://printtrendz.com/productmaker/index.php?view=select_product_color',
+                type:'POST',
+                data:{ajax:1, product_id:product_id, for_section: for_section},
+                success:function(data){
+                    if (for_section > 0) {
+                        parent_div.html(data);
+
+                        var variant_title = $(parent_div).find(".tmp_variant_title").val();
+                        $(parent_div).parents(".panel-default").eq(0).find("input.variant_title").val(variant_title);
+
+                    }
+                    else {
+                        $("#main_contents").html(data);
+                        $("#trigger_1").trigger('click'); // to instantly seclect first color
+                    }
+                    $('#main_contents').unblock();
+
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+                    return false;
+                }
+            })
+        }
+
+        function load_colors(product_id){
+            var data = _load_colors(product_id);
+        }
+        function load_colors_in_section(product_id, e){
+            var data = _load_colors(product_id, 1, e);
+        }
+
+
+        function make_product(variant_id){
+            show_loading();
+
+            $.ajax({
+                url:'https://printtrendz.com/productmaker/index.php?view=make_product',
+                type:'POST',
+                data:{ajax:1, variant_id:variant_id},
+                success:function(data){
+                    $("#main_contents").html(data);
+                    $('#main_contents').unblock();
+                    $("#trigger_1").trigger('click');
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+
+                }
+            })
+        }
+
+
+        function make_product_variant_in_section(variant_id, e){
+            var parent_div = $(e).closest('.list-wrapper');
+            var section_number = $(e).closest('.panel-collapse').attr('id');
+
+            show_loading();
+            $.ajax({
+                url:'https://printtrendz.com/productmaker/index.php?view=make_product',
+                type:'POST',
+                data:{ajax:1, variant_id:variant_id, for_section:1, section_number:section_number},
+                success:function(data){
+                    parent_div.html(data);
+                    var variant_title = $(parent_div).find(".tmp_variant_title").val();
+                    $(parent_div).parents(".panel-default").eq(0).find("input.variant_title").val(variant_title);
+                    $('#main_contents').unblock();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+
+                }
+            })
+        }
+
+
+        function dashboard(){
+            show_loading();
+
+            $.ajax({
+                url:'https://printtrendz.com/productmaker/index.php?view=get_shopify_products',
+                type:'POST',
+                data:{ajax:1, page:'dashboard'},
+                success:function(data){
+                    $("#main_contents").html(data);
+                    $('#main_contents').unblock();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+                }
+            })
+        }
+
+        function variant_image(e){
+            var id = $(e).attr('data-id');
+            var section_number = $(e).closest('.panel-default').attr('id');
+            $("#active_section").val(section_number);
+            $("#"+section_number+" [name="+id+"]").trigger('click');
+            $('#'+id).trigger('click');
+        }
+
+
+        function get_file(e){
+            var section_number = $(e).closest('.panel-default').attr('id');
+            $("#active_section").val(section_number);
+        }
+
+
+        function variant_image_single(id){
+            $('#'+id).trigger('click');
+        }
+
+
+        function print_image(img, id, variant_id, destination){
+            var formData = new FormData();
+            formData.append('img', img.files[0]);
+            formData.append('side', $(img).attr('data-id'));
+            formData.append('ajax', 1);
+            formData.append('page', 'print_image');
+            formData.append('pair_id', id);
+            formData.append('variant_id', variant_id);
+            var imgside = $(img).attr('data-id');
+            var section = $("#active_section").val();
+
+            var active_section = $("#"+section);
+            if(imgside == 'right_artwork'){
+                var side =  $("#"+section+" .right_artwork_img");
+                var design_side = $("#"+section+" .right_artwork");
+                var board = $("#"+section+" .right_board p");
+                var btn = $("#"+section+" .right_btn");
+            }else{
+                var side =  $("#"+section+" .left_artwork_img");
+                var design_side = $("#"+section+" .left_artwork");
+                var board = $("#"+section+" .left_board p");
+                var btn = $("#"+section+" .left_btn");
+            }
+
+            var base_image = side.attr('src');
+            side.attr('src','loading_large.gif');
+
+            //// show_loading();
+            $.ajax({
+                url: 'https://printtrendz.com/productmaker/index.php?view=print_image&side='+imgside,
+                type: 'POST',
+                processData: false, // important
+                contentType: false, // important
+                data: formData,
+                dataType: 'json',
+                success:function(data){
+                    //if(data == 'wrong_dimensions'){
+                    if(data.success == 0){
+                        alert(data.message);
+                        side.attr('src', base_image);
+                    } else {
+                        var artwork_ready = data;//JSON.parse(data);
+                        side.attr('src','https://printtrendz.com/productmaker/'+artwork_ready[1]);
+                        design_side.val('https://printtrendz.com/productmaker/'+artwork_ready[0]);
+                        active_section.addClass('completed');
+                        btn.empty();
+                        btn.html("<button onclick='remove_artwork(this)' data-img='"+base_image+"' data-side='"+imgside+"' class='btn btn-danger btn-xs'>Remove</button>");
+                    }
+                    $('#main_contents').delay(5).unblock();
+                },
+                error:function(e){
+                    console.log(e);
+                    $('#main_contents').unblock();
+                    alert('Network Error');
+                    side.attr('src', base_image);
+                }
+            });
+            $(img).val('');
+
+        }
+
+        function remove_artwork(e){
+            var section_id = $(e).closest('.panel-default').attr('id');
+            var img = $(e).attr('data-img');
+            var side = $(e).attr('data-side');
+
+            if(side == 'right_artwork'){
+                $("#"+section_id+" .right_artwork_img").attr('src', img);
+                $("#"+section_id+" .right_artwork").val("");
+                $("#"+section_id+" .right_btn").html(right_artwork_btn());
+            }else{
+                $("#"+section_id+" .left_artwork_img").attr('src', img);
+                $("#"+section_id+" .left_artwork").val("");
+                $("#"+section_id+" .left_btn").html(left_artwork_btn());
+            }
+        }
+
+
+        function right_artwork_btn(){
+            return '<span class="btn btn-success fileinput-button" data-id="right_artwork" onclick="variant_image(this)"> <i class="glyphicon glyphicon-picture"></i><span>Right Artwork</span><input type="button" data-id="right_artwork"></span>';
+        }
+
+        function left_artwork_btn(){
+            return '<span class="btn btn-success fileinput-button" data-id="left_artwork" onclick="variant_image(this)"> <i class="glyphicon glyphicon-picture"></i><span>Left Artwork</span><input type="button" data-id="left_artwork"></span>';
+        }
+
+
+
+        function print_image_single(img, variant_id){
+            var formData = new FormData();
+            formData.append('img', img.files[0]);
+            formData.append('ajax', 1);
+            formData.append('page', 'print_image');
+            formData.append('variant_id', variant_id);
+
+            var active_section = $(img).closest('.panel-default').attr('id');
+            active_section = '#'+active_section;
+
+            var base_image = $(active_section+' .artwork_img').attr('src');
+            $(active_section+' .artwork_img').attr('src','loading_large.gif');
+            $.ajax({
+                url: 'https://printtrendz.com/productmaker/index.php?view=print_image_single',
+                type: 'POST',
+                processData: false, // important
+                contentType: false, // important
+                data: formData,
+                success:function(data){
+
+                    if(data == 'wrong_dimensions'){
+                        alert('Artwork dimensions are wrong');
+                        $(active_section+' .artwork_img').attr('src', base_image);
+                    }else {
+                        var artwork_ready = JSON.parse(data);
+                        $(active_section + ' .artwork_img').attr('src', 'https://printtrendz.com/productmaker/' + artwork_ready[1]);
+                        $(active_section + ' .artwork').val('https://printtrendz.com/productmaker/' + artwork_ready[0]);
+                        $(active_section).addClass('has_variant');
+                    }
+                },
+                error:function(){
+                    $('#main_contents').unblock();
+                    alert('error');
+                    $(active_section+' .artwork_img').attr('src', base_image);
+                }
+            });
+        }
+
+
+        function publish_validation(){
+            var response = 0;
+
+            $('.panel-default').each(function(index){
+                    var title = $(this).find('.variant_title').val();
+                    var right_artwork_length = $(this).find('.right_artwork').length;
+                    var left_artwork_length = $(this).find('.left_artwork').length;
+                    var right_artwork = $(this).find('.right_artwork').val();
+                    var left_artwork = $(this).find('.left_artwork').val();
+                if(title !=''){
+                    if(right_artwork_length > 0 && right_artwork == ''){
+                        response = 2;
+                    }
+                    if(right_artwork_length > 0 && left_artwork == ''){
+                        response = 3;
+                    }
+
+                }else if(title ==''){
+                    if(right_artwork_length > 0){
+                        if(right_artwork != '' || left_artwork!=''){
+                            response = 4;
+                        }
+                    }
+                }
+             });
+
+            if(response !=0){
+                return response;
+            }else{
+                return 1;
+            }
+        }
+
+
+        function publish_product_page(){
+
+            var validation = publish_validation();
+
+            if(validation == 2){
+                alert("one of your variant's title is given but artwork is mising");
+            }else if(validation == 3){
+                alert("one of your variant's title is given but artwork is mising");
+            }else if(validation == 4){
+                alert("one of your variant's style is selected but title not");
+            }else if(validation == 1){
+
+                var product_id = $("#product_id").val();
+                var urls = [];
+
+                var right_shoe_urls = '';
+                $(".right_artwork_img").each(function(index){
+                    right_shoe_urls+=$(this).attr('src').replace('trkn4apps.com', 'mylot33.com')+',';
+                });
+                urls.push(right_shoe_urls);
+
+
+                var left_shoe_urls='';
+                $(".left_artwork_img").each(function(index){
+                    left_shoe_urls+=$(this).attr('src').replace('trkn4apps.com', 'mylot33.com')+',';
+                });
+                urls.push(left_shoe_urls);
+
+
+                var right_artwork='';
+                $(".right_artwork").each(function(index){
+                    right_artwork+=$(this).val()+',';
+                });
+                urls.push(right_artwork);
+
+                var left_artwork='';
+                $(".left_artwork").each(function(index){
+                    left_artwork+= $(this).val()+',';
+                });
+                urls.push(left_artwork);
+
+                var variant_titles = '';
+                $('.variant_title').each(function(){
+                    if(!$(this).val()==''){
+                        variant_titles+=$(this).val()+'__';
+                    }
+                });
+
+
+                urls = JSON.stringify(urls);
+
+                show_loading();
+                $.ajax({
+                    url:'https://printtrendz.com/productmaker/index.php?view=publish_product&img_url='+urls+'&variant_titles='+variant_titles+'&product_id='+product_id+'&' + $(".variant_product_id").serialize(),
+                    type:'POST',
+                    data:{ajax:1},
+                    success:function(data){
+                        $("#main_contents").html(data);
+                        $('#main_contents').unblock();
+                        load_collections();
+
+                    },
+                    error:function(){
+                        alert('Network connection error, please retry your request.');
+                        $('#main_contents').unblock();
+                    }
+                 });
+            }
+
+        }
+
+
+
+        function publish_validation_single(){
+            var length = $('.has_variant').length;
+            if(length > 0){
+                $('.has_variant').each(function(index){
+                    if($(this).find('.variant_title').val() == ''){
+                        return 'mising_title';
+                    }
+                })
+            }else{
+                return 'no_variant';
+            }
+        }
+
+
+
+        function publish_single_product_page(){
+            var product_id = $("#product_id").val();
+            var array_obj = [];
+
+            var length = $('.has_variant').length;
+            if(length > 0){
+                $('.has_variant').each(function(index){
+
+                    if($(this).find('.variant_title').val() != ''){
+
+                        var variant_obj = {"title":$(this).find('.variant_title').val(), "artwork":$(this).find('.artwork').val(), "artworked_img":$(this).find('.artwork_img').attr('src')};
+                        array_obj.push(variant_obj);
+                    }
+
+                })
+            }
+
+            array_obj = JSON.stringify(array_obj);
+
+                console.log(array_obj);
+
+                show_loading();
+                $.ajax({
+                    url:'https://printtrendz.com/productmaker/index.php?view=publish_single_product&product_id='+product_id,
+                    type:'POST',
+                    data:{ajax:1, variants:array_obj},
+                    success:function(data){
+                        $("#main_contents").html(data);
+                        $('#main_contents').unblock();
+                    },
+                    error:function(){
+                        alert('Network connection error, please retry your request.');
+                        $('#main_contents').unblock();
+
+                    }
+                })
+        }
+
+
+        function load_collections() {
+            $.ajax({
+                url:'',
+                type:'POST',
+                data:{ajax:1, action:'load_collections'},
+                success:function(data){
+                     $("#shopify_collection").html(data)
+                },
+                error:function(){
+                    alert('Collections loading error');
+                }
+            })
+        }
+
+
+        function view_orders(page, filter=-1){
+            show_loading();
+
+            $.ajax({
+                url:'',
+                type:'POST',
+                data:{ajax:1, action:'view_orders', page:page, filter: filter},
+                success:function(data){
+                    $("#main_contents").html(data);
+                    $('#main_contents').unblock();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+
+                }
+            })
+        }
+
+
+        function view_transactions(page){
+            var date_time = $("#datepicker-icon").val();
+            show_loading();
+            $.ajax({
+                url:'',
+                type:'POST',
+                data:{ajax:1, action:'view_transactions', page:page, date_time:date_time},
+                success:function(data){
+                    $("#main_contents").html(data);
+                    show_charts();
+                    $('#main_contents').unblock();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+                }
+            })
+        }
+        function view_settings(){
+
+            show_loading();
+            $.ajax({
+                url:'',
+                type:'POST',
+                data: 'ajax=1&action=view_settings&'+$("#settings_form").serialize(),
+                success:function(data){
+                    $("#main_contents").html(data);
+                    //show_charts();
+                    $('#main_contents').unblock();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+                }
+            })
+        }
+
+        function change_status(e, id){
+            var status = $(e).data('status');
+            $.ajax({
+                url:'https://printtrendz.com/productmaker/index.php?view=client_orders_list',
+                type:'post',
+                data:{ajax:1, action:'change_state', id:id, status:status},
+                success:function (data) {
+                    if(data == 1){
+                        $(e).removeClass('btn-success');
+                        $(e).addClass('btn-warning');
+                        $(e).attr('data-status', '1');
+                        $(e).text('On Hold');
+                    }else{
+                       $(e).removeClass('btn-warning');
+                        $(e).addClass('btn-success');
+                        $(e).attr('data-status', '0');
+                        $(e).text('Processing');
+                    }
+                },
+                error:function () {
+                    alert('Error');
+                }
+            })
+        }
+
+        function is_payed(e, order_id){
+
+            show_loading();
+
+            if($(e).is(':checked')){
+                var status = 1;
+            }else{
+                var status = 0;
+            }
+
+            $.ajax({
+                url:'',
+                type:'post',
+                data:{ajax:1, action:'payment_status', order_id:order_id, status:status},
+                success:function(data){
+                    $('#main_contents').unblock();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+
+                }
+            })
+
+
+        }
+
+        function delete_payment_method(method_id){
+
+            $("#payment_id_"+method_id).slideUp();
+            $.ajax({
+                url:'',
+                type:'POST',
+                data: 'ajax=1&action=delete_payment_method&id='+method_id,
+
+                success:function(data){
+                 view_settings();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+
+                }
+            })
+
+        }
+        function set_prime_payment_method(method_id){
+           show_loading();
+
+            $.ajax({
+                url:'',
+                type:'POST',
+                data: 'ajax=1&action=set_prime_payment_method&id='+method_id,
+
+                success:function(data){
+                 view_settings();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+
+                }
+            })
+
+        }
+
+
+
+        function edit_payment_method(method_id){
+
+
+
+            show_loading();
+            var Data = $("#payment_form_"+method_id).serialize();
+            $("#model_contents").empty();
+            $("#model_contents").html('<h3>Loading...</h3>');
+
+
+            $.ajax({
+                url:'',
+                type:'POST',
+                data: 'ajax=1&action=payment_method&id='+method_id+'&'+Data,
+
+                success:function(data){
+                    $("#model_contents").html(data);
+                    $('#main_contents').unblock();
+                    view_settings();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+
+                }
+            })
+
+
+        }
+
+        function get_detail(order_id){
+            show_loading();
+            $("#model_contents").empty();
+            $("#model_contents").html('<h3>Loading...</h3>');
+            $.ajax({
+                url:'',
+                type:'POST',
+                data:{ajax:1, action:'get_detail', order_id:order_id},
+                success:function(data){
+                    $("#model_contents").html(data);
+                    $('#main_contents').unblock();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+
+                }
+            })
+        }
+
+
+        function transaction_detail(id){
+            $("#model_contents").empty();
+            $("#model_contents").html('<h3>Loading...</h3>');
+            $.ajax({
+                url:'',
+                type:'post',
+                data:{ajax:1, action:'transaction_detail', transaction_id:id},
+                success:function(data){
+                    $("#model_contents").html(data);
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.')
+                }
+            })
+        }
+
+
+      function set_search_filter(filter){
+           view_orders(1, filter);
+          return false;
+        }
+
+
+        function show_charts()
+        {
+            "use strict";
+
+            $(window).on("resize", function(){
+                plot.resize();
+                plot.setupGrid();
+                plot.draw();
+            });
+
+            $.fn.UseTooltip = function () {
+                var previousPoint = null;
+
+                $(this).bind("plothover", function (event, pos, item) {
+                    if (item) {
+                        if (previousPoint != item.dataIndex) {
+
+                            previousPoint = item.dataIndex;
+
+                            $("#tooltip").remove();
+                            var x = item.datapoint[0].toFixed(2),
+                                y = item.datapoint[1].toFixed(2);
+
+
+                            showTooltip(item.pageX, item.pageY,
+                                "<p class='vd_bg-green'><strong class='mgr-10 mgl-10'>" + Math.round(x)  + " NOV 2013 </strong></p>" +
+                                "<div style='padding: 0 10px 10px;'>" +
+                                "<div>" + item.series.label +": <strong>$ "+ Math.round(y)  +"</strong></div>" +
+                                "</div>"
+                            );
+                        }
+                    } else {
+                        $("#tooltip").remove();
+                        previousPoint = null;
+                    }
+                });
+            };
+
+            function showTooltip(x, y, contents) {
+                $('<div id="tooltip">' + contents + '</div>').css({
+                    position: 'absolute',
+                    display: 'none',
+                    top: y + 5,
+                    left: x + 20,
+                    size: '10',
+//				'border-top' : '3px solid #1FAE66',
+                    'background-color': '#111111',
+                    color: "#FFFFFF",
+                    opacity: 0.85
+                }).appendTo("body").fadeIn(200);
+            }
+
+            /* REAL TIME CHART */
+
+            var data = [],
+                totalPoints = 300;
+
+            function getRandomData() {
+
+                if (data.length > 0)
+                    data = data.slice(1);
+
+                // Do a random walk
+
+                while (data.length < totalPoints) {
+
+                    var prev = data.length > 0 ? data[data.length - 1] : 50,
+                        y = prev + Math.random() * 10 - 5;
+
+                    if (y < 0) {
+                        y = 0;
+                    } else if (y > 100) {
+                        y = 100;
+                    }
+
+                    data.push(y);
+                }
+
+                // Zip the generated y values with the x values
+
+                var res = [];
+                for (var i = 0; i < data.length; ++i) {
+                    res.push([i, data[i]])
+                }
+
+                return res;
+            }
+
+            // Set up the control widget
+
+            var updateInterval = 30;
+            $("#updateInterval").val(updateInterval).change(function () {
+                var v = $(this).val();
+                if (v && !isNaN(+v)) {
+                    updateInterval = +v;
+                    if (updateInterval < 1) {
+                        updateInterval = 1;
+                    } else if (updateInterval > 2000) {
+                        updateInterval = 2000;
+                    }
+                    $(this).val("" + updateInterval);
+                }
+            });
+
+
+            function update() {
+                // Since the axes don't change, we don't need to call plot.setupGrid()
+                setTimeout(update, updateInterval);
+            }
+
+            update();
+            var bar_chart_data = [ ["Jan", 50], ["Feb", 8], ["Mar", 4], ["Apr", 13], ["May", 17], ["Jun", 9], ["Jul", 10], ["Aug", 8], ["Sep", 4], ["Oct", 13], ["Nov", 17], ["Dec", 9] ];
+
+            var bar_chart = $.plot(
+                $("#example-bar-white"), [{
+                    data: bar_chart_data,
+                    //           color: "rgba(31,174,102, 0.8)",
+                    color: "rgba(255,255,255,0.25)" ,
+                    shadowSize: 0,
+                    bars: {
+                        show: true,
+                        lineWidth: 0,
+                        fill: true,
+                        fillColor: {
+                            colors: [{
+                                opacity: 1
+                            }, {
+                                opacity: 1
+                            }]
+                        }
+                    }
+                }], {
+                    series: {
+                        bars: {
+                            show: true,
+                            barWidth: 0.9,
+                            align: "center"
+                        }
+                    },
+                    grid: {
+                        show: true,
+                        hoverable: true,
+                        borderWidth: 0
+                    },
+                    yaxis: {
+                        min: 0,
+                        max: 20,
+                        show: false
+                    },
+                    xaxis: {
+                        mode: "categories",
+                        tickLength: 0,
+                        font: {
+                            color: "#FFFFFF",
+                        }
+                    }
+                });
+
+            var previousPoint2 = null;
+            $("#example-bar-white").bind("plothover", function (event, pos, item) {
+                $("#x").text(pos.x.toFixed(2));
+                $("#y").text(pos.y.toFixed(2));
+                if (item) {
+                    if (previousPoint2 != item.dataIndex) {
+                        previousPoint2 = item.dataIndex;
+                        $("#tooltip").remove();
+                        var x = item.datapoint[0] + 1,
+                            y = item.datapoint[1].toFixed(2);
+                        showTooltip(item.pageX, item.pageY,
+                            "<p class='vd_bg-green'><strong class='mgr-10 mgl-10'>" + x + " - 2013 </strong></p>" +
+                            "<div style='padding: 0 10px 10px;'>" +
+                            "<div> Sales: <strong>"+ Math.round(y)*17  +"</strong></div>" +
+                            "<div> Profit: <strong>$"+ Math.round(y)*280  +"</strong></div>" +
+                            "</div>"
+                        );
+                    }
+                }
+            });
+        }
+
+
+        function load_paired_products(e){
+            var parent_div = $(e).closest('.list-wrapper');
+            //var section_number = $(e).closest('.panel-collapse').attr('id');
+            show_loading();
+            $.ajax({
+                url:'https://printtrendz.com/productmaker/index.php?view=get_shopify_products',
+                type:'POST',
+                data:{ajax:1, action:'load_paired_products'},
+                success:function(data){
+                    parent_div.html(data);
+                    $('#main_contents').unblock();
+                },
+                error:function(){
+                    alert('Network connection error, please retry your request.');
+                    $('#main_contents').unblock();
+
+                }
+            })
+        }
+
+    </script>
+    <!-- BEGIN GROOVE WIDGET CODE -->
+<script id="grv-widget">
+ /*<![CDATA[*/
+ window.groove = window.groove || {}; groove.widget = function(){ groove._widgetQueue.push(Array.prototype.slice.call(arguments)); }; groove._widgetQueue = [];
+ groove.widget('setWidgetId', '6df12adf-481c-342e-150c-8741071f55d1');
+ !function(g,r,v){var a,n,c=r.createElement("iframe");(c.frameElement||c).style.cssText="width: 0; height: 0; border: 0",c.title="",c.role="presentation",c.src="javascript:false",r.body.appendChild(c);try{a=c.contentWindow.document}catch(i){n=r.domain;var b=["javascript:document.write('<he","ad><scri","pt>document.domain=","\"",n,"\";</scri","pt></he","ad><bo","dy></bo","dy>')"];c.src=b.join(""),a=c.contentWindow.document}var d="https:"==r.location.protocol?"https://":"http://",s="http://groove-widget-production.s3.amazonaws.com".replace("http://",d);c.className="grv-widget-tag",a.open()._l=function(){n&&(this.domain=n);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=s+"/loader.js",this.body.appendChild(t)};var p=["<bo",'dy onload="document._l();">'];a.write(p.join("")),a.close()}(window,document)
+ /*]]>*/
+</script><iframe title="" src="javascript:false" class="grv-widget-tag" style="width: 0px; height: 0px; border: 0px; display: none;"></iframe>
+<!-- END GROOVE WIDGET CODE -->
+
+
+
+    
+    
+
+
+<iframe src="javascript:false" class="grv-widget-tag grv-widget-tag-bottom-right" style="visibility: visible; opacity: 1; border: 0px; z-index: 2147483647; width: 210px; height: 49px;"></iframe></body></html>
