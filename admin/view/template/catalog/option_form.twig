@@ -219,21 +219,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                  {% set image_row[option_value_row] = 0 %}
+                  
                   {% for option_image in option_images %}
-                  <tr id="image-{{ option_value_row }}-row{{ image_row[option_value_row] }}">
-                    <td class="text-left"><a href="" id="thumb_{{ option_value_row }}-image{{ image_row[option_value_row] }}" data-toggle="image" class="img-thumbnail"><img src="{{ option_image.thumb }}" alt="" title=""  data-placeholder="{{ placeholder }}" /></a>
-                      <input type="hidden" name="option_{{ option_value_row }}_image[{{ image_row[option_value_row] }}][image]" value="{{ option_image.image }}" id="input-image{{ image_row }}" /></td>
-                    <td class="text-right"><input type="text" name="option_image[{{ image_row[option_value_row] }}][sort_order]" value="{{ option_image.sort_order }}" placeholder="{{ entry_sort_order }}" class="form-control" /></td>
-                    <td class="text-left"><button type="button" onclick="$('#image-{{ option_value_row }}-row{{ image_row[option_value_row] }}').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
+                  <tr id="image-row{{ option_value_row }}">
+                    <td class="text-left"><a href="" id="thumb_image{{ option_value_row }}" data-toggle="image" class="img-thumbnail"><img src="{{ option_image.thumb }}" alt="" title=""  data-placeholder="{{ placeholder }}" /></a>
+                      <input type="hidden" name="option_image[{{ image_row[option_value_row] }}][image]" value="{{ option_image.image }}" id="input-image{{ image_row }}" /></td>
+                    <td class="text-right"><input type="text" name="option_image[{{ option_value_row }}][sort_order]" value="{{ option_image.sort_order }}" placeholder="{{ entry_sort_order }}" class="form-control" /></td>
+                    <td class="text-left"><button type="button" onclick="$('#image-row{{ option_value_row }}').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
                   </tr>
-                  {% set image_row[option_value_row] = image_row[option_value_row] + 1 %}
+           
                   {% endfor %}
                    </tbody>
                    <tfoot>
                     <tr>
                       <td colspan="2"></td>
-                      <td class="text-left"><button type="button" id="button-addImage[{{ option_value_row }}]" data-toggle="tooltip" title="{{ button_image_add }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
+                      <td class="text-left"><button type="button" onclick="addImage({{ option_value_row }});" data-toggle="tooltip" title="{{ button_image_add }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
                     </tr>
                   </tfoot>
                 </table>
@@ -260,19 +260,19 @@
   </div>
   
   <script type="text/javascript"><!--
-var image_row = {{ image_row }};
-$('button[id^=\'button-addImage\']').on('click', function() {
-	alert(123);
-	html  = '<tr id="image-row' + image_row + '">';
-	html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="product_image[' + image_row + '][image]" value="" id="input-image' + image_row + '" /></td>';
-	html += '  <td class="text-right"><input type="text" name="product_image[' + image_row + '][sort_order]" value="" placeholder="{{ entry_sort_order }}" class="form-control" /></td>';
-	html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + image_row  + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+var image_row = 0;
+function  addImage(option_value_row) {
+	html  = '<tr id="image-row' + option_value_row + '">';
+	html += '  <td class="text-left"><a href="" id="thumb-image' + option_value_row + '"data-toggle="image" class="img-thumbnail"><img src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="product_image[' + option_value_row + '][image]" value="" id="input-image' + option_value_row + '" /></td>';
+	html += '  <td class="text-right"><input type="text" name="product_image[' + option_value_row + '][sort_order]" value="" placeholder="{{ entry_sort_order }}" class="form-control" /></td>';
+	html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + option_value_row  + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
 	html += '</tr>';
 
-	$('#images tbody').append(html);
+	$('#images'+option_value_row +' tbody').append(html);
+	
 
-	image_row++;
-});
+	//image_row++;
+};
 //--></script> 
   <script type="text/javascript"><!--
 $('select[name=\'type\']').on('change', function() {
