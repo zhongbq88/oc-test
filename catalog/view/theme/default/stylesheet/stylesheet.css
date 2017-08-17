@@ -526,6 +526,9 @@ footer h5 {
 	margin-bottom: 20px;
 	overflow: auto;
 }
+.product-thumb:hover {
+	border: 1px solid #008c9e;
+}
 .product-thumb .image {
 	text-align: center;
 }
@@ -551,9 +554,21 @@ footer h5 {
 .product-thumb h4 {
 	font-weight: bold;
 }
+
+.product-thumb:hover .caption {
+    background-color: #008c9e;
+}
+
 .product-thumb .caption {
 	padding: 0 20px;
-	min-height: 180px;
+	min-height: 60px;
+	background-color: #2d3840;
+    padding: 11px;
+    color: #ffffff;
+    height: auto;
+    text-align: center;
+    font-size: 16px;
+    transition: all 0.3s ease 0s;
 }
 .product-list .product-thumb .caption {
 	margin-left: 230px;
@@ -570,6 +585,17 @@ footer h5 {
 	margin-left: 0;
 	padding: 0 10px;
 }
+
+.product-list .product-thumb:hover{
+    background-color: #008c9e;
+}
+
+.content-grid .menu-text {
+    display: block;
+    text-transform: none;
+    text-align: center;
+}
+
 .product-grid .product-thumb .caption {
 	min-height: 0;
 }

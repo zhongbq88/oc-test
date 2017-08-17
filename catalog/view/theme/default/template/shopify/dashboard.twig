@@ -1,167 +1,325 @@
-<html lang="en"><head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-Frame-Options" content="ALLOW-FROM">
-        <title>Shopify App</title>
-        <style>
-            .fileinput-button {
-                margin:5px;
-            }
-        </style>
+{{ header }}
 
-    </head>
-    <body>
+<div id="account-order" class="container">
+  <div id="product-product" class="container">
+          <div id="product">
+<div class="theme-content">
+<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false">
+	<div style="" class="vc_span12 wpb_column column_container ">
+		<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div><div class="clearboth"></div>
 
-    <script src="https://cdn.shopify.com/s/assets/external/app.js"></script>
+			
+			<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
+				Welcome to the <strong> Profits </strong> Shopify app.<br>
+				If this is your first time here, please see our <a href="" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Quick Start Guide</a> for more information.
+				<div class="clearboth"></div>
+			</div> <div class="clearboth"></div>		
+		
+		
+	</div>
+	<div style="background-color:#F8F8F8;border:1px solid #DDD;padding:15px 5px 5px 5px;margin-top:15px" class="vc_span12 wpb_column column_container ">
 
+		<b>{{your_vivajean_profits_orders}}</b>:
+	
+		<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false" style="margin-top:10px;margin-bottom:20px; padding-left:20px; padding-right:20px;">	
+			<div style="" class="vc_span1 wpb_column column_container " style="float:left; width:10%; padding:10px;" >
+				&nbsp;
+			</div>
+			<div class="vc_span2 wpb_column column_container" style="float:left; width:20%; padding:10px;">
+				<div  class="orderib" data-filter="Pending">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-moon-file-9"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
+						{{text_pending}}
+					</div>
+					
+					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
+						{{pending}}
+					</div>				
+				</div>
+			</div>
+
+		
+			
+			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;">
+				<div  class="orderib" data-filter="InProd">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-moon-file-9"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
+						{{text_in_production}}
+					</div>
+					
+					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
+						{{in_production}}
+					</div>				
+				</div>
+			</div>
+
+			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;">
+				<div  class="orderib" data-filter="Shipped">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-moon-file-9"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
+						{{text_shipped}}
+					</div>
+					
+					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
+					{{shipped}}
+					</div>				
+				</div>
+			</div>				
+			
+			
+			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;">
+				<div  class="orderib" data-filter="OnHold">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-moon-file-9"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
+						{{text_on_hold}}
+					</div>
+					
+					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
+						{{on_hold}}
+					</div>				
+				</div>
+			</div>
+
+			<div class="vc_span2 wpb_column column_container"  style="float:left; width:20%; padding:10px;" >
+				<div  class="orderib" data-filter="Cancelled">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-moon-file-9"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
+						{{text_cancelled}}
+					</div>
+					
+					<div style=" margin-bottom:10px;text-align: center;font-size:32px;">
+						{{cancelled}}
+					</div>				
+				</div>
+			</div>
+
+
+			
+
+		</div><div class="clearboth"></div>
+
+
+		<b>{{payments_sales}}</b>:
+	
+		<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false" style="margin-top:10px;margin-bottom:100px; padding-left:10px;">	
+			<div style="" class="vc_span1 wpb_column column_container ">
+				&nbsp;
+			</div>
+			<div>
+            <div class="vc_span2 wpb_column column_container"  style=" width:18%; float:left; margin-left:20px" >
+				<div style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0" >
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-icon-money" style="background-image:url(../image/notepad-117597_640.png)"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
+						{{text_aug_total}}
+					</div>
+					
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px;">
+						{{aug_total}}
+					</div>				
+				</div>
+			</div>
+
+			<div class="vc_span2 wpb_column column_container" style=" width:18%; float:left; margin-left:20px" >
+				<div  style="background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0">
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px">
+						<i class="mk-icon-money"></i>
+					</div>
+				
+					<div style=" margin-bottom:10px;text-align: center;font-size:16px">
+						{{text_aug_charges}}
+					</div>
+					
+					<div style=" margin-bottom:10px;text-align: center;font-size:24px;">
+						{{aug_charges}}
+					</div>				
+				</div>
+			</div>
+            </div>
+
+		</div><div class="clearboth"></div>
+
+		
+	</div>		
+</div>
+	</div>
+	
+ <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false">
+	<div style="text-align:center" class="vc_span12 wpb_column column_container ">
+
+
+
+
+	<!--
+App Start
+-->
+<div style="background-color:#F8F8F8;border:1px solid #DDD;padding:15px 5px 5px 5px;margin-top:20px" class="vc_span12 wpb_column column_container ">
+
+
+<div class="clearboth"></div>	
+<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div>
+<div class="clearboth"></div>
+<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false">
+	<div style="" class="vc_span1 wpb_column column_container ">
+			
+	</div>
+	<div   style=" float:left; width:50%; padding-left:50px; padding-right:25px;">
+			<div  class="button-group">
+				<a href="index.php?route=shopify/category" target="_self" class="btn btn-primary btn-lg btn-block" style="width: auto;">
+				<i class="mk-moon-upload-5"></i>{{add_products}}</a>
+			</div>
+			
+			<div class="mk-button-align fullwidth-button center" style="margin-top:20px; "  >
+				<a href="index.php?route=shopify/category" target="_self" class="btn btn-primary btn-lg btn-block" style="background: #FC3;color: #900">
+				<i class="mk-moon-airplane-2"></i>{{add_express_line_products}}</a>
+			</div>
+			
+
+
+
+	
+	
+
+	</div>
+
+	<div class="vc_span4 wpb_column column_container "
+    style=" float:left; width:50%;padding-left:50px; padding-right:25px;">
+			<div class="mk-button-align fullwidth-button center">
+			<a href="index.php?route=shopify/orders" target="_self"  class="btn btn-primary btn-lg btn-block">
+			<i class="mk-icon-reorder"></i>{{view_orders}}</a></div>
+
+	
+
+    <div class="clearboth"></div>
+	<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div><div class="clearboth"></div>
+	<div class="mk-button-align fullwidth-button center"><a href="index.php?route=shopify/order" target="_self"  class="btn btn-primary btn-lg btn-block">
+	<i class="mk-icon-list-alt"></i>{{acct_balance_transactions}}</a></div>
+			
+			
+	
+    <div class="clearboth"></div>
+	<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div><div class="clearboth"></div>
+	<div class="mk-button-align fullwidth-button center"><a href="index.php?route=shopify/accountsettings" target="_self"  class="btn btn-primary btn-lg btn-block">
+	<i class="mk-moon-cog-2"></i>{{store_account_settings}}</a></div>
+
+    <div class="clearboth"></div>
+	<div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div><div class="clearboth"></div>
+	<div class="mk-button-align fullwidth-button center"><a href="index.php?route=shopify/reports" target="_self"  class="btn btn-primary btn-lg btn-block">
+	<i class="mk-moon-cog-2"></i>{{reports}}</a></div>
+
+	</div>
+<!--
+	<div style="" class="vc_span1 wpb_column column_container ">
+			
+	</div>
+	-->
+	
+	</div><div class="clearboth"></div>
+	
+	<div class="mk-shortcode mk-padding-shortcode" style="height:22px"></div><div class="clearboth"></div>
+	
+	 <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false">
+		<div style="text-align:center" class="vc_span12 wpb_column column_container ">
+			<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
+				<a href="faqs/" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Frequently Asked Questions</a><br><br>
+				<a href="app-resources/" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Watch Our How-To Video on Adding Products</a><br><br>
+				<a href="product-specs-and-pricing/" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Product Specifications and Pricing</a><br><br>
+			</div>	
+		</div>
+		<div style="text-align:center" class="vc_span12 wpb_column column_container ">
+		
+		
+		
+		</div>
+	</div><div class="clearboth"></div>
+	
+
+	<div class="mk-shortcode mk-padding-shortcode" style="height:22px"></div><div class="clearboth"></div>
+
+
+
+</div></div></div></div></div>
+</div>
+<style type="text/css">
+    .button-204 {
+                margin-bottom: 100px;
+                margin-top: 0px;
+
+        }
+
+        .button-204 {
+                background-color:#479ccf;
+
+        }
+        
+         .button-204:hover {
+                background-color:#4291c1;
+
+        }
+        .button-204.three-dimension  {
+             box-shadow: 0px 3px 0px 0px #397da6;
+        }
+        .button-204.three-dimension:active  {
+             box-shadow: 0px 1px 0px 0px #397da6;
+        } 
+	.button-204a {
+                margin-bottom: 100px;
+                margin-top: 0px;
+
+        }
+
+        .button-204a {
+                background-color:#FFC300;
+
+        }
+        
+         .button-204a:hover {
+                background-color:#F2BE00;
+
+        }
+        .button-204a.three-dimension  {
+             box-shadow: 0px 3px 0px 0px #D6A800;
+        }
+        .button-204a.three-dimension:active  {
+             box-shadow: 0px 1px 0px 0px #D6A800;
+        }
+	.exp-color {
+		color: #ff0000 !important;
+		
+		}
+	.exp-color2 {
+		color: #ff0000 !important;
+		text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+		}
+		 .orderib{
+			background-color:#FFF;border:1px solid #DDD;padding:5px 0 5px 0
+			}
+	.orderib:hover {
+           background-color: #87CEFA;border:1px solid #DDD;padding:5px 0 5px 0;
+
+        }
+    </style>
     <script type="text/javascript">
-    ShopifyApp.init({
-      apiKey: '50822163d1bb133c501db37fa9332265',
-      shopOrigin: 'https://vivajean.myshopify.com',
-      debug: false,
-      forceRedirect: false
-    });
+$('.orderib').on('click', function() {
+	window.location.href='index.php?route=shopify/orders/filter&filter_order_status_id='+ this.getAttribute('data-filter'); 
+});
 
-    ShopifyApp.ready(function(){
-     ShopifyApp.Bar.loadingOff();
-    });
-
-  </script>
-  
-
- 
-
-  
-   <div class="container">
-   
-
- 
-
-    <div class="pull_right pull-right" style="width: 70%; text-align: right; padding-top: 20px;">
-                                            <button id="load_products" class="btn btn-default" onclick="load_products()"><span class="fa fa-plus"></span>  Add Products</button>
-                                            <button id="view_orders" class="btn btn-default" onclick="view_orders(1, -1)"><span class="fa fa-file-text"></span> View Orders</button>
-                                            <button id="view_transactions" class="btn btn-default" onclick="view_transactions(1)">View Transactions</button>
-                                            <button id="view_payment" class="btn btn-warning" onclick="view_settings()">Account Settings</button>
-                                            <button id="view_transactions" class="btn btn-primary" onclick="location.reload();"><span class="fa fa-credit-card"></span> Dashboard</button>
-                                            <div class="pull_right pull-right" style="width: 70%; text-align: right; padding: 10px 0;">
-                                            <button id="contact-us" class="btn btn-default"><a href="http://printtrendzinc.com/contact.php" target="_blank"> SUPPORT</a></button>
-                                            <button id="faq" class="btn btn-default"><a href="http://printtrendzinc.com/faq.html" target="_blank">  FAQs</a></button>
-                                            <button id="prod-specs" class="btn btn-default"><a href="http://printtrendzinc.com/specs.html" target="_blank">  Product Specs</a></button>
-                                            </div>
-     </div>
- 
-
-
-
-   <div style="clear: both"></div>
-
-  </div>
-
-    <div id="main_contents" class="widget block container row">
-        <div id="before_contents" style="background-color: #fff; padding:10px; margin:5px;">
-            <div class="vd_head-section clearfix">
-                <div class="vd_panel-header">
-                    <ul class="breadcrumb">
-                        <li><a onclick="location.reload()">Home</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12 container">
-                <div class="panel">
-
-                    <div class="panel-body table-responsive">
-                        <div class="panel-body">
-                            <h3 class="mgtp--5"> Dashboard</h3>
-
-                            
-
-                            <div class="alert alert-warning">There are no payment methods set for you accout yet. Please, set up at least one payment method on your
-
-      <button id="view_payment2" class="btn btn-sm  btn-warning" onclick="view_settings()">Account Settings</button>
-      page</div>
-
-
-
-
-
-
-
-
-
-
-
-                            <div class="content-grid column-xs-3 column-sm-4 column-md-5 column-lg-6 height-xs-4">
-                                <div class="">
-                                    <div class="row">
-                                        <div class="col-md-12" style="background: linear-gradient(to top, #428bca, rgba(226, 226, 227, 0.34)); padding:30px;     border: 1px solid #ccc;">
-
-                                            <p><b>Your Orders</b></p>
-
-
-
-                                            <div class="row text-center">
-                                                <div class="currency_box" onclick="set_search_filter(0)">
-                                                    <span>Pending:<br><br><b>0</b></span>
-                                                </div>
-                                                <div class="currency_box" onclick="set_search_filter(1)">
-                                                    <span>Paid:<br><br><b>0</b></span>
-                                                </div>
-
-                                                <div class="currency_box" onclick="set_search_filter(2)">
-                                                    <span>In-Production:<br><br><b>0</b></span>
-                                                </div>
-                                                <div class="currency_box" onclick="set_search_filter(3)">
-                                                    <span>Shipped:<br><br><b>0</b></span>
-                                                </div>
-                                                <div class="currency_box" onclick="set_search_filter(4)">
-                                                    <span>On Hold:<br><br><b>0</b></span>
-                                                </div>
-                                                <div class="currency_box" onclick="set_search_filter(5)">
-                                                    <span>Cancelled:<br><br><b>0</b></span>
-                                                </div>
-                                            </div>
-
-
-                                            <p><b>Shopify Status</b></p>
-                                            <div class="row text-center">
-
-                                                <div class="currency_box" onclick="set_search_filter(3)">
-                                                    <span>Fulfilled:<br><br><b>0</b></span>
-                                                </div>
-                                                <div class="currency_box" onclick="set_search_filter(99)">
-                                                    <span>Unfulfilled:<br><br><b>0</b></span>
-                                                </div>
-                                            </div>
-
-                                            <p><b>Payments/Sales</b></p>
-                                            <div class="row text-center">
-                                                <div class="currency_box" style="cursor: default;">
-                                                    <span>This Month <br>Income:<br><br><b>$0</b></span>
-                                                </div>
-                                                <div class="currency_box" style="cursor: default;">
-                                                    <span>This Month <br>Charges:<br><br><b>$0</b></span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-
-                            </div>
-                            <!-- content-grid -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Panel Widget -->
-            </div>
-            <!-- col-md-12 -->
-        </div>
-
-    </div>
-</body></html>
+</script>
+{{ footer }}

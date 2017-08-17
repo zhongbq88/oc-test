@@ -41,32 +41,59 @@
   <script type="text/javascript">
     ShopifyApp.init({
       apiKey: '960bd2566abc4ce62a0a0c2eb13d7aa9',
-      shopOrigin: 'https://vivajean.myshopify.com'
-	  //debug: false,
+      shopOrigin: 'https://vivajean.myshopify.com',
+	  debug: true
   	  //forceRedirect: true
     });
   </script>
   <script type="text/javascript">
   ShopifyApp.ready(function(){
     ShopifyApp.Bar.initialize({
-      //icon: 'http://localhost:8080/assets/header-icon.png',
-      title: 'customDR',
+      icon: './image/logo.png',
       buttons: {
         primary: {
-          label: 'Save',
-          message: 'save',
+          label: '{{dashboard}}',
+          message: '{{dashboard}}',
           callback: function(){
-            ShopifyApp.Bar.loadingOn();
-            doSomeCustomAction();
+            window.location.href="index.php?route=shopify/dashboard";
           }
-        }
+        },
+		secondary:[
+					// Dropdown example
+					{ 
+						label: 'Add Products',
+          message: 'Add Products',
+          callback: function(){
+		   window.location.href="index.php?route=shopify/products";
+          }
+					},
+					{
+          label: '{{ orders }}',
+          message: '{{ orders }}',
+          callback: function(){
+		   window.location.href="index.php?route=shopify/orders";
+          }
+         },
+		 {
+          label: '{{ account_settings }}',
+          message: '{{ account_settings }}',
+          callback: function(){
+		   window.location.href="index.php?route=shopify/edit";
+          }
+		 }
+			
+				]
+		
       }
     });
   });
 </script>
 </head>
 <body>
-<nav id="top">
+
+<div style="height:30px;"></div>
+
+<!--<nav id="top">
   <div class="container">
     {{ language }}
     <div id="top-links" class="nav pull-right">
@@ -86,12 +113,12 @@
             {% endif %}
           </ul>
         </li>-->
-        <li><a href="index.php?route=shopify/category" id="wishlist-total" title="{{ add_products }}"><span class="hidden-xs hidden-sm hidden-md">{{ add_products }}</span></a></li>
+          <!--  <li><a href="index.php?route=shopify/category" id="wishlist-total" title="{{ add_products }}"><span class="hidden-xs hidden-sm hidden-md">{{ add_products }}</span></a></li>
         <li><a href="index.php?route=shopify/orders" title="{{ orders }}"><span class="hidden-xs hidden-sm hidden-md">{{ orders }}</span></a></li>
         <li><a href="index.php?route=shopify/accountsettings" title="{{ account_settings }}"> <span class="hidden-xs hidden-sm hidden-md">{{ account_settings }}</span></a></li>
          <li><a href="index.php?route=shopify/dashboard" title="{{ dashboard }}"> <span class="hidden-xs hidden-sm hidden-md">{{ dashboard }}</span></a></li>
       </ul>
     </div>
   </div>
-</nav>
+</nav>-->
 

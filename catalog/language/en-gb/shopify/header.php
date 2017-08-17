@@ -15,6 +15,7 @@ $_['text_checkout']      = 'Checkout';
 $_['text_search']        = 'Search';
 $_['text_all']           = 'Show All';
 $_['text_logout']        = 'Logout';
+$_['button_save']        = 'Save';
 $_['add_products']      = 'Add Products';
 $_['orders']        = 'Orders';
 $_['account_settings']        = 'Account Settings';

@@ -354,13 +354,39 @@ class ControllerCatalogOption extends Controller {
 				$image = '';
 				$thumb = 'no_image.png';
 			}
+			
+			// Images
+			if (isset($this->request->post['option_image_'.$option_value['option_value_id']])) {
+				$option_images = $this->request->post['option_image_'.$option_value['option_value_id']];
+			} else{
+				$option_images = $this->model_catalog_option->getProductImages($option_value['option_value_id']);
+			}
+	
+			$data_option_images = array();
+	
+			foreach ($option_images as $option_image) {
+				if (is_file(DIR_IMAGE . $option_image['image'])) {
+					$image = $option_image['image'];
+					$thumb = $option_image['image'];
+				} else {
+					$image = '';
+					$thumb = 'no_image.png';
+				}
+	
+				$data_option_images[] = array(
+					'image'      => $image,
+					'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),
+					'sort_order' => $option_image['sort_order']
+				);
+			}
 
 			$data['option_values'][] = array(
 				'option_value_id'          => $option_value['option_value_id'],
 				'option_value_description' => $option_value['option_value_description'],
 				'image'                    => $image,
 				'thumb'                    => $this->model_tool_image->resize($thumb, 100, 100),
-				'sort_order'               => $option_value['sort_order']
+				'sort_order'               => $option_value['sort_order'],
+				'option_images'			   => $data_option_images
 			);
 		}
 

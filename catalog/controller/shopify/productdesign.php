@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-class ControllerShopifyProduct extends Controller {
+class ControllerShopifyProductdesign extends Controller {
 	
 	public function index(){
 		
@@ -325,7 +325,7 @@ class ControllerShopifyProduct extends Controller {
 							'product_option_value_id' => $option_value['product_option_value_id'],
 							'option_value_id'         => $option_value['option_value_id'],
 							'name'                    => $option_value['name'],
-							'image'                   => $this->model_tool_image->resize($option_value['image'], 50, 50),
+							'image'                   => $this->model_tool_image->resize($option_value['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_height')),
 							'price'                   => $price,
 							'price_prefix'            => $option_value['price_prefix']
 						);
@@ -445,7 +445,7 @@ class ControllerShopifyProduct extends Controller {
 			
 $data['footer'] = $this->load->controller('shopify/footer');
 		$data['header'] = $this->load->controller('shopify/header');
-			$this->response->setOutput($this->load->view('shopify/product', $data));
+			$this->response->setOutput($this->load->view('shopify/product_design', $data));
 		} else {
 			$url = '';
 
@@ -508,10 +508,6 @@ $data['footer'] = $this->load->controller('shopify/footer');
 
 			$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');
 
-			$data['column_left'] = $this->load->controller('common/column_left');
-			$data['column_right'] = $this->load->controller('common/column_right');
-			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('shopify/footer');
 			$data['header'] = $this->load->controller('shopify/header');
 
@@ -1408,5 +1404,28 @@ $data['footer'] = $this->load->controller('shopify/footer');
 			$tmpy =  $tmpy+ $source[$i]['size'][1];
 		}
 		Imagejpeg($target_img, $savePath);
+	}
+	
+	public function getOption(){
+		
+		if (isset($this->request->get['option_value_id'])) {
+			$option_value_id = (int)$this->request->get['option_value_id'];
+		} else {
+			$option_value_id = 0;
+		}
+		
+		if (isset($this->request->get['product_id'])) {
+			$product_id = (int)$this->request->get['product_id'];
+		} else {
+			$product_id = 0;
+		}
+		$this->load->model('catalog/product');
+		$product_info = $this->model_catalog_product->getProduct($product_id);
+		$data = array();
+		$data['product_id'] = $product_id;
+		$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
+		$data['price'] = $product_info['price'];
+		$data['name'] = $product_info['meta_title'];
+
 	}
 }

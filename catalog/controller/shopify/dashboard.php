@@ -64,7 +64,6 @@ class ControllerShopifyDashboard extends Controller {
 		$data['tabtype'] = 0;
 		$data['footer'] = $this->load->controller('shopify/footer');
 		$data['header'] = $this->load->controller('shopify/header');
-		$this->response->addHeader('X-Frame-Options: GOFORIT'); 
 		$this->response->setOutput($this->load->view('shopify/dashboard', $data));
 		
 		
