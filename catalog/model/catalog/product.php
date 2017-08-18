@@ -536,4 +536,10 @@ class ModelCatalogProduct extends Model {
 			return 0;
 		}
 	}
+	
+	public function getOptionImages($option_value_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_image WHERE option_value_id = '" . (int)$option_value_id . "' ORDER BY sort_order ASC");
+
+		return $query->rows;
+	}
 }

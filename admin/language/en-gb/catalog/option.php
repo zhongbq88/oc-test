@@ -20,6 +20,7 @@ $_['text_datetime']      = 'Date &amp; Time';
 $_['text_time']          = 'Time';
 $_['text_option']        = 'Option';
 $_['text_value']         = 'Option Values';
+$_['entry_additional_image'] = 'Additional Images';
 
 // Column
 $_['column_name']        = 'Option Name';

@@ -35,6 +35,51 @@ class ModelCatalogOption extends Model {
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "option_value WHERE option_id = '" . (int)$option_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "option_value_description WHERE option_id = '" . (int)$option_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "option_image WHERE option_id = '" . (int)$option_id . "'");
+
+		if (isset($data['option_value'])) {
+			$option_images = array();
+			foreach ($data['option_image'] as $option_image) {
+				$option_images[] = $option_image;
+			}
+			$index = 0 ;
+			foreach ($data['option_value'] as $option_value) {
+				if ($option_value['option_value_id']) {
+					$this->db->query("INSERT INTO " . DB_PREFIX . "option_value SET option_value_id = '" . (int)$option_value['option_value_id'] . "', option_id = '" . (int)$option_id . "', image = '" . $this->db->escape(html_entity_decode($option_value['image'], ENT_QUOTES, 'UTF-8')) . "', sort_order = '" . (int)$option_value['sort_order'] . "'");
+				} else {
+					$this->db->query("INSERT INTO " . DB_PREFIX . "option_value SET option_id = '" . (int)$option_id . "', image = '" . $this->db->escape(html_entity_decode($option_value['image'], ENT_QUOTES, 'UTF-8')) . "', sort_order = '" . (int)$option_value['sort_order'] . "'");
+				}
+
+				$option_value_id = $this->db->getLastId();
+				
+				foreach ($option_images[$index] as $option_image) {
+					if(isset($option_image['image'])){
+						$this->db->query("INSERT INTO " . DB_PREFIX . "option_image SET option_value_id = '" . (int)$option_value_id . "', image = '" . $this->db->escape(html_entity_decode($option_image['image'], ENT_QUOTES, 'UTF-8')). "', option_id = '" . (int)$option_id . "', name = '" . $this->db->escape($option_image['name']) . "', sort_order = '" . (int)$option_image['sort_order'] . "'");
+					}
+					
+				}
+
+				foreach ($option_value['option_value_description'] as $language_id => $option_value_description) {
+					$this->db->query("INSERT INTO " . DB_PREFIX . "option_value_description SET option_value_id = '" . (int)$option_value_id . "', language_id = '" . (int)$language_id . "', option_id = '" . (int)$option_id . "', name = '" . $this->db->escape($option_value_description['name']) . "'");
+				}
+				$index++;
+			}
+
+		}
+	}
+
+
+public function editOption1($option_id, $data) {
+		$this->db->query("UPDATE `" . DB_PREFIX . "option` SET type = '" . $this->db->escape($data['type']) . "', sort_order = '" . (int)$data['sort_order'] . "' WHERE option_id = '" . (int)$option_id . "'");
+
+		$this->db->query("DELETE FROM " . DB_PREFIX . "option_description WHERE option_id = '" . (int)$option_id . "'");
+
+		foreach ($data['option_description'] as $language_id => $value) {
+			$this->db->query("INSERT INTO " . DB_PREFIX . "option_description SET option_id = '" . (int)$option_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "'");
+		}
+
+		$this->db->query("DELETE FROM " . DB_PREFIX . "option_value WHERE option_id = '" . (int)$option_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "option_value_description WHERE option_id = '" . (int)$option_id . "'");
 
 		if (isset($data['option_value'])) {
 			foreach ($data['option_value'] as $option_value) {
@@ -175,7 +220,7 @@ class ModelCatalogOption extends Model {
 		return $query->row['total'];
 	}
 	
-		public function getProductImages($option_value_id) {
+		public function getOptionImages($option_value_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_image WHERE option_value_id = '" . (int)$option_value_id . "' ORDER BY sort_order ASC");
 
 		return $query->rows;

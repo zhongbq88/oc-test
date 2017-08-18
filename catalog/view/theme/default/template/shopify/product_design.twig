@@ -13,12 +13,13 @@
               <div class="panel panel-default">
      <div class="panel-heading {% if option.required %} required {% endif %}" style="height:52px;" >
     <h4 class="panel-title" style="height:52px;" ><a  data-toggle="collapse" data-parent="#accordion" 
-				   href="#collapse{{options_array[loop.index]}}" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;"><label class="control-label">{{variant}} {{ loop.index }}</label><i class="fa fa-caret-down" style="margin-left:12px;"></i></a>	<div><input type="text" name="variant[{{ option.product_option_id }}]" value="" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  /><img src="/storage/upload/2.jpg.l3rsDvrrEwgBJgYsCBj4fNyfx5g2mYy0" style=" float:right;  width: auto; height:35px; display:none " id="src-option{{ option.product_option_id }}"  /></div>
+				   href="#collapse{{options_array[loop.index]}}" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;"><label class="control-label">{{variant}} {{ loop.index }}</label><i class="fa fa-caret-down" style="margin-left:12px;"></i></a>	<div><input type="text" name="variant[{{ option.product_option_id }}]" value="{{ option.name }}" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  /><img src="/storage/upload/2.jpg.l3rsDvrrEwgBJgYsCBj4fNyfx5g2mYy0" style=" float:right;  width: auto; height:35px; display:none " id="src-option{{ option.product_option_id }}"  /></div>
     </h4>
   </div>
   <div id="collapse{{options_array[loop.index]}}" class="panel-collapse collapse {% if loop.index==1 %}in {% endif %}">
-    <div class="panel-body">
-    		<div id="select_options">
+    <div class="panel-body op{{option.option_id}}">
+            <div id="select_options_style{{option.option_id}}" style="display:none"></div>
+    		<div id="select_options{{option.option_id}}">
            <label class="control-label">{{ option.name }}</label>
                   <div class="row">
                      {% for option_value in option.product_option_value %}
@@ -26,10 +27,10 @@
                         <div class="product-thumb" >
                        
                           {% if option_value.image %}
-                            <div class="image"><a  href="javascript:loadDesignImage({{option_value.option_value_id}})"><img src="{{ option_value.image}}" alt="{{ option_value.name}}" title="{{ option_value.name}}" class="img-responsive" /></a></div>{% endif %}  
+                            <div class="image"><a  href="javascript:loadDesignImage({{option_value.option_value_id}},{{ product_id }},{{option.option_id}},{{ option.product_option_id }})"><img src="{{ option_value.image}}" alt="{{ option_value.name}}" title="{{ option_value.name}}" class="img-responsive" /></a></div>{% endif %}  
                              <div>
                             <div class="caption">
-                              <h4 ><a href="javascript:loadDesignImage({{option_value.option_value_id}})"  style="color:#FFF">{{option_value.name}}</a></h4>
+                              <h4 ><a href="javascript:loadDesignImage({{option_value.option_value_id}},{{ product_id }},{{option.option_id}},{{ option.product_option_id }})"  style="color:#FFF">{{option_value.name}}</a></h4>
                             </div>
                              </div>
                        </div>
@@ -46,7 +47,7 @@
             {% endif %}
 </div>   
 <div class="button-group" style="margin:0 auto;">
- <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" style=" width:auto; text-align:center;">{{ review_and_publish_designs }}</button>
+ <button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" style=" width:auto; text-align:center;">{{ review_and_publish_designs }}</button>
    </div>        
 </div> 
 
@@ -148,31 +149,104 @@
 
 <script type="text/javascript"><!--
 
-	function loadDesignImage(option_value_id){
-		$.ajax({
-		url: 'index.php?route=shopify/productdesign/getOption&option_value_id='+option_value_id,
-		type: 'get',
-		dataType: 'json',
-		beforeSend: function() {
-			//$('#button-cart').button('loading');
-		},
-		complete: function() {
-			
-			//$('#button-cart').button('reset');
-		},
-		success: function(json) {
-			$('#select_options').remove();
-			//alert(json['success']);
-			//if (json['success']) {
-			//	window.location.href="index.php?route=shopify/createproduct";
-			//}
-			
-			
-		},
-        error: function(xhr, ajaxOptions, thrownError) {
-            //alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-        }
-	});
+ function loadDesignImage(option_value_id,product_id,option_id,product_option_id){
+	 //alert(option_id);
+	  $.ajax({
+				url: 'index.php?route=shopify/productdesign/getOption&product_id='+product_id+'&option_value_id='+option_value_id+'&product_option_id='+product_option_id,
+				type: 'get',
+				dataType: 'json',
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					  //alert(1);
+				},
+				complete: function() {
+					 //alert(2);
+				},
+				success: function(json) {
+					if(json['success']){
+						$('#select_options_style'+option_id).html(json['success']);
+						$("#select_options"+option_id).attr ("style","display:none;");
+						$('#select_options_style'+option_id).attr ("style","display:block;");
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					//alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+	}
+	
+	function load_paired_products(option_id){
+		$("#select_options"+option_id).attr ("style","display:block;");
+		$('#select_options_style'+option_id).attr ("style","display:none;");
+	}
+	
+	function variant_image(node){
+
+	$('#form-upload').remove();
+
+	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+	$('#form-upload input[name=\'file\']').trigger('click');
+
+	if (typeof timer != 'undefined') {
+    	clearInterval(timer);
+	}
+
+	timer = setInterval(function() {
+		if ($('#form-upload input[name=\'file\']').val() != '') {
+			clearInterval(timer);
+			var option_image_id = $(node).get(0).getAttribute("data-id");
+			var product_option_id = $(node).get(0).getAttribute("data-product-option-id");
+			var formData =  new FormData($('#form-upload')[0]);
+			formData.append("src", $(node).get(0).getAttribute("data-src"));
+			//alert(product_option_id);
+			$.ajax({
+				url: 'index.php?route=tool/upload',
+				type: 'post',
+				dataType: 'json',
+				data: formData,
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					//alert(123);
+					//$('#button-upload'+option_image_id).button('loading');
+				},
+				complete: function() {
+					//alert(456);
+					//$('#button-upload'+option_image_id).button('reset');
+				},
+				success: function(json) {
+					$('.text-danger').remove();
+
+					if (json['error']) {
+						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+					}
+
+					if (json['success']) {
+						//alert(json['src']+","+json['preimg']+","+json['code']);
+						document.getElementById("src-option"+product_option_id).src = json['src'];
+						//alert(json['preimg']);
+						if(json['preimg']){
+							//alert(document.getElementById("option_image"+option_image_id));
+							document.getElementById("option_image"+option_image_id).src = json['preimg'];
+							//$('#thumbnail'+option_id).attr('href',json['preimg']); 
+							$("#option-img"+option_image_id).val(json['preimg']);
+						}
+						
+						//$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
+						
+						$("#input-option"+option_image_id).val(json['code']);
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+		}
+	}, 500);
 	}
 	
 //--></script> 
@@ -201,15 +275,15 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 <script type="text/javascript"><!--
 $('#gopublish').on('click', function() {
 	$.ajax({
-		url: 'index.php?route=shopify/product/add',
+		url: 'index.php?route=shopify/productdesign/add',
 		type: 'post',
 		data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\'],#product-product select,  #product-product textarea'),
 		dataType: 'json',
 		beforeSend: function() {
-			$('#button-cart').button('loading');
+			//$('#button-cart').button('loading');
 		},
 		complete: function() {
-			$('#button-cart').button('reset');
+			//$('#button-cart').button('reset');
 		},
 		success: function(json) {
 			//alert(json['success']);
@@ -227,18 +301,20 @@ $('#gopublish').on('click', function() {
 //--></script> 
 
 <script type="text/javascript"><!--
-$('#button-cart').on('click', function() {
-	
+$('#button-review').on('click', function() {
+	//alert(123);
 	$.ajax({
-		url: 'index.php?route=shopify/product/review',
+		url: 'index.php?route=shopify/productdesign/review',
 		type: 'post',
 		data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\']'),
 		dataType: 'json',
 		beforeSend: function() {
-			$('#button-cart').button('loading');
+			//alert(123);
+			//$('#button-review').button('loading');
 		},
 		complete: function() {
-			$('#button-cart').button('reset');
+			//alert(456);
+			//$('#button-review').button('reset');
 		},
 		success: function(json) {
 			//alert(json);

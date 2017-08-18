@@ -43,4 +43,7 @@ class ModelToolImage extends Model {
 			return HTTP_CATALOG . 'image/' . $image_new;
 		}
 	}
+	
+	
+	
 }

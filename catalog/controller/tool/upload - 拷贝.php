@@ -68,23 +68,32 @@ class ControllerToolUpload extends Controller {
 		if (!$json) {
 			$file = $filename . '.' . token(32);
 			move_uploaded_file($this->request->files['file']['tmp_name'], DIR_UPLOAD . $file);
+		
 			// Hide the uploaded file name so people can not link to it directly.
 			$this->load->model('tool/upload');
+
 			$json['code'] = $this->model_tool_upload->addUpload($filename, $file);
-			$host = '';
-			if ($this->request->server['HTTPS']) {
-				$host = $this->config->get('config_ssl');
-			} else {
-				$host = $this->config->get('config_url');
-			}
-			$src = DIR_IMAGE.str_replace($host."image/",'',$src);
-			$src = str_replace(".jpg",'.png',$src);
+			$src = str_replace("image/cache/","",str_replace(HTTP_SERVER,DIR_IMAGE,$src));
+			$paths = explode('/', $src);
+			$srcfilenames =  explode('-', $paths[count($paths)-1]);
+			$src =  str_replace('-'.$srcfilenames[count($srcfilenames)-1],"",$src).".png";
 			$savepat = DIR_IMAGE."/catalog/designs/";
+			
+			
 			$json['src'] = "/storage/upload/" . $file;
 			if(file_exists($src)){
 				$ttt =  $this->spliceImage(DIR_UPLOAD . $file,$src,$savepat);
-				$json['preimg'] = $host."image/catalog/designs/" . $ttt;
+				$json['preimg'] = "/image/catalog/designs/" . $ttt;
 			}
+			
+			/*$this->load->model('tool/image');
+			if ($json['src']) { 
+				$json['src'] = $this->model_tool_image->resize($json['src'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_height'));
+			}
+			if ($json['preimg']) {
+				$json['preimg'] = $this->model_tool_image->resize($json['preimg'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_height'));
+			}*/
+			
 			$json['success'] = $this->language->get('text_upload');
 		}
 

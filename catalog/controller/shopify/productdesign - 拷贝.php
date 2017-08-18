@@ -536,7 +536,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 			/*if (isset($this->request->post['quantity'])) {
 				$quantity = (int)$this->request->post['quantity'];
 			} else {*/
-			$quantity = 1;
+				$quantity = 1;
 			//}
 
 			if (isset($this->request->post['option'])) {
@@ -544,52 +544,49 @@ $data['footer'] = $this->load->controller('shopify/footer');
 			} else {
 				$option = array();
 			}
+			if (isset($this->request->post['option-two'])) {
+				$optiontwo = array_filter($this->request->post['option-two']);
+			} else {
+				$optiontwo = array();
+			}
 			if (isset($this->request->post['option-img'])) {
 				$pimgs = array_filter($this->request->post['option-img']);
 			} else {
 				$pimgs = array();
 			}
-			/*foreach ($option as $k=>$v) {
+			if (isset($this->request->post['option-img-two'])) {
+				$pimgstwo = array_filter($this->request->post['option-img-two']);
+			} else {
+				$pimgstwo = array();
+			}
+			foreach ($option as $k=>$v) {
 				if(isset($optiontwo[$k])){
 					$option[$k] = 'left:'.$v.";".'right:'.$optiontwo[$k];
 				}
-			}*/
-			//print_r($option);
-			//print_r($pimgs);
+			}
+			print_r($pimgs);
 			//echo 'pimgstwo'.json_encode($pimgstwo);
 			$images = array();
 			//print_r($option);
 			$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
-			//print_r($product_options);
+	
 			foreach ($product_options as $product_option) {
-				//print_r($product_option);
-					foreach ($product_option['product_option_value'] as $option_value) {
-						//print_r($option_value['option_value_id']);
-						//print_r($option_value['image']);
-						if(!empty($option_value['image'])){
-							//print_r($option_value['option_value_id']);
-							$option_images = $this->model_catalog_product->getOptionImages($option_value['option_value_id']);
-							//print_r($option_images);
-							if(isset($option_images)){
-								if(isset($pimgs[$option_images[0]['option_image_id']])){
-									$image = $pimgs[$option_images[0]['option_image_id']];
-									if(count($option_images)>1){
-										$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
-										$imgs[1] = str_replace(HTTP_SERVER,'/',$pimgs[$option_images[1]['option_image_id']]);
-										$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
-										$imgs[1] = str_replace('/image/',DIR_IMAGE,$imgs[1]);
-										$image = 'catalog/designs/'.$product_option['product_option_id'].".jpg";
-										$this->createImage($imgs,DIR_IMAGE.$image);
-										$image = "image/".$image;
-									}
-									$images[$product_option['product_option_id']] =$image;
-								}
-							}
-						}
-					}
+				if(!empty($pimgs[$product_option['product_option_id']])){
+					$image = $pimgs[$product_option['product_option_id']];
+					/*if(!empty($pimgstwo[$product_option['product_option_id']])){
+							$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
+							$imgs[1] = str_replace(HTTP_SERVER,'/',$pimgstwo[$product_option['product_option_id']]);
+							$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
+							$imgs[1] = str_replace('/image/',DIR_IMAGE,$imgs[1]);
+							$image = 'catalog/designs/'.$product_option['product_option_id'].".jpg";
+							$this->createImage($imgs,DIR_IMAGE.$image);
+							$image = "image/".$image;
+					}*/
+					$images[$product_option['product_option_id']] =$image;
+				}
 				
 			}
-			//print_r($images);
+			
 			
 			//echo json_encode($images);
 			if (isset($this->request->post['recurring_id'])) {
@@ -614,8 +611,10 @@ $data['footer'] = $this->load->controller('shopify/footer');
 
 			if (!$json) {
 				$json['images'] = $images;
-				//$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
+				$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
+
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('shopify/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+
 				// Unset all shipping and payment methods
 				unset($this->session->data['shipping_method']);
 				unset($this->session->data['shipping_methods']);
@@ -694,14 +693,14 @@ $data['footer'] = $this->load->controller('shopify/footer');
 		//echo "product_id".$product_id;
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 		//print_r($product_info);
-		//$result = $this->addOrder();
-		/*foreach ($result  as $order) {
+		$result = $this->addOrder();
+		foreach ($result  as $order) {
 			//echo 'order'.$order;
 			//echo 'order'.$order['order_option'];
 			//echo "cart".$order['cart_id']."--".$order['order_id']."--".$order['product_id'];
 			$this->remove($order['cart_id']);		
 		}
-		$result_one = $result[0];*/
+		$result_one = $result[0];
 		//echo 'sku='.$product_info;
 		$title = $this->request->post['pttl'];
 		$pdsc = $this->request->post['pdsc'];
@@ -711,7 +710,8 @@ $data['footer'] = $this->load->controller('shopify/footer');
 		$pimgs =array();
 		$variants = array();
 		$images = array();
-		//$order_option = $result_one['order_option'];
+		
+		$order_option = $result_one['order_option'];
 		if (isset($this->request->post['variant'])) {
 			$variant = array_filter($this->request->post['variant']);
 		} else {
@@ -728,8 +728,6 @@ $data['footer'] = $this->load->controller('shopify/footer');
 			$option = array();
 		}
 		$count = count($option);
-		print_r($option);
-		print_r($pimgs);
 		//echo(json_encode($pimgs));
 		//echo 'au='.$this->session->data['oauth_token'] ;
 		//echo 'shop='.$this->session->data['shop'] ;
@@ -741,66 +739,28 @@ $data['footer'] = $this->load->controller('shopify/footer');
 		$options = array();
 		foreach ($productoption as $opt) {
 			if($opt['type']=='select'){
-				
-				$create = false;
-				foreach ($opt['product_option_value'] as $option_value) {
-					if(empty($option_value['image'])){
-						if(!$create){
-							$value = array();
-							$option_data[$index] = array();
-							$options[$index]['name'] = $opt['name'];
-							$create = true;
-						}
+				if(empty($opt['image'])){
+					$option_data[$index] = array();
+					$options[$index]['name'] = $opt['name'];
+					$value = array();
+					foreach ($opt['product_option_value'] as $option_value) {
 						$option_data[$index][] = $opt['name'].":".$option_value['name'];
 						$value[] = $option_value['name'];
-					}else{
-						$option_images = $this->model_catalog_product->getOptionImages($option_value['option_value_id']);
-							//print_r($option_images);
-							if(isset($option_images)){
-								$img='';
-								foreach ($option_images as $option_image) {
-									//echo $option_image['option_image_id'];
-									//print_r($option[$option_image['option_image_id']]);
-									if(isset($option[$option_image['option_image_id']])){
-									  $img .= $option[$option_image['option_image_id']].":";
-								    } /*else {
-									  $img .= $option_image['image'].":";
-								  }*/
-								}
-								if(!empty($img)){
-									$imgs[] = array(
-								 "'".$option_value['option_value_id']."'"=>$img
-								) ;
-								}
-								
-							}
-						
-						//$value = array();
 					}
-				}
-				if($create){
 					$options[$index]['values']  = $value;
 					$index++;
 				}
-				
-				
 			}		
 		}
-		//print_r($imgs);
-		//print_r($productoption);
-		//print_r($option);
+		print_r($option);
 		$index =0;
-		//$count = count($order_option);
+		$count = count($order_option);
 		print_r($option_data);
 		//$result = array();
 		$result = $this->calculateCombination($option_data, 0,$arr = array(),$arr2=array());
 		//print_r('result'.$result);
 		$this->load->model('shopify/order');
-		print_r($option);
-		
-		
 		foreach ($option as $key => $value) {
-			
 			//$opt = $option[$index];
 			//echo "opt=".$opt;
 			foreach ($order_option  as $order_opt) {

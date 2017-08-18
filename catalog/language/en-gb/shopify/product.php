@@ -10,6 +10,7 @@ $_['text_points']              = 'Price in reward points:';
 $_['text_stock']               = 'Availability:';
 $_['text_instock']             = 'In Stock';
 $_['text_tax']                 = 'Ex Tax:';
+$_['text_each']                 = 'each';
 $_['text_discount']            = ' or more ';
 $_['text_option']              = 'Product Designer';
 $_['text_minimum']             = 'This product has a minimum quantity of %s';
@@ -31,6 +32,7 @@ $_['text_week']                = 'week';
 $_['text_semi_month']          = 'half-month';
 $_['text_month']               = 'month';
 $_['text_year']                = 'year';
+$_['button_upload']               = 'Upload File';
 
 $_['button_upload_left']               = 'Upload File Left';
 $_['button_upload_right']                = 'Upload File Right';
