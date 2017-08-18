@@ -768,9 +768,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 								  }*/
 								}
 								if(!empty($img)){
-									$imgs[] = array(
-								 "'".$option_value['option_value_id']."'"=>$img
-								) ;
+									$imgs[$opt['product_option_id']]=$img;
 								}
 								
 							}
@@ -799,18 +797,8 @@ $data['footer'] = $this->load->controller('shopify/footer');
 		print_r($option);
 		
 		
-		foreach ($option as $key => $value) {
+		foreach ($pimgs as $key => $value) {
 			
-			//$opt = $option[$index];
-			//echo "opt=".$opt;
-			foreach ($order_option  as $order_opt) {
-				if($key==$order_opt['product_option_id']){
-					//$sku =  $product_info['sku'].;
-					if (isset($pimgs[$key])) {
-							$image = HTTP_SERVER.$pimgs[$key];
-						} else {
-							$image = $value;
-						}
 					if(count($result)>0){
 						foreach ($result  as $v) {
 						$sku =  array(
@@ -818,20 +806,13 @@ $data['footer'] = $this->load->controller('shopify/footer');
 							'order_id'       => $this->session->data['order_id'],
 							'sku'        => $product_info['sku'],
 							'model'        => $product_info['model'],
-							'order_option_id'  => $order_opt['order_option_id'],
-							'order_product_id'  => $order_opt['order_product_id'],
+							'order_option_id'  => '',
+							'order_product_id'  => '',
 							'product_options'       => json_encode($v),
-							'design_file'        => $image
-							//'customer_id'  => $product_info['customer_id']
+							'option_file'       => $imgs[$key],
+							'design_file'        => HTTP_SERVER.$value
 						);
 						$sku_id = $this->model_shopify_order->addProductSku($sku);
-						/*if (isset($variant[$order_opt['product_option_id']])) {
-							$optionl = $variant[$order_opt['product_option_id']];
-						} else {
-							$optionl = 'option'.$index;
-						}*/
-						
-						
 						$variant1 = array(
 							"price"=>$pspr,
 							"sku"=> $product_info['sku'].".".$sku_id
@@ -850,10 +831,11 @@ $data['footer'] = $this->load->controller('shopify/footer');
 							'order_id'       => $this->session->data['order_id'],
 							'sku'        => $product_info['sku'],
 							'model'        => $product_info['model'],
-							'order_option_id'  => $order_opt['order_option_id'],
-							'order_product_id'  => $order_opt['order_product_id'],
+							'order_option_id'  => '',
+							'order_product_id'  => '',
+							'option_file'       => $imgs[$key],
 							'product_options'       => '',
-							'design_file'        => $image
+							'design_file'        => HTTP_SERVER.$value
 							//'customer_id'  => $product_info['customer_id']
 						);
 						$sku_id = $this->model_shopify_order->addProductSku($sku);
@@ -873,11 +855,11 @@ $data['footer'] = $this->load->controller('shopify/footer');
 
 					
 					$images[] = array(
-						"src"=> $image
+						"src"=> HTTP_SERVER.$pimgs[$key]
 					);
-				}	
-			}	
-			$index++;
+					
+			//}	
+			//$index++;
 		}
 		//echo 'images='.$images;
 		//$json = array();
@@ -893,7 +875,9 @@ $data['footer'] = $this->load->controller('shopify/footer');
 	//'result'=>$option,
 	//'order_option'=>$order_option
 	
+	
 	);
+	print_r($_SESSION['product']);
 		$json = array();
 		$json['success'] = 'success';
 		$this->response->addHeader('Content-Type: application/json');

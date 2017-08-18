@@ -4703,3 +4703,8 @@
 2017-08-18 12:03:11 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\oc-test\catalog\controller\shopify\productdesign.php on line 806
 2017-08-18 12:03:11 - PHP Notice:  Undefined variable: order_option in D:\xampp\htdocs\oc-test\catalog\controller\shopify\productdesign.php on line 806
 2017-08-18 12:03:11 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\oc-test\catalog\controller\shopify\productdesign.php on line 806
+2017-08-18 12:12:45 - PHP Notice:  Undefined variable: image in D:\xampp\htdocs\oc-test\catalog\controller\shopify\productdesign.php on line 840
+2017-08-18 12:12:45 - PHP Notice:  Undefined index: order_option_id in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 406
+2017-08-18 12:12:45 - PHP Notice:  Undefined index: order_product_id in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 406
+2017-08-18 12:13:11 - PHP Notice:  Undefined index: order_option_id in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 406
+2017-08-18 12:13:11 - PHP Notice:  Undefined index: order_product_id in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 406
