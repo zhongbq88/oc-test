@@ -33,16 +33,19 @@ class ControllerShopifyGetorders extends Controller {
 	}
 	
 	public function getOrders($shopify,$outh_token,$customer_info){
+		print_r($shopify.'--'.$outh_token);
 		  $shopify = shopify\client($shopify, SHOPIFY_APP_API_KEY, $outh_token);
 		  $json = array();
 		  try
 		  {
-			  
 			  $this->load->model('shopify/order');
 			  $adddate = $this->model_shopify_order->getOrderLastAddDate($customer_info['customer_group_id']);
 			  $adddate = str_replace(' ',"T",$adddate)."+00:00";
 			  $orders = $shopify('GET /admin/orders.json?status=any'/*&processed_at_min='.$adddate.'&created_at_min='.$adddate*/);
+			  //print_r($orders);
+			  
 			  $this->load->model('localisation/order_status');
+			  
 			  $order_statuses = $this->model_localisation_order_status->getOrderStatuses();
 			  if(count($orders)>0){
 				  $json['success'] = 'true';
@@ -68,12 +71,11 @@ class ControllerShopifyGetorders extends Controller {
 	}
 	
 	public function initOrder($order,$order_statuses,$customer_info){
-	
 	$order_data =  array(
 				'order_id'                => $order['id'],
 				'email'                   => $order['email'],
 				'telephone'               => isset($order['shipping_address'])?$order['shipping_address']['phone']:'',
-				'custom_field'            => json_encode($order['line_items']),
+				'custom_field'            => json_encode($order),
 				'payment_firstname'       => $this->getValue($order,'payment_firstname'),
 				'payment_lastname'        => $this->getValue($order,'payment_lastname'),
 				'payment_company'         => $this->getValue($order,'payment_company'),
@@ -120,12 +122,12 @@ class ControllerShopifyGetorders extends Controller {
 				'affiliate_lastname'      => '',
 				'commission'              => '',
 				'language_id'             => 0,
-				'language_code'           =>'',
+				'language_code'           => '',
 				'currency_id'             => 0,
 				'currency_code'           => $order['currency'],
-				'currency_value'          => '',
+				'currency_value'          => $order['id'],
 				'ip'                      => $order['browser_ip'],
-				'forwarded_ip'            => $order['id'],
+				'forwarded_ip'            => $order['name'],
 				'user_agent'              =>  $this->getValue(isset($order['client_details'])?$order['client_details']:'','user_agent'),
 				'accept_language'         =>  $this->getValue(isset($order['client_details'])?$order['client_details']:'','accept_language'),
 				'date_added'              => $order['created_at'],
