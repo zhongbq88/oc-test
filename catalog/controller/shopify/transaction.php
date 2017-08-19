@@ -47,9 +47,9 @@ class ControllerShopifyTransaction extends Controller {
 			'limit' => 10
 		);
 
-		$transaction_total = $this->model_account_transaction->getTotalTransactions();
+		$transaction_total = $this->model_shopify_transaction->getTotalTransactions();
 
-		$results = $this->model_account_transaction->getTransactions($filter_data);
+		$results = $this->model_shopify_transaction->getTransactions($filter_data);
 
 		foreach ($results as $result) {
 			$data['transactions'][] = array(
