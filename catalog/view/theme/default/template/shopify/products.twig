@@ -1,8 +1,7 @@
 {{ header }}
 <div id="product-category" class="container">
   <div class="row">
-    <div id="content" class="{{ class }}">
-      {% if products %}
+    <div id="content" class="{{ class }}"> {% if products %}
       <div class="row" style="display:none">
         <div class="col-md-2 col-sm-6 hidden-xs">
           <div class="btn-group btn-group-sm">
@@ -20,8 +19,10 @@
               
               
               
+              
               {% for sorts in sorts %}
               {% if sorts.value == '%s-%s'|format(sort, order) %}
+              
               
               
               
@@ -29,7 +30,9 @@
               
               
               
+              
               {% else %}
+              
               
               
               
@@ -37,8 +40,10 @@
               
               
               
+              
               {% endif %}
               {% endfor %}
+            
             
             
             
@@ -52,8 +57,10 @@
               
               
               
+              
               {% for limits in limits %}
               {% if limits.value == limit %}
+              
               
               
               
@@ -61,11 +68,14 @@
               
               
               
+              
               {% else %}
               
               
               
+              
               <option value="{{ limits.href }}">{{ limits.text }}</option>
+              
               
               
               
@@ -74,12 +84,12 @@
             
             
             
+            
             </select>
           </div>
         </div>
       </div>
-      <div class="row">
-      {% for product in products %}
+      <div class="row"> {% for product in products %}
         <div class="product-layout product-list col-xs-12">
           <div class="product-thumb">
             <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
@@ -90,16 +100,16 @@
                 <p class="price" style="color:#CCC"> {% if not product.special %}
                   {{ product.price }}
                   {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
-                {% endif %} </div>
+                  {% endif %} 
+              </div>
             </div>
           </div>
         </div>
-        {% endfor %} 
-        </div>
-     <!-- <div class="row">
+        {% endfor %} </div>
+      <div class="row">
         <div class="col-sm-6 text-left">{{ pagination }}</div>
-        <div class="col-sm-6 text-right">{{ results }}</div>
-      </div>-->
+        <!--<div class="col-sm-6 text-right">{{ results }}</div>--> 
+      </div>
       {% endif %}
       {% if not categories and not products %}
       <p>{{ text_empty }}</p>

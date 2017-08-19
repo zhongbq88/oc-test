@@ -1,7 +1,5 @@
 {{ header }}
-<div id="account-order" class="container">
- 
-  {% if success %}
+<div id="account-order" class="container"> {% if success %}
   <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
     <button type="button" class="close" data-dismiss="alert">&times;</button>
   </div>
@@ -65,25 +63,27 @@
           
           {% for product in products %}
           <tr>
-            <td class="text-left">
-            <div style="float:left">{{ product.name }}
-              {% for option in product.option %} <br />
-              &nbsp;<small>{{ option.value }}</small> {% endfor %}</div>
-             {% if product.design_file %}
+            <td class="text-left"><div style="float:left">{{ product.name }}
+                {% for option in product.option %} <br />
+                &nbsp;<small>{{ option.value }}</small> {% endfor %}</div>
+              {% if product.design_file %}
               <div style="float: right"><a class="thumbnail" style="border:none;"><img src="{{  product.design_file }}"   style="width: auto; height: 120px;" /></a></div>
-              {% endif %}
-              </td>
+              {% endif %} </td>
             <td class="text-left">{{ product.model }}</td>
             <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
-                  <input type="text" {% if order_status_id!=1 %} disabled {% endif %} name="quantity[{{ product.order_product_id }}]" id="input{{ product.order_product_id }}" value="{{ product.quantity }}" size="1" class="form-control" />
-                  <span class="input-group-btn">
-                  <button type="button" id="button-update{{ product.order_product_id }}" {% if  order_status_id!=1 %} disabled {% endif %} data-toggle="tooltip" onclick="update('{{ product.order_product_id }}',this);"  id="button-remove{{ product.order_product_id }}"  title="{{ button_update }}" {% if order_status_id!=1 %} disabled {% endif %} class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-                  <button type="button" {% if order_status_id!=1 %} disabled {% endif %} data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="updateOrderProduct('{{ product.order_product_id }}',0);"><i class="fa fa-times-circle"></i></button>
-                  </span></div></td>
+                <input type="text" {% if order_status_id!=1 %} disabled {% endif %} name="quantity[{{ product.order_product_id }}]" id="input{{ product.order_product_id }}" value="{{ product.quantity }}" size="1" class="form-control" />
+                <span class="input-group-btn">
+                <button type="button" id="button-update{{ product.order_product_id }}" {% if  order_status_id!=1 %} disabled {% endif %} data-toggle="tooltip" onclick="update('{{ product.order_product_id }}',this);"  id="button-remove{{ product.order_product_id }}"  title="{{ button_update }}" {% if order_status_id!=1 %} disabled {% endif %} class="btn btn-primary">
+                <i class="fa fa-refresh"></i>
+                </button>
+                <button type="button" {% if order_status_id!=1 %} disabled {% endif %} data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="updateOrderProduct('{{ product.order_product_id }}',0);">
+                <i class="fa fa-times-circle"></i>
+                </button>
+                </span></div></td>
             <td class="text-right">{{ product.price }}</td>
             <td class="text-right">{{ product.total }}</td>
             <td class="text-right">{{ product.sale_total }}</td>
-            <!--<td class="text-right" style="white-space: nowrap;">{% if product.reorder %} <a href="{{ product.reorder }}" data-toggle="tooltip" title="{{ button_reorder }}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></a> {% endif %} <a href="{{ product.return }}" data-toggle="tooltip" title="{{ button_return }}" class="btn btn-danger"><i class="fa fa-reply"></i></a></td>-->
+            <!--<td class="text-right" style="white-space: nowrap;">{% if product.reorder %} <a href="{{ product.reorder }}" data-toggle="tooltip" title="{{ button_reorder }}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></a> {% endif %} <a href="{{ product.return }}" data-toggle="tooltip" title="{{ button_return }}" class="btn btn-danger"><i class="fa fa-reply"></i></a></td>--> 
           </tr>
           {% endfor %}
           {% for voucher in vouchers %}
@@ -107,8 +107,8 @@
             <td colspan="3"></td>
             <td class="text-right"><b>{{ total.title }}</b></td>
             <td class="text-right">{{ total.text }}</td>
-             <td class="text-right">{{ total.text2 }}</td>
-          
+            <td class="text-right">{{ total.text2 }}</td>
+            
             <!--{% if products %}
             <td></td>
             {% endif %}--> </tr>
@@ -130,8 +130,8 @@
           </tr>
         </tbody>
       </table>
-      {% endif %}
-    <!--  {% if histories %}
+      {% endif %} 
+      <!--  {% if histories %}
       <h3>{{ text_history }}</h3>
       <table class="table table-bordered table-hover">
         <thead>
@@ -160,18 +160,17 @@
         
       </table>
       {% endif %}-->
-      <div class="buttons clearfix">
-      	<!--{% if order_status_id==1 %}-->
-         <div class="pull-right"><a href="{{ paid }}" {% if  haspay==1 %} disabled {% endif %} class="btn btn-danger">{{ text_paid }}</a></div>
+      <div class="buttons clearfix"> 
+        <!--{% if order_status_id==1 %}-->
+        <div class="pull-right"><a href="{{ paid }}" {% if  haspay==1 %} disabled {% endif %} class="btn btn-danger">{{ text_paid }}</a></div>
         <!--{% else %}
         <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
-        {% endif %}-->
+        {% endif %}--> 
       </div>
       {{ content_bottom }}</div>
     {{ column_right }}</div>
 </div>
-
-  <script type="text/javascript"><!--
+<script type="text/javascript"><!--
   function update(order_product_id,node){
 	  var node2 = $(node).parent().parent().find('input[name^=\'quantity\']');
 	  //alert($(node2).val());
