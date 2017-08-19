@@ -93,12 +93,12 @@ class ControllerShopifyDashboard extends Controller {
 			$customer = $this->model_account_customer->getCustomerByEmail($email);
 			if(empty($customer)){
 				$customer_id = $this->model_account_customer->addShopifyUser($shop,$oauth_token);
-			}
-			
+			}else{
+				$this->model_account_customer->updateShopifyToken($customer['customer_id'],$oauth_token);
+			}		
 			$this->customer->login($email, $shop);
-			
-	$this->session->data['oauth_token'] = $oauth_token;
-	$this->session->data['shop'] = $_GET['shop'];
+			$this->session->data['oauth_token'] = $oauth_token;
+			$this->session->data['shop'] = $_GET['shop'];
 			$_SESSION['oauth_token'] = $oauth_token;
 			$_SESSION['shop'] = $_GET['shop'];
 			$this->load->controller('shopify/getorders');

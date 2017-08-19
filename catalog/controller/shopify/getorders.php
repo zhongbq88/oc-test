@@ -8,67 +8,63 @@ require __DIR__.'/conf.php';
 
 class ControllerShopifyGetorders extends Controller {
 	public function index(){
-		//echo $_SESSION['shop']."--".$_SESSION['oauth_token'];
-		$shopify = shopify\client($_SESSION['shop'], SHOPIFY_APP_API_KEY, $_SESSION['oauth_token']);
-	$json = array();
-	try
-	{
-		
-		//echo REDIRECTION_URL;
-		//print_r();
-		//echo print_r('product='.$_SESSION['product']);
-		# Making an API request can throw an exception
 		
 		$this->load->model('account/customer');
-		$customer_info = array();
-		if ($this->customer->isLogged()) {
-			$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
-				
+	    $json = array();
+		if(isset($this->request->get['syn'])&&$this->request->get['syn']=='all'){
+			$customer_infos = $this->model_account_customer->getCustomerByGroupId(4);	
+			print_r($customer_infos); 
+			foreach($customer_infos as $customer_info){
+				if(isset($customer_info['token'])&&$customer_info['lastname']=='myshopify'){
+					$json =  $this->getOrders($customer_info['firstname'].'.myshopify.com',$customer_info['token'],$customer_info);
+				}
+			}
+		}else{
+			$customer_info = array();
+			if ($this->customer->isLogged()) {
+				$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());	  
+			}
+			$json =  $this->getOrders($_SESSION['shop'],$_SESSION['oauth_token'],$customer_info);
 		}
-		$this->load->model('shopify/order');
-		$adddate = $this->model_shopify_order->getOrderLastAddDate($customer_info['customer_group_id']);
-		$adddate = str_replace(' ',"T",$adddate)."+00:00";
-		//print_r(date(DATE_ATOM, mktime(0, 0, 0, 7, 1, 2000)));
-		$orders = $shopify('GET /admin/orders.json?status=any'/*&processed_at_min='.$adddate.'&created_at_min='.$adddate*/);
-		$this->load->model('localisation/order_status');
-		//print_r($orders);
-		$order_statuses = $this->model_localisation_order_status->getOrderStatuses();
-		if(count($orders)>0){
-			$json['success'] = 'true';
-		}
-		foreach($orders as $order){
-			$od = $this->initOrder($order,$order_statuses,$customer_info);
-			
-			//print_r($od);
-			$order_id = $this->model_shopify_order->addOrder($od);
-			//echo $order_id;
-		}
-		
-		//return true;
-	}
-	catch (shopify\ApiException $e)
-	{
-		# HTTP status code was >= 400 or response contained the key 'errors'
-		//echo $e;
-		print_r($e->getRequest());
-		print_r($e->getResponse());
-		$json['error'] = $e->getResponse();
-	}
-	catch (shopify\CurlException $e)
-	{
-		# cURL error
-		//echo $e;
-		print_r($e->getRequest());
-		print_r($e->getResponse());
-		$json['error'] = $e->getResponse();
-	}
-	//return false;
-		//echo $this->request->get['syn'];
 		if (isset($this->request->get['syn'])) {
 			$this->response->addHeader('Content-Type: application/json');
 			$this->response->setOutput(json_encode($json));
-			//$this->response->redirect($this->url->link('index.php?route=shopify/orders#syn', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
+	}
+	
+	public function getOrders($shopify,$outh_token,$customer_info){
+		  $shopify = shopify\client($shopify, SHOPIFY_APP_API_KEY, $outh_token);
+		  $json = array();
+		  try
+		  {
+			  
+			  $this->load->model('shopify/order');
+			  $adddate = $this->model_shopify_order->getOrderLastAddDate($customer_info['customer_group_id']);
+			  $adddate = str_replace(' ',"T",$adddate)."+00:00";
+			  $orders = $shopify('GET /admin/orders.json?status=any'/*&processed_at_min='.$adddate.'&created_at_min='.$adddate*/);
+			  $this->load->model('localisation/order_status');
+			  $order_statuses = $this->model_localisation_order_status->getOrderStatuses();
+			  if(count($orders)>0){
+				  $json['success'] = 'true';
+			  }
+			  foreach($orders as $order){
+				  $od = $this->initOrder($order,$order_statuses,$customer_info);
+				  $order_id = $this->model_shopify_order->addOrder($od);
+			  }
+		  }
+		  catch (shopify\ApiException $e)
+		  {
+			  	print_r($e->getRequest());
+		print_r($e->getResponse());
+			  $json['error'] = $e->getResponse();
+		  }
+		  catch (shopify\CurlException $e)
+		  {
+			  	print_r($e->getRequest());
+		print_r($e->getResponse());
+			  $json['error'] = $e->getResponse();
+		  }
+		  return $json;
 	}
 	
 	public function initOrder($order,$order_statuses,$customer_info){
@@ -137,7 +133,7 @@ class ControllerShopifyGetorders extends Controller {
 			);
 			
 			if (!empty($customer_info)) {
-				$order_data['customer_id'] = $this->customer->getId();
+				$order_data['customer_id'] = $customer_info['customer_id'];
 				$order_data['customer_group_id'] = $customer_info['customer_group_id'];
 				$order_data['firstname'] = $customer_info['firstname'];
 				$order_data['lastname'] = $customer_info['lastname'];
@@ -165,51 +161,6 @@ class ControllerShopifyGetorders extends Controller {
 				$sku='';
 				$quantity=0;
 				foreach($order['line_items'] as $items){
-					/*if($items['sku']){
-						if($items['sku']==$sku){
-							$quantity+=$items['quantity'];
-						}else{
-							if($quantity>0){
-								$skus = explode('.', $items['sku']);
-								$sk = $skus[count($skus)-1];
-								if(empty($sk) || $sk==$items['sku']){
-						  			$sk = preg_replace('/\D/s', '',$items['sku']);
-					  			}
-								//echo $sk.",";
-								$orderProducts = $this->model_shopify_order->getOrderProductsBySku($sk);
-								if(count($orderProducts)>0){
-									$orderProducts[0]['name'] = $items['name'];
-									$orderProducts[0]['shopify_price'] = $items['price'];
-									$orderProducts[0]['order_id'] = $order_data['order_id'];
-									$orderProducts[0]['quantity'] = count($order['line_items']);
-									$orderProducts[0]['total'] = $orderProducts[0]['price']*$orderProducts[0]['quantity'];
-									$orderProducts[0]['shopify_sku'] = $sk;
-									$od[] = $orderProducts[0];
-								}else{
-									$od[] = array(
-									'name'=> $items['name'],
-									'order_id'=> $order['id'],
-									'product_id'=> $items['product_id'],
-									'name'=> $items['name'],
-									'model'=> $items['title'],
-									'quantity'=> $items['quantity'],
-									'price'=> 0,
-									'total'=> 0,
-									'shopify_price'=> $items['price'],
-									'shopify_sku'=> $items['sku'],
-									'tax'=> 0,
-									'reward'=> ''
-									);
-								}
-							}
-							echo $quantity.",";
-							$quantity=$items['quantity'];
-							$sku = $items['sku'];
-							}
-						}
-					
-				}*/
-				//if($quantity>0){
 					 $sku = $items['sku'];
 					 $skus = explode('.', $items['sku']);
 					  $sk = $skus[count($skus)-1];
@@ -258,15 +209,6 @@ class ControllerShopifyGetorders extends Controller {
 					}
 				}
 			}
-			/*echo preg_replace('/\D/s', '',$order_data['invoice_prefix']);
-			$orderProducts = $this->model_shopify_order->getOrderProductsByOrderProductId(preg_replace('/\D/s', '',$order_data['invoice_prefix']));
-			print_r($orderProducts);
-			if(count($orderProducts)>0){
-				$order_data['products'] = $orderProducts[0];
-				$order_data['products']['order_id'] = $order_data['order_id'];
-				$order_data['products']['quantity'] = count($order['line_items']);
-				$order_data['products']['total'] = $orderProducts[0]['price']*$orderProducts[0]['quantity'];
-			}*/
 			if ($order_data['store_id']) {
 				$order_data['store_url'] = $this->config->get('config_url');
 			} else {

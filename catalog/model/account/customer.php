@@ -68,6 +68,11 @@ class ModelAccountCustomer extends Model {
 
 		return $query->row;
 	}
+	
+	public function getCustomerByGroupId($customer_group_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_group_id = '" . (int)$customer_group_id . "'");
+		return $query->rows;
+	}
 
 	public function getCustomerByEmail($email) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($email)) . "'");
@@ -169,5 +174,9 @@ class ModelAccountCustomer extends Model {
 		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "customer_affiliate` WHERE `tracking` = '" . $this->db->escape($tracking) . "'");
 
 		return $query->row;
-	}			
+	}	
+	
+	public function updateShopifyToken($customer_id,$oauth_token){
+		$this->db->query("UPDATE " . DB_PREFIX . "customer SET token = '" . $this->db->escape($oauth_token) . "' WHERE customer_id = '" . (int)$customer_id . "'");
+	}		
 }
