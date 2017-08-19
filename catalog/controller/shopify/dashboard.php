@@ -38,7 +38,7 @@ class ControllerShopifyDashboard extends Controller {
 		$total =0;
 		$charges =0;
 		foreach ($results as $result) {
-			$total+=(float)$result['total'];
+			
 			if($result['order_status_id']==1){
 				$pending+=1;
 			}else if($result['order_status_id']==17){
@@ -51,6 +51,7 @@ class ControllerShopifyDashboard extends Controller {
 				$cancelled+=1;
 			}
 			if($result['order_status_id']==17 || $result['order_status_id']==13 || $result['order_status_id']==17|| $result['order_status_id']==5|| $result['order_status_id']==3){
+				$total+=(float)$result['total'];
 				$charges+=(float)$result['total'];
 			}
 		}

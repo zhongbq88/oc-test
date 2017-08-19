@@ -230,7 +230,7 @@ class ControllerSaleOrder extends Controller {
 				'shopify_order_id'      => $result['forwarded_ip'],
 				'customer'      => $result['customer'],
 				'order_status'  => $result['order_status'] ? $result['order_status'] : $this->language->get('text_missing'),
-				'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+				'total'         => $result['total'],
 				'date_added'    => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 				'date_modified' => date($this->language->get('date_format_short'), strtotime($result['date_modified'])),
 				'shipping_code' => $result['shipping_code'],
@@ -938,6 +938,7 @@ class ControllerSaleOrder extends Controller {
 				$model ='';
 				$sku ='';
 				foreach ($options1 as $option) {
+					$option_file = isset($option['option_file'])?json_decode($option['option_file'],true):array();
 					$opts = json_decode($option['product_options'],true);
 					$image = $option['design_file'];
 					$model = $option['product_model'];
@@ -949,56 +950,19 @@ class ControllerSaleOrder extends Controller {
 							);
 						}
 					}
-					
-				$options = $this->model_sale_order->getOrderOptionsByOptionId($option['order_option_id']);
-
-				foreach ($options as $option) {
-					if ($option['type'] == 'file' && isset($option['value'])) {
-						
-						$tmparray = explode(';',$option['value']);
-						if(count($tmparray)>1){
-							$left = str_replace("left:","",$tmparray[0]);
-							$right =  str_replace("right:","",$tmparray[1]);
-							$upload_info_left = $this->model_tool_upload->getUploadByCode($left);
-							$upload_info_right = $this->model_tool_upload->getUploadByCode($right);
-							if ($upload_info_left ) {
-								$option_data[] = array(
-									
-									'name'  => $option['name']." Left",
-									'value' => $upload_info_left['name'],
-									'type'  => $option['type'],
-									'href'  => $this->url->link('tool/upload/download', 'user_token=' . $this->session->data['user_token'] . '&code=' . $upload_info_left['code'], true),
-								);
-							}
-							if ($upload_info_right ) {
-								$option_data[] = array(
-									
-									'name'  => $option['name']." Right",
-									'value' => $upload_info_right['name'],
-									'type'  => $option['type'],
-									'href'  => $this->url->link('tool/upload/download', 'user_token=' . $this->session->data['user_token'] . '&code=' . $upload_info_right['code'], true),
-								);
-							}
-							
-						}else{
-							$upload_info = $this->model_tool_upload->getUploadByCode($option['value']);
+					foreach ($option_file as $k=>$v) {
+						$upload_info = $this->model_tool_upload->getUploadByCode($v['upload']);
 							if ($upload_info) {
 								$pop = DIR_UPLOAD.$upload_info['filename'];
 								$option_data[] = array(
-									'name'  => $option['name'],
+									'name'  => $k,
 									'value' => $upload_info['name'],
-									'type'  => $option['type'],
+									'type'  => 'File',
 									'href'  => $this->url->link('tool/upload/download', 'user_token=' . $this->session->data['user_token'] . '&code=' . $upload_info['code'], true)
 								);
 							}
-						}
-						
 					}
 				}
-				}
-
-				
-
 				$data['products'][] = array(
 				    'sku'   => $sku,
 					'order_product_id' => $product['order_product_id'],

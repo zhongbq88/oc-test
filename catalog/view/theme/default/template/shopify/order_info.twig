@@ -75,9 +75,9 @@
               </td>
             <td class="text-left">{{ product.model }}</td>
             <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
-                  <input type="text" {% if order_status_id!=1 %} disabled {% endif %} name="quantity[{{ product.order_product_id }}]" value="{{ product.quantity }}" size="1" class="form-control" />
+                  <input type="text" {% if order_status_id!=1 %} disabled {% endif %} name="quantity[{{ product.order_product_id }}]" id="input{{ product.order_product_id }}" value="{{ product.quantity }}" size="1" class="form-control" />
                   <span class="input-group-btn">
-                  <button type="button" {% if  order_status_id!=1 %} disabled {% endif %} data-toggle="tooltip" onclick="update('{{ product.order_product_id }}',this);" title="{{ button_update }}" {% if order_status_id!=1 %} disabled {% endif %} class="btn btn-primary"><i class="fa fa-refresh"></i></button>
+                  <button type="button" id="button-update{{ product.order_product_id }}" {% if  order_status_id!=1 %} disabled {% endif %} data-toggle="tooltip" onclick="update('{{ product.order_product_id }}',this);"  id="button-remove{{ product.order_product_id }}"  title="{{ button_update }}" {% if order_status_id!=1 %} disabled {% endif %} class="btn btn-primary"><i class="fa fa-refresh"></i></button>
                   <button type="button" {% if order_status_id!=1 %} disabled {% endif %} data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="updateOrderProduct('{{ product.order_product_id }}',0);"><i class="fa fa-times-circle"></i></button>
                   </span></div></td>
             <td class="text-right">{{ product.price }}</td>
@@ -161,11 +161,11 @@
       </table>
       {% endif %}-->
       <div class="buttons clearfix">
-      	{% if order_status_id==1 %}
-         <div class="pull-right"><a href="{{ paid }}"  class="btn btn-danger">{{ text_paid }}</a></div>
-        {% else %}
+      	<!--{% if order_status_id==1 %}-->
+         <div class="pull-right"><a href="{{ paid }}" {% if  haspay==1 %} disabled {% endif %} class="btn btn-danger">{{ text_paid }}</a></div>
+        <!--{% else %}
         <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
-        {% endif %}
+        {% endif %}-->
       </div>
       {{ content_bottom }}</div>
     {{ column_right }}</div>
@@ -174,7 +174,7 @@
   <script type="text/javascript"><!--
   function update(order_product_id,node){
 	  var node2 = $(node).parent().parent().find('input[name^=\'quantity\']');
-	  alert($(node2).val());
+	  //alert($(node2).val());
 	  updateOrderProduct(order_product_id,$(node2).val());
   }
   
@@ -191,7 +191,14 @@
 				contentType: false,
 				processData: false,
 				success: function(json) {
-					alert(json);
+					window.location.reload();
+					/*if(quantity==0){
+						$('#input'+order_product_id).val(0);
+						//$('#input'+order_product_id).attr('disabled',"true");
+						//$('#button-update'+order_product_id).attr('disabled',"true");
+						//$('#button-remove'+order_product_id).attr('disabled',"true");
+					}*/
+					//alert(json);
 					/*if (json['success']) {
 						window.location.href="index.php?route=extension/payment/pp_express/checkout";
 					}*/

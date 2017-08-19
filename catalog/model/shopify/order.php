@@ -141,6 +141,11 @@ $sql .="ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit;
 
 		return $query->rows;
 	}
+	
+	public function getOrderStatus($order_status_id){
+		$query = $this->db->query("SELECT name FROM " . DB_PREFIX . "order_status WHERE order_status_id = '" . (int)$order_status_id . "'");
+		return $query->row;
+	}
 
 	/*public function getOrders($data = array()) {
 		$sql = "SELECT o.order_id, CONCAT(o.firstname, ' ', o.lastname) AS customer, (SELECT os.name FROM " . DB_PREFIX . "order_status os WHERE os.order_status_id = o.order_status_id AND os.language_id = '" . (int)$this->config->get('config_language_id') . "') AS order_status, o.shipping_code, o.total, o.currency_code, o.currency_value, o.date_added, o.date_modified FROM `" . DB_PREFIX . "order` o";
@@ -403,7 +408,7 @@ if (isset($data['products'])) {
 	public function addProductSku($product){
 		if ($product) {
 			//foreach ($data as $product) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "product_sku SET product_id = '" . (int)$product['product_id'] . "', sku = '" . $this->db->escape($product['sku']) . "', product_model = '" . $this->db->escape($product['model']) . "', order_option_id = '" . (int)$product['order_option_id'] . "',order_product_id = '" . (int)$product['order_product_id'] . "', product_options = '" . $this->db->escape($product['product_options']) . "', design_file = '" . $this->db->escape($product['design_file']) . "', customer_id = '" .(int)$this->customer->getId() . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_sku SET product_id = '" . (int)$product['product_id'] . "', sku = '" . $this->db->escape($product['sku']) . "', product_model = '" . $this->db->escape($product['model']) . "', product_option_id = '" . (int)$product['product_option_id'] . "',option_value_id = '" . (int)$product['option_value_id'] . "', product_options = '" . $this->db->escape($product['product_options']) . "', design_file = '" . $this->db->escape($product['design_file']) . "', price = '" .(float)$product['price']. "', option_file = '" .$this->db->escape(isset($product['option_file'])?json_encode($product['option_file']):'') . "', customer_id = '" .(int)$this->customer->getId() . "'");
 			//}
 			return $this->db->getLastId();
 		}
@@ -417,11 +422,12 @@ if (isset($data['products'])) {
 	}
 	
 	public function getOrderProductsBySku($sku_id) {
-		$query1 = $this->db->query("SELECT order_product_id FROM " . DB_PREFIX . "product_sku WHERE sku_id = '" . (int)$sku_id . "' ");
-		if(count($query1->rows)>0){
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_sku WHERE sku_id = '" . (int)$sku_id . "' ");
+		/*if(count($query1->rows)>0){
 			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$query1->rows[0]['order_product_id'] . "'");
 			return $query->rows;
-		}
+		}*/
+		return $query->rows;
 	}
 	
 }

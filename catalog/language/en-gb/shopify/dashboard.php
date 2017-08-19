@@ -131,8 +131,8 @@ $_['text_shipped']        = 'Shipped:';
 $_['text_on_hold']        = 'On-Hold:';
 $_['text_cancelled']        = 'Cancelled:';
 $_['payments_sales']        = 'Payments/Sales';
-$_['text_aug_total']        = 'Aug. Total:';
-$_['text_aug_charges']        = 'Aug. Charges:';
+$_['text_aug_total']        = 'This Month. Income:';
+$_['text_aug_charges']        = 'This Month. Charges:';
 $_['add_products']        = 'Add Products';
 $_['add_express_line_products']        = 'Add Express-Line Products';
 $_['view_orders']        = 'View Orders';
@@ -140,6 +140,8 @@ $_['acct_balance_transactions']        = 'Transactions';
 $_['store_account_settings']        = 'Store/Account Settings';
 $_['reports']        = 'Reports';
 $_['search_for_orders_by_customer_name_or_order_number']        = 'Search for Orders by Customer Name or Order Number';
+$_['welcome_tips'] = 'Welcome to the <strong> customDR </strong> Shopify app.<br>
+              If this is your first time here, please see our <a href="index.php?route=shopify/dashboard" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Quick Start Guide</a> for more information.';
 
 // Help
 $_['help_override']              = 'If the customers order is being blocked from changing the order status due to an anti-fraud extension enable override.';

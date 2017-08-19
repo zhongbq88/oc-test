@@ -1,152 +1,107 @@
 {{ header }}
 <div id="product-product" class="container">
- <input type="hidden" name="product_id" value="{{ product_id }}" />
-          <div id="product">
- {% if options %}
-           
-            <h3>{{ text_option }}</h3>
-            <div class="panel-group" id="accordion">  
-            {% for option in options %}
-            
-             {% if option.type == 'select' %}
-             
-              <div class="panel panel-default">
-     <div class="panel-heading {% if option.required %} required {% endif %}" style="height:52px;" >
-    <h4 class="panel-title" style="height:52px;" ><a  data-toggle="collapse" data-parent="#accordion" 
-				   href="#collapse{{options_array[loop.index]}}" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;"><label class="control-label">{{variant}} {{ loop.index }}</label><i class="fa fa-caret-down" style="margin-left:12px;"></i></a>	<div><input type="text" name="variant[{{ option.product_option_id }}]" value="{{ option.name }}" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  /><img src="/storage/upload/2.jpg.l3rsDvrrEwgBJgYsCBj4fNyfx5g2mYy0" style=" float:right;  width: auto; height:35px; display:none " id="src-option{{ option.product_option_id }}"  /></div>
-    </h4>
-  </div>
-  <div id="collapse{{options_array[loop.index]}}" class="panel-collapse collapse {% if loop.index==1 %}in {% endif %}">
-    <div class="panel-body op{{option.option_id}}">
+  <input type="hidden" name="product_id" value="{{ product_id }}" />
+  <div id="product"> {% if options %}
+    <h3>{{ text_option }}</h3>
+    <div class="panel-group" id="accordion"> {% for option in options %}
+      
+      {% if option.type == 'select' %}
+      <div class="panel panel-default">
+        <div class="panel-heading {% if option.required %} required {% endif %}" style="height:52px;" >
+          <h4 class="panel-title" style="height:52px;" ><a  data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse{{options_array[loop.index]}}" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;">
+            <label class="control-label">{{variant}} {{ loop.index }}</label>
+            <i class="fa fa-caret-down" style="margin-left:12px;"></i></a>
+            <div>
+              <input type="text" name="variant[{{ option.product_option_id }}]" value="{{ option.name }}" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  />
+              <img src="/storage/upload/2.jpg.l3rsDvrrEwgBJgYsCBj4fNyfx5g2mYy0" style=" float:right;  width: auto; height:35px; display:none " id="src-option{{ option.product_option_id }}"  /></div>
+          </h4>
+        </div>
+        <div id="collapse{{options_array[loop.index]}}" class="panel-collapse collapse {% if loop.index==1 %}in {% endif %}">
+          <div class="panel-body op{{option.option_id}}">
             <div id="select_options_style{{option.option_id}}" style="display:none"></div>
-    		<div id="select_options{{option.option_id}}">
-           <label class="control-label">{{ option.name }}</label>
-                  <div class="row">
-                     {% for option_value in option.product_option_value %}
-                     <div style="width:388px;float:left; margin-left:15px;">
-                        <div class="product-thumb" >
-                       
-                          {% if option_value.image %}
-                            <div class="image"><a  href="javascript:loadDesignImage({{option_value.option_value_id}},{{ product_id }},{{option.option_id}},{{ option.product_option_id }})"><img src="{{ option_value.image}}" alt="{{ option_value.name}}" title="{{ option_value.name}}" class="img-responsive" /></a></div>{% endif %}  
-                             <div>
-                            <div class="caption">
-                              <h4 ><a href="javascript:loadDesignImage({{option_value.option_value_id}},{{ product_id }},{{option.option_id}},{{ option.product_option_id }})"  style="color:#FFF">{{option_value.name}}</a></h4>
-                            </div>
-                             </div>
-                       </div>
+            <div id="select_options{{option.option_id}}">
+              <label class="control-label">{{ option.name }}</label>
+              <div class="row"> {% for option_value in option.product_option_value %}
+                <div style="width:388px;float:left; margin-left:15px;">
+                  <div class="product-thumb" > {% if option_value.image %}
+                    <div class="image"><a  href="javascript:loadDesignImage({{option_value.option_value_id}},{{ product_id }},{{option.option_id}},{{ option.product_option_id }})"><img src="{{ option_value.image}}" alt="{{ option_value.name}}" title="{{ option_value.name}}" class="img-responsive" /></a></div>
+                    {% endif %}
+                    <div>
+                      <div class="caption">
+                        <h4 ><a href="javascript:loadDesignImage({{option_value.option_value_id}},{{ product_id }},{{option.option_id}},{{ option.product_option_id }})"  style="color:#FFF">{{option_value.name}}</a></h4>
+                      </div>
                     </div>
-                      {% endfor %}
-                   </div>
-                   </div>
+                  </div>
+                </div>
+                {% endfor %} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      
+      {% endfor %}
+      {% endif %} </div>
+    <div class="button-group" style="margin:0 auto;">
+      <button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" style=" width:auto; text-align:center;">{{ review_and_publish_designs }}</button>
     </div>
   </div>
-  </div>      
-            {% endif %}
-
-            {% endfor %}
-            {% endif %}
-</div>   
-<div class="button-group" style="margin:0 auto;">
- <button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" style=" width:auto; text-align:center;">{{ review_and_publish_designs }}</button>
-   </div>        
-</div> 
-
-
-<!--edit shopify produce start-->
-<div id="theme-content" style="display:none" >
-<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false"   >
-	<div class="vc_span12 wpb_column column_container " >
-
-			<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-				
-				<b> {{cover}} -  {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} {{each}}</b><br>&nbsp;
-		
-			</div>		
-
-	</div>
-
-<div  style="border:1px solid #CCC;background-color:#F4F4F4;padding:12px; overflow:hidden; " >
-<form id="pubform">
-<div style="float:left; width:70%">
-	<div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false" >
-		<div style="text-align:left" class="vc_span9 wpb_column column_container ">
-			
-
-				<div id="mk-text-block-221" style=" margin-bottom:10px;text-align: left;font-size:22px;font-weight:bold" class="mk-text-block  ">
-					
-					 {{cover}} - {% if not special %}{{ price }}{% else %}{{ special }}{% endif %}
-					
-				</div>
-				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;font-size:12px" class="mk-text-block  ">
-					{{shopify_product_des}}
-				</div>		
-				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-					{{product_title}}
-				</div>		
-				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
-					<input name="pttl" type="text" style="width:500px" value="{{ heading_title }}">
-				</div>		
-				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-                {{product_description}}
-					
-				</div>		
-				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
-					<textarea name="pdsc" style="width:500px;height:100px">{{ description }}</textarea>
-				</div>	
-
-				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-                 {{add_to_shopify_collection}}
-					
-				</div>		
-				
-				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
-					<select name="pcol" style="width:400px"><option value="0">- None -</option><option value="459306312">Home page</option>
-								</select>
-				</div>
-				
-				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-					{{add_product_tags}}
-				</div>				
-				<div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
-					<input name="ptag" type="text" style="width:500px" placeholder="Comma-separated tags" value="{% for i in 0..tags|length %}{% if i < (tags|length - 1) %}{{ tags[i].tag}},{% else %}{{tags[i].tag}}{% endif %}{% endfor %}">
-				</div>
-				<div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  ">
-                {{your_selling_price_for_this_product}}
-					
-				</div>				
-				<div id="mk-text-block-221" style=" margin-bottom:40px;text-align: left;" class="mk-text-block  ">
-					<input name="pspr" type="text" style="width:200px" value="{{ price }}">
-				</div>
-				
-				
-				<div class="mk-button-align fullwidth-button center" style="float:right; margin-right:20%">
-                 <button type="button" id="gopublish"  class="btn btn-primary btn-lg btn-block" ><i class="mk-moon-arrow-right-6"></i>{{publish_product}}</button>
-						</div>
-			
-		</div>
-        </div>
-		
-	</div>
-
-
-
-<div style="text-align:center; float:right; margin:0 auto;" class="vc_span3 wpb_column column_container ">
-		
-          <ul class="preview-thumbnails" >
-
-          </ul>
-
-	
-		</div>
-</form>
+  
+  <!--edit shopify produce start-->
+  <div id="theme-content" style="display:none" >
+    <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false"   >
+      <div class="vc_span12 wpb_column column_container " >
+        <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> <b> {{cover}} -  {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} {{each}}</b><br>
+          &nbsp; </div>
+      </div>
+      <div  style="border:1px solid #CCC;background-color:#F4F4F4;padding:12px; overflow:hidden; " >
+        <form id="pubform">
+          <div style="float:left; width:70%">
+            <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false" >
+              <div style="text-align:left" class="vc_span9 wpb_column column_container ">
+                <div id="mk-text-block-221" style=" margin-bottom:10px;text-align: left;font-size:22px;font-weight:bold" class="mk-text-block  "> {{cover}} - {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;font-size:12px" class="mk-text-block  "> {{shopify_product_des}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{product_title}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+                  <input name="pttl" type="text" style="width:500px" value="{{ heading_title }}">
+                </div>
+                <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{product_description}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+                  <textarea name="pdsc" style="width:500px;height:100px">{{ description }}</textarea>
+                </div>
+                <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{add_to_shopify_collection}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+                  <select name="pcol" style="width:400px">
+                    <option value="0">- None -</option>
+                    <option value="459306312">Home page</option>
+                  </select>
+                </div>
+                <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{add_product_tags}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+                  <input name="ptag" type="text" style="width:500px" placeholder="Comma-separated tags" value="{% for i in 0..tags|length %}{% if i < (tags|length - 1) %}{{ tags[i].tag}},{% else %}{{tags[i].tag}}{% endif %}{% endfor %}">
+                </div>
+                <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{your_selling_price_for_this_product}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:40px;text-align: left;" class="mk-text-block  ">
+                  <input name="pspr" type="text" style="width:200px" value="{{ price }}">
+                </div>
+                <div class="mk-button-align fullwidth-button center" style="float:right; margin-right:20%">
+                  <button type="button" id="gopublish"  class="btn btn-primary btn-lg btn-block" ><i class="mk-moon-arrow-right-6"></i>{{publish_product}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center; float:right; margin:0 auto;" class="vc_span3 wpb_column column_container ">
+            <ul class="preview-thumbnails" >
+            </ul>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--edit shopify produce end-->、 </div>
 </div>
 </div>
-</div>
-<!--edit shopify produce end-->、
-</div>
-</div>
-</div>
-
 <script type="text/javascript"><!--
 
  function loadDesignImage(option_value_id,product_id,option_id,product_option_id){
@@ -299,7 +254,6 @@ $('#gopublish').on('click', function() {
 	});
 });
 //--></script> 
-
 <script type="text/javascript"><!--
 $('#button-review').on('click', function() {
 	//alert(123);
@@ -573,8 +527,9 @@ $(document).ready(function() {
 	});
 	
 });
-//--></script> 
-<style>.form-control {
+//--></script>
+<style>
+.form-control {
   display: block;
   width: 100%;
   height: 34px;
@@ -597,5 +552,6 @@ $(document).ready(function() {
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-}</style>
+}
+</style>
 {{ footer }} 

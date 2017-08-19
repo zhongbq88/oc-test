@@ -70,7 +70,7 @@ class ControllerShopifyOrders extends Controller {
 				'status'     => $result['status'],
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 				//'products'   => isset($orderProduct)?$orderProduct['name']:'',
-				'cancel' => $this->url->link('shopify/orders/cancel', 'order_id=' . $result['order_id'] . $url, true),
+				'cancel' => 'cancel',
 				'quantity'   => $quantity,
 				'total'      => "$".$total,
 				'total_paid' => $total,
@@ -376,7 +376,7 @@ class ControllerShopifyOrders extends Controller {
 			// Products
 			$data['products'] = array();
 			$orderid = $this->request->get['order_id'];
-			$order_product_id;
+			/*$order_product_id;
 			if($order_info['customer_group_id']==4){
 				
 				$order_option_id = substr($order_info['invoice_prefix'],3);
@@ -386,7 +386,7 @@ class ControllerShopifyOrders extends Controller {
 					//$orderid = $opt[0]['order_id'];
 					$order_product_id = $opt[0]['order_product_id'];
 				}
-			}
+			}*/
             $products = $this->model_shopify_order->getOrderProducts($this->request->get['order_id']);
 			$subtotal=0;
 			$tax=0;
@@ -442,6 +442,7 @@ class ControllerShopifyOrders extends Controller {
 				$saletotal+= $product['shopify_price']*$product['quantity'];
 				
 			}
+			$data['haspay'] = $subtotal==0?1:($data['order_status_id']!=1?1:0);
 			$data['totals'] = array();
 			$data['totals'][] = array(
 					'title' => "Sub-Total:",
@@ -506,12 +507,22 @@ class ControllerShopifyOrders extends Controller {
 	}
 	
 	public function cancel(){
-		if (isset($this->request->post['order_id'])) {
-			$order_product_id = $this->request->post['order_id'];
+		if (isset($this->request->get['order_id'])) {
+			$order_id = $this->request->get['order_id'];
 			//$quantity = $this->request->post['quantity'];
 			$this->load->model('shopify/order');
-		    $this->model_shopify_order->updateOrderProduct($order_id,7);
-			$this->response->redirect($this->url->link('shopify/orders', '', true));
+		    $this->model_shopify_order->updateOrderStatus($order_id,7);
+			$json = array();
+			$status = $this->model_shopify_order->getOrderStatus(7);
+			if(isset($status[0])){
+				$json['status'] = $status[0]['name'];
+			}else{
+				$json['status'] = "Cancelled";
+			}
+			$json['success'] ='true';
+			$this->response->addHeader('Content-Type: application/json');
+			$this->response->setOutput(json_encode($json));
+			//$this->response->redirect($this->url->link('shopify/orders', '', true));
 		}
 	
 	}

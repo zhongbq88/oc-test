@@ -4708,3 +4708,74 @@
 2017-08-18 12:12:45 - PHP Notice:  Undefined index: order_product_id in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 406
 2017-08-18 12:13:11 - PHP Notice:  Undefined index: order_option_id in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 406
 2017-08-18 12:13:11 - PHP Notice:  Undefined index: order_product_id in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 406
+2017-08-19 1:27:34 - PHP Notice:  A session had already been started - ignoring session_start() in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 3
+2017-08-19 1:27:34 - PHP Notice:  Constant REDIRECTION_URL already defined in D:\xampp\htdocs\oc-test\catalog\controller\shopify\conf.php on line 3
+2017-08-19 1:27:34 - PHP Notice:  Constant SHOPIFY_APP_API_KEY already defined in D:\xampp\htdocs\oc-test\catalog\controller\shopify\conf.php on line 4
+2017-08-19 1:27:34 - PHP Notice:  Constant SHOPIFY_APP_SHARED_SECRET already defined in D:\xampp\htdocs\oc-test\catalog\controller\shopify\conf.php on line 5
+2017-08-19 1:33:38 - PHP Notice:  Undefined index: order_id in D:\xampp\htdocs\oc-test\catalog\controller\shopify\productdesign.php on line 834
+2017-08-19 2:04:32 - PHP Notice:  Undefined index: token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-19 2:04:32 - PHP Notice:  Undefined variable: url in D:\xampp\htdocs\oc-test\catalog\controller\shopify\createproduct.php on line 37
+2017-08-19 2:10:12 - PHP Notice:  Undefined index: order_product_id in D:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 387
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:21:33 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:22:03 - PHP Notice:  Undefined index: order_product_id in D:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 387
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:16 - PHP Notice:  Trying to get property of non-object in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 425
+2017-08-19 2:29:47 - PHP Notice:  Undefined index: model in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 218
+2017-08-19 2:29:47 - PHP Notice:  Undefined index: model in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 218
+2017-08-19 2:29:47 - PHP Notice:  Undefined index: model in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 218
+2017-08-19 2:29:47 - PHP Notice:  Undefined index: model in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 218
+2017-08-19 2:29:47 - PHP Notice:  Undefined index: model in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 218
+2017-08-19 3:54:12 - PHP Notice:  Undefined variable: order_id in D:\xampp\htdocs\oc-test\catalog\controller\shopify\orders.php on line 514
+2017-08-19 4:44:42 - PHP Notice:  Undefined index: order_option_id in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 953
+2017-08-19 4:48:04 - PHP Notice:  Undefined index: order_option_id in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 954
+2017-08-19 4:50:36 - PHP Notice:  Undefined variable: options in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 956
+2017-08-19 4:50:36 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 956

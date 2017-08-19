@@ -10,7 +10,7 @@ class ControllerShopifyGetorders extends Controller {
 	public function index(){
 		//echo $_SESSION['shop']."--".$_SESSION['oauth_token'];
 		$shopify = shopify\client($_SESSION['shop'], SHOPIFY_APP_API_KEY, $_SESSION['oauth_token']);
-
+	$json = array();
 	try
 	{
 		
@@ -33,7 +33,9 @@ class ControllerShopifyGetorders extends Controller {
 		$this->load->model('localisation/order_status');
 		//print_r($orders);
 		$order_statuses = $this->model_localisation_order_status->getOrderStatuses();
-
+		if(count($orders)>0){
+			$json['success'] = 'true';
+		}
 		foreach($orders as $order){
 			$od = $this->initOrder($order,$order_statuses,$customer_info);
 			
@@ -50,6 +52,7 @@ class ControllerShopifyGetorders extends Controller {
 		//echo $e;
 		print_r($e->getRequest());
 		print_r($e->getResponse());
+		$json['error'] = $e->getResponse();
 	}
 	catch (shopify\CurlException $e)
 	{
@@ -57,9 +60,15 @@ class ControllerShopifyGetorders extends Controller {
 		//echo $e;
 		print_r($e->getRequest());
 		print_r($e->getResponse());
+		$json['error'] = $e->getResponse();
 	}
 	//return false;
-		//$this->response->redirect($this->url->link('shopify/dashboard', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+		//echo $this->request->get['syn'];
+		if (isset($this->request->get['syn'])) {
+			$this->response->addHeader('Content-Type: application/json');
+			$this->response->setOutput(json_encode($json));
+			//$this->response->redirect($this->url->link('index.php?route=shopify/orders#syn', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+		}
 	}
 	
 	public function initOrder($order,$order_statuses,$customer_info){
@@ -106,7 +115,7 @@ class ControllerShopifyGetorders extends Controller {
 				'shipping_method'         => 'Flat Shipping Rate',
 				'shipping_code'           => isset($order['shipping_address'])?$order['shipping_address']['country_code']:'',
 				'comment'                 => $order['note'],
-				'total'                   => $order['total_price'],
+				//'total'                   => $order['total_price'],
 				'reward'                  => '',
 				'order_status_id'         => $this->getOrderStatus(!empty($order['fulfillment_status'])?$order['fulfillment_status']:$order['financial_status']),
 				'order_status'            => !empty($order['fulfillment_status'])?$order['fulfillment_status']:$order['financial_status'],
@@ -147,6 +156,7 @@ class ControllerShopifyGetorders extends Controller {
 			$order_data['store_id'] = $this->config->get('config_store_id');
 			$order_data['store_name'] = $this->config->get('config_name');
 			$od = array();
+			$total = 0;
 			if($order['line_items']){
 				/*foreach($order['line_items'] as $items){
 					print_r($items['sku']);
@@ -208,14 +218,23 @@ class ControllerShopifyGetorders extends Controller {
 					  }
 					  //echo $sk.",";
 					  $orderProducts = $this->model_shopify_order->getOrderProductsBySku($sk);
+					  //print_r( $orderProducts);
 					  if(count($orderProducts)>0){
-						  $orderProducts[0]['name'] = $items['name'];
-						  $orderProducts[0]['shopify_price'] = $items['price'];
-						  $orderProducts[0]['order_id'] = $order_data['order_id'];
-						  $orderProducts[0]['quantity'] = $items['quantity'];
-						  $orderProducts[0]['total'] = $orderProducts[0]['price']*$items['quantity'];
-						  $orderProducts[0]['shopify_sku'] = $sk;
-						  $od[] = $orderProducts[0];
+						  $od[] = array(
+						  'name'=> $items['name'],
+						  'order_id'=> $order['id'],
+						  'product_id'=> $orderProducts[0]['product_id'],
+						  'name'=> $items['name'],
+						  'model'=> $orderProducts[0]['product_model'],
+						  'quantity'=> $items['quantity'],
+						  'price'=> $orderProducts[0]['price'],
+						  'total'=> $orderProducts[0]['price']*$items['quantity'],
+						  'shopify_price'=> $items['price'],
+						  'shopify_sku'=> $items['sku'],
+						  'tax'=> 0,
+						  'reward'=> ''
+						  );
+						  $total +=$orderProducts[0]['price']*$items['quantity'];
 					  }else{
 						  $od[] = array(
 						  'name'=> $items['name'],
@@ -289,7 +308,7 @@ class ControllerShopifyGetorders extends Controller {
 				$order_data['marketing_id'] = 0;
 				$order_data['tracking'] = '';
 			}
-			
+			$order_data['total'] = $total;
 			return $order_data;	
 	}
 	
