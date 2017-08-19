@@ -13,7 +13,7 @@ class ControllerShopifyGetorders extends Controller {
 	    $json = array();
 		if(isset($this->request->get['syn'])&&$this->request->get['syn']=='all'){
 			$customer_infos = $this->model_account_customer->getCustomerByGroupId(4);	
-			print_r($customer_infos); 
+			//print_r($customer_infos); 
 			foreach($customer_infos as $customer_info){
 				if(isset($customer_info['token'])&&$customer_info['lastname']=='myshopify'){
 					$json =  $this->getOrders($customer_info['firstname'].'.myshopify.com',$customer_info['token'],$customer_info);
@@ -33,7 +33,7 @@ class ControllerShopifyGetorders extends Controller {
 	}
 	
 	public function getOrders($shopify,$outh_token,$customer_info){
-		print_r($shopify.'--'.$outh_token);
+		//print_r($shopify.'--'.$outh_token);
 		  $shopify = shopify\client($shopify, SHOPIFY_APP_API_KEY, $outh_token);
 		  $json = array();
 		  try
