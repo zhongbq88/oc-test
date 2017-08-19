@@ -1,7 +1,7 @@
 <?php
 class ControllerErrorNotFound extends Controller {
 	public function index() {
-		$this->load->language('error/not_found');
+		/*$this->load->language('error/not_found');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -40,9 +40,9 @@ class ControllerErrorNotFound extends Controller {
 		$data['content_top'] = $this->load->controller('common/content_top');
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
-
-		$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');
+		$data['header'] = $this->load->controller('common/header');*/
+		$data['error'] = $this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found';
+		$this->response->addHeader($data['error']);
 
 		$this->response->setOutput($this->load->view('error/not_found', $data));
 	}
