@@ -547,14 +547,19 @@ class ControllerShopifyOrders extends Controller {
 			$json = array();
 			if(isset($this->request->post['order_id'])){
 				$this->session->data['order_id'] = explode(",", $this->request->post['order_id']);
-				$json['success'] ='1';
+				$json['success'] = $this->load->controller('extension/payment/twocheckout');
 			}
 			$this->response->addHeader('Content-Type: application/json');
 			$this->response->setOutput(json_encode($json));
 		}else {
 			$this->session->data['order_id'] = array($this->request->get['order_id']);
+			//$this->response->addHeader('Content-Type: application/json');
+			$json['success'] = $this->load->controller('extension/payment/twocheckout');
+			$this->response->addHeader('Content-Type: application/json');
+			$this->response->setOutput(json_encode($json));
 			//$this->response->redirect($this->url->link('extension/payment/pp_express/checkout', '', true));
-			$this->response->redirect($this->url->link('extension/payment/twocheckout', '', true));
+			//$this->response->redirect($this->url->link('extension/payment/twocheckout', '', true));
+			
 		}
 			
 			

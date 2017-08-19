@@ -5,16 +5,16 @@ class ControllerExtensionPaymentTwoCheckout extends Controller {
 
 		$this->load->model('shopify/order');
 		
-		//$order_info = $this->model_shopify_order->getOrderProductsByIdList($this->session->data['order_id']);
+		$order_info = $this->model_shopify_order->getOrderProductsByIdList($this->session->data['order_id']);
 
-		$order_info = $this->model_shopify_order->getOrder($this->session->data['order_id'][0]);
+		//$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
 
 		$data['action'] = 'https://www.2checkout.com/checkout/purchase';
 
 		$data['sid'] = $this->config->get('payment_twocheckout_account');
-		$data['currency_code'] = isset($this->session->data['currency'])?$this->session->data['currency']:'USD';
-		$data['total'] =  $this->currency->format($order_info['total'], isset($this->session->data['currency'])?$this->session->data['currency']:'USD', '', false);
-		$data['cart_order_id'] = $this->session->data['order_id'][0];
+		$data['currency_code'] = $order_info['currency_code'];
+		$data['total'] = $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false);
+		$data['cart_order_id'] = $this->session->data['order_id'];
 		$data['card_holder_name'] = $order_info['payment_firstname'] . ' ' . $order_info['payment_lastname'];
 		$data['street_address'] = $order_info['payment_address_1'];
 		$data['city'] = $order_info['payment_city'];
@@ -45,15 +45,16 @@ class ControllerExtensionPaymentTwoCheckout extends Controller {
 		}
 
 		$data['products'] = array();
-		$products = $this->model_shopify_order->getOrderProductsByIdList($this->session->data['order_id']);
-		//$products = $this->cart->getProducts();
+
+		$products = $this->cart->getProducts();
+
 		foreach ($products as $product) {
 			$data['products'][] = array(
 				'product_id'  => $product['product_id'],
 				'name'        => $product['name'],
 				'description' => $product['name'],
 				'quantity'    => $product['quantity'],
-				'price'       =>  $this->currency->format($product['price'], isset($this->session->data['currency'])?$this->session->data['currency']:'USD', '', false)
+				'price'       => $this->currency->format($product['price'], $order_info['currency_code'], $order_info['currency_value'], false)
 			);
 		}
 
@@ -77,9 +78,9 @@ class ControllerExtensionPaymentTwoCheckout extends Controller {
 	}
 
 	public function callback() {
-		$this->load->model('shopify/order');
-		
-		$order_info = $this->model_shopify_order->getOrder($this->session->data['order_id'][0]);
+		$this->load->model('checkout/order');
+
+		$order_info = $this->model_checkout_order->getOrder($this->request->post['cart_order_id']);
 
 		if (!$this->config->get('payment_twocheckout_test')) {
 			$order_number = $this->request->post['order_number'];
@@ -101,10 +102,10 @@ class ControllerExtensionPaymentTwoCheckout extends Controller {
 
 			echo '<html>' . "\n";
 			echo '<head>' . "\n";
-			echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('shopify/success') . '">' . "\n";
+			echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/success') . '">' . "\n";
 			echo '</head>' . "\n";
 			echo '<body>' . "\n";
-			echo '  <p>Please follow <a href="' . $this->url->link('shopify/success') . '">link</a>!</p>' . "\n";
+			echo '  <p>Please follow <a href="' . $this->url->link('checkout/success') . '">link</a>!</p>' . "\n";
 			echo '</body>' . "\n";
 			echo '</html>' . "\n";
 			exit();

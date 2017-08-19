@@ -4780,3 +4780,58 @@
 2017-08-19 4:50:36 - PHP Notice:  Undefined variable: options in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 956
 2017-08-19 4:50:36 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\oc-test\admin\controller\sale\order.php on line 956
 2017-08-19 7:27:25 - PHP Notice:  Undefined variable: data in D:\xampp\htdocs\oc-test\catalog\controller\error\not_found.php on line 47
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: currency_code in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 15
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: total in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 16
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: currency_code in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 16
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: currency_value in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 16
+2017-08-19 8:38:19 - PHP Notice:  Undefined index:  in D:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 25
+2017-08-19 8:38:19 - PHP Notice:  Undefined index:  in D:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 26
+2017-08-19 8:38:19 - PHP Notice:  Undefined index:  in D:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 27
+2017-08-19 8:38:19 - PHP Notice:  Undefined index:  in D:\xampp\htdocs\oc-test\system\library\cart\currency.php on line 30
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_firstname in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 18
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_lastname in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 18
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_address_1 in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 19
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_city in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 20
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_iso_code_2 in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 22
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_iso_code_2 in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 22
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_postcode in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 28
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_country in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 29
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: email in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 30
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: telephone in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 31
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_address_1 in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 40
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_city in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 41
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_zone in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 42
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_postcode in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 43
+2017-08-19 8:38:19 - PHP Notice:  Undefined index: payment_country in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 44
+2017-08-19 8:38:19 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 8:44:37 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 8:46:49 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 8:47:12 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:00:27 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:01:49 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:02:01 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:02:21 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:08:40 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:09:33 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:09:37 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:09:41 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:26:04 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:26:18 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:27:35 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:27:40 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:27:41 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:28:03 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:29:00 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:29:56 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:30:26 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:30:56 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:32:32 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:33:40 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:34:25 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:34:48 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:35:12 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:36:08 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:37:08 - PHP Notice:  Undefined index: total in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 90
+2017-08-19 9:37:08 - PHP Notice:  Undefined index: key in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\twocheckout.php on line 90
+2017-08-19 9:39:18 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 32
+2017-08-19 9:42:13 - PHP Warning:  implode(): Invalid arguments passed in D:\xampp\htdocs\oc-test\catalog\model\shopify\order.php on line 242
