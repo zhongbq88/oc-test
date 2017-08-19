@@ -47,7 +47,7 @@ class ControllerShopifyOrders extends Controller {
 		$order_total = $this->model_shopify_order->getTotalOrders();
 
 		$results = $this->model_shopify_order->getOrders(($page - 1) * 10, 10);
-
+        print_r($results);
 		foreach ($results as $result) {
 			//echo $result['order_id'];
 			$orderProducts = $this->model_shopify_order->getOrderProducts($result['order_id']);
