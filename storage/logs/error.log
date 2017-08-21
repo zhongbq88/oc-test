@@ -4838,3 +4838,48 @@
 2017-08-19 10:36:58 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 12
 2017-08-19 10:36:58 - PHP Notice:  Undefined index: oauth_token in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 12
 2017-08-19 10:36:58 - PHP Notice:  Undefined index: customer_group_id in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 29
+2017-08-21 8:47:23 - PHP Notice:  A session had already been started - ignoring session_start() in D:\xampp\htdocs\oc-test\catalog\controller\shopify\getorders.php on line 3
+2017-08-21 8:47:23 - PHP Notice:  Constant REDIRECTION_URL already defined in D:\xampp\htdocs\oc-test\catalog\controller\shopify\conf.php on line 3
+2017-08-21 8:47:23 - PHP Notice:  Constant SHOPIFY_APP_API_KEY already defined in D:\xampp\htdocs\oc-test\catalog\controller\shopify\conf.php on line 4
+2017-08-21 8:47:23 - PHP Notice:  Constant SHOPIFY_APP_SHARED_SECRET already defined in D:\xampp\htdocs\oc-test\catalog\controller\shopify\conf.php on line 5
+2017-08-21 8:47:56 - PHP Warning:  Missing argument 2 for ModelShopifyImage::imageThumb(), called in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 11 and defined in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 39
+2017-08-21 8:47:56 - PHP Warning:  Missing argument 3 for ModelShopifyImage::imageThumb(), called in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 11 and defined in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 39
+2017-08-21 8:47:56 - PHP Notice:  Undefined variable: width in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 43
+2017-08-21 8:47:56 - PHP Notice:  Undefined variable: heigh in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 43
+2017-08-21 8:47:56 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 43
+2017-08-21 8:47:56 - PHP Notice:  Undefined variable: width in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 44
+2017-08-21 8:47:56 - PHP Notice:  Undefined variable: heigh in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 44
+2017-08-21 8:47:56 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 44
+2017-08-21 8:47:56 - PHP Notice:  Undefined variable: layer in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 13
+2017-08-21 8:47:56 - PHP Warning:  imagealphablending() expects parameter 1 to be resource, null given in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 13
+2017-08-21 8:47:56 - PHP Notice:  Undefined variable: layer in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 14
+2017-08-21 8:47:56 - PHP Warning:  imagesavealpha() expects parameter 1 to be resource, null given in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 14
+2017-08-21 8:48:03 - PHP Warning:  Missing argument 2 for ModelShopifyImage::imageThumb(), called in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 11 and defined in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 39
+2017-08-21 8:48:03 - PHP Warning:  Missing argument 3 for ModelShopifyImage::imageThumb(), called in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 11 and defined in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 39
+2017-08-21 8:48:03 - PHP Notice:  Undefined variable: width in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 43
+2017-08-21 8:48:03 - PHP Notice:  Undefined variable: heigh in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 43
+2017-08-21 8:48:03 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 43
+2017-08-21 8:48:03 - PHP Notice:  Undefined variable: width in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 44
+2017-08-21 8:48:03 - PHP Notice:  Undefined variable: heigh in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 44
+2017-08-21 8:48:03 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 44
+2017-08-21 8:48:03 - PHP Notice:  Undefined variable: layer in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 13
+2017-08-21 8:48:03 - PHP Warning:  imagealphablending() expects parameter 1 to be resource, null given in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 13
+2017-08-21 8:48:03 - PHP Notice:  Undefined variable: layer in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 14
+2017-08-21 8:48:03 - PHP Warning:  imagesavealpha() expects parameter 1 to be resource, null given in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 14
+2017-08-21 9:00:36 - PHP Warning:  Missing argument 2 for ModelShopifyImage::imageThumb(), called in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 11 and defined in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 39
+2017-08-21 9:00:36 - PHP Warning:  Missing argument 3 for ModelShopifyImage::imageThumb(), called in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 11 and defined in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 39
+2017-08-21 9:00:36 - PHP Notice:  Undefined variable: width in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 43
+2017-08-21 9:00:36 - PHP Notice:  Undefined variable: heigh in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 43
+2017-08-21 9:00:36 - PHP Warning:  imagecreatetruecolor(): Invalid image dimensions in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 43
+2017-08-21 9:00:36 - PHP Notice:  Undefined variable: width in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 44
+2017-08-21 9:00:36 - PHP Notice:  Undefined variable: heigh in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 44
+2017-08-21 9:00:36 - PHP Warning:  imagecopyresampled() expects parameter 1 to be resource, boolean given in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 44
+2017-08-21 9:00:36 - PHP Notice:  Undefined variable: layer in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 13
+2017-08-21 9:00:36 - PHP Warning:  imagealphablending() expects parameter 1 to be resource, null given in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 13
+2017-08-21 9:00:36 - PHP Notice:  Undefined variable: layer in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 14
+2017-08-21 9:00:36 - PHP Warning:  imagesavealpha() expects parameter 1 to be resource, null given in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 14
+2017-08-21 9:02:00 - PHP Notice:  Undefined variable: layer in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 13
+2017-08-21 9:02:00 - PHP Warning:  imagealphablending() expects parameter 1 to be resource, null given in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 13
+2017-08-21 9:02:00 - PHP Notice:  Undefined variable: layer in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 14
+2017-08-21 9:02:00 - PHP Warning:  imagesavealpha() expects parameter 1 to be resource, null given in D:\xampp\htdocs\oc-test\catalog\model\shopify\image.php on line 14
+2017-08-21 9:28:21 - PHP Notice:  Undefined index: option_value_id in D:\xampp\htdocs\oc-test\catalog\controller\shopify\productdesign.php on line 346

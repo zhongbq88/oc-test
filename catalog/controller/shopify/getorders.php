@@ -19,6 +19,9 @@ class ControllerShopifyGetorders extends Controller {
 					$json =  $this->getOrders($customer_info['firstname'].'.myshopify.com',$customer_info['token'],$customer_info);
 				}
 			}
+			
+			$this->response->redirect($this->url->link('extension/payment/twocheckout/payment/', ''));
+			
 		}else{
 			$customer_info = array();
 			if ($this->customer->isLogged()) {

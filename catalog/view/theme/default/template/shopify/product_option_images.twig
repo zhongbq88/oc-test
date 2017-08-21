@@ -5,20 +5,22 @@
 <div class="row">
 
     <div style="width:58%; display:inline-block; float: left; margin-top: 30px; margin-left:15px;">
+    {% if change==1 %}
         <button onclick="load_paired_products({{option_id}})" class="btn btn-default">Remove/Change Style</button>
+        {% endif %}
         <div>
             {{description}}
         </div>
     </div>
     
-    <div style="width:40%; display:inline-block; border: 1px solid #b8b8b8; text-align: center;">
+    <div style="width: auto; float:right; display:inline-block; border: 1px solid #b8b8b8; text-align: center; margin-right:15px;">
     
         {% for option_image in option_images %}
     	<div>
          <p><strong>{{option_image.name}}</strong></p>
 
-         <span class="btn btn-default fileinput-button">
-         <img style="max-height: 200px !important;" class="option_image" id="option_image{{ option_image.option_image_id }}" src="{{option_image.image}}" alt="Right Side">
+         <span>
+         <img style="height:220px" class="option_image" id="option_image{{ option_image.option_image_id }}" src="{{option_image.image}}" alt="Right Side">
          </span>
 
         <div class="right_btn" style="margin:15px;">

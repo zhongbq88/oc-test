@@ -312,9 +312,13 @@ class ControllerShopifyProductdesign extends Controller {
 
 			foreach ($this->model_catalog_product->getProductOptions($this->request->get['product_id']) as $option) {
 				$product_option_value_data = array();
-
+				$option_image_view = '';
+				$count = count($option['product_option_value']);
 				foreach ($option['product_option_value'] as $option_value) {
-					if (!$option_value['subtract'] || ($option_value['quantity'] > 0)) {
+					if($count<=1){
+						$option_image_view= $this->getOptionImageView($product_id,$option_value['option_value_id'],$option['product_option_id'],0);
+					}else{
+						if (!$option_value['subtract'] || ($option_value['quantity'] > 0)) {
 						if ((($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) && (float)$option_value['price']) {
 							$price = $this->currency->format($this->tax->calculate($option_value['price'], $product_info['tax_class_id'], $this->config->get('config_tax') ? 'P' : false), $this->session->data['currency']);
 						} else {
@@ -330,6 +334,8 @@ class ControllerShopifyProductdesign extends Controller {
 							'price_prefix'            => $option_value['price_prefix']
 						);
 					}
+					}
+					
 				}
 
 				$data['options'][] = array(
@@ -339,7 +345,8 @@ class ControllerShopifyProductdesign extends Controller {
 					'name'                 => $option['name'],
 					'type'                 => $option['type'],
 					'value'                => $option['value'],
-					'required'             => $option['required']
+					'required'             => $option['required'],
+					'option_image_view'    => $option_image_view
 				);
 			}
 			//sort($data['options']);
@@ -1456,10 +1463,14 @@ print_r($this->cart->getProducts());
 			$product_option_id = 0;
 		}
 		
-		
+		$json = array();
+		$json['success'] = $this->getOptionImageView($product_id,$option_value_id,$product_option_id,1);
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}
+	
+	public function getOptionImageView($product_id,$option_value_id,$product_option_id,$change){
 		$this->load->language('shopify/product');
-		//$this->response->redirect($this->url->link('shopify/login', '', true));
-		//print_r($product_id);
 		$this->load->model('tool/image');
 		$this->load->model('catalog/product');
 		$product_info = $this->model_catalog_product->getProduct($product_id);
@@ -1485,13 +1496,8 @@ print_r($this->cart->getProducts());
 		$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 		$data['price'] = $product_info['price'];
 		$data['name'] = $product_info['meta_title'];
+		$data['change'] = $change;
 		$data['option_images'] = $option_images_data;
-		//print_r($data);
-		$json = array();
-		$json['success'] = $this->load->view('shopify/product_option_images', $data);
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
-		//$this->response->setOutput($this->load->view('shopify/product_design', $result));
-
+		return $this->load->view('shopify/product_option_images', $data);
 	}
 }
