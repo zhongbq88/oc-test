@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 class ControllerShopifyProducts extends Controller {
 	
 	public function index() {

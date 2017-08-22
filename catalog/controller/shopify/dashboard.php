@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require 'vendor/autoload.php';
 use phpish\shopify;
 
@@ -12,7 +10,7 @@ class ControllerShopifyDashboard extends Controller {
 	public function index(){
 		
 		
-		if(empty($_SESSION['shop'])){
+		if(empty($this->session->data['shop'])){
 			$this->getToken();
 		}
 		if (!$this->customer->isLogged()) {
@@ -71,10 +69,10 @@ class ControllerShopifyDashboard extends Controller {
 		}
 		
 	public function getToken(){
-		if(!isset($_GET['shop'])){
+		if(!isset($_GET['shop'])||!isset($_GET['code'])){
 			if ($this->customer->isLogged()) {
-				$_SESSION['oauth_token'] = $this->customer->getToken();
-				$_SESSION['shop'] = $this->customer->getFirstName().".myshopify.com";
+				$this->session->data['oauth_token'] = $this->customer->getToken();
+				$this->session->data['shop'] = $this->customer->getFirstName().".myshopify.com";
 			}
 			return;
 		}
@@ -99,10 +97,8 @@ class ControllerShopifyDashboard extends Controller {
 			$this->customer->login($email, $shop);
 			$this->session->data['oauth_token'] = $oauth_token;
 			$this->session->data['shop'] = $_GET['shop'];
-			$_SESSION['oauth_token'] = $oauth_token;
-			$_SESSION['shop'] = $_GET['shop'];
 			$this->load->controller('shopify/getorders');
-			return $_SESSION['shop'];
+			return $shop;
 			//echo 'App Successfully Installed!';
 		}
 		catch (shopify\ApiException $e)

@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 class ControllerShopifyProductdesign extends Controller {
 	
 	public function index(){
@@ -877,7 +876,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 		}
 		//echo 'images='.$images;
 		//$json = array();
-		$_SESSION['product'] = array(
+		$this->session->data['product'] = array(
 							"title"=>$title,
 							"body_html"=> $pdsc,
 							"tags"=> $ptag ,

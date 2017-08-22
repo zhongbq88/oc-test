@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 
@@ -27,7 +26,7 @@ class ControllerShopifyGetorders extends Controller {
 			if ($this->customer->isLogged()) {
 				$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());	  
 			}
-			$json =  $this->getOrders($_SESSION['shop'],$_SESSION['oauth_token'],$customer_info);
+			$json =  $this->getOrders($this->session->data['shop'],$this->session->data['oauth_token'],$customer_info);
 		}
 		if (isset($this->request->get['syn'])) {
 			$this->response->addHeader('Content-Type: application/json');
