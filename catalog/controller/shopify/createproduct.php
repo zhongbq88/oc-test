@@ -12,11 +12,14 @@ class ControllerShopifyCreateproduct extends Controller {
 		try
 		{
 			//print_r();
-			echo print_r($this->session->data['product']);
+			//echo print_r($this->session->data['product']);
 			# Making an API request can throw an exception
 			$product = $shopify('POST /admin/products.json', array(), array('product' => $this->session->data['product']));
-			print_r($product);
+			//print_r($product);
+			$this->load->model('shopify/product');
+			$this->model_shopify_product->saveShopifyAddProduct($product,$this->session->data['product_id']);
 			unset($this->session->data['product']);
+			unset($this->session->data['product_id']);
 			//return true;
 		}
 		catch (shopify\ApiException $e)
@@ -34,7 +37,7 @@ class ControllerShopifyCreateproduct extends Controller {
 			print_r($e->getResponse());
 		}
 		//return false;
-			$this->response->redirect($this->url->link('shopify/dashboard', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('shopify/dashboard', true));
 		}
 }
 

@@ -512,4 +512,12 @@ class ModelShopifyProduct extends Model {
 
 		return $query->row['total'];
 	}
+	
+	public function saveShopifyAddProduct($product,$product_id){
+		if ($product) {
+			//foreach ($products as $product) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "shopify_add_product SET product_id = '" .$product_id . "', shopify_product_id = '" .$product['id'] . "', shopify_product_json = '" .$this->db->escape(json_encode($product)) . "',  customer_id = '" .(int)$this->customer->getId() . "',date_added = NOW() ");
+			//}
+		}
+	}
 }

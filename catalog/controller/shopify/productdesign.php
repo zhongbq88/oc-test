@@ -876,6 +876,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 		}
 		//echo 'images='.$images;
 		//$json = array();
+		$this->session->data['product_id'] =$product_id;
 		$this->session->data['product'] = array(
 							"title"=>$title,
 							"body_html"=> $pdsc,
@@ -1421,7 +1422,7 @@ print_r($this->cart->getProducts());
 		$source = array();
  
 		foreach ($imgs as $k => $v) {
-    		$source[$k]['source'] = Imagecreatefromjpeg($v);
+    		$source[$k]['source'] = Imagecreatefrompng($v);
      
     		$source[$k]['size'] = getimagesize($v);
      

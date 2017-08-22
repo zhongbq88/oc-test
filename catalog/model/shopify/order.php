@@ -415,6 +415,8 @@ if (isset($data['products'])) {
 		return 0;
 	}
 	
+	
+	
 	public function getProductSku($sku_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_sku WHERE sku_id = '" . (int)$sku_id . "' ");
 
@@ -428,6 +430,15 @@ if (isset($data['products'])) {
 			return $query->rows;
 		}*/
 		return $query->rows;
+	}
+	
+	
+	public function saveShopifyOrders($orders){
+		if ($orders) {
+			foreach ($orders as $order) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "shopify_orders SET order_id = '" .$order['id'] . "', email = '" .$order['email'] . "', order_name = '" .$order['name'] . "', financial_status = '" . $this->db->escape($order['financial_status']) . "', fulfillment_status = '" . $this->db->escape($order['fulfillment_status']) . "', order_json = '" .$this->db->escape(json_encode($order)) . "',  customer_id = '" .(int)$this->customer->getId() . "'");
+			}
+		}
 	}
 	
 }

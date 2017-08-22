@@ -45,16 +45,15 @@ class ControllerShopifyGetorders extends Controller {
 			  $adddate = str_replace(' ',"T",$adddate)."+00:00";
 			  $orders = $shopify('GET /admin/orders.json?status=any'/*&processed_at_min='.$adddate.'&created_at_min='.$adddate*/);
 			  //print_r($orders);
-			  
+			  $this->model_shopify_order->saveShopifyOrders($orders);
 			  $this->load->model('localisation/order_status');
-			  
 			  $order_statuses = $this->model_localisation_order_status->getOrderStatuses();
 			  if(count($orders)>0){
 				  $json['success'] = 'true';
 			  }
 			  foreach($orders as $order){
-				  $od = $this->initOrder($order,$order_statuses,$customer_info);
-				  $order_id = $this->model_shopify_order->addOrder($od);
+				 $od = $this->initOrder($order,$order_statuses,$customer_info);
+				 $order_id = $this->model_shopify_order->addOrder($od);
 			  }
 		  }
 		  catch (shopify\ApiException $e)
