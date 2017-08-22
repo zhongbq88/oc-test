@@ -165,7 +165,8 @@
 			var product_option_id = $(node).get(0).getAttribute("data-product-option-id");
 			var formData =  new FormData($('#form-upload')[0]);
 			formData.append("src", $(node).get(0).getAttribute("data-src"));
-			//alert(product_option_id);
+			formData.append("width", '{{width}}');
+			formData.append("height", '{{height}}');
 			$.ajax({
 				url: 'index.php?route=tool/upload',
 				type: 'post',
@@ -176,20 +177,21 @@
 				processData: false,
 				beforeSend: function() {
 					//alert(123);
-					//$('#button-upload'+option_image_id).button('loading');
+					$('#upload_text'+option_image_id).text('{{text_loading}}');
 				},
 				complete: function() {
 					//alert(456);
-					//$('#button-upload'+option_image_id).button('reset');
+					$('#upload_text'+option_image_id).text('{{button_upload}}');
 				},
 				success: function(json) {
 					$('.text-danger').remove();
 
 					if (json['error']) {
-						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+						$('#artwork'+option_image_id).after('<div class="text-danger">' + json['error'] + '</div>');
 					}
 
 					if (json['success']) {
+						$('.text-danger').remove();
 						//alert(json['src']+","+json['preimg']+","+json['code']);
 						document.getElementById("src-option"+product_option_id).src = json['src'];
 						//alert(json['preimg']);

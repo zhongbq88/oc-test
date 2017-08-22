@@ -1,9 +1,24 @@
 <?php
 class ControllerToolUpload extends Controller {
 	public function index() {
-		$this->load->language('tool/upload');
-
 		$json = array();
+		$this->load->language('tool/upload');
+		if (!in_array($this->request->files['file']['type'], array('image/jpeg','image/jpg'))) {
+			$json['error'] = $this->language->get('error_filetype');
+			$this->response->addHeader('Content-Type: application/json');
+			$this->response->setOutput(json_encode($json));
+			return;
+		}	
+		if (isset($this->request->post['width'])&&isset($this->request->post['height'])) {
+			$array = getimagesize($this->request->files['file']['tmp_name']); 
+			if($array[0]!=$this->request->post['width']||$array[1]!=$this->request->post['height']){
+				$json['error'] = $this->language->get('error_filesize');
+				$this->response->addHeader('Content-Type: application/json');
+				$this->response->setOutput(json_encode($json));
+				return;
+			}
+		}
+	
 		if (isset($this->request->post['src'])) {
 			$src = $this->request->post['src'];
 		} else {
@@ -24,13 +39,13 @@ class ControllerToolUpload extends Controller {
 			$allowed = array();
 
 			$extension_allowed = preg_replace('~\r?\n~', "\n", $this->config->get('config_file_ext_allowed'));
-
+			//print_r($extension_allowed);
 			$filetypes = explode("\n", $extension_allowed);
 
 			foreach ($filetypes as $filetype) {
 				$allowed[] = trim($filetype);
 			}
-
+			//print_r(strtolower(substr(strrchr($filename, '.'), 1)));
 			if (!in_array(strtolower(substr(strrchr($filename, '.'), 1)), $allowed)) {
 				$json['error'] = $this->language->get('error_filetype');
 			}
@@ -39,17 +54,17 @@ class ControllerToolUpload extends Controller {
 			$allowed = array();
 
 			$mime_allowed = preg_replace('~\r?\n~', "\n", $this->config->get('config_file_mime_allowed'));
-
+			//print_r($mime_allowed);
 			$filetypes = explode("\n", $mime_allowed);
 
 			foreach ($filetypes as $filetype) {
 				$allowed[] = trim($filetype);
 			}
-
-			if (!in_array($this->request->files['file']['type'], $allowed)) {
+//print_r($this->request->files['file']['type']);
+			if (!in_array($this->request->files['file']['type'], array('image/jpeg','image/jpg'))) {
 				$json['error'] = $this->language->get('error_filetype');
 			}
-
+		
 			// Check to see if any PHP files are trying to be uploaded
 			$content = file_get_contents($this->request->files['file']['tmp_name']);
 

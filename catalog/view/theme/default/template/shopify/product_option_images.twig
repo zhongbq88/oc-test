@@ -17,7 +17,7 @@
     
         {% for option_image in option_images %}
     	<div>
-         <p><strong>{{option_image.name}}</strong></p>
+         <p id="artwork{{ option_image.option_image_id }}"><strong>{{option_image.name}}</strong></p>
 
          <span>
          <img style="height:220px" class="option_image" id="option_image{{ option_image.option_image_id }}" src="{{option_image.image}}" alt="Right Side">
@@ -25,7 +25,7 @@
 
         <div class="right_btn" style="margin:15px;">
           <span class="btn btn-success fileinput-button" data-product-option-id="{{ product_option_id }}" data-id="{{ option_image.option_image_id }}" data-src="{{ option_image.image }}" onclick="variant_image(this)"> <i class="glyphicon glyphicon-picture"></i>
-              <span>{{button_upload}}</span>
+              <span id="upload_text{{ option_image.option_image_id }}">{{button_upload}}</span>
                <input type="hidden" name="option-img[{{ option_image.option_image_id }}]" value="" id="option-img{{ option_image.option_image_id }}" />
               <input type="hidden" name="option[{{ option_image.option_image_id }}]" value="" id="input-option{{ option_image.option_image_id }}" />
               <input type="button" id="button-upload{{ option_image.option_image_id }}"  data-id="{{ option_image.option_image_id }}">

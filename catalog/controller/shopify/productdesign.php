@@ -234,9 +234,10 @@ class ControllerShopifyProductdesign extends Controller {
 			$this->load->model('catalog/review');
 
 			$data['tab_review'] = sprintf($this->language->get('tab_review'), $product_info['reviews']);
-
 			$data['product_id'] = (int)$this->request->get['product_id'];
 			$data['manufacturer'] = $product_info['manufacturer'];
+			$data['width'] = $product_info['width'];
+			$data['height'] = $product_info['height'];
 			$data['manufacturers'] = $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $product_info['manufacturer_id']);
 			$data['model'] = $product_info['model'];
 			$data['reward'] = $product_info['reward'];
@@ -584,7 +585,13 @@ $data['footer'] = $this->load->controller('shopify/footer');
 										$imgs[1] = str_replace(HTTP_SERVER,'/',$pimgs[$option_images[1]['option_image_id']]);
 										$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
 										$imgs[1] = str_replace('/image/',DIR_IMAGE,$imgs[1]);
-										$image = 'catalog/designs/'.$product_option['product_option_id'].".jpg";
+										$image = 'catalog/designs/'.$product_option['product_option_id'].'_'.$this->customer->getId().'_'.time().".jpg";
+										$this->createImage($imgs,DIR_IMAGE.$image);
+										$image = "image/".$image;
+									}else{
+										$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
+										$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
+										$image = 'catalog/designs/'.$product_option['product_option_id'].'_'.$this->customer->getId().'_'.time().".jpg";
 										$this->createImage($imgs,DIR_IMAGE.$image);
 										$image = "image/".$image;
 									}
@@ -1427,16 +1434,18 @@ print_r($this->cart->getProducts());
     		$source[$k]['size'] = getimagesize($v);
      
 		}
- 		$padding = 200;
+		$count = count($imgs);
+ 		$padding = 200*($count-1);
+		$count = count($imgs);
 		//创建一个新的，和大图一样大的画布
-		$target_img     = imageCreatetruecolor(imagesx( $source[0]['source'])+ $padding*2,imagesy( $source[0]['source'])*2);
+		$target_img     = imageCreatetruecolor(imagesx( $source[0]['source'])+ $padding*2,imagesy( $source[0]['source'])*$count);
 		$color = imagecolorallocate($target_img, 255, 255, 255);
 		imagefill($target_img, 0, 0, $color);
 		$num1 = 0;
 		$num  = 1;
 		$tmp  = 2;
 		$tmpy = 0; //图片之间的间距
-		for ($i = 0; $i < 2; $i++) {
+		for ($i = 0; $i < $count ; $i++) {
 			imagecopy($target_img, $source[$i]['source'],$padding, $tmpy, 0, 0, $source[$i]['size'][0], $source[$i]['size'][1]);
 			$tmpy =  $tmpy+ $source[$i]['size'][1];
 		}
