@@ -177,7 +177,7 @@
 				processData: false,
 				beforeSend: function() {
 					//alert(123);
-					$('#upload_text'+product_option_id).text('{{text_loading}}');
+					$('#upload_text'+product_option_id+"_"+option_image_id).text('{{text_loading}}');
 				},
 				complete: function() {
 					//alert(456);
