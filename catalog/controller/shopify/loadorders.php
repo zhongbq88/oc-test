@@ -51,11 +51,12 @@ class ControllerShopifyLoadorders extends Controller {
 			  if(count($orders)>0){
 				  $json['success'] = 'true';
 			  }
+			  print_r($orders);
 			  foreach($orders as $order){
 				 $od = $this->initOrder($order,$order_statuses,$customer_info);
 				 $order_id = $this->model_shopify_order->addOrder($od);
 			  }
-			  print_r($orders);
+			  
 			 // $this->model_shopify_order->saveShopifyOrders($orders);
 		  }
 		  catch (shopify\ApiException $e)
@@ -78,7 +79,7 @@ class ControllerShopifyLoadorders extends Controller {
 				'order_id'                => $order['id'],
 				'email'                   => $order['email'],
 				'telephone'               => isset($order['shipping_address'])?$order['shipping_address']['phone']:'',
-				'custom_field'            => json_encode($order),
+				'custom_field'            => '',
 				'payment_firstname'       => $this->getValue($order,'payment_firstname'),
 				'payment_lastname'        => $this->getValue($order,'payment_lastname'),
 				'payment_company'         => $this->getValue($order,'payment_company'),
