@@ -95,7 +95,7 @@
                   <input name="pspr" type="text" style="width:200px" value="{{ price }}">
                 </div>
                 <div class="mk-button-align fullwidth-button center" style="float:right; margin-right:20%">
-                  <button type="button" id="gopublish"  class="btn btn-primary btn-lg btn-block" ><i class="mk-moon-arrow-right-6"></i>{{publish_product}}</button>
+                  <button type="button" id="gopublish" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" ><i class="mk-moon-arrow-right-6"></i>{{publish_product}}</button>
                 </div>
               </div>
             </div>
@@ -177,7 +177,7 @@
 				processData: false,
 				beforeSend: function() {
 					//alert(123);
-					$('#upload_text'+option_image_id).text('{{text_loading}}');
+					$('#upload_text'+product_option_id).text('{{text_loading}}');
 				},
 				complete: function() {
 					//alert(456);
@@ -187,7 +187,7 @@
 					$('.text-danger').remove();
 
 					if (json['error']) {
-						$('#artwork'+option_image_id).after('<div class="text-danger">' + json['error'] + '</div>');
+						$('#artwork'+product_option_id).after('<div class="text-danger">' + json['error'] + '</div>');
 					}
 
 					if (json['success']) {
@@ -197,16 +197,16 @@
 						//alert(json['preimg']);
 						if(json['preimg']){
 							//alert(document.getElementById("option_image"+option_image_id));
-							document.getElementById("option_image"+option_image_id).src = json['preimg'];
+							document.getElementById("option_image"+product_option_id).src = json['preimg'];
 							//$('#thumbnail'+option_id).attr('href',json['preimg']); 
-							$("#option-img"+option_image_id).val(json['preimg']);
+							$("#option-img"+product_option_id).val(json['preimg']);
 						}
 						
 						//$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
 						
-						$("#input-option"+option_image_id).val(json['code']);
+						$("#input-option"+product_option_id).val(json['code']);
 						setTimeout(function(){
-							$('#upload_text'+option_image_id).text('{{button_upload}}');
+							$('#upload_text'+product_option_id).text('{{button_upload}}');
 						},2000); 
 						
 					}
@@ -251,10 +251,10 @@ $('#gopublish').on('click', function() {
 		data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\'],#product-product select,  #product-product textarea'),
 		dataType: 'json',
 		beforeSend: function() {
-			//$(node).button('loading');
+			$('#gopublish').button('loading');
 		},
 		complete: function() {
-			//$(node).button('reset');
+			$('#gopublish').button('reset');
 		},
 		success: function(json) {
 			//alert(json['success']);
