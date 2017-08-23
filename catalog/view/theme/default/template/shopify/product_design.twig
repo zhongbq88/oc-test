@@ -181,7 +181,7 @@
 				},
 				complete: function() {
 					//alert(456);
-					$('#upload_text'+option_image_id).text('{{button_upload}}');
+					
 				},
 				success: function(json) {
 					$('.text-danger').remove();
@@ -205,6 +205,7 @@
 						//$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
 						
 						$("#input-option"+option_image_id).val(json['code']);
+						$('#upload_text'+option_image_id).text('{{button_upload}}');
 					}
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
@@ -241,7 +242,7 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 <script type="text/javascript"><!--
 $('#gopublish').on('click', function() {
 	$.ajax({
-		url: 'index.php?route=shopify/productdesign/add',
+		url: 'index.php?route=shopify/createproduct',
 		type: 'post',
 		data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\'],#product-product select,  #product-product textarea'),
 		dataType: 'json',
@@ -254,7 +255,7 @@ $('#gopublish').on('click', function() {
 		success: function(json) {
 			//alert(json['success']);
 			if (json['success']) {
-				window.location.href="index.php?route=shopify/createproduct";
+				window.location.href="index.php?route=shopify/dashboard";
 			}
 			
 			

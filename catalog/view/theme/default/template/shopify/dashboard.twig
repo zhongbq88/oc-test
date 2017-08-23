@@ -7,8 +7,14 @@
           <div style="" class="vc_span12 wpb_column column_container ">
             <div class="mk-shortcode mk-padding-shortcode" style="height:20px"></div>
             <div class="clearboth"></div>
-            <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{welcome_tips}}
-              <div class="clearboth"></div>
+            <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> 
+             {% if success %}
+        <div class="alert alert-success alert-dismissible" style="margin-bottom:10px;"><i class="fa fa-check-circle"></i> {{ success }}
+        </div>
+        {% endif %}
+            {{welcome_tips}}
+           
+
             </div>
             <div class="clearboth"></div>
           </div>
