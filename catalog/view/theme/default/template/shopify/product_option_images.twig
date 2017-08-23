@@ -17,7 +17,7 @@
     
         {% for option_image in option_images %}
     	<div>
-         <p id="artwork{{ option_image.option_image_id }}"><strong>{{option_image.name}}</strong></p>
+         <p id="artwork{{ product_option_id }}_{{ option_image.option_image_id }}"><strong>{{option_image.name}}</strong></p>
 
          <span>
          <img style="height:220px" class="option_image" id="option_image{{ product_option_id }}_{{ option_image.option_image_id }}" src="{{option_image.image}}" alt="Right Side">

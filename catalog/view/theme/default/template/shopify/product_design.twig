@@ -187,7 +187,7 @@
 					$('.text-danger').remove();
 
 					if (json['error']) {
-						$('#artwork'+product_option_id).after('<div class="text-danger">' + json['error'] + '</div>');
+						$('#artwork'+product_option_id+"_"+option_image_id).after('<div class="text-danger">' + json['error'] + '</div>');
 					}
 
 					if (json['success']) {
