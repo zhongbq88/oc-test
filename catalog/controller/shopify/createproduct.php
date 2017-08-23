@@ -228,12 +228,14 @@ class ControllerShopifyCreateproduct extends Controller {
 			//echo print_r($paoduct);
 			# Making an API request can throw an exception
 			$product = $shopify('POST /admin/products.json', array(), array('product' =>$paoduct));
-			print_r($product);
+			//print_r($product);
 			$variants = $product['variants'];
 			$images = $product['images'];
 			$variants2 = array();
 			$i=0;
-			$count = count($variants)/count($images);
+			$items = count($variants)/count($images);
+			$count =$items;
+			//print_r($items);
 			$index = 0;
 			foreach($images as $image){
 				$image2 = array();
@@ -247,7 +249,7 @@ class ControllerShopifyCreateproduct extends Controller {
 				$image2['variant_ids'] = $variant_ids;
 				$result = $shopify('PUT /admin/products/'.$product['id'].'/images/'.$image['id'].'.json', array(), array('image' =>$image2));
 				//print_r($result);
-				$count +=$count;
+				$count +=$items;
 			}
 			
 			//print_r($product);
