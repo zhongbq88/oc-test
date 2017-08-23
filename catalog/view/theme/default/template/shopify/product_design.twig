@@ -193,7 +193,7 @@
 					if (json['success']) {
 						$('.text-danger').remove();
 						//alert(json['src']+","+json['preimg']+","+json['code']);
-						document.getElementById("src-option"+product_option_id+"_"+option_image_id).src = json['src'];
+						document.getElementById("src-option"+product_option_id).src = json['src'];
 						//alert(json['preimg']);
 						if(json['preimg']){
 							//alert(document.getElementById("option_image"+option_image_id));
