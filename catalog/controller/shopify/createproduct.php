@@ -57,6 +57,7 @@ class ControllerShopifyCreateproduct extends Controller {
 			$option = array();
 		}
 		$count = count($option);
+		print_r($variant);
 		print_r($option);
 		print_r($pimgs);
 		//echo(json_encode($pimgs));
