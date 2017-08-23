@@ -26,8 +26,8 @@ class ControllerShopifyLoadorders extends Controller {
 			if ($this->customer->isLogged()) {
 				$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());	  
 			}
-			//print_r($customer_info);
-			$json =  $this->getOrders($this->session->data['shop'],$this->session->data['oauth_token'],$customer_info);
+			print_r($customer_info);
+			//$json =  $this->getOrders($this->session->data['shop'],$this->session->data['oauth_token'],$customer_info);
 		}
 		if (isset($this->request->get['syn'])) {
 			$this->response->addHeader('Content-Type: application/json');
