@@ -193,20 +193,20 @@
 					if (json['success']) {
 						$('.text-danger').remove();
 						//alert(json['src']+","+json['preimg']+","+json['code']);
-						document.getElementById("src-option"+product_option_id).src = json['src'];
+						document.getElementById("src-option"+product_option_id+"_"+option_image_id).src = json['src'];
 						//alert(json['preimg']);
 						if(json['preimg']){
 							//alert(document.getElementById("option_image"+option_image_id));
-							document.getElementById("option_image"+product_option_id).src = json['preimg'];
+							document.getElementById("option_image"+product_option_id+"_"+option_image_id).src = json['preimg'];
 							//$('#thumbnail'+option_id).attr('href',json['preimg']); 
-							$("#option-img"+product_option_id).val(json['preimg']);
+							$("#option-img"+product_option_id+"_"+option_image_id).val(json['preimg']);
 						}
 						
 						//$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
 						
-						$("#input-option"+product_option_id).val(json['code']);
+						$("#input-option"+product_option_id+"_"+option_image_id).val(json['code']);
 						setTimeout(function(){
-							$('#upload_text'+product_option_id).text('{{button_upload}}');
+							$('#upload_text'+product_option_id+"_"+option_image_id).text('{{button_upload}}');
 						},2000); 
 						
 					}
