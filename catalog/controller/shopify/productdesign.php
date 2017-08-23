@@ -562,7 +562,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 				}
 			}*/
 			//print_r($option);
-			print_r($pimgs);
+			//print_r($pimgs);
 			//echo 'pimgstwo'.json_encode($pimgstwo);
 			$images = array();
 			//print_r($option);
@@ -579,7 +579,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 							//print_r($option_images);
 							if(isset($option_images)){
 								if(isset($pimgs[$product_option['product_option_id']][$option_images[0]['option_image_id']])){
-									$image = $pimgs[$product_option['product_option_id']][$option_images[0]['option_image_id']];				echo count($option_images);
+									$image = $pimgs[$product_option['product_option_id']][$option_images[0]['option_image_id']];				//echo count($option_images);
 									if(!empty($image)){
 										$imgs = array();
 									if(count($option_images)>1){
@@ -594,7 +594,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 										$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
 										$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
 										$image = 'catalog/designs/'.$product_option['product_option_id'].'_'.$this->customer->getId().'_'.time().".jpg";
-										print_r($imgs[0]);
+										//print_r($imgs[0]);
 										$this->createImage($imgs,DIR_IMAGE.$image);
 										$image = "image/".$image;
 									}

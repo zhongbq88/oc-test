@@ -57,8 +57,8 @@ class ControllerShopifyCreateproduct extends Controller {
 			$option = array();
 		}
 		$count = count($option);
-		//print_r($option);
-		//print_r($pimgs);
+		print_r($option);
+		print_r($pimgs);
 		//echo(json_encode($pimgs));
 		//echo 'au='.$this->session->data['oauth_token'] ;
 		//echo 'shop='.$this->session->data['shop'] ;
@@ -92,10 +92,10 @@ class ControllerShopifyCreateproduct extends Controller {
 								foreach ($option_images as $option_image) {
 									//echo $option_image['option_image_id'];
 									//print_r($option[$option_image['option_image_id']]);
-									if(isset($option[$option_image['option_image_id']])){
+									if(isset($option[$opt['product_option_id']][$option_image['option_image_id']])){
 										$img[$option_image['option_image_id']] = array(
 											'src'=>$option_image['image'],
-											'upload' =>$option[$option_image['option_image_id']]
+											'upload' =>$option[$opt['product_option_id']][$option_image['option_image_id']]
 										);
 								    } /*else {
 									  $img .= $option_image['image'].":";
