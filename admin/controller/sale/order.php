@@ -931,13 +931,18 @@ class ControllerSaleOrder extends Controller {
 				}
 				$option_data1 = array();
 				$option_data = array();
+				$sk = $product['shopify_sku'];
+				$skus = explode('.', $product['shopify_sku']);
+				if(count>1){
+					$sk = $skus[count($skus)-1];
+				}
 				
-				$options1 = $this->model_sale_order->getProductSku($product['shopify_sku']);
+				$options1 = $this->model_sale_order->getProductSku($sk);
 				//print_r($product['shopify_sku']);
 				//print_r($options1);
 				$image='';
 				$model ='';
-				$sku ='';
+				$sku =$product['shopify_sku'];
 				foreach ($options1 as $option) {
 					$option_file = isset($option['option_file'])?json_decode($option['option_file'],true):array();
 					$opts = json_decode($option['product_options'],true);
