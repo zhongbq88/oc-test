@@ -177,7 +177,7 @@ class ControllerShopifyLoadorders extends Controller {
 					  echo $sk.",";
 					  $orderProducts = $this->model_shopify_order->getOrderProductsBySku($sk);
 					  print_r( $orderProducts);
-					  if(count($orderProducts)>0){
+					  if(count($orderProducts)>0&& $orderProducts[0]['sku'].'.'.$orderProducts[0]['sku_id']==$items['sku']){
 						  $od[] = array(
 						  'name'=> $items['name'],
 						  'order_id'=> $order['id'],
