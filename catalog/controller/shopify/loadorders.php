@@ -51,7 +51,7 @@ class ControllerShopifyLoadorders extends Controller {
 			  if(count($orders)>0){
 				  $json['success'] = 'true';
 			  }
-			  print_r($orders);
+			  //print_r($orders);
 			  foreach($orders as $order){
 				 $od = $this->initOrder($order,$order_statuses,$customer_info);
 				 print_r($od);
@@ -176,7 +176,7 @@ class ControllerShopifyLoadorders extends Controller {
 					  }*/
 					  echo $sk.",";
 					  $orderProducts = $this->model_shopify_order->getOrderProductsBySku($sk);
-					  //print_r( $orderProducts);
+					  print_r( $orderProducts);
 					  if(count($orderProducts)>0){
 						  $od[] = array(
 						  'name'=> $items['name'],
