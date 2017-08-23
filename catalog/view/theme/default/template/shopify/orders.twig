@@ -129,7 +129,7 @@
                       
                       <!--<td class="text-left">{{ order.date_modified }}</td>-->
                       <td class="text-right"><div style="float:right">
-                          <div class="btn-group" style="float:left;"><a href="{{order.pay}}" id="pay{{order.order_id}}" data-toggle="tooltip" {% if order.status!='Pending' %} disabled {% endif%}  class="btn btn-danger" >{{ text_paid }}</a></div>
+                          <div class="btn-group" style="float:left;"><a href="{{order.pay}}" id="pay{{order.order_id}}" data-toggle="tooltip" {% if order.status!='Pending' or order.total==0 %} disabled {% endif%}  class="btn btn-danger" >{{ text_paid }}</a></div>
                           <div class="btn-group"  style="float:left; margin-left:20px;"> <a href="{{ order.view }}" data-toggle="tooltip" title="{{ button_view }}" class="btn btn-primary"><i class="fa fa-eye"></i>{{ button_view }}</a>
                             <button type="button" {% if order.status!='Pending' or order.total==0 %} disabled {% endif%}  data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
                             <span class="caret"></span>
