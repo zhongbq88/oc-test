@@ -423,11 +423,7 @@ if (isset($data['products'])) {
 	}
 	
 	public function getOrderProductsBySku($sku_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_sku WHERE sku_id = '" . (int)$sku_id . "' ");
-		/*if(count($query1->rows)>0){
-			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$query1->rows[0]['order_product_id'] . "'");
-			return $query->rows;
-		}*/
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_sku WHERE sku_id = '" . $sku_id . "' ");
 		return $query->rows;
 	}
 	

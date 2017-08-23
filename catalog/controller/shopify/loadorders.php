@@ -174,7 +174,7 @@ class ControllerShopifyLoadorders extends Controller {
 					  /*if(empty($sk) || $sk==$items['sku'] ){
 						  $sk = preg_replace('/\D/s', '',$items['sku']);
 					  }*/
-					  //echo $sk.",";
+					  echo $sk.",";
 					  $orderProducts = $this->model_shopify_order->getOrderProductsBySku($sk);
 					  //print_r( $orderProducts);
 					  if(count($orderProducts)>0){
