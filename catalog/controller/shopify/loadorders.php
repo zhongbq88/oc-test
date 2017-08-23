@@ -170,10 +170,10 @@ class ControllerShopifyLoadorders extends Controller {
 				foreach($order['line_items'] as $items){
 					 $sku = $items['sku'];
 					 $skus = explode('.', $items['sku']);
-					  $sk = $skus[count($skus)-1];
-					  if(empty($sk) || $sk==$items['sku'] ){
+					 $sk = $skus[count($skus)-1];
+					  /*if(empty($sk) || $sk==$items['sku'] ){
 						  $sk = preg_replace('/\D/s', '',$items['sku']);
-					  }
+					  }*/
 					  //echo $sk.",";
 					  $orderProducts = $this->model_shopify_order->getOrderProductsBySku($sk);
 					  //print_r( $orderProducts);
