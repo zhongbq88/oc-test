@@ -191,6 +191,7 @@ class ControllerShopifyOrders extends Controller {
 				'products'   => ($product_total + $voucher_total),
 				'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
 				'view'       => $this->url->link('shopify/orders/info', 'order_id=' . $result['order_id'], true),
+				'pay'       => $this->url->link('shopify/orders/pay', 'order_id=' . $result['order_id'], true)
 			);
 		}
 
