@@ -948,7 +948,7 @@ class ControllerSaleOrder extends Controller {
 					$opts = json_decode($option['product_options'],true);
 					$image = $option['design_file'];
 					$model = $option['product_model'];
-					$sku = "SKU: ".$option['sku'].".".$option['sku_id'];
+					$sku = "SKU: ".$product['shopify_sku'];
 					if(isset($opts)){
 						foreach ($opts as $opt) {
 							$option_data1[] = array(
