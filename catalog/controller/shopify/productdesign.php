@@ -608,7 +608,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 					}
 				
 			}
-			//print_r($images);
+			print_r($images);
 			
 			//echo json_encode($images);
 			if (isset($this->request->post['recurring_id'])) {
@@ -632,6 +632,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 			}
 
 			if (!$json) {
+				
 				$json['images'] = $images;
 				//$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('shopify/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
