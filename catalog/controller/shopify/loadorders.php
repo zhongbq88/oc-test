@@ -11,7 +11,7 @@ class ControllerShopifyLoadorders extends Controller {
 		
 		$this->load->model('account/customer');
 	    $json = array();
-		echo $this->request->get['syn'];
+		//echo $this->request->get['syn'];
 		if(isset($this->request->get['syn'])&&$this->request->get['syn']=='all'){
 			$customer_infos = $this->model_account_customer->getCustomerByGroupId(4);	
 			//print_r($customer_infos); 
