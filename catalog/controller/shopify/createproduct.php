@@ -248,7 +248,7 @@ class ControllerShopifyCreateproduct extends Controller {
 			
 			//print_r($product);
 			$this->load->model('shopify/product');
-			$this->model_shopify_product->saveShopifyAddProduct($product,$this->session->data['product_id']);
+			$this->model_shopify_product->saveShopifyAddProduct($product,$product_id);
 			$this->session->data['sussecc'] = sprintf($this->language->get('publish_sucessfully'), 'https://'.$this->session->data['shop'].'/admin/products/'.$product['id']);
 			//$this->response->redirect($this->url->link('shopify/dashboard'));
 		}
