@@ -54,6 +54,7 @@ class ControllerShopifyLoadorders extends Controller {
 			  print_r($orders);
 			  foreach($orders as $order){
 				 $od = $this->initOrder($order,$order_statuses,$customer_info);
+				 print_r($od);
 				 $order_id = $this->model_shopify_order->addOrder($od);
 			  }
 			  
