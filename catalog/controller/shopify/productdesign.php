@@ -578,8 +578,8 @@ $data['footer'] = $this->load->controller('shopify/footer');
 							$option_images = $this->model_catalog_product->getOptionImages($option_value['option_value_id']);
 							//print_r($option_images);
 							if(isset($option_images)){
-								if(isset($pimgs[$option_images[0]['option_image_id']])){
-									$image = $pimgs[$option_images[0]['option_image_id']];
+								if(isset($pimgs[$product_option['product_option_id']][$option_images[0]['option_image_id']])){
+									$image = $pimgs[$product_option['product_option_id']][$option_images[0]['option_image_id']];
 									if(count($option_images)>1){
 										$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
 										$imgs[1] = str_replace(HTTP_SERVER,'/',$pimgs[$option_images[1]['option_image_id']]);
