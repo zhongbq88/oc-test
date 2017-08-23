@@ -554,8 +554,8 @@ class ControllerShopifyOrders extends Controller {
 			$this->response->setOutput(json_encode($json));
 		}else {
 			$this->session->data['order_id'] = array($this->request->get['order_id']);
-			//$this->response->redirect($this->url->link('extension/payment/pp_express/checkout', '', true));
-			$this->response->redirect($this->url->link('extension/payment/twocheckout', '', true));
+			$this->response->redirect($this->url->link('extension/payment/pp_express/checkout', '', true));
+			//$this->response->redirect($this->url->link('extension/payment/twocheckout', '', true));
 		}
 			
 			
