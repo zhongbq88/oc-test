@@ -936,7 +936,8 @@ class ControllerSaleOrder extends Controller {
 				if(count($skus)>1){
 					$sk = $skus[count($skus)-1];
 				}
-				
+				print_r($product['shopify_sku']);
+				print_r($sk);
 				$options1 = $this->model_sale_order->getProductSku($sk);
 				//print_r($product['shopify_sku']);
 				//print_r($options1);
