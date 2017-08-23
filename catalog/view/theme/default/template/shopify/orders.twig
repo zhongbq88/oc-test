@@ -115,9 +115,9 @@
                     {% for order in orders %}
                     <tr>
                       <td class="text-center"> {% if order.order_id in selected %}
-                        <input type="checkbox" id="checkbox{{order.order_id}}" {% if order.status!='Pending'  order.total=='$0'   %} disabled {% else %} name="selected[]"  {% endif%} value="{{ order.order_id }}"  />
+                        <input type="checkbox" id="checkbox{{order.order_id}}" {% if order.status!='Pending' or  order.total=='$0'   %} disabled {% else %} name="selected[]"  {% endif%} value="{{ order.order_id }}"  />
                         {% else %}
-                        <input type="checkbox" id="checkbox{{order.order_id}}" {% if order.status!='Pending' order.total=='$0'%} disabled {% else %} name="selected[]"   {% endif%} value="{{ order.order_id }}" />
+                        <input type="checkbox" id="checkbox{{order.order_id}}" {% if order.status!='Pending' or order.total=='$0'%} disabled {% else %} name="selected[]"   {% endif%} value="{{ order.order_id }}" />
                         {% endif %}
                         <input type="hidden" name="shipping_code[]" value="{{ order.shipping_code }}" /></td>
                       <td class="text-right">{{ order.shopify_order_id }}</td>
