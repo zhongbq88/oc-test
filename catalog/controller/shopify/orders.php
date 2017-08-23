@@ -178,21 +178,37 @@ class ControllerShopifyOrders extends Controller {
 
 		$results = $this->model_shopify_order->getFilterOrders(($page - 1) * 10, 10,$filter);
 
+        //print_r($results);
 		foreach ($results as $result) {
-			$product_total = $this->model_shopify_order->getTotalOrderProductsByOrderId($result['order_id']);
-			$voucher_total = $this->model_shopify_order->getTotalOrderVouchersByOrderId($result['order_id']);
-
+			//echo $result['order_id'];
+			$orderProducts = $this->model_shopify_order->getOrderProducts($result['order_id']);
+			//$total = isset($orderProducts[0])?$orderProducts[0]['total']:0;
+			
+			$total = 0;
+			$quantity = 0;
+			foreach($orderProducts as $orderProduct){
+				if($orderProduct['shopify_price']==0){
+					continue;
+				}
+				$total += isset($orderProduct)?$orderProduct['total']:0;
+				$quantity += isset($orderProduct)?$orderProduct['quantity']:0;
+			}
 			$data['orders'][] = array(
 				'order_id'   => $result['order_id'],
 				'shopify_order_id'   => $result['forwarded_ip'],
-				'name'       => $result['firstname'] . ' ' . $result['lastname'],
+				//'order_product_id' =>isset($$orderProduct)?$orderProduct['name']:'0',
+				'name'       => isset($result['shipping_firstname'])?$result['shipping_firstname'] . ' ' . $result['shipping_lastname']:$result['firstname'] . ' ' . $result['lastname'],
 				'status'     => $result['status'],
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				'products'   => ($product_total + $voucher_total),
-				'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
+				//'products'   => isset($orderProduct)?$orderProduct['name']:'',
+				'cancel' => 'cancel',
+				'quantity'   => $quantity,
+				'total'      => "$".$total,
+				'total_paid' => $total,
 				'view'       => $this->url->link('shopify/orders/info', 'order_id=' . $result['order_id'], true),
-				'pay'       => $this->url->link('shopify/orders/pay', 'order_id=' . $result['order_id'], true)
+				'pay'       => $this->url->link('shopify/orders/pay', 'order_id=' . $result['order_id'], true),
 			);
+			
 		}
 
 		$this->load->model('localisation/order_status');
@@ -205,7 +221,6 @@ class ControllerShopifyOrders extends Controller {
 			}
 			$index++;
 		}
-
 		$pagination = new Pagination();
 		$pagination->total = $order_total;
 		$pagination->page = $page;
@@ -220,6 +235,7 @@ class ControllerShopifyOrders extends Controller {
 
 		$data['footer'] = $this->load->controller('shopify/footer');
 		$data['header'] = $this->load->controller('shopify/header');
+		$data['paid'] = $this->url->link('extension/payment/pp_express/ipn', '', true);
 
 		$this->response->setOutput($this->load->view('shopify/orders', $data));
 	}
