@@ -168,7 +168,7 @@
              {% for option in product.option %} <br />
               &nbsp;<small> - {{ option.name }}: <a href="{{ option.href }}">{{ option.value }}</a></small> 
               {% endfor %}
-              &nbsp;<small> -  {% product.total==0 %} <br /><span style="color:#F00">{{text_not_customdr_order}}</span> {% endif %}
+              &nbsp;<small> -  {% if product.total==0 %} <br /><span style="color:#F00">{{text_not_customdr_order}}</span> {% endif %}
               {% if product.design_file %}
               
               <div style="float: right"><a class="thumbnail" style="border:none;"><img src="{{  product.design_file }}"   style="width: auto; height: 120px;" /></a></div>

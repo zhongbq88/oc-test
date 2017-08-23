@@ -66,7 +66,7 @@
             <td class="text-left"><div style="float:left">{{ product.name }}
                 {% for option in product.option %} <br />
                 &nbsp;<small>{{ option.value }}</small> {% endfor %}
-                 {% product.total==0 %} <br /><span style="color:#F00">{{text_not_customdr_order}}</span> {% endif %}
+                 {% if product.total==0 %} <br /><span style="color:#F00">{{text_not_customdr_order}}</span> {% endif %}
                 </div>
               {% if product.design_file %}
               <div style="float: right"><a class="thumbnail" style="border:none;"><img src="{{  product.design_file }}"   style="width: auto; height: 120px;" /></a></div>
