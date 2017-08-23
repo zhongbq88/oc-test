@@ -123,7 +123,7 @@
                       <td class="text-right">{{ order.shopify_order_id }}</td>
                       <td class="text-left">{{ order.name }}</td>
                       <!--<td class="text-left">{{ order.products }}</td>-->
-                      <td class="text-left" id="status{{order.order_id}}" >{{ order.status }} {% if order.total==0 %} <span style="background:#CCC">{{text_not_customdr_order}}</span> {% endif %}</td>
+                      <td class="text-left" id="status{{order.order_id}}" >{{ order.status }} {% if order.total =='$0' %} <span style="background:#CCC">{{text_not_customdr_order}}</span> {% endif %}</td>
                       <td class="text-right">{{ order.total }}</td>
                       <td class="text-left">{{ order.date_added }}</td>
                       
