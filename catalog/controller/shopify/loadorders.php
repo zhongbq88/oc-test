@@ -46,7 +46,7 @@ class ControllerShopifyLoadorders extends Controller {
 			  $adddate = $this->model_shopify_order->getOrderLastAddDate($customer_info['customer_group_id']);
 			  $adddate = str_replace(' ',"T",$adddate)."+00:00";
 			  $orders = $shopify('GET /admin/orders.json?status=any'/*&processed_at_min='.$adddate.'&created_at_min='.$adddate*/);
-			  //print_r($orders);
+			  print_r($orders);
 			  $this->model_shopify_order->saveShopifyOrders($orders);
 			  $this->load->model('localisation/order_status');
 			  $order_statuses = $this->model_localisation_order_status->getOrderStatuses();
