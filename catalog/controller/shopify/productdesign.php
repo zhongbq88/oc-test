@@ -608,8 +608,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 					}
 				
 			}
-			print_r($images);
-			
+			//print_r($images);
 			//echo json_encode($images);
 			if (isset($this->request->post['recurring_id'])) {
 				$recurring_id = $this->request->post['recurring_id'];
