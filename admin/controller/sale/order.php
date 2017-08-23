@@ -939,6 +939,9 @@ class ControllerSaleOrder extends Controller {
 				print_r($product['shopify_sku']);
 				print_r($sk);
 				$options1 = $this->model_sale_order->getProductSku($sk);
+				if(count($options1)>0&&$options1[0]['sku'].'.'.$options1[0]['sku_id']!=$product['shopify_sku']){
+					$options1 = array();
+				}
 				//print_r($product['shopify_sku']);
 				//print_r($options1);
 				$image='';

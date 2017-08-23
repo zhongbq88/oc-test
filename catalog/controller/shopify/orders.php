@@ -422,7 +422,7 @@ class ControllerShopifyOrders extends Controller {
 				//print_r( $options);
 				$image='';
 				$model ='';
-				if(isset($options)){
+				if(isset($options)&&$options[0]['sku'].'.'.$options[0]['sku_id']==$product['shopify_sku']){
 					foreach ($options as $option) {
 						$opts = json_decode($option['product_options'],true);
 						$image = $option['design_file'];
