@@ -436,11 +436,11 @@ class ControllerShopifyOrders extends Controller {
 					}
 					
 					}
-				}else{
+				}/*else{
 					$option_data[] = array(
 							'value' => 'SKU:'.$product['shopify_sku']
 						);
-				}
+				}*/
 				
 				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
 
