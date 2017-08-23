@@ -416,23 +416,32 @@ class ControllerShopifyOrders extends Controller {
 				}
 				$option_data = array();
 				//print_r($product['shopify_sku'].'-id='.$this->request->get['order_id']);
-				$options = $this->model_shopify_order->getProductSku(preg_replace('/\D/s', '',$product['shopify_sku']));
+				$skus = explode('.', $product['shopify_sku']);
+				$sk = $skus[count($skus)-1];
+				$options = $this->model_shopify_order->getProductSku($sk);
 				//print_r( $options);
 				$image='';
 				$model ='';
-				foreach ($options as $option) {
-					$opts = json_decode($option['product_options'],true);
-					$image = $option['design_file'];
-					$model = $option['product_model'];
-					if(isset($opts)){
-						foreach ($opts as $opt) {
-						$option_data[] = array(
-						'value' => $opt
-					);
-					}
+				if(isset($options)){
+					foreach ($options as $option) {
+						$opts = json_decode($option['product_options'],true);
+						$image = $option['design_file'];
+						$model = $option['product_model'];
+						if(isset($opts)){
+							foreach ($opts as $opt) {
+							$option_data[] = array(
+							'value' => $opt
+						);
+						}
 					}
 					
+					}
+				}else{
+					$option_data[] = array(
+							'value' => 'SKU:'.$product['shopify_sku']
+						);
 				}
+				
 				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
 
 				if ($product_info) {
