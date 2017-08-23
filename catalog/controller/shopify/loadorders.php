@@ -5,7 +5,7 @@ use phpish\shopify;
 
 require __DIR__.'/conf.php';
 
-class ControllerShopifyGetorders extends Controller {
+class ControllerShopifyLoadorders extends Controller {
 	
 	public function index(){
 		
