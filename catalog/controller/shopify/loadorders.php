@@ -37,7 +37,7 @@ class ControllerShopifyLoadorders extends Controller {
 	}
 	
 	public function getOrders($shopify,$outh_token,$customer_info){
-		//print_r($shopify.'--'.$outh_token);
+		  print_r($shopify.'--'.$outh_token);
 		  $shopify = shopify\client($shopify, SHOPIFY_APP_API_KEY, $outh_token);
 		  $json = array();
 		  try
