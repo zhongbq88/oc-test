@@ -194,8 +194,8 @@
 				success: function(json) {
 					//alert(json['success']);
 					if (json['success']) {
-						window.location.reload();
-						//window.location.href="index.php?route=shopify/orders#syn";
+						//window.location.reload();
+						window.location.href="index.php?route=sale/order&user_token={{user_token}}";
 					}
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
