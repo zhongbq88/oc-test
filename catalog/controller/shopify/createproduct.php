@@ -128,11 +128,10 @@ class ControllerShopifyCreateproduct extends Controller {
 		$result = $this->calculateCombination($option_data, 0,$arr = array(),$arr2=array());
 		//print_r('result'.$result);
 		$this->load->model('shopify/order');
-		print_r($pimgs);
+		//print_r($option);
 		
 		
 		foreach ($pimgs as $key => $value) {
-			foreach ($value as $k => $vv) {
 			$count = 0;
 					if(count($result)>0){
 						foreach ($result  as $v) {
@@ -143,10 +142,10 @@ class ControllerShopifyCreateproduct extends Controller {
 							'sku'        => $product_info['sku'],
 							'model'        => $product_info['model'],
 							'product_option_id'  => $key,
-							'option_value_id'  => $option_value_id[$k] ,
+							'option_value_id'  => $option_value_id[$key] ,
 							'product_options'       => json_encode($v),
 							'option_file'       => $imgs[$key],
-							'design_file'        => HTTP_SERVER.$vv
+							'design_file'        => HTTP_SERVER.$value
 						);
 						//print_r($sku);
 						$sku_id = $this->model_shopify_order->addProductSku($sku);
@@ -170,8 +169,8 @@ class ControllerShopifyCreateproduct extends Controller {
 							'sku'        => $product_info['sku'],
 							'model'        => $product_info['model'],
 							'product_option_id'  => $key,
-							'option_value_id'  => $option_value_id[$k] ,
-							'option_file'       => $vv,
+							'option_value_id'  => $option_value_id[$key] ,
+							'option_file'       => $imgs[$key],
 							'product_options'       => '',
 							'design_file'        => HTTP_SERVER.$value
 							//'customer_id'  => $product_info['customer_id']
@@ -195,10 +194,9 @@ class ControllerShopifyCreateproduct extends Controller {
        				//$imdata = base64_encode($im);      
 					
 					$images[] = array(
-						"attachment"=>$this->getImageCode(DIR_IMAGE.str_replace('image/','',$vv))
+						"attachment"=>$this->getImageCode(DIR_IMAGE.str_replace('image/','',$pimgs[$key]))
 					);
 					$index++;
-			}
 					
 			//}	
 			//$index++;
