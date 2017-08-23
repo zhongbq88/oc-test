@@ -933,7 +933,7 @@ class ControllerSaleOrder extends Controller {
 				$option_data = array();
 				$sk = $product['shopify_sku'];
 				$skus = explode('.', $product['shopify_sku']);
-				if(count>1){
+				if(count($skus)>1){
 					$sk = $skus[count($skus)-1];
 				}
 				
