@@ -10,6 +10,7 @@ class ControllerShopifyGetorders extends Controller {
 		
 		$this->load->model('account/customer');
 	    $json = array();
+		echo $this->request->get['syn'];
 		if(isset($this->request->get['syn'])&&$this->request->get['syn']=='all'){
 			$customer_infos = $this->model_account_customer->getCustomerByGroupId(4);	
 			//print_r($customer_infos); 
@@ -26,6 +27,7 @@ class ControllerShopifyGetorders extends Controller {
 			if ($this->customer->isLogged()) {
 				$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());	  
 			}
+			print_r($customer_info);
 			$json =  $this->getOrders($this->session->data['shop'],$this->session->data['oauth_token'],$customer_info);
 		}
 		if (isset($this->request->get['syn'])) {
