@@ -62,6 +62,8 @@ $_['text_upload']                = 'Your file was successfully uploaded!';
 $_['text_picklist']              = 'Dispatch Note';
 $_['text_paid']                  = 'Paid';
 $_['text_paid_selected']                  = 'Paid Selected';
+$_['text_not_customdr_order']                  = 'Not A customDR Order';
+
 
 // Column
 $_['column_order_id']            = 'Order ID';
