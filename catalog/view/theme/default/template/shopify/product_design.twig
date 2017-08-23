@@ -244,17 +244,17 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 //--></script> 
 <script type="text/javascript"><!--
 $('#gopublish').on('click', function() {
-	var node = this;
+	//var node = this;
 	$.ajax({
 		url: 'index.php?route=shopify/createproduct',
 		type: 'post',
 		data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\'],#product-product select,  #product-product textarea'),
 		dataType: 'json',
 		beforeSend: function() {
-			$('#gopublish').button('loading');
+			//$('#gopublish').button('loading');
 		},
 		complete: function() {
-			$('#gopublish').button('reset');
+			//$('#gopublish').button('reset');
 		},
 		success: function(json) {
 			//alert(json['success']);
