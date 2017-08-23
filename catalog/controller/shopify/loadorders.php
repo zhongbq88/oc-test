@@ -23,7 +23,7 @@ class ControllerShopifyLoadorders extends Controller {
 			
 		}else{
 			$customer_info = array();
-			print_r($this->customer->isLogged().$this->customer->getId());
+			//print_r($this->customer->isLogged().$this->customer->getId());
 			if ($this->customer->isLogged()) {
 				$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());	  
 			}
@@ -37,7 +37,7 @@ class ControllerShopifyLoadorders extends Controller {
 	}
 	
 	public function getOrders($shopify,$outh_token,$customer_info){
-		  print_r($shopify.'--'.$outh_token);
+		  //print_r($shopify.'--'.$outh_token);
 		  $shopify = shopify\client($shopify, SHOPIFY_APP_API_KEY, $outh_token);
 		  $json = array();
 		  try
@@ -51,7 +51,7 @@ class ControllerShopifyLoadorders extends Controller {
 			  if(count($orders)>0){
 				  $json['success'] = 'true';
 			  }
-			  print_r($orders);
+			  //print_r($orders);
 			  foreach($orders as $order){
 				 $od = $this->initOrder($order,$order_statuses,$customer_info);
 				 $order_id = $this->model_shopify_order->addOrder($od);
