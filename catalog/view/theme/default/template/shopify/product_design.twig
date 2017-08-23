@@ -251,10 +251,10 @@ $('#gopublish').on('click', function() {
 		data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\'],#product-product select,  #product-product textarea'),
 		dataType: 'json',
 		beforeSend: function() {
-			$(node).button('loading');
+			//$(node).button('loading');
 		},
 		complete: function() {
-			$(node).button('reset');
+			//$(node).button('reset');
 		},
 		success: function(json) {
 			//alert(json['success']);
