@@ -228,7 +228,7 @@ class ControllerShopifyCreateproduct extends Controller {
 			//echo print_r($paoduct);
 			# Making an API request can throw an exception
 			$product = $shopify('POST /admin/products.json', array(), array('product' =>$paoduct));
-			//print_r($product);
+			print_r($product);
 			$variants = $product['variants'];
 			$images = $product['images'];
 			$variants2 = array();
