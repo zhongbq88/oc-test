@@ -592,7 +592,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 										$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
 										$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
 										$image = 'catalog/designs/'.$product_option['product_option_id'].'_'.$this->customer->getId().'_'.time().".jpg";
-										echo $image;
+										print_r($imgs[0]);
 										$this->createImage($imgs,DIR_IMAGE.$image);
 										$image = "image/".$image;
 									}
