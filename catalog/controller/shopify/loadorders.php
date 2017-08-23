@@ -23,6 +23,7 @@ class ControllerShopifyLoadorders extends Controller {
 			
 		}else{
 			$customer_info = array();
+			print_r($this->customer->isLogged());
 			/*if ($this->customer->isLogged()) {
 				$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());	  
 			}*/
