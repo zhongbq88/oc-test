@@ -57,9 +57,9 @@ class ControllerShopifyCreateproduct extends Controller {
 			$option = array();
 		}
 		$count = count($option);
-		print_r($variant);
-		print_r($option);
-		print_r($pimgs);
+		//print_r($variant);
+		//print_r($option);
+		//print_r($pimgs);
 		//echo(json_encode($pimgs));
 		//echo 'au='.$this->session->data['oauth_token'] ;
 		//echo 'shop='.$this->session->data['shop'] ;
@@ -213,8 +213,8 @@ class ControllerShopifyCreateproduct extends Controller {
 							"variants"=>$variants,
 							"images"=>$images
 		);
-		print_r($paoduct);
-		//$this->save($paoduct,$product_id,$images,$variants);
+		//print_r($paoduct);
+		$this->save($paoduct,$product_id,$images,$variants);
 	}
 	
 	public function save($paoduct,$product_id,$images,$variants){
