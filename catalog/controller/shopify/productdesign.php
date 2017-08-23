@@ -561,8 +561,8 @@ $data['footer'] = $this->load->controller('shopify/footer');
 					$option[$k] = 'left:'.$v.";".'right:'.$optiontwo[$k];
 				}
 			}*/
-			//print_r($option);
-			//print_r($pimgs);
+			print_r($option);
+			print_r($pimgs);
 			//echo 'pimgstwo'.json_encode($pimgstwo);
 			$images = array();
 			//print_r($option);
