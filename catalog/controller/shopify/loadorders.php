@@ -8,8 +8,8 @@ require __DIR__.'/conf.php';
 class ControllerShopifyLoadorders extends Controller {
 	
 	public function index(){
-		echo '123';
-		/*$this->load->model('account/customer');
+		
+		$this->load->model('account/customer');
 	    $json = array();
 		//echo $this->request->get['syn'];
 		if(isset($this->request->get['syn'])&&$this->request->get['syn']=='all'){
@@ -20,8 +20,6 @@ class ControllerShopifyLoadorders extends Controller {
 					$json =  $this->getOrders($customer_info['firstname'].'.myshopify.com',$customer_info['token'],$customer_info);
 				}
 			}
-			
-			$this->response->redirect($this->url->link('extension/payment/twocheckout/payment/', ''));
 			
 		}else{
 			$customer_info = array();
@@ -34,7 +32,7 @@ class ControllerShopifyLoadorders extends Controller {
 		if (isset($this->request->get['syn'])) {
 			$this->response->addHeader('Content-Type: application/json');
 			$this->response->setOutput(json_encode($json));
-		}*/
+		}
 	}
 	
 	public function getOrders($shopify,$outh_token,$customer_info){
