@@ -240,7 +240,9 @@ class ControllerShopifyCreateproduct extends Controller {
 				$image2['id'] = $image['id'];
 				$variant_ids = array();
 				for(;$i<$count;$i++){
-					$variant_ids[] = $variants[$i]['id'];
+					if(isset($variants[$i])){
+						$variant_ids[] = $variants[$i]['id'];
+					}
 				}
 				$image2['variant_ids'] = $variant_ids;
 				$result = $shopify('PUT /admin/products/'.$product['id'].'/images/'.$image['id'].'.json', array(), array('image' =>$image2));
