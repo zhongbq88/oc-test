@@ -13,7 +13,7 @@
             <label class="control-label">{{variant}} {{ loop.index }}</label>
             <i class="fa fa-caret-down" style="margin-left:12px;"></i></a>
             <div>
-              <input type="text" name="variant[{{ option.product_option_id }}]" value="{{ option.name }}" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  />
+              <input type="text" name="variant[{{ option.product_option_id }}]" value="{{ option.name }}{{ loop.index }}" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  />
               <img src="/storage/upload/2.jpg.l3rsDvrrEwgBJgYsCBj4fNyfx5g2mYy0" style=" float:right;  width: auto; height:35px; display:none " id="src-option{{ option.product_option_id }}"  /></div>
           </h4>
         </div>
