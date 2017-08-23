@@ -488,7 +488,7 @@ class ModelSaleOrder extends Model {
 	}
 	
 		public function getProductSku($sku_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_sku WHERE sku_id = '" . (int)$sku_id . "' ");
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_sku WHERE sku_id = '" . $sku_id . "' ");
 
 		return $query->rows;
 	}
