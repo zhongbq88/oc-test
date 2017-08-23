@@ -57,8 +57,8 @@ class ControllerShopifyCreateproduct extends Controller {
 			$option = array();
 		}
 		$count = count($option);
-		print_r($option);
-		print_r($pimgs);
+		//print_r($option);
+		//print_r($pimgs);
 		//echo(json_encode($pimgs));
 		//echo 'au='.$this->session->data['oauth_token'] ;
 		//echo 'shop='.$this->session->data['shop'] ;
@@ -132,6 +132,7 @@ class ControllerShopifyCreateproduct extends Controller {
 		
 		
 		foreach ($pimgs as $key => $value) {
+			foreach ($value as $k => $vv) {
 			$count = 0;
 					if(count($result)>0){
 						foreach ($result  as $v) {
@@ -142,10 +143,10 @@ class ControllerShopifyCreateproduct extends Controller {
 							'sku'        => $product_info['sku'],
 							'model'        => $product_info['model'],
 							'product_option_id'  => $key,
-							'option_value_id'  => $option_value_id[$key] ,
+							'option_value_id'  => $option_value_id[$k] ,
 							'product_options'       => json_encode($v),
 							'option_file'       => $imgs[$key],
-							'design_file'        => HTTP_SERVER.$value
+							'design_file'        => HTTP_SERVER.$vv
 						);
 						//print_r($sku);
 						$sku_id = $this->model_shopify_order->addProductSku($sku);
@@ -169,8 +170,8 @@ class ControllerShopifyCreateproduct extends Controller {
 							'sku'        => $product_info['sku'],
 							'model'        => $product_info['model'],
 							'product_option_id'  => $key,
-							'option_value_id'  => $option_value_id[$key] ,
-							'option_file'       => $imgs[$key],
+							'option_value_id'  => $option_value_id[$k] ,
+							'option_file'       => $vv,
 							'product_options'       => '',
 							'design_file'        => HTTP_SERVER.$value
 							//'customer_id'  => $product_info['customer_id']
@@ -194,9 +195,10 @@ class ControllerShopifyCreateproduct extends Controller {
        				//$imdata = base64_encode($im);      
 					
 					$images[] = array(
-						"attachment"=>$this->getImageCode(DIR_IMAGE.str_replace('image/','',$pimgs[$key]))
+						"attachment"=>$this->getImageCode(DIR_IMAGE.str_replace('image/','',$vv))
 					);
 					$index++;
+			}
 					
 			//}	
 			//$index++;
@@ -212,7 +214,8 @@ class ControllerShopifyCreateproduct extends Controller {
 							"variants"=>$variants,
 							"images"=>$images
 		);
-		$this->save($paoduct,$product_id,$images,$variants);
+		print_r($paoduct);
+		//$this->save($paoduct,$product_id,$images,$variants);
 	}
 	
 	public function save($paoduct,$product_id,$images,$variants){
