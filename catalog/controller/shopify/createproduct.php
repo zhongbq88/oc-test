@@ -57,8 +57,8 @@ class ControllerShopifyCreateproduct extends Controller {
 			$option = array();
 		}
 		$count = count($option);
-		//print_r($option);
-		//print_r($pimgs);
+		print_r($option);
+		print_r($pimgs);
 		//echo(json_encode($pimgs));
 		//echo 'au='.$this->session->data['oauth_token'] ;
 		//echo 'shop='.$this->session->data['shop'] ;
