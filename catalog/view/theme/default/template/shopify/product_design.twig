@@ -323,11 +323,14 @@ $('#button-review').on('click', function() {
 				//$('#cart > ul').load('index.php?route=common/cart/info ul li');
 				//alert($json['images']);
 				if (json['images']) {
-					//alert(123);
+					 //alert(json['images']);
 					 $(".preview-thumbnails").empty();
-					for (i in json['images']) {
+					for (var j in json['images']) {
 						//alert(i);
-						$(".preview-thumbnails").append('<li style="list-style-type:none;" > <input type="hidden" name="imgs['+i+']" value="'+json['images'][i]+'" id="input-imgs'+i+'" /><a class="thumbnail" href="'+json['images'][i]+'" title="{{ heading_title }}" style="border:none;"><img src="'+json['images'][i]+'" style="width: 228px; height:auto;" /></a></li>');
+						for (var i in json['images'][j]) {
+						//alert(i);
+						$(".preview-thumbnails").append('<li style="list-style-type:none;" > <input type="hidden" name="imgs['+i+']" value="'+json['images'][j][i]+'" id="input-imgs'+i+'" /><a class="thumbnail" href="'+json['images'][j][i]+'" title="{{ heading_title }}" style="border:none;"><img src="'+json['images'][j][i]+'" style="width: 228px; height:auto;" /></a></li>');
+					}
 					}
 				}else{
 					//alert(0);

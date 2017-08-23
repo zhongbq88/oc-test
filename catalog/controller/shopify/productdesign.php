@@ -598,8 +598,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 										$this->createImage($imgs,DIR_IMAGE.$image);
 										$image = "image/".$image;
 									}
-									$images[$product_option['product_option_id']] =$image;
-										
+									$images[] = array($product_option['product_option_id']=>$image);
 									}
 									
 								}
