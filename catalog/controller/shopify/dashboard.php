@@ -10,7 +10,7 @@ class ControllerShopifyDashboard extends Controller {
 	public function index(){
 		
 		
-		if(empty($this->session->data['shop'])){
+		if(empty($this->session->data['shop'])||empty($this->customer->getId())){
 			$this->getToken();
 		}
 		if (!$this->customer->isLogged()) {
@@ -73,7 +73,7 @@ class ControllerShopifyDashboard extends Controller {
 		}
 		
 	public function getToken(){
-		if(!isset($_GET['shop'])||!isset($_GET['code'])){
+		if(!empty($this->customer->getId())&&(!isset($_GET['shop'])||!isset($_GET['code']))){
 			if ($this->customer->isLogged()) {
 				$this->session->data['oauth_token'] = $this->customer->getToken();
 				$this->session->data['shop'] = $this->customer->getFirstName().".myshopify.com";
