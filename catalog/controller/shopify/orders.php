@@ -354,10 +354,12 @@ class ControllerShopifyOrders extends Controller {
 			if ($order_info['shipping_address_format']) {
 				$format = $order_info['shipping_address_format'];
 			} else {
-				$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
+				$format =  '{email}' . "\n" . '{telephone}' . "\n" .'{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
 			}
 
 			$find = array(
+				'{email}',
+				'{telephone}',
 				'{firstname}',
 				'{lastname}',
 				'{company}',
@@ -369,19 +371,22 @@ class ControllerShopifyOrders extends Controller {
 				'{zone_code}',
 				'{country}'
 			);
-
+			
 			$replace = array(
-				'firstname' => $order_info['shipping_firstname'],
+				'email' => $this->language->get('entry_email').': '.$order_info['email'],
+				'telephone' => $this->language->get('entry_telephone').': '.$order_info['telephone'],
+				'firstname' => $this->language->get('entry_name').': '.$order_info['shipping_firstname'],
 				'lastname'  => $order_info['shipping_lastname'],
-				'company'   => $order_info['shipping_company'],
-				'address_1' => $order_info['shipping_address_1'],
-				'address_2' => $order_info['shipping_address_2'],
-				'city'      => $order_info['shipping_city'],
+				'company'   => $this->language->get('entry_company').': '.$order_info['shipping_company'],
+				'address_1' => $this->language->get('entry_address_1').': '.$order_info['shipping_address_1'],
+				'address_2' => $this->language->get('entry_address_2').': '.$order_info['shipping_address_2'],
+				'city'      => $this->language->get('entry_city').': '.$order_info['shipping_city'],
 				'postcode'  => $order_info['shipping_postcode'],
 				'zone'      => $order_info['shipping_zone'],
 				'zone_code' => $order_info['shipping_zone_code'],
-				'country'   => $order_info['shipping_country']
+				'country'   => $this->language->get('entry_country').': '.$order_info['shipping_country']
 			);
+
 
 			$data['shipping_address'] = str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format))));
 
@@ -393,6 +398,8 @@ class ControllerShopifyOrders extends Controller {
 			// Products
 			$data['products'] = array();
 			$orderid = $this->request->get['order_id'];
+			
+			
 			/*$order_product_id;
 			if($order_info['customer_group_id']==4){
 				
@@ -414,6 +421,16 @@ class ControllerShopifyOrders extends Controller {
 				if($product['shopify_price']==0){
 					continue;
 				}
+				$option_select = array();
+				$option_select_name = array();
+				$productoption = $this->model_catalog_product->getProductOptions($product['product_id']);
+				foreach ($productoption as $opt) {
+					//print_r($opt);
+					if($opt['type']=='select' && $opt['product_option_value'][0]['image']==''){
+						$option_select = $opt['product_option_value'];
+						$option_select_name = $opt['name'];
+					}
+				}
 				$option_data = array();
 				//print_r($product['shopify_sku'].'-id='.$this->request->get['order_id']);
 				$skus = explode('.', $product['shopify_sku']);
@@ -422,13 +439,24 @@ class ControllerShopifyOrders extends Controller {
 				//print_r( $options);
 				$image='';
 				$model ='';
+				$selected_name='';
+				//print_r($product['shopify_sku']);
 				if(isset($options)&&$options[0]['sku'].'.'.$options[0]['sku_id']==$product['shopify_sku']){
 					foreach ($options as $option) {
 						$opts = json_decode($option['product_options'],true);
+						//print_r($product['shopify_sku']);
+						//print_r('product_options'.$option['product_options']);
+						//print_r('opts'.$opts);
 						$image = $option['design_file'];
 						$model = $option['product_model'];
 						if(isset($opts)){
 							foreach ($opts as $opt) {
+								if(isset($option_select_name)&&strpos($opt,$option_select_name) !== false){
+									$str = explode(':',$opt);
+									$selected_name = $str[1];
+								}
+								if($opt)
+								$selected = 
 							$option_data[] = array(
 							'value' => $opt
 						);
@@ -454,6 +482,8 @@ class ControllerShopifyOrders extends Controller {
 					'name'     => $product['name'],
 					'model'    => $model,
 					'option'   => $option_data,
+					'option_select'   => $option_select,
+					'selected_name'    => $selected_name,
 					'quantity' => $product['quantity'],
 					'design_file'    => $image,
 					'price'    => $product['price'],

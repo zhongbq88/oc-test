@@ -5,7 +5,7 @@
     <h3>{{ text_option }}</h3>
     <div class="panel-group" id="accordion"> {% for option in options %}
       
-      {% if option.type == 'select' %}
+      {% if option.type == 'select'%}
       <div class="panel panel-default">
         <div class="panel-heading {% if option.required %} required {% endif %}" style="height:52px;" >
           <h4 class="panel-title" style="height:52px;" ><a  data-toggle="collapse" data-parent="#accordion" 
@@ -24,8 +24,8 @@
              {{ option.option_image_view }}
              </div>
              {% else %}
-            <div id="select_options_style{{option.option_id}}" style="display:none"></div>
-            <div id="select_options{{option.option_id}}">
+            <div id="select_options_style{{option.product_option_id}}" style="display:none"></div>
+            <div id="select_options{{option.product_option_id}}">
               <label class="control-label">{{ option.name }}</label>
               <div class="row">
                {% for option_value in option.product_option_value %}
@@ -130,9 +130,9 @@
 				},
 				success: function(json) {
 					if(json['success']){
-						$('#select_options_style'+option_id).html(json['success']);
-						$("#select_options"+option_id).attr ("style","display:none;");
-						$('#select_options_style'+option_id).attr ("style","display:block;");
+						$('#select_options_style'+product_option_id).html(json['success']);
+						$("#select_options"+product_option_id).attr ("style","display:none;");
+						$('#select_options_style'+product_option_id).attr ("style","display:block;");
 					}
 				},
 				error: function(xhr, ajaxOptions, thrownError) {

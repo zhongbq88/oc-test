@@ -311,6 +311,9 @@ class ControllerShopifyProductdesign extends Controller {
 			$data['options'] = array();
 
 			foreach ($this->model_catalog_product->getProductOptions($this->request->get['product_id']) as $option) {
+				if($option['product_option_value'][0]['image']==''){
+					continue;
+				}
 				$product_option_value_data = array();
 				$option_image_view = '';
 				$count = count($option['product_option_value']);

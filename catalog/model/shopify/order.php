@@ -436,4 +436,10 @@ if (isset($data['products'])) {
 		}
 	}
 	
+	public function editAddress($order_id, $data,$country) {
+		$this->db->query("UPDATE " . DB_PREFIX . "order SET email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "',shipping_firstname = '" . $this->db->escape($data['firstname']) . "', shipping_lastname = '" . $this->db->escape($data['lastname']) . "', shipping_company = '" . $this->db->escape($data['company']) . "', shipping_address_1 = '" . $this->db->escape($data['address_1']) . "', shipping_address_2 = '" . $this->db->escape($data['address_2']) . "', shipping_postcode = '" . $this->db->escape($data['postcode']) . "', shipping_city = '" . $this->db->escape($data['city']) . "', shipping_zone_id = '" .(isset($data['zone_id'])?(int)$data['zone_id']:0) . "', shipping_country = '" . $this->db->escape($country) . "', shipping_country_id = '" . (int)$data['country_id'] . "' WHERE order_id  = '" . (int)$order_id . "' AND customer_id = '" . (int)$this->customer->getId() . "'");
+
+	}
+	
+	
 }

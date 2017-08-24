@@ -1762,12 +1762,12 @@ class ControllerSaleOrder extends Controller {
 		} elseif (isset($this->request->get['order_id'])) {
 			$orders[] = $this->request->get['order_id'];
 		}
-
+//print_r($orders);
 		foreach ($orders as $order_id) {
 			$order_info = $this->model_sale_order->getOrder($order_id);
-
+//print_r($order_info['shipping_country']);
 			// Make sure there is a shipping method
-			if ($order_info && $order_info['shipping_code']) {
+			if ($order_info && $order_info['shipping_country']) {
 				$store_info = $this->model_setting_setting->getSetting('config', $order_info['store_id']);
 
 				if ($store_info) {
@@ -1825,7 +1825,7 @@ class ControllerSaleOrder extends Controller {
 				$product_data = array();
 
 				$products = $this->model_sale_order->getOrderProducts($order_id);
-
+				
 				foreach ($products as $product) {
 					$option_weight = '';
 
@@ -1871,7 +1871,7 @@ class ControllerSaleOrder extends Controller {
 							'option'   => $option_data,
 							'quantity' => $product['quantity'],
 							'location' => $product_info['location'],
-							'sku'      => $product_info['sku'],
+							'sku'      => $product['shopify_sku'],
 							'upc'      => $product_info['upc'],
 							'ean'      => $product_info['ean'],
 							'jan'      => $product_info['jan'],
@@ -1884,6 +1884,7 @@ class ControllerSaleOrder extends Controller {
 
 				$data['orders'][] = array(
 					'order_id'	       => $order_id,
+					'shopify_order_id' => $order_info['forwarded_ip'],
 					'invoice_no'       => $invoice_no,
 					'date_added'       => date($this->language->get('date_format_short'), strtotime($order_info['date_added'])),
 					'store_name'       => $order_info['store_name'],

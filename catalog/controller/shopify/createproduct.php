@@ -67,8 +67,10 @@ class ControllerShopifyCreateproduct extends Controller {
 		$index =0;
 		$imgs    = array();
 		$productoption = $this->model_catalog_product->getProductOptions($product_id);
+		//print_r($productoption);
 		$option_data = array();
 		$options = array();
+		$optionColors = array();
 		$option_value_id = array();
 		foreach ($productoption as $opt) {
 			if($opt['type']=='select'){
@@ -82,12 +84,12 @@ class ControllerShopifyCreateproduct extends Controller {
 							$options[$index]['name'] = $opt['name'];
 							$create = true;
 						}
-						$option_data[$index][] = $opt['name'].":".$option_value['name'];
+						$option_data[$index][] = 'Color:'.$option_value['name'].','.$opt['name'].":".$option_value['name'];
 						$value[] = $option_value['name'];
 					}else{
 						$option_value_id[$opt['product_option_id']] = $option_value['option_value_id'];
 						$option_images = $this->model_catalog_product->getOptionImages($option_value['option_value_id']);
-							//print_r($option_images);
+							//print_r($option_value['name']);
 							if(isset($option_images)){
 								$img = array();
 								foreach ($option_images as $option_image) {
@@ -103,6 +105,7 @@ class ControllerShopifyCreateproduct extends Controller {
 								  }*/
 								}
 								if(!empty($img)){
+									$optionColors[] = $option_value['name'];
 									$imgs[$opt['product_option_id']]= $img;
 								}
 								
@@ -120,7 +123,14 @@ class ControllerShopifyCreateproduct extends Controller {
 			}		
 		}
 		//print_r($imgs);
-		//print_r($productoption);
+		if($optionColors){
+			$options[$index] = array(
+					'name'=>'Color',
+					'value'=>$optionColors
+			);
+			$index++;
+		}
+		//print_r($optionColors);
 		//print_r($option);
 		$index =0;
 		//$count = count($order_option);
@@ -151,6 +161,7 @@ class ControllerShopifyCreateproduct extends Controller {
 						//print_r($sku);
 						$sku_id = $this->model_shopify_order->addProductSku($sku);
 						$variant1 = array(
+							'option2' => $optionColors[$index],
 							"price"=>$pspr,
 							"sku"=> $product_info['sku'].".".$sku_id
 						);
@@ -187,6 +198,7 @@ class ControllerShopifyCreateproduct extends Controller {
 						
 						$variants[] = array(
 							'option1' => isset($variant[$key])?$variant[$key]:'option'.$index,
+							'option2' => $optionColors[$index],
 							"price"=>$pspr,
 							"sku"=> $product_info['sku'].".".$sku_id
 						);
@@ -195,7 +207,7 @@ class ControllerShopifyCreateproduct extends Controller {
        				//$imdata = base64_encode($im);      
 					
 					$images[] = array(
-						"attachment"=>$this->getImageCode(DIR_IMAGE.str_replace('image/','',$pimgs[$key]))
+						//"attachment"=>$this->getImageCode(DIR_IMAGE.str_replace('image/','',$pimgs[$key]))
 					);
 					$index++;
 					
