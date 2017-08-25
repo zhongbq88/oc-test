@@ -578,19 +578,31 @@ class ControllerShopifyOrders extends Controller {
 		}
 	}
 	
+	
+	public function onhod(){
+		if (isset($this->request->get['order_id'])) {
+			$order_id = $this->request->get['order_id'];
+			$this->load->model('shopify/order');
+			$status = $this->model_shopify_order->getOrderStatusByName('On-Hold');
+		    $this->model_shopify_order->updateOrderStatus($order_id,$status['order_status_id']);
+			$json = array();
+			$json['status'] = $statu['name'];
+			$json['success'] ='true';
+			$this->response->addHeader('Content-Type: application/json');
+			$this->response->setOutput(json_encode($json));
+			//$this->response->redirect($this->url->link('shopify/orders', '', true));
+		}
+	
+	}
+	
 	public function cancel(){
 		if (isset($this->request->get['order_id'])) {
 			$order_id = $this->request->get['order_id'];
-			//$quantity = $this->request->post['quantity'];
 			$this->load->model('shopify/order');
-		    $this->model_shopify_order->updateOrderStatus($order_id,7);
+			$status = $this->model_shopify_order->getOrderStatusByName('Canceled');
+		    $this->model_shopify_order->updateOrderStatus($order_id,$status['order_status_id']);
 			$json = array();
-			$status = $this->model_shopify_order->getOrderStatus(7);
-			if(isset($status[0])){
-				$json['status'] = $status[0]['name'];
-			}else{
-				$json['status'] = "Cancelled";
-			}
+			$json['status'] = $statu['name'];
 			$json['success'] ='true';
 			$this->response->addHeader('Content-Type: application/json');
 			$this->response->setOutput(json_encode($json));

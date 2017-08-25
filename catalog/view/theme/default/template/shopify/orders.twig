@@ -129,13 +129,14 @@
                       
                       <!--<td class="text-left">{{ order.date_modified }}</td>-->
                       <td class="text-right"><div style="float:right">
-                          <div class="btn-group" style="float:left;"><a href="{{order.pay}}" id="pay{{order.order_id}}" data-toggle="tooltip" {% if order.status!='Pending' or order.total=='$0' %} disabled {% endif%}  class="btn btn-danger" >{{ text_paid }}</a></div>
+                          <div class="btn-group" style="float:left;"><a href="{{order.pay}}" id="pay{{order.order_id}}" data-toggle="tooltip" {% if order.status!='Pending' or order.total=='$0' %} disabled {% endif%}  class="btn btn-success btn-xs" >{{ text_paid }}</a></div>
                           <div class="btn-group"  style="float:left; margin-left:20px;"> <a href="{{ order.view }}" data-toggle="tooltip" title="{{ button_view }}" class="btn btn-primary"><i class="fa fa-eye"></i>{{ button_view }}</a>
                             <button type="button" {% if order.status!='Pending' or order.total=='$0' %} disabled {% endif%}  data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
                             <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
                               <li><a href="{{ order.view }}"><i class="fa fa-pencil"></i> {{ button_edit }}</a></li>
+                               <li><a href="javascript:onhod({{order.order_id}});"  data-toggle="tooltip" ><i class="fa fa-pencil"></i> {{ text_onhold }}</a></li>
                               <li><a href="javascript:cancel({{order.order_id}});"  data-toggle="tooltip" ><i class="fa fa-reply"></i> {{ button_cancel }}</a></li>
                               <li></li>
                             </ul>
@@ -246,6 +247,38 @@ $('#button-filter').on('click', function() {
 					//alert(json['success']);
 					if (json['success']) {
 						window.location.reload();
+						//window.location.href="index.php?route=shopify/orders#syn";
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					//alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+	}
+	
+	
+	
+	function onhod(order_id){
+		//alert(order_id);
+	  $.ajax({
+				url: 'index.php?route=shopify/orders/onhod&order_id='+order_id,
+				dataType: 'json',
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					  //$("#Synchronize").each(rotation);
+				},
+				complete: function() {
+					  //$("#Synchronize").stopRotate();
+				},
+				success: function(json) {
+					//alert(json['success']);
+					if (json['success']) {
+						//$('#pay'+order_id).attr('disabled',"true");
+						$('#status'+order_id).html(json['status']);
+						//$('#checkbox'+order_id).attr('disabled',"true");
+						//window.location.reload();
 						//window.location.href="index.php?route=shopify/orders#syn";
 					}
 				},

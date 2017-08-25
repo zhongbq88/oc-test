@@ -60,9 +60,10 @@ $_['text_commission_removed']    = 'Success: Commission removed!';
 $_['text_restock']               = 'Success: Products have been restocked!';
 $_['text_upload']                = 'Your file was successfully uploaded!';
 $_['text_picklist']              = 'Dispatch Note';
-$_['text_paid']                  = 'Paid';
+$_['text_paid']                  = 'Checkout';
 $_['text_paid_selected']                  = 'Paid Selected';
 $_['text_not_customdr_order']                  = 'Not A customDR Order';
+$_['text_onhold']                  = 'On-Hold';
 
 
 // Column
