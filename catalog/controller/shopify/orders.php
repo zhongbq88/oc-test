@@ -494,12 +494,12 @@ class ControllerShopifyOrders extends Controller {
 					'design_file'    => $image,
 					'price'    => $product['price'],
 					'sale_total'    => $product['shopify_price']*$product['quantity'],
-					'total'    => $product['total'],
+					'total'    => $product['price']*$product['quantity'],
 					'order_product_id'    => $product['order_product_id'],
 					'reorder'  => $reorder,
 					'return'   => $this->url->link('account/return/add', 'order_id=' . $order_info['order_id'] . '&product_id=' . $product['product_id'], true)
 				);
-				$subtotal+= $product['total'];
+				$subtotal+= $product['price']*$product['quantity'];
 				$tax+= $product['tax'];
 				$saletotal+= $product['shopify_price']*$product['quantity'];
 				

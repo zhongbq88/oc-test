@@ -58,7 +58,7 @@
               <td class="text-right">{{ column_quantity }}</td>
               <td class="text-right">{{ column_price }}</td>
               <td class="text-right">{{ column_total }}</td>
-              <td class="text-right">{{ column_sale_price }}</td>
+              <td class="text-right" style="display:none;">{{ column_sale_price }}</td>
               <!--{% if products %}
               <td style="width: 20px;"></td>
               {% endif %} --></tr>
@@ -116,7 +116,7 @@
                 </span></div></td>
             <td class="text-right">{{ product.price }}</td>
             <td class="text-right">{{ product.total }}</td>
-            <td class="text-right">{{ product.sale_total }}</td>
+            <td class="text-right"  style="display:none;" >{{ product.sale_total }}</td>
             <!--<td class="text-right" style="white-space: nowrap;">{% if product.reorder %} <a href="{{ product.reorder }}" data-toggle="tooltip" title="{{ button_reorder }}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></a> {% endif %} <a href="{{ product.return }}" data-toggle="tooltip" title="{{ button_return }}" class="btn btn-danger"><i class="fa fa-reply"></i></a></td>--> 
           </tr>
           {% endfor %}
@@ -127,7 +127,7 @@
             <td class="text-right">1</td>
             <td class="text-right">{{ voucher.amount }}</td>
             <td class="text-right">{{ voucher.amount }}</td>
-            <td></td>
+            <!--<td></td>-->
             <!--{% if products %}
             <td></td>
             {% endif %}--> </tr>
@@ -141,7 +141,7 @@
             <td colspan="3"></td>
             <td class="text-right"><b>{{ total.title }}</b></td>
             <td class="text-right">{{ total.text }}</td>
-            <td class="text-right">{{ total.text2 }}</td>
+            <!--<td class="text-right">{{ total.text2 }}</td>-->
             
             <!--{% if products %}
             <td></td>
