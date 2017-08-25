@@ -442,7 +442,7 @@ if (isset($data['products'])) {
 	}
 	
 	public function getOrderProductLineItemId($order_id) {
-		$query = $this->db->query("SELECT line_item_id FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "' AND quantity>0 AND price>0");
+		$query = $this->db->query("SELECT line_item_id,line_item_order_id FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "' AND quantity>0 AND price>0");
 
 		return $query->rows;
 	}

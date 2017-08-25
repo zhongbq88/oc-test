@@ -8,6 +8,7 @@ class ControllerShopifyUpdateorder extends Controller {
 
 public function index(){
 
+ 	///$shopify = shopify\client('vivajean.myshopify.com', SHOPIFY_APP_API_KEY, '11e33008c194c293845cbc7eb93a9d8d');
 	$shopify = shopify\client($this->session->data['shop'], SHOPIFY_APP_API_KEY, $this->session->data['oauth_token']);
 	$json = array();
 	try
@@ -33,9 +34,9 @@ public function index(){
 			'line_items'=>$line_items
 		);
 		//$update = array('order'=>array("id"=>5238292616,'fulfillments' =>$fulfillments));
-		print_r($fulfillments);
+		//print_r($fulfillments);
 		$product = $shopify('POST /admin/orders/'.$line_item_order_id.'/fulfillments.json', array(),array('fulfillment'=>$fulfillments));
-		print_r($product);
+		//print_r($product);
 	}
 	catch (shopify\ApiException $e)
 	{
