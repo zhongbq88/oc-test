@@ -566,6 +566,8 @@ $('#history').delegate('.pagination a', 'click', function(e) {
 $('#history').load('index.php?route=sale/order/history&user_token={{ user_token }}&order_id={{ order_id }}');
 
 $('#button-history').on('click', function() {
+	var tracking_company = encodeURIComponent($('select[name=\'shipping_method\']').val());
+	var tracking_company = encodeURIComponent($('input[name=\'shipping_number\']').val());
 	$.ajax({
 		url: '{{ catalog }}index.php?route=api/order/history&api_token={{ api_token }}&store_id={{ store_id }}&order_id={{ order_id }}',
 		type: 'post',
@@ -590,6 +592,7 @@ $('#button-history').on('click', function() {
 				$('#history').before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
 				$('textarea[name=\'comment\']').val('');
+				updateShipping(tracking_company,tracking_number,order_id);
 			}
 		},
 		error: function(xhr, ajaxOptions, thrownError) {
@@ -597,6 +600,22 @@ $('#button-history').on('click', function() {
 		}
 	});
 });
+
+function updateShipping(tracking_company,tracking_number,order_id){
+	$.ajax({
+		url: '{{ catalog }}index.php?route=shopify/updateorder',
+		type: 'post',
+		dataType: 'json',
+		data: 'tracking_company=' + tracking_company + '&tracking_number=' + tracking_number+"&order_id={{ order_id }}",
+		success: function(json) {
+			alert(json);
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});
+}
+
 //--></script> 
 </div>
 {{ footer }} 

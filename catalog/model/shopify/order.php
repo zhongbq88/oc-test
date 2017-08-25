@@ -359,7 +359,7 @@ $sql .="ORDER BY o.order_id DESC LIMIT " . (int)$start . "," . (int)$limit;
 		$result = array();
 if (isset($data['products'])) {
 			foreach ($data['products'] as $product) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "order_product SET order_id = '" . $order_id . "', product_id = '" . (int)$product['product_id'] . "', name = '" . $this->db->escape($product['name']) . "', model = '" . $this->db->escape($product['model']) . "', quantity = '" . (int)$product['quantity'] . "', price = '" . (float)$product['price'] . "', total = '" . (float)$product['total'] . "', tax = '" . (float)$product['tax'] . "', reward = '" . (int)$product['reward'] . "', shopify_price = '" . (float)$product['shopify_price'] . "',shopify_sku = '" . $this->db->escape($product['shopify_sku']) . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "order_product SET order_id = '" . $order_id . "', product_id = '" . (int)$product['product_id'] . "', name = '" . $this->db->escape($product['name']) . "', model = '" . $this->db->escape($product['model']) . "', quantity = '" . (int)$product['quantity'] . "', price = '" . (float)$product['price'] . "', total = '" . (float)$product['total'] . "', tax = '" . (float)$product['tax'] . "', reward = '" . (int)$product['reward'] . "', shopify_price = '" . (float)$product['shopify_price'] . "',shopify_sku = '" . $this->db->escape($product['shopify_sku']) . "', line_item_id = '" . $product['line_item_id'] . "', line_item_order_id = '" . $product['line_item_order_id'] . "'");
 				$result[] = $this->db->getLastId();
 			}
 			
@@ -441,5 +441,10 @@ if (isset($data['products'])) {
 
 	}
 	
+	public function getOrderProductLineItemId($order_id) {
+		$query = $this->db->query("SELECT line_item_id FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "' AND quantity>0 AND price>0");
+
+		return $query->rows;
+	}
 	
 }

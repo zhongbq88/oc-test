@@ -12,18 +12,29 @@ public function index(){
 	$json = array();
 	try
 	{
-		//$order_id = $this->request->post['order_id'];
+		$order_id = $this->request->post['order_id'];
+		$tracking_company =  $this->request->post['tracking_company'];
+		$tracking_number =  $this->request->post['tracking_number'];
+		$this->load->model('shopify/order');
+		$line_items = array();
+		$LineItemId = $this->model_shopify_order->getOrderProductLineItemId($order_id);
+		$line_item_order_id;
+		if(!isset($LineItemId )){
+			return;
+		}
+		foreach($LineItemId as $item){
+			$line_items[] = array('id'=>$item['line_item_id']);
+			$line_item_order_id = $item['line_item_order_id'];
+		}
 		$fulfillments = array(
-    		"tracking_company"=> 'China Post',
-    		"tracking_number"=> "1Z2345",
+    		"tracking_company"=> $tracking_company,
+    		"tracking_number"=> $tracking_number,
     		"tracking_url"=> "https://www.aftership.com/",
-			'line_items'=>array(
-				0=>array('id'=>9963689096)
-			)
+			'line_items'=>$line_items
 		);
 		//$update = array('order'=>array("id"=>5238292616,'fulfillments' =>$fulfillments));
 		print_r($fulfillments);
-		$product = $shopify('POST /admin/orders/5238292616/fulfillments.json', array(),array('fulfillment'=>$fulfillments));
+		$product = $shopify('POST /admin/orders/'.$line_item_order_id.'/fulfillments.json', array(),array('fulfillment'=>$fulfillments));
 		print_r($product);
 	}
 	catch (shopify\ApiException $e)

@@ -190,7 +190,9 @@ class ControllerShopifyLoadorders extends Controller {
 						  'shopify_price'=> $items['price'],
 						  'shopify_sku'=> $items['sku'],
 						  'tax'=> 0,
-						  'reward'=> ''
+						  'reward'=> '',
+						  'line_item_id'=> $items['id'],
+						  'line_item_order_id'=>  $order['id']
 						  );
 						  $total +=$orderProducts[0]['price']*$items['quantity'];
 					  }else{
@@ -206,7 +208,9 @@ class ControllerShopifyLoadorders extends Controller {
 						  'shopify_price'=> $items['price'],
 						  'shopify_sku'=> $items['sku'],
 						  'tax'=> 0,
-						  'reward'=> ''
+						  'reward'=> '',
+						  'line_item_id'=> $items['id'],
+						  'line_item_order_id'=>  $order['id']
 						  );
 					 }
 				//}
