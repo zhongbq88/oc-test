@@ -3,6 +3,7 @@
     <thead>
       <tr>
         <td class="text-left">{{ column_date_added }}</td>
+        <td class="text-left">{{ column_shipping_method }}</td>
         <td class="text-left">{{ column_comment }}</td>
         <td class="text-left">{{ column_status }}</td>
         <td class="text-left">{{ column_notify }}</td>
@@ -13,6 +14,7 @@
       {% for history in histories %}
       <tr>
         <td class="text-left">{{ history.date_added }}</td>
+        <td class="text-left">{{ history.shopping_method }}</td>
         <td class="text-left">{{ history.comment }}</td>
         <td class="text-left">{{ history.status }}</td>
         <td class="text-left">{{ history.notify }}</td>

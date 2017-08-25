@@ -771,7 +771,9 @@ class ControllerApiOrder extends Controller {
 				'order_status_id',
 				'notify',
 				'override',
-				'comment'
+				'comment',
+				'shopping_number',
+				'shopping_method'
 			);
 
 			foreach ($keys as $key) {
@@ -791,7 +793,7 @@ class ControllerApiOrder extends Controller {
 			$order_info = $this->model_checkout_order->getOrder($order_id);
 
 			if ($order_info) {
-				$this->model_checkout_order->addOrderHistory($order_id, $this->request->post['order_status_id'], $this->request->post['comment'], $this->request->post['notify'], $this->request->post['override']);
+				$this->model_checkout_order->addOrderHistory($order_id, $this->request->post['order_status_id'], $this->request->post['comment'], $this->request->post['notify'], $this->request->post['override'], $this->request->post['shopping_number'], $this->request->post['shopping_method']);
 
 				$json['success'] = $this->language->get('text_success');
 			} else {

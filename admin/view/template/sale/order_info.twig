@@ -237,6 +237,9 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label" for="input-order-status">{{ entry_order_status }}</label>
                   <div class="col-sm-10">
+                  
+                 
+                  
                     <select name="order_status_id" id="input-order-status" class="form-control">
                       
                       
@@ -254,6 +257,22 @@
                       
                       
                       {% endif %}
+                      {% endfor %}
+                    
+                    
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-order-shipping">{{ text_shipping_method }}</label> 
+                  <div class="col-sm-10" class="form-control" >
+                  <input type="text" name="shipping_number" rows="8" id="input-order-shipping-number" style="width:50%; float:left" class="form-control" >
+                    <select name="shipping_method" id="input-order-shipping_method" class="form-control" style="width:50%; float:left;" >
+                                        
+                      {% for key, value in shipping_method_array %}
+                      
+                      <option value="{{ key }}" >{{ value }}</option>
+                      
                       {% endfor %}
                     
                     
@@ -551,7 +570,7 @@ $('#button-history').on('click', function() {
 		url: '{{ catalog }}index.php?route=api/order/history&api_token={{ api_token }}&store_id={{ store_id }}&order_id={{ order_id }}',
 		type: 'post',
 		dataType: 'json',
-		data: 'order_status_id=' + encodeURIComponent($('select[name=\'order_status_id\']').val()) + '&notify=' + ($('input[name=\'notify\']').prop('checked') ? 1 : 0) + '&override=' + ($('input[name=\'override\']').prop('checked') ? 1 : 0) + '&append=' + ($('input[name=\'append\']').prop('checked') ? 1 : 0) + '&comment=' + encodeURIComponent($('textarea[name=\'comment\']').val()),
+		data: 'order_status_id=' + encodeURIComponent($('select[name=\'order_status_id\']').val()) + '&notify=' + ($('input[name=\'notify\']').prop('checked') ? 1 : 0) + '&override=' + ($('input[name=\'override\']').prop('checked') ? 1 : 0) + '&append=' + ($('input[name=\'append\']').prop('checked') ? 1 : 0) + '&comment=' + encodeURIComponent($('textarea[name=\'comment\']').val())+'&shopping_number=' + encodeURIComponent($('input[name=\'shipping_number\']').val())+'&shopping_method=' + encodeURIComponent($('select[name=\'shipping_method\']').val()),
 		beforeSend: function() {
 			$('#button-history').button('loading');
 		},

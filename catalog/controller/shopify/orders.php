@@ -311,7 +311,13 @@ class ControllerShopifyOrders extends Controller {
 			} else {
 				$data['invoice_no'] = '';
 			}
+			$this->load->model('localisation/order_status');
 
+			$order_status = $this->model_localisation_order_status->getOrderStatus($order_info['order_status_id']);
+			if(isset($order_status)){
+				$data['order_status'] = $order_status['name'];
+			}
+		
 			$data['order_id'] = $this->request->get['order_id'];
 			$data['date_added'] = date($this->language->get('date_format_short'), strtotime($order_info['date_added']));
 
@@ -539,14 +545,21 @@ class ControllerShopifyOrders extends Controller {
 			$data['histories'] = array();
 
 			$results = $this->model_shopify_order->getOrderHistories($orderid);
+			
+			$shipping_method='';
 
 			foreach ($results as $result) {
+				if(empty($shipping_method)&&!empty($result['shopping_method'])){
+					$shipping_method = $result['shopping_method']." : <a href='https://www.aftership.com/' target='_blank'>".$result['shopping_number']."</a>";
+				}
 				$data['histories'][] = array(
 					'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 					'status'     => $result['status'],
 					'comment'    => $result['notify'] ? nl2br($result['comment']) : ''
 				);
 			}
+
+			$data['shipping_method'] = $shipping_method;
 
 			$data['continue'] = $this->url->link('shopify/orders', '', true);
 			
