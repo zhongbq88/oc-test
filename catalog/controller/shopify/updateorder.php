@@ -22,7 +22,7 @@ public function index(){
     		"updated_at"=> "2017-08-25T13:09:54-04:00"
 		);
 		$product = $shopify('PUT /admin/orders/5238292616.json', array(), array('order'=>array("id"=>5238292616,'fulfillments' =>$fulfillments)));
-		print_r($products);
+		print_r($product);
 	}
 	catch (shopify\ApiException $e)
 	{
