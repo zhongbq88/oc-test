@@ -38,7 +38,7 @@ class ControllerShopifyLoadorders extends Controller {
 	
 	public function getOrders($shopify,$outh_token,$customer_info){
 		  //print_r($shopify.'--'.$outh_token);
-		  $shopify = shopify\client('vivajean.myshopify.com', SHOPIFY_APP_API_KEY, '11e33008c194c293845cbc7eb93a9d8d');
+		  $shopify = shopify\client($shopify, SHOPIFY_APP_API_KEY, $outh_token);
 		  $json = array();
 		  try
 		  {

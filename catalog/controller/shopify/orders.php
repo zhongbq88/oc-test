@@ -447,7 +447,7 @@ class ControllerShopifyOrders extends Controller {
 				$model ='';
 				$selected_name='';
 				//print_r($product['shopify_sku']);
-				if(isset($options)&&$options[0]['sku'].'.'.$options[0]['sku_id']==$product['shopify_sku']){
+				if(count($options)>0&&$options[0]['sku'].'.'.$options[0]['sku_id']==$product['shopify_sku']){
 					foreach ($options as $option) {
 						$opts = json_decode($option['product_options'],true);
 						//print_r($product['shopify_sku']);
