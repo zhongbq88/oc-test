@@ -475,6 +475,9 @@ class ControllerShopifyOrders extends Controller {
 							'value' => 'SKU:'.$product['shopify_sku']
 						);
 				}*/
+				if(!empty($product['options'])){
+					$selected_name = $product['options'];
+				}
 				
 				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
 
@@ -600,8 +603,9 @@ class ControllerShopifyOrders extends Controller {
 		if (isset($this->request->post['order_product_id'])) {
 			$order_product_id = $this->request->post['order_product_id'];
 			$quantity = $this->request->post['quantity'];
+			$size_name = $this->request->post['size_name'];
 			$this->load->model('shopify/order');
-		    $order_info = $this->model_shopify_order->updateOrderProduct($order_product_id,$quantity);
+		    $order_info = $this->model_shopify_order->updateOrderProduct($order_product_id,$quantity,$size_name);
 			$json['success'] ='1';
 			$this->response->addHeader('Content-Type: application/json');
 			$this->response->setOutput(json_encode($json));

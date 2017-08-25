@@ -58,7 +58,7 @@
               <td class="text-right">{{ column_quantity }}</td>
               <td class="text-right">{{ column_price }}</td>
               <td class="text-right">{{ column_total }}</td>
-              <td class="text-right" style="display:none;">{{ column_sale_price }}</td>
+              <!--<td class="text-right" style="display:none;">{{ column_sale_price }}</td>-->
               <!--{% if products %}
               <td style="width: 20px;"></td>
               {% endif %} --></tr>
@@ -80,7 +80,7 @@
              {% if product.option_select %}
             
             <div style="float:left;">
-             <select name="size_id"  {% if order_status_id!=1 or product.total==0 %} disabled {% endif %} id="input-size" class="form-control" style="float:left; width:100px;">
+             <select name="size_name{{product.order_product_id}}"  {% if order_status_id!=1 or product.total==0 %} disabled {% endif %} id="input-size" class="form-control" style="float:left; width:100px;">
                 <!--<option value="">{{ product.selected_name }}</option>-->
                 
                 {% for option_select in product.option_select %}
@@ -235,6 +235,7 @@
 	  var formData =  new FormData();
 	  formData.append("quantity",quantity);
 	  formData.append("order_product_id",order_product_id);
+	  formData.append("size_name",encodeURIComponent($('select[name=\'size_name'+order_product_id+'\']').val()));
 	  $.ajax({
 				url: 'index.php?route=shopify/orders/update',
 				type: 'post',

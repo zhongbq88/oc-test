@@ -250,12 +250,12 @@ $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 		return $query->rows;
 	}
 	
-	public function updateOrderProduct($order_product_id,$quantity){
+	public function updateOrderProduct($order_product_id,$quantity,$options){
 		
 		$query = $this->db->query("SELECT price FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$order_product_id . "'");
 
 		
-		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET quantity = '" . (int)$quantity . "',total ='".(float)$query->row['price']*((int)$quantity)."' WHERE order_product_id = '" . (int)$order_product_id . "'");
+		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET options = '" . $this->db->escape($options). "',quantity = '" . (int)$quantity . "',total ='".(float)$query->row['price']*((int)$quantity)."' WHERE order_product_id = '" . (int)$order_product_id . "'");
 
 	}
 	
