@@ -16,13 +16,12 @@ public function index(){
 		$fulfillments = array();
 		$fulfillments[] = array(
 			"created_at"=> "2017-08-25T13:09:54-04:00",
-   			"order_id"=> 5238292616,
     		"status"=> "failure",
     		"tracking_company"=> 'China Post',
     		"tracking_number"=> "1Z2345",
     		"updated_at"=> "2017-08-25T13:09:54-04:00"
 		);
-		$product = $shopify('PUT /admin/orders/5238292616.json', array(), array('fulfillments' =>$fulfillments));
+		$product = $shopify('PUT /admin/orders/5238292616.json', array(), array('order'=>array("id"=>5238292616,'fulfillments' =>$fulfillments)));
 		print_r($products);
 	}
 	catch (shopify\ApiException $e)
