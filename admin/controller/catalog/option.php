@@ -538,4 +538,11 @@ class ControllerCatalogOption extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+	
+	public function editText(){
+		$data = array();
+		$data['text'] = $this->request->post['text'];
+		$json['success']=$this->load->view('catalog/edit', $data);
+		$this->response->setOutput(json_encode($json));
+	}
 }

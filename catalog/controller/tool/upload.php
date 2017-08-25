@@ -97,7 +97,8 @@ class ControllerToolUpload extends Controller {
 			$src = str_replace(".jpg",'.png',$src);
 			$savepat = DIR_IMAGE."/catalog/designs/";
 			$json['src'] = "/storage/upload/" . $file;
-			if(file_exists($src)){
+			//print_r('file='.$src.'mergebg');
+			if(file_exists($src)||file_exists($src.'.mbg.png')){
 				$ttt =  $this->model_shopify_image->merge(DIR_UPLOAD . $file,$src,$savepat);
 				$json['preimg'] = $host."image/catalog/designs/" . $ttt;
 			}

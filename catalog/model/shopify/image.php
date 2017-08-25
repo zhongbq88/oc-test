@@ -4,6 +4,10 @@ class ModelShopifyImage extends Model {
 	
 	function merge($uploadPath, $sourePath,$savePath)
 	{
+		//print_r($sourePath);
+		if(file_exists($sourePath.'.mbg.png')){
+			return $this->mergebg($sourePath.'.mbg.png',$uploadPath,$savePath);
+		}
 		$soure = imagecreatefrompng($sourePath);
 		imagesavealpha($soure,true);
 		$width = imagesx($soure);
@@ -36,10 +40,45 @@ class ModelShopifyImage extends Model {
 		return $fileName;
 	}
 	
+	
+	function mergebg($top,$bottom,$savePath){
+		
+		$photoArray =   explode('/',$bottom);
+    	$fileName   =   explode('.',end($photoArray));
+    	$newFilename   =   $fileName[0]."_".time().'_n.png';
+		
+		$photoArray =   explode('/',$top);
+    	$fileName   =   explode('.',str_replace('.png.mbg.png','',end($photoArray)));
+		$sizes   =   explode('_',end($fileName));
+		//print_r(end($sizes));
+		$size   =   explode('x',end($sizes));
+		//print_r($size);
+ 		$top = Imagecreatefrompng($top);
+		$width = imagesx($top);
+		$height = imagesy($top);
+		
+		$bottom = $this->imageThumb($bottom,0,2.5);
+		$target_img     = imageCreatetruecolor(imagesx( $top),imagesy( $top));
+		$color = imagecolorallocate($target_img, 255, 255, 255);
+		imagefill($target_img, 0, 0, $color);
+		imagecopy($target_img, $bottom,$size[0], $size[1], 0, 0,imagesx( $bottom),imagesy( $bottom));
+		imagecopy($target_img, $top,0, 0, 0, 0,imagesx( $top),imagesy( $top));
+		
+		imagepng($target_img,$savePath.$newFilename);
+		imagedestroy($top);
+		imagedestroy($bottom);
+		imagedestroy($target_img);
+		return $newFilename;
+	}
+	
 	function imageThumb($sourePic,$width,$heigh){  
 		$image=imagecreatefromjpeg($sourePic);
 		$BigWidth=imagesx($image);
 		$BigHeigh=imagesy($image);
+		if($width==0){
+			$width = $BigWidth/$heigh;
+			$heigh = $BigHeigh/$heigh;
+		}
 		$thumb = imagecreatetruecolor($width,$heigh);  
 		if(imagecopyresampled($thumb,$image,0,0,0,0,$width,$heigh,$BigWidth,$BigHeigh)){  
 		 	imagedestroy($image);
