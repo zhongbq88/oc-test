@@ -136,7 +136,8 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
                               <li><a href="{{ order.view }}"><i class="fa fa-pencil"></i> {{ button_edit }}</a></li>
-                               <li><a href="javascript:onhod({{order.order_id}});"  data-toggle="tooltip" ><i class="fa fa-pencil"></i> {{ text_onhold }}</a></li>
+                              {% if order.status=='Pending'  %}
+                               <li><a href="javascript:onhod({{order.order_id}});"  data-toggle="tooltip" ><i class="fa fa-pencil"></i> {{ text_onhold }}</a></li>{% endif %}
                               <li><a href="javascript:cancel({{order.order_id}});"  data-toggle="tooltip" ><i class="fa fa-reply"></i> {{ button_cancel }}</a></li>
                               <li></li>
                             </ul>
@@ -155,7 +156,7 @@
                   </table>
                 </div>
                 <div class="row">
-                  <div class="btn-group" style="float: right; margin-right:20px;"><a href="javascript:pay();" data-toggle="tooltip" title="{{ text_paid_selected }}" class="btn btn-danger" >{{ text_paid_selected }}</a></div>
+                  <div class="btn-group" style="float: right; margin-right:20px;"><a href="javascript:pay();" data-toggle="tooltip" title="{{ text_paid_selected }}" class="btn btn-success btn-xs" >{{ text_paid_selected }}</a></div>
                 </div>
               </form>
               <div class="row">
