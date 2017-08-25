@@ -586,7 +586,7 @@ class ControllerShopifyOrders extends Controller {
 			$status = $this->model_shopify_order->getOrderStatusByName('On-Hold');
 		    $this->model_shopify_order->updateOrderStatus($order_id,$status['order_status_id']);
 			$json = array();
-			$json['status'] = $statu['name'];
+			$json['status'] = $status['name'];
 			$json['success'] ='true';
 			$this->response->addHeader('Content-Type: application/json');
 			$this->response->setOutput(json_encode($json));
@@ -602,7 +602,7 @@ class ControllerShopifyOrders extends Controller {
 			$status = $this->model_shopify_order->getOrderStatusByName('Canceled');
 		    $this->model_shopify_order->updateOrderStatus($order_id,$status['order_status_id']);
 			$json = array();
-			$json['status'] = $statu['name'];
+			$json['status'] = $status['name'];
 			$json['success'] ='true';
 			$this->response->addHeader('Content-Type: application/json');
 			$this->response->setOutput(json_encode($json));
