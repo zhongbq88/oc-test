@@ -507,7 +507,7 @@ class ControllerShopifyOrders extends Controller {
 				$saletotal+= $product['shopify_price']*$product['quantity'];
 				
 			}
-			$data['haspay'] = $subtotal==0?1:($data['order_status_id']!=1?1:0);
+			$data['haspay'] = $subtotal==0?1:($data['order_status_id']!=1&&$data['order_status_id']!=18?1:0);
 			$data['totals'] = array();
 			$data['totals'][] = array(
 					'title' => "Sub-Total:",
