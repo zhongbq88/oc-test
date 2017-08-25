@@ -58,6 +58,9 @@ public function index(){
 		print_r($e->getRequest());
 		print_r($e->getResponse());
 	}
+	$json['success'] ='success';
+	$this->response->addHeader('Content-Type: application/json');
+	$this->response->setOutput(json_encode($json));
 }
 }
 ?>
