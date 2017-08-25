@@ -34,7 +34,7 @@
           <tr>
            <!-- <td class="text-left" style="width: 50%; vertical-align: top;">{{ text_payment_address }}</td>-->
 
-            <td class="text-left" style="width: 50%; vertical-align: top;">{{ text_shipping_address }} <button type="button" style="float:right"  data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="editAddress('{{ order_id }}');">
+            <td class="text-left" style="width: 50%; vertical-align: top;">{{ text_shipping_address }} <button type="button" style="float:right"  data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-primary" onclick="editAddress('{{ order_id }}');">
                 <i class="fa fa-pencil"></i>
                 </button></td>
             
@@ -196,7 +196,7 @@
       {% endif %}-->
       <div class="buttons clearfix"> 
         <!--{% if order_status_id==1 %}-->
-        <div class="pull-right"><a href="{{ paid }}" {% if  haspay==1 %} disabled {% endif %} class="btn btn-success btn-xs">{{ text_paid }}</a></div>
+        <div class="pull-right"><a href="{{ paid }}" {% if  haspay==1 %} disabled {% endif %} class="btn btn-success btn-xs" >{{ text_paid }}</a></div>
         <!--{% else %}
         <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
         {% endif %}--> 
