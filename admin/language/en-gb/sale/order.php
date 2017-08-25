@@ -135,15 +135,6 @@ $_['error_action']               = 'Warning: Could not complete this action!';
 $_['error_filetype']             = 'Invalid file type!';
 
 $_['shipping_method_array']             = array(
-                                            "STO"=>"申通",
-                                            "ems"=>"EMS",
-                                            "SF"=>"顺丰速递",
-                                            "YTO"=>"圆通速递",
-                                            "ZTO"=>"中通速递",
-                                            "YD"=>"韵达快运",
-                                            "HHTT"=>"天天快递",
-                                            "HTKY"=>"百世汇通",
-                                            "QFKD"=>"全峰快递",
-                                            "DBL"=>"德邦物流",
-                                            "ZJS"=>"宅急送"
+                                            "China Post"=>"China Post"
+                                            
 );
