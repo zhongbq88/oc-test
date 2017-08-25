@@ -1048,7 +1048,8 @@ class ControllerSaleOrder extends Controller {
 			} else {
 				$data['affiliate'] = '';
 			}
-
+			$data['customer_id'] = $order_info['affiliate_id'];
+			
 			$data['commission'] = $this->currency->format($order_info['commission'], $order_info['currency_code'], $order_info['currency_value']);
 
 			$this->load->model('customer/customer');

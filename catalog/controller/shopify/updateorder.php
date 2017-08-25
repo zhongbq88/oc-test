@@ -7,16 +7,22 @@ require __DIR__.'/conf.php';
 class ControllerShopifyUpdateorder extends Controller {
 
 public function index(){
-
+	
+	$this->load->model('shopify/order');
+	$customer_id = $this->request->post['customer_id'];
+	$customer = $this->model_shopify_order->getCustomToken($customer_id);
+	if(!isset($customer['token'])){
+		return;
+	}
  	///$shopify = shopify\client('vivajean.myshopify.com', SHOPIFY_APP_API_KEY, '11e33008c194c293845cbc7eb93a9d8d');
-	$shopify = shopify\client($this->session->data['shop'], SHOPIFY_APP_API_KEY, $this->session->data['oauth_token']);
+	$shopify = shopify\client($customer['firstname'].'.myshopify.com', SHOPIFY_APP_API_KEY, $customer['token']);
 	$json = array();
 	try
 	{
 		$order_id = $this->request->post['order_id'];
 		$tracking_company =  $this->request->post['tracking_company'];
 		$tracking_number =  $this->request->post['tracking_number'];
-		$this->load->model('shopify/order');
+		
 		$line_items = array();
 		$LineItemId = $this->model_shopify_order->getOrderProductLineItemId($order_id);
 		$line_item_order_id;

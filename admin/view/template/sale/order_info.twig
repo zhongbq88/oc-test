@@ -610,7 +610,7 @@ function updateShipping(tracking_company,tracking_number){
 		url: '{{ catalog }}index.php?route=shopify/updateorder',
 		type: 'post',
 		dataType: 'json',
-		data: 'tracking_company=' + tracking_company + '&tracking_number=' + tracking_number+"&order_id={{ order_id }}",
+		data: 'tracking_company=' + tracking_company + '&tracking_number=' + tracking_number+"&order_id={{ order_id }}&customer_id={{ customer_id }}",
 		success: function(json) {
 			//alert(json);
 		},

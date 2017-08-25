@@ -451,4 +451,11 @@ if (isset($data['products'])) {
 		return $query->rows;
 	}
 	
+	public function getCustomToken($customer_id){
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$customer_id . "'");
+
+		return $query->row;
+	}
+	
 }
