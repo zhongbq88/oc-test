@@ -168,7 +168,8 @@ class ControllerShopifyCreateproduct extends Controller {
 						$optionIndex =1;
 						foreach($v  as $o){
 							$oo = explode(":",$o);
-							$variant1["option".$optionIndex] = $oo[1];
+							$oo = explode(",",$oo);
+							$variant1["option".$optionIndex] = $oo[0];
 							$optionIndex++;
 						}
 						$variants[]  = $variant1;
