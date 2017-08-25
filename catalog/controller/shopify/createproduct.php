@@ -208,7 +208,7 @@ class ControllerShopifyCreateproduct extends Controller {
        				//$imdata = base64_encode($im);      
 					
 					$images[] = array(
-						//"attachment"=>$this->getImageCode(DIR_IMAGE.str_replace('image/','',$pimgs[$key]))
+						"attachment"=>$this->getImageCode(DIR_IMAGE.str_replace('image/','',$pimgs[$key]))
 					);
 					$index++;
 					
