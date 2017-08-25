@@ -13,18 +13,17 @@ public function index(){
 	try
 	{
 		//$order_id = $this->request->post['order_id'];
-		$fulfillments = array();
-		$fulfillments[] = array(
-			"created_at"=> "2017-08-25T13:09:54-04:00",
-			"order_id"=>5238292616,
-    		"status"=> "failure",
+		$fulfillments = array(
     		"tracking_company"=> 'China Post',
     		"tracking_number"=> "1Z2345",
-    		"updated_at"=> "2017-08-25T13:09:54-04:00"
+    		"tracking_url"=> "https://www.aftership.com/",
+			'line_items'=>array(
+				0=>array('id'=>9963689096)
+			)
 		);
-		$update = array('order'=>array("id"=>5238292616,'fulfillments' =>$fulfillments));
-		print_r($update);
-		$product = $shopify('PUT /admin/orders/5238292616.json', array(),$update);
+		//$update = array('order'=>array("id"=>5238292616,'fulfillments' =>$fulfillments));
+		print_r($fulfillments);
+		$product = $shopify('POST /admin/orders/5238292616/fulfillments.json', array(),$fulfillments);
 		print_r($product);
 	}
 	catch (shopify\ApiException $e)
