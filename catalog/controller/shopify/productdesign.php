@@ -1263,7 +1263,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 			imagecopy($target_img, $source[$i]['source'],$padding, $tmpy, 0, 0, $source[$i]['size'][0], $source[$i]['size'][1]);
 			$tmpy =  $tmpy+ $source[$i]['size'][1];
 		}
-		Imagejpeg($target_img, $savePath);
+		Imagejpeg($target_img, $savePath,80);
 	}
 	
 	public function getOption(){

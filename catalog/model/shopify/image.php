@@ -33,7 +33,7 @@ class ModelShopifyImage extends Model {
 		$photoArray =   explode('/',$uploadPath);
     	$fileName   =   explode('.',end($photoArray));
     	$fileName   =   $fileName[0]."_".time().'_n.png';
-		imagepng($mergeimg,$savePath.$fileName);
+		imagepng($mergeimg,$savePath.$fileName,8);
 		imagedestroy($mergeimg);
 		imagedestroy($upload);
 		imagedestroy($soure);
@@ -64,7 +64,7 @@ class ModelShopifyImage extends Model {
 		imagecopy($target_img, $bottom,$size[0], $size[1], 0, 0,imagesx( $bottom),imagesy( $bottom));
 		imagecopy($target_img, $top,0, 0, 0, 0,imagesx( $top),imagesy( $top));
 		
-		imagepng($target_img,$savePath.$newFilename);
+		imagepng($target_img,$savePath.$newFilename,8);
 		imagedestroy($top);
 		imagedestroy($bottom);
 		imagedestroy($target_img);
