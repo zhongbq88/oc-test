@@ -84,17 +84,8 @@ class ControllerShopifyCreateproduct extends Controller {
 							$options[$index]['name'] = $opt['name'];
 							$create = true;
 						}
-						$has = false;
-						foreach($value as $key=>$val){
-							if($val==$option_value['name']){
-								$has = true;
-							 }
-						}
-						if(!$has){
-							$option_data[$index][] = 'Color:'.$option_value['name'].','.$opt['name'].":".$option_value['name'];
-							$value[] = $option_value['name'];
-						}
-						
+						$option_data[$index][] = 'Color:'.$option_value['name'].','.$opt['name'].":".$option_value['name'];
+						$value[] = $option_value['name'];
 					}else{
 						$option_value_id[$opt['product_option_id']] = $option_value['option_value_id'];
 						$option_images = $this->model_catalog_product->getOptionImages($option_value['option_value_id']);
@@ -114,7 +105,9 @@ class ControllerShopifyCreateproduct extends Controller {
 								  }*/
 								}
 								if(!empty($img)){
-									$optionColors[] = $option_value['name'];
+									if(!in_array($option_value['name'],$optionColors)){
+										$optionColors[] = $option_value['name'];
+									}
 									$imgs[$opt['product_option_id']]= $img;
 								}
 								
