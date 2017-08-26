@@ -327,7 +327,7 @@ class ControllerShopifyProductdesign extends Controller {
 						} else {
 							$price = false;
 						}
-						print_r($option_value);
+						//print_r($option_value);
 						$product_option_value_data[] = array(
 							'product_option_value_id' => $option_value['product_option_value_id'],
 							'option_value_id'         => $option_value['option_value_id'],
