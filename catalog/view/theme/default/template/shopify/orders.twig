@@ -129,7 +129,9 @@
                       
                       <!--<td class="text-left">{{ order.date_modified }}</td>-->
                       <td class="text-right"><div style="float:right">
-                          <div class="btn-group" style="float:left;"><a href="{{order.pay}}" id="pay{{order.order_id}}" data-toggle="tooltip" {% if (order.status!='Pending' and order.status!='On-Hold') or order.total=='$0' %} disabled {% endif%}  class="btn btn-success btn-xs" >{% if order.status=='In-Production' or order.status=='Shipped' %}{{ text_paid }}{% else %}{{ text_checkout }}{% endif %}</a></div>
+                          <div class="btn-group" style="float:left;">
+                          <button type="button" {% if (order.status!='Pending' and order.status!='On-Hold') or order.total=='$0' %} disabled {% endif%} onClick="payClick({{order.pay}})" id="pay{{order.order_id}}"   class="btn btn-success btn-xs" > {% if order.status=='In-Production' or order.status=='Shipped' %}{{ text_paid }}{% else %}{{ text_checkout }}{% endif %}</button>
+                         <!-- <a href="{{order.pay}}" id="pay{{order.order_id}}" data-toggle="tooltip" {% if (order.status!='Pending' and order.status!='On-Hold') or order.total=='$0' %} disabled {% endif%}  class="btn btn-success btn-xs" >{% if order.status=='In-Production' or order.status=='Shipped' %}{{ text_paid }}{% else %}{{ text_checkout }}{% endif %}</a>--></div>
                           <div class="btn-group"  style="float:left; margin-left:20px;"> <a href="{{ order.view }}" data-toggle="tooltip" title="{{ button_view }}" class="btn btn-primary"><i class="fa fa-eye"></i>{{ button_view }}</a>
                             <button type="button" {% if (order.status!='Pending' and order.status!='On-Hold') or order.total=='$0' %} disabled {% endif%}  data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
                             <span class="caret"></span>
@@ -168,6 +170,10 @@
         </div>
         <script src="catalog/view/javascript/jquery/jquery.rotate.min.js" type="text/javascript"></script> 
         <script type="text/javascript"><!--
+		
+		function payClick(url){
+			window.location.href=url;
+		}
 
 $('#button-filter').on('click', function() {
 	url = '';
