@@ -1,5 +1,5 @@
 {{ header }}
-<!-- <div class="modal-backdrop in" style="text-align:center;" ><div style="text-align:center; position:absolute;margin-left:auto;margin-right:auto;" ><img src="catalog/view/theme/default/image/loading_a.gif" style="text-align:center;"></div></div>-->
+<div id="loader"></div>
 <div id="product-product" class="container">
   <input type="hidden" name="product_id" value="{{ product_id }}" />
   <div id="product"> {% if options %}
@@ -255,8 +255,10 @@ $('#gopublish').on('click', function() {
 		dataType: 'json',
 		beforeSend: function() {
 			//$('#gopublish').button('loading');
+			$('#loader').addClass("loader loader-clock is-active");
 		},
 		complete: function() {
+			$('#loader').removeClass();
 			//$('#gopublish').button('reset');
 		},
 		success: function(json) {
@@ -579,4 +581,5 @@ $(document).ready(function() {
           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
 </style>
+<link rel="stylesheet" href="catalog/view/theme/default/stylesheet/css-loader.css">
 {{ footer }} 
