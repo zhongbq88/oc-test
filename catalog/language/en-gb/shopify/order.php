@@ -64,8 +64,10 @@ $_['text_checkout']                  = 'Check Out';
 $_['text_paid']                  = 'PAID';
 $_['text_paid_selected']                  = 'Check Out Selected';
 $_['text_not_customdr_order']                  = 'Not A customDR Order';
-$_['text_onhold']                  = 'On-Hold';
+$_['text_onhold']                  = ' Move it to On-Hold';
 $_['text_remove']                  = 'Remove This Item';
+$_['text_edit']                  = ' Edit Order';
+$_['text_cancel']                  = ' Cancel Order';
 
 
 // Column

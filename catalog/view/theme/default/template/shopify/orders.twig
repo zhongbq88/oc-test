@@ -136,10 +136,10 @@
                             <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
-                              <li><a href="{{ order.view }}"><i class="fa fa-pencil"></i> {{ button_edit }}</a></li>
+                              <li><a href="{{ order.view }}"><i class="fa fa-pencil"></i> {{ text_edit }}</a></li>
                               {% if order.status=='Pending'  %}
                                <li><a href="javascript:onhod({{order.order_id}});"  data-toggle="tooltip" ><i class="fa fa-pencil"></i> {{ text_onhold }}</a></li>{% endif %}
-                              <li><a href="javascript:cancel({{order.order_id}});"  data-toggle="tooltip" ><i class="fa fa-reply"></i> {{ button_cancel }}</a></li>
+                              <li><a href="javascript:cancel({{order.order_id}});"  data-toggle="tooltip" ><i class="fa fa-reply"></i> {{ text_cancel }}</a></li>
                               <li></li>
                             </ul>
                           </div>
