@@ -64,7 +64,7 @@ class ControllerShopifyCreateproduct extends Controller {
 		//echo 'au='.$this->session->data['oauth_token'] ;
 		//echo 'shop='.$this->session->data['shop'] ;
 		//echo "count=".$count;
-		$index =1;
+		$index =0;
 		$imgs    = array();
 		$productoption = $this->model_catalog_product->getProductOptions($product_id);
 		//print_r($productoption);
@@ -123,20 +123,14 @@ class ControllerShopifyCreateproduct extends Controller {
 			}		
 		}
 		//print_r($imgs);
-		if($optionColors){
-			$options[$index] = array(
-					'name'=>'Color',
-					'values'=>$optionColors
-			);
-			$index++;
-		}
+		
 		//print_r($optionColors);
 		//print_r($option);
 		$index =0;
 		//$count = count($order_option);
 		//print_r($option_data);
 		//$result = array();
-		$result = $this->calculateCombination($option_data, 1,$arr = array(),$arr2=array());
+		$result = $this->calculateCombination($option_data, 0,$arr = array(),$arr2=array());
 		//print_r('result'.$result);
 		$this->load->model('shopify/order');
 		//print_r($option);
@@ -174,7 +168,7 @@ class ControllerShopifyCreateproduct extends Controller {
 							$optionIndex++;
 							$opt .=$oo[0];
 						}
-						$option1[] = $variant1['option1'] = isset($variant[$key])?$variant[$key]:$product_info['name'].' '.$optionColors[$index].'/'.$opt;
+						$variant1['option1'] = isset($variant[$key])?$variant[$key]:$product_info['name'].' '.$optionColors[$index].'/'.$opt;		$option1[] = $variant1['option1'];
 						$variants[]  = $variant1;
 						}
 					}else{
@@ -223,6 +217,12 @@ class ControllerShopifyCreateproduct extends Controller {
 					'name'=>'Name',
 					'values'=>$option1
 			);
+		if($optionColors){
+		  $optionsnew[] = array(
+				  'name'=>'Color',
+				  'values'=>array_unique($optionColors)
+		  );
+		}
 		foreach($options as $opt){
 			$optionsnew[] = $opt;
 		}	
