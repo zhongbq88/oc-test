@@ -333,7 +333,7 @@ class ControllerShopifyProductdesign extends Controller {
 							'option_value_id'         => $option_value['option_value_id'],
 							'name'                    => $option_value['name'],
 							'option_description'      => $option_value['option_description'],
-							'option_design_desc'      => $product_option_value['option_design_desc'],
+							'option_design_desc'      => isset($product_option_value['option_design_desc'])?$product_option_value['option_design_desc']:'',
 							'image'                   => $this->model_tool_image->resize($option_value['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_height')),
 							'price'                   => $price,
 							'price_prefix'            => $option_value['price_prefix']
