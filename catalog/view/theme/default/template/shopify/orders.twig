@@ -130,8 +130,7 @@
                       <!--<td class="text-left">{{ order.date_modified }}</td>-->
                       <td class="text-right"><div style="float:right">
                           <div class="btn-group" style="float:left;">
-                          <button type="button" {% if (order.status!='Pending' and order.status!='On-Hold') or order.total=='$0' %} disabled {% endif%} onClick="payclick('{{order.pay}}');" id="pay{{order.order_id}}"   class="btn btn-success btn-xs" > {% if order.status=='In-Production' or order.status=='Shipped' %}{{ text_paid }}{% else %}{{ text_checkout }}{% endif %}</button>
-                         <!-- <a href="{{order.pay}}" id="pay{{order.order_id}}" data-toggle="tooltip" {% if (order.status!='Pending' and order.status!='On-Hold') or order.total=='$0' %} disabled {% endif%}  class="btn btn-success btn-xs" >{% if order.status=='In-Production' or order.status=='Shipped' %}{{ text_paid }}{% else %}{{ text_checkout }}{% endif %}</a>--></div>
+                          <button type="button" {% if (order.status!='Pending' and order.status!='On-Hold') or order.total=='$0' %} disabled {% endif%} onClick="payclick('{{order.pay}}');" id="pay{{order.order_id}}"   class="btn btn-success btn-xs" > {% if order.status=='In-Production' or order.status=='Shipped' %}{{ text_paid }}{% else %}{{ text_checkout }}{% endif %}</button></div>
                           <div class="btn-group"  style="float:left; margin-left:20px;"> <a href="{{ order.view }}" data-toggle="tooltip" title="{{ button_view }}" class="btn btn-primary"><i class="fa fa-eye"></i>{{ button_view }}</a>
                             <button type="button" {% if (order.status!='Pending' and order.status!='On-Hold') or order.total=='$0' %} disabled {% endif%}  data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
                             <span class="caret"></span>
@@ -297,32 +296,38 @@ $('#button-filter').on('click', function() {
 	
 	function cancel(order_id){
 		//alert(order_id);
-	  $.ajax({
-				url: 'index.php?route=shopify/orders/cancel&order_id='+order_id,
-				dataType: 'json',
-				cache: false,
-				contentType: false,
-				processData: false,
-				beforeSend: function() {
-					  //$("#Synchronize").each(rotation);
-				},
-				complete: function() {
-					  //$("#Synchronize").stopRotate();
-				},
-				success: function(json) {
-					//alert(json['success']);
-					if (json['success']) {
-						$('#pay'+order_id).attr('disabled',"true");
-						$('#status'+order_id).html(json['status']);
-						$('#checkbox'+order_id).attr('disabled',"true");
-						//window.location.reload();
-						//window.location.href="index.php?route=shopify/orders#syn";
-					}
-				},
-				error: function(xhr, ajaxOptions, thrownError) {
-					//alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-				}
-			});
+		ShopifyApp.Modal.confirm("Are you sure cancel this order?", function(result){
+  			if(result){
+   				  $.ajax({
+				  url: 'index.php?route=shopify/orders/cancel&order_id='+order_id,
+				  dataType: 'json',
+				  cache: false,
+				  contentType: false,
+				  processData: false,
+				  beforeSend: function() {
+						//$("#Synchronize").each(rotation);
+				  },
+				  complete: function() {
+						//$("#Synchronize").stopRotate();
+				  },
+				  success: function(json) {
+					  //alert(json['success']);
+					  if (json['success']) {
+						  $('#pay'+order_id).attr('disabled',"true");
+						  $('#status'+order_id).html(json['status']);
+						  $('#checkbox'+order_id).attr('disabled',"true");
+						  //window.location.reload();
+						  //window.location.href="index.php?route=shopify/orders#syn";
+					  }
+				  },
+				  error: function(xhr, ajaxOptions, thrownError) {
+					  //alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				  }
+			  	});
+  			}
+  
+		});
+	 
 	}
 	
   function pay(){

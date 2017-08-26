@@ -192,17 +192,22 @@
         {% endif %}
           </tbody>
         
-      </table>
+      </table>order_status_id!=1 and order_status_id!=18
       {% endif %}-->
       <div class="buttons clearfix"> 
-        <div class="pull-right"><a href="{{ paid }}" {% if  haspay==1 %} disabled {% endif %} class="btn btn-success btn-xs" >{{ text_checkout }}</a></div>
+        <div class="pull-right">
+          <button type="button" {% if  haspay==1 %} disabled {% endif %} onClick="payclick('{{paid}}');" id="pay{{order.order_id}}"   class="btn btn-success btn-xs" > {% if order_status_id==17
+ or order_status_id==3 or order_status_id==5 ' %}{{ text_paid }}{% else %}{{ text_checkout }}{% endif %}</button>
+      </div>
       </div>
       </div>
     </div>
 </div>
 <script type="text/javascript"><!--
 
-
+	function payclick(url){
+			window.location.href=url;
+	}
   function update(order_product_id,node){
 	  var node2 = $(node).parent().parent().find('input[name^=\'quantity\']');
 	  //alert($(node2).val());
