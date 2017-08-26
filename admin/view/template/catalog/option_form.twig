@@ -313,7 +313,7 @@
   <script type="text/javascript" src="view/javascript/summernote/opencart.js"></script> 
 <script type="text/javascript"><!--
 
-function updateEdit(){
+function updateedit(){
 	$('[data-toggle=\'summernote\']').each(function() {
 		var element = this;
 		if ($(this).attr('data-lang')) {
@@ -411,7 +411,7 @@ $('#close').on('click', function() {
 function edit(option_value_row,textNode){
 	var text = $('#input-'+textNode+option_value_row).val();
 	$('#input-text-body').html(' <input type="hidden"  value="'+textNode+option_value_row+'" name="input_des_node" /><textarea name="product_description" placeholder="{{ entry_description }}" id="textarea-description" data-toggle="summernote" data-lang="{{ summernote }}"  class="form-control">'+text+'</textarea>');
-	updateEdit();
+	updateedit();
 	$('#des-body').attr ("style","display:block;");
 }
 //--></script>
