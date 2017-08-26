@@ -218,17 +218,22 @@ class ControllerShopifyCreateproduct extends Controller {
 			//}	
 			//$index++;
 		}
-	$options[0] = array(
+	   $optionsnew = array();
+	   $optionsnew[] = array(
 					'name'=>'Name',
 					'values'=>$option1
 			);
+		foreach($options as $opt){
+			$optionsnew[] = $opt;
+		}	
+			
 		$paoduct = array(
 							"title"=>$title,
 							"body_html"=> $pdsc,
 							"tags"=> $ptag ,
 							"vendor"=>  "vivajean",
 							"product_type"=>  $product_info['model'],
-							"options"=>$options,
+							"options"=>$optionsnew,
 							"variants"=>$variants,
 							"images"=>$images
 		);
