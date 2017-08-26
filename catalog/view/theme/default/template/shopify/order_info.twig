@@ -110,7 +110,7 @@
                 <button type="button" id="button-update{{ product.order_product_id }}" {% if  (order_status_id!=1 and order_status_id!=18) or product.total==0  %} disabled {% endif %} data-toggle="tooltip" onclick="update('{{ product.order_product_id }}',this);"  id="button-remove{{ product.order_product_id }}"  title="{{ button_update }}" {% if (order_status_id!=1 and order_status_id!=18) %} disabled {% endif %} class="btn btn-primary">
                 <i class="fa fa-refresh"></i>
                 </button>
-                <button type="button" {% if (order_status_id!=1 and order_status_id!=18) or product.total==0  %} disabled {% endif %} data-toggle="tooltip" title="{{ text_remove }}" class="btn btn-danger" onclick="updateOrderProduct('{{ product.order_product_id }}',0);">
+                <button type="button" {% if (order_status_id!=1 and order_status_id!=18) or product.total==0  %} disabled {% endif %} data-toggle="tooltip" title="{{ text_remove }}" class="btn btn-danger" onclick="removeItem('{{ product.order_product_id }}',0);">
                 <i class="fa fa-times-circle"></i>
                 </button>
                 </span></div></td>
@@ -226,6 +226,16 @@
 				}
 			});
   }
+  
+  function removeItem(order_product_id,quantity){
+	  
+	  ShopifyApp.Modal.confirm("Are you sure remove this item?", function(result){
+  if(result){
+    updateOrderProduct(order_product_id,quantity);
+  }
+  
+});
+}
   
   function updateOrderProduct(order_product_id,quantity){
 	  var formData =  new FormData();
