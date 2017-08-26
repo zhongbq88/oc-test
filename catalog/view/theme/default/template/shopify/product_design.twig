@@ -15,7 +15,7 @@
             <i class="fa fa-caret-down" style="margin-left:12px;"></i></a>
             <div>
               <input type="text" name="variant[{{ option.product_option_id }}]" value="{{ option.name }}{{ loop.index }}" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  />
-              <img src="/storage/upload/2.jpg.l3rsDvrrEwgBJgYsCBj4fNyfx5g2mYy0" style=" float:right;  width: auto; height:35px; display:none " id="src-option{{ option.product_option_id }}"  /></div>
+            <div style="float:right;margin-top:-9px;"><img src="" id="src-option{{ option.product_option_id }}"  style="display:none;"/></div></div>
           </h4>
         </div>
         <div id="collapse{{options_array[loop.index]}}" class="panel-collapse collapse {% if loop.index==1 %}in {% endif %}">
@@ -197,6 +197,7 @@
 						$('.text-danger').remove();
 						//alert(json['src']+","+json['preimg']+","+json['code']);
 						document.getElementById("src-option"+product_option_id).src = json['src'];
+						$("#src-option"+product_option_id).attr ("style","display:block;");
 						//alert(json['preimg']);
 						if(json['preimg']){
 							//alert(document.getElementById("option_image"+option_image_id));
