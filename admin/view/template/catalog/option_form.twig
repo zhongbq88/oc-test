@@ -213,13 +213,19 @@
                   
                   </td>
                   <td class="text-center" >
-                  <button type="button" onclick="edit({{ option_value_row }},'text')" data-toggle="tooltip"  class="btn btn-primary"><i class="fa fa-pencil"></i>编辑详情</button>
+                  <button type="button" onclick="edit({{ option_value_row }},'text')" data-toggle="tooltip"  class="btn btn-primary"><i class="fa fa-pencil"></i>产品详情</button>
+                    {% for language in languages %}
+                   <input type="hidden" name="option_value[{{ option_value_row }}][option_value_description][{{ language.language_id }}][text]" value="" id="input-text{{ option_value_row }}" />
+                   
+                  {% endfor %}
                   
-                   <input type="hidden" name="option_value[{{ option_value_row }}][text]" value="" id="input-text{{ option_value_row }}" />
                   </td>
                    <td class="text-center" >
-                    <button type="button" onclick="edit({{ option_value_row }},'des')" data-toggle="tooltip"  class="btn btn-primary"><i class="fa fa-pencil"></i>编辑描述</button>
-                   <input type="hidden" name="option_value[{{ option_value_row }}][des]" value="" id="input-des{{ option_value_row }}" />
+                    <button type="button" onclick="edit({{ option_value_row }},'des')" data-toggle="tooltip"  class="btn btn-primary"><i class="fa fa-pencil"></i>设计描述</button>
+                     {% for language in languages %}
+                   <input type="hidden" name="option_value[{{ option_value_row }}][option_value_description][{{ language.language_id }}][des]" value="" id="input-des{{ option_value_row }}" />
+                   
+                  {% endfor %}
                   </td>
                   <td class="text-left">
                   <div class="table-responsive">
@@ -277,48 +283,35 @@
       </div>
     </div>
   </div>
-  <div id="modal-text" class="modal in" style="display: none;"><div id="filemanager" class="modal-dialog modal-lg">
-  <div class="modal-content">
-    <div class="modal-header">
-    <button type="button" style="float:right; margin-left:10px;" data-toggle="tooltip" title="" id="close" class="btn btn-default" data-original-title="Save"><i class="fa fa-reply"></i></button><button type="button" id ='textsave' style="float:right" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Save"><i class="fa fa-save"></i></button>
-    
-      <h4 class="modal-title">编辑</h4>
-    </div>
-     <div class="modal-body">
-           <div class="row">
-       <div class="col-sm-10" style="width:100%;">
-       <input type="hidden" id="text-node" value=""/>
-                      <textarea name="product_description" placeholder="{{ entry_description }}" id="input-description" data-toggle="summernote" data-lang="{{ summernote }}"  class="form-control"></textarea>
-       </div>
-  </div>
-     </div>
-    </div>
-</div>
-</div>
-    <link href="view/javascript/codemirror/lib/codemirror.css" rel="stylesheet" />
-  <link href="view/javascript/codemirror/theme/monokai.css" rel="stylesheet" />
-  <script type="text/javascript" src="view/javascript/codemirror/lib/codemirror.js"></script> 
-  <script type="text/javascript" src="view/javascript/codemirror/lib/xml.js"></script> 
-  <script type="text/javascript" src="view/javascript/codemirror/lib/formatting.js"></script> 
-  <script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
-  <link href="view/javascript/summernote/summernote.css" rel="stylesheet" />
-  <script type="text/javascript" src="view/javascript/summernote/summernote-image-attributes.js"></script> 
-  <script type="text/javascript" src="view/javascript/summernote/opencart.js"></script> 
-<script type="text/javascript"><!--
-$('#close').on('click', function() {
-	$('#modal-text').attr ("style","display:none;");
-});
-$('#textsave').on('click', function() {
-	var node = $('#text-node').val();
-	$('input[name=\'option_value'+node+'\']').val($('textarea[name=\'product_description\']').val());
-	$('#modal-text').attr ("style","display:none;");
-});
+  <div id="des-body"></div>
+ <script type="text/javascript">
+ 
+ function textsave(text,node){
+	 $('#input-'+node).val(text);
+	 $('#des-body').html('');
+}
 function edit(option_value_row,textNode){
-	//$("#select_options"+product_option_id).attr ("style","display:none;");
-	document.getElementById('input-description').innerText=$('input[name=\'option_value['+option_value_row+']['+textNode+']\']').val();
-	$('#text-node').val('['+option_value_row+']['+textNode+']');
-	$('#modal-text').attr ("style","display:block;");
-	// $('#option-edit').arr(json['success']);
+	 var text = $('#input-'+textNode+option_value_row).val();
+	 var formData =  new FormData();
+	 formData.append("node",textNode+option_value_row);
+	  formData.append("text",text);
+	  $.ajax({
+				url: 'index.php?route=catalog/option/editText&user_token={{ user_token }}',
+				type: 'post',
+				data: formData,
+				dataType: 'json',
+				cache: false,
+				contentType: false,
+				processData: false,
+				success: function(json) {
+					if (json['success']) {
+						$('#des-body').html(json['success']);
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
 }
 //--></script>
   <script type="text/javascript"><!--

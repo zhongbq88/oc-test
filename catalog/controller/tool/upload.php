@@ -93,6 +93,7 @@ class ControllerToolUpload extends Controller {
 				$host = $this->config->get('config_url');
 			}
 			$this->load->model('shopify/image');
+			
 			$src = DIR_IMAGE.str_replace($host."image/",'',$src);
 			$src = str_replace(".jpg",'.png',$src);
 			$savepat = DIR_IMAGE."/catalog/designs/";
@@ -101,6 +102,9 @@ class ControllerToolUpload extends Controller {
 			if(file_exists($src)||file_exists($src.'.mbg.png')){
 				$ttt =  $this->model_shopify_image->merge(DIR_UPLOAD . $file,$src,$savepat);
 				$json['preimg'] = $host."image/catalog/designs/" . $ttt;
+				$array = getimagesize( DIR_IMAGE."/catalog/designs/" . $ttt); 
+				//print_r($array);
+				$json['viewimg'] = $this->model_shopify_image->resize("/catalog/designs/".$ttt, $array[0]/4, $array[1]/4);
 			}
 			$json['success'] = $this->language->get('text_upload');
 		}

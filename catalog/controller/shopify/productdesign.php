@@ -319,7 +319,7 @@ class ControllerShopifyProductdesign extends Controller {
 				$count = count($option['product_option_value']);
 				foreach ($option['product_option_value'] as $option_value) {
 					if($count<=1){
-						$option_image_view= $this->getOptionImageView($product_id,$option_value['option_value_id'],$option['product_option_id'],0);
+						$option_image_view= $this->getOptionImageView($product_id,$option_value['option_value_id'],$option['product_option_id'],0,$option_value['option_design_desc']);
 					}else{
 						if (!$option_value['subtract'] || ($option_value['quantity'] > 0)) {
 						if ((($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) && (float)$option_value['price']) {
@@ -327,11 +327,13 @@ class ControllerShopifyProductdesign extends Controller {
 						} else {
 							$price = false;
 						}
-
+						print_r($option_value);
 						$product_option_value_data[] = array(
 							'product_option_value_id' => $option_value['product_option_value_id'],
 							'option_value_id'         => $option_value['option_value_id'],
 							'name'                    => $option_value['name'],
+							'option_description'      => $option_value['option_description'],
+							'option_design_desc'      => $product_option_value['option_design_desc'],
 							'image'                   => $this->model_tool_image->resize($option_value['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_height')),
 							'price'                   => $price,
 							'price_prefix'            => $option_value['price_prefix']
@@ -567,9 +569,12 @@ $data['footer'] = $this->load->controller('shopify/footer');
 			//print_r($option);
 			//print_r($pimgs);
 			//echo 'pimgstwo'.json_encode($pimgstwo);
+			$this->load->model('shopify/image');
 			$images = array();
+			$thumbnail = array();
 			//print_r($option);
 			$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
+			$option_descriptions='';
 			//print_r($product_options);
 			foreach ($product_options as $product_option) {
 				//print_r($product_option);
@@ -585,23 +590,34 @@ $data['footer'] = $this->load->controller('shopify/footer');
 									$image = $pimgs[$product_option['product_option_id']][$option_images[0]['option_image_id']];				//echo count($option_images);
 									if(!empty($image)){
 										$imgs = array();
-									if(count($option_images)>1){
-										$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
-										$imgs[1] = str_replace(HTTP_SERVER,'/',$pimgs[$product_option['product_option_id']][$option_images[1]['option_image_id']]);
-										$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
-										$imgs[1] = str_replace('/image/',DIR_IMAGE,$imgs[1]);
-										$image = 'catalog/designs/'.$product_option['product_option_id'].'_'.$this->customer->getId().'_'.time().".jpg";
-										$this->createImage($imgs,DIR_IMAGE.$image);
-										$image = "image/".$image;
-									}else{
-										$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
-										$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
-										$image = 'catalog/designs/'.$product_option['product_option_id'].'_'.$this->customer->getId().'_'.time().".jpg";
-										//print_r($imgs[0]);
-										$this->createImage($imgs,DIR_IMAGE.$image);
-										$image = "image/".$image;
-									}
-									$images[] = array($product_option['product_option_id']=>$image);
+										$thumb;
+										if(count($option_images)>1){
+											$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
+											$imgs[1] = str_replace(HTTP_SERVER,'/',$pimgs[$product_option['product_option_id']][$option_images[1]['option_image_id']]);
+											$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
+											$imgs[1] = str_replace('/image/',DIR_IMAGE,$imgs[1]);
+											$image = 'catalog/designs/'.$product_option['product_option_id'].'_'.$this->customer->getId().'_'.time().".jpg";
+											$this->createImage($imgs,DIR_IMAGE.$image);
+											$thumb = $image;
+											$image = "image/".$image;
+										}else{
+											$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
+											$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
+											$image = 'catalog/designs/'.$product_option['product_option_id'].'_'.$this->customer->getId().'_'.time().".jpg";
+											//print_r($imgs[0]);
+											$this->createImage($imgs,DIR_IMAGE.$image);
+											$thumb = $image;
+											$image = "image/".$image;
+										}
+										$images[] = array(
+										$product_option['product_option_id']=>$image
+										);
+										
+										$array = getimagesize(DIR_IMAGE.$thumb); 
+										$thumbnail[] = array(
+										$product_option['product_option_id']=>$this->model_shopify_image->resize($thumb, $array[0]/4, $array[1]/4)
+										);
+										$option_descriptions .=$option_value['option_description'].'\n';
 									}
 									
 								}
@@ -633,8 +649,9 @@ $data['footer'] = $this->load->controller('shopify/footer');
 			}
 
 			if (!$json) {
-				
+				$json['thumbnail']=$thumbnail;
 				$json['images'] = $images;
+				$json['option_descriptions'] = $option_descriptions;
 				//$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('shopify/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
 				// Unset all shipping and payment methods
@@ -1268,14 +1285,17 @@ print_r($this->cart->getProducts());
 		} else {
 			$product_option_id = 0;
 		}
+		$this->load->model('shopify/product');
+		//print_r($option_value_id);
+		$option = $this->model_shopify_product->getOptionValue($option_value_id);
 		
 		$json = array();
-		$json['success'] = $this->getOptionImageView($product_id,$option_value_id,$product_option_id,1);
+		$json['success'] = $this->getOptionImageView($product_id,$option_value_id,$product_option_id,1,isset($option['option_design_desc'])?$option['option_design_desc']:'');
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
 	
-	public function getOptionImageView($product_id,$option_value_id,$product_option_id,$change){
+	public function getOptionImageView($product_id,$option_value_id,$product_option_id,$change,$option_design_desc){
 		$this->load->language('shopify/product');
 		$this->load->model('tool/image');
 		$this->load->model('catalog/product');
@@ -1299,7 +1319,7 @@ print_r($this->cart->getProducts());
 		$data['product_option_id'] = $product_option_id;
 		$data['option_id'] = $option_id;
 		$data['product_id'] = $product_id;
-		$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
+		$data['option_design_desc'] = html_entity_decode($option_design_desc, ENT_QUOTES, 'UTF-8');
 		$data['price'] = $product_info['price'];
 		$data['name'] = $product_info['meta_title'];
 		$data['change'] = $change;

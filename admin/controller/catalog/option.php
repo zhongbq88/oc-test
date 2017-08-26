@@ -541,8 +541,16 @@ class ControllerCatalogOption extends Controller {
 	
 	public function editText(){
 		$data = array();
-		$data['text'] = $this->request->post['text'];
-		$json['success']=$this->load->view('catalog/edit', $data);
-		$this->response->setOutput(json_encode($json));
+		if(isset($this->request->post['save'])){
+			$node = $this->request->post['node'];
+			$text = $this->request->post['save'];
+			$this->session->data[$node] = $text;
+		}else{
+			$data['node'] = $this->request->post['node'];
+			$data['text'] = $this->request->post['text'];
+			$json['success']=$this->load->view('catalog/edit', $data);
+			$this->response->setOutput(json_encode($json));
+		}
+		
 	}
 }

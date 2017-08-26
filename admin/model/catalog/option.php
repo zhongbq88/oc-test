@@ -29,6 +29,7 @@ class ModelCatalogOption extends Model {
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "option_description WHERE option_id = '" . (int)$option_id . "'");
 
+		//print_r($data['option_description']);
 		foreach ($data['option_description'] as $language_id => $value) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "option_description SET option_id = '" . (int)$option_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "'");
 		}
@@ -60,7 +61,7 @@ class ModelCatalogOption extends Model {
 				}
 
 				foreach ($option_value['option_value_description'] as $language_id => $option_value_description) {
-					$this->db->query("INSERT INTO " . DB_PREFIX . "option_value_description SET option_value_id = '" . (int)$option_value_id . "', language_id = '" . (int)$language_id . "', option_id = '" . (int)$option_id . "', name = '" . $this->db->escape($option_value_description['name']) . "'");
+					$this->db->query("INSERT INTO " . DB_PREFIX . "option_value_description SET option_value_id = '" . (int)$option_value_id . "', language_id = '" . (int)$language_id . "', option_id = '" . (int)$option_id . "', name = '" . $this->db->escape($option_value_description['name']) . "', option_description = '" . $this->db->escape(html_entity_decode($option_value_description['text'])) . "', option_design_desc = '" . $this->db->escape(html_entity_decode($option_value_description['des'])) . "'");
 				}
 				$index++;
 			}

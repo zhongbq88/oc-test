@@ -1,4 +1,5 @@
 {{ header }}
+<!-- <div class="modal-backdrop in" style="text-align:center;" ><div style="text-align:center; position:absolute;margin-left:auto;margin-right:auto;" ><img src="catalog/view/theme/default/image/loading_a.gif" style="text-align:center;"></div></div>-->
 <div id="product-product" class="container">
   <input type="hidden" name="product_id" value="{{ product_id }}" />
   <div id="product"> {% if options %}
@@ -61,15 +62,15 @@
   <div id="theme-content" style="display:none" >
     <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false"   >
       <div class="vc_span12 wpb_column column_container " >
-        <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> <b> {{cover}} -  {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} {{each}}</b><br>
-          &nbsp; </div>
+      <!--  <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> <b> {{product_title}} -  {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} each</b><br>
+          &nbsp; </div>-->
       </div>
       <div  style="border:1px solid #CCC;background-color:#F4F4F4;padding:12px; overflow:hidden; " >
         <form id="pubform">
           <div style="float:left; width:70%">
             <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false" >
               <div style="text-align:left" class="vc_span9 wpb_column column_container ">
-                <div id="mk-text-block-221" style=" margin-bottom:10px;text-align: left;font-size:22px;font-weight:bold" class="mk-text-block  "> {{cover}} - {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:10px;text-align: left;font-size:22px;font-weight:bold" class="mk-text-block  "> {{heading_title}} - {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} each</div>
                 <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;font-size:12px" class="mk-text-block  "> {{shopify_product_des}} </div>
                 <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{product_title}} </div>
                 <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
@@ -77,7 +78,7 @@
                 </div>
                 <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{product_description}} </div>
                 <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
-                  <textarea name="pdsc" style="width:500px;height:100px">{{ description }}</textarea>
+                  <textarea name="pdsc" id="pdsc" style="width:500px;height:100px">{{ description }}</textarea>
                 </div>
                 <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{add_to_shopify_collection}} </div>
                 <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
@@ -111,6 +112,7 @@
   <!--edit shopify produce end--> </div>
 </div>
 </div>
+<!--<div class="modal-backdrop in"></div>-->
 <script type="text/javascript"><!--
 
  function loadDesignImage(option_value_id,product_id,option_id,product_option_id){
@@ -177,6 +179,7 @@
 				processData: false,
 				beforeSend: function() {
 					//alert(123);
+					$('#loading'+product_option_id+"_"+option_image_id).attr ("style","display:block;");
 					$('#upload_text'+product_option_id+"_"+option_image_id).text('{{text_loading}}');
 				},
 				complete: function() {
@@ -197,7 +200,7 @@
 						//alert(json['preimg']);
 						if(json['preimg']){
 							//alert(document.getElementById("option_image"+option_image_id));
-							document.getElementById("option_image"+product_option_id+"_"+option_image_id).src = json['preimg'];
+							document.getElementById("option_image"+product_option_id+"_"+option_image_id).src = json['viewimg'];
 							//$('#thumbnail'+option_id).attr('href',json['preimg']); 
 							$("#option-img"+product_option_id+"_"+option_image_id).val(json['preimg']);
 						}
@@ -205,11 +208,11 @@
 						//$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
 						
 						$("#input-option"+product_option_id+"_"+option_image_id).val(json['code']);
-						setTimeout(function(){
-							$('#upload_text'+product_option_id+"_"+option_image_id).text('{{button_upload}}');
-						},2000); 
-						
 					}
+		  
+				  $('#loading'+product_option_id+"_"+option_image_id).attr ("style","display:none;");
+				  $('#upload_text'+product_option_id+"_"+option_image_id).text('{{button_upload}}');
+						 
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
 					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
@@ -319,6 +322,9 @@ $('#button-review').on('click', function() {
 				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
 
 				$('html, body').animate({ scrollTop: 0 }, 'slow');
+				if(json['option_descriptions']){
+					$('#pdsc').val(json['option_descriptions']);
+				}
 
 				//$('#cart > ul').load('index.php?route=common/cart/info ul li');
 				//alert($json['images']);
@@ -329,7 +335,7 @@ $('#button-review').on('click', function() {
 						//alert(i);
 						for (var i in json['images'][j]) {
 						//alert(i);
-						$(".preview-thumbnails").append('<li style="list-style-type:none;" > <input type="hidden" name="imgs['+i+']" value="'+json['images'][j][i]+'" id="input-imgs'+i+'" /><a class="thumbnail" href="'+json['images'][j][i]+'" title="{{ heading_title }}" style="border:none;"><img src="'+json['images'][j][i]+'" style="width: 228px; height:auto;" /></a></li>');
+						$(".preview-thumbnails").append('<li style="list-style-type:none;" > <input type="hidden" name="imgs['+i+']" value="'+json['images'][j][i]+'" id="input-imgs'+i+'" /><a class="thumbnail" href="'+json['images'][j][i]+'" title="{{ heading_title }}" style="border:none;"><img src="'+json['thumbnail'][j][i]+'" style="width: 228px; height:auto;" /></a></li>');
 					}
 					}
 				}else{

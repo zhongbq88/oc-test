@@ -227,7 +227,7 @@ class ControllerShopifyCreateproduct extends Controller {
 							"images"=>$images
 		);
 		//print_r($paoduct);
-		$this->save($paoduct,$product_id,$images,$variants);
+		//$this->save($paoduct,$product_id,$images,$variants);
 	}
 	
 	public function save($paoduct,$product_id,$images,$variants){

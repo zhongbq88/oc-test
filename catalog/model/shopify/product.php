@@ -326,6 +326,11 @@ class ModelShopifyProduct extends Model {
 
 		return $query->row;
 	}
+	
+	public function getOptionValue($option_value_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value_description WHERE option_value_id = '" . (int)$option_value_id . "' AND language_id = '" . (int)$this->config->get('config_language_id') . "'");
+		return $query->row;
+	}
 
 	public function getProductImages($product_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_image WHERE product_id = '" . (int)$product_id . "' ORDER BY sort_order ASC");
