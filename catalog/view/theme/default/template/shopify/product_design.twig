@@ -300,9 +300,9 @@ $('#button-review').on('click', function() {
 						var element = $('#input-option' + i.replace('_', '-'));
 
 						if (element.parent().hasClass('input-group')) {
-							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+							element.parent().after('<div class="text-danger"><h4>' + json['error']['option'][i] + '</h4></div>');
 						} else {
-							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+							element.after('<div class="text-danger"><h4>' + json['error']['option'][i] + '</h4></div>');
 						}
 					}
 				}
