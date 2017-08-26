@@ -136,7 +136,7 @@ class ControllerShopifyCreateproduct extends Controller {
 		//$count = count($order_option);
 		//print_r($option_data);
 		//$result = array();
-		$result = $this->calculateCombination($option_data, 0,$arr = array(),$arr2=array());
+		$result = $this->calculateCombination($option_data, 1,$arr = array(),$arr2=array());
 		//print_r('result'.$result);
 		$this->load->model('shopify/order');
 		//print_r($option);
