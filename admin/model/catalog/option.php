@@ -61,7 +61,7 @@ class ModelCatalogOption extends Model {
 				}
 
 				foreach ($option_value['option_value_description'] as $language_id => $option_value_description) {
-					$this->db->query("INSERT INTO " . DB_PREFIX . "option_value_description SET option_value_id = '" . (int)$option_value_id . "', language_id = '" . (int)$language_id . "', option_id = '" . (int)$option_id . "', name = '" . $this->db->escape($option_value_description['name']) . "', option_description = '" . $this->db->escape(html_entity_decode($option_value_description['text'])) . "', option_design_desc = '" . $this->db->escape(html_entity_decode($option_value_description['des'])) . "'");
+					$this->db->query("INSERT INTO " . DB_PREFIX . "option_value_description SET option_value_id = '" . (int)$option_value_id . "', language_id = '" . (int)$language_id . "', option_id = '" . (int)$option_id . "', name = '" . $this->db->escape($option_value_description['name']) . "', option_description = '" . $this->db->escape(html_entity_decode($option_value_description['option_description'])) . "', option_design_desc = '" . $this->db->escape(html_entity_decode($option_value_description['option_design_desc'])) . "'");
 				}
 				$index++;
 			}
@@ -201,7 +201,11 @@ public function editOption1($option_id, $data) {
 			$option_value_description_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value_description WHERE option_value_id = '" . (int)$option_value['option_value_id'] . "'");
 
 			foreach ($option_value_description_query->rows as $option_value_description) {
-				$option_value_description_data[$option_value_description['language_id']] = array('name' => $option_value_description['name']);
+				$option_value_description_data[$option_value_description['language_id']] = array('name' => $option_value_description['name'],
+				'option_description' => $option_value_description['option_description'],
+				'option_design_desc' => $option_value_description['option_design_desc']
+				
+				);
 			}
 
 			$option_value_data[] = array(
