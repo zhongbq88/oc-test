@@ -1020,11 +1020,11 @@ $data['footer'] = $this->load->controller('shopify/footer');
 
 			$order_data['products'] = array();
 			
-print_r($this->cart->getProducts());
+//print_r($this->cart->getProducts());
 			foreach ($this->cart->getProducts() as $product) {
 				$option_data = array();
 				//$this->session->data['cart_id'] = $product['cart_id'];
-				print_r($product['option']);
+				//print_r($product['option']);
 				foreach ($product['option'] as $option) {
 					$option_data[] = array(
 						'product_option_id'       => $option['product_option_id'],
