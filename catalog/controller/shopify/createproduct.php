@@ -126,7 +126,7 @@ class ControllerShopifyCreateproduct extends Controller {
 		if($optionColors){
 			$options[$index] = array(
 					'name'=>'Color',
-					'values'=>$optionColors
+					'values'=>array_unique($optionColors)
 			);
 			$index++;
 		}
