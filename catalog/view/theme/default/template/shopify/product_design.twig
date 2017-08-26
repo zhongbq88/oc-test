@@ -408,7 +408,7 @@ $('button[id^=\'button-upload\']').on('click', function() {
 					$('.text-danger').remove();
 
 					if (json['error']) {
-						$(node).parent().find('input').after('<div class="text-danger"><h4>' + json['error'] + '<h4></div>');
+						$(node).parent().find('input').after('<div class="text-danger"><h3>' + json['error'] + '<h3></div>');
 					}
 
 					if (json['success']) {
