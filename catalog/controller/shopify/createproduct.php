@@ -226,10 +226,9 @@ class ControllerShopifyCreateproduct extends Controller {
 		foreach($options as $opt){
 			$optionsnew[] = $opt;
 		}	
-			
 		$paoduct = array(
 							"title"=>$title,
-							"body_html"=> $pdsc,
+							"body_html"=> html_entity_decode($pdsc),
 							"tags"=> $ptag ,
 							"vendor"=>  "vivajean",
 							"product_type"=>  $product_info['model'],
@@ -237,8 +236,8 @@ class ControllerShopifyCreateproduct extends Controller {
 							"variants"=>$variants,
 							"images"=>$images
 		);
-		//print_r($paoduct);
-		$this->save($paoduct,$product_id,$images,$variants);
+		print_r($paoduct);
+		//$this->save($paoduct,$product_id,$images,$variants);
 	}
 	
 	public function save($paoduct,$product_id,$images,$variants){

@@ -617,7 +617,7 @@ $data['footer'] = $this->load->controller('shopify/footer');
 										$thumbnail[] = array(
 										$product_option['product_option_id']=>$this->model_shopify_image->resize($thumb, $array[0]/4, $array[1]/4)
 										);
-										$option_descriptions .=$option_value['option_description'].'\n';
+										$option_descriptions .= html_entity_decode($option_value['option_description'], ENT_QUOTES, 'UTF-8').'<br>';
 									}
 									
 								}
