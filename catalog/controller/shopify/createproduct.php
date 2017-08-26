@@ -64,7 +64,7 @@ class ControllerShopifyCreateproduct extends Controller {
 		//echo 'au='.$this->session->data['oauth_token'] ;
 		//echo 'shop='.$this->session->data['shop'] ;
 		//echo "count=".$count;
-		$index =0;
+		$index =1;
 		$imgs    = array();
 		$productoption = $this->model_catalog_product->getProductOptions($product_id);
 		//print_r($productoption);
@@ -140,7 +140,7 @@ class ControllerShopifyCreateproduct extends Controller {
 		//print_r('result'.$result);
 		$this->load->model('shopify/order');
 		//print_r($option);
-		
+		$option1 = array();
 		
 		foreach ($pimgs as $key => $value) {
 			$count = 0;
@@ -174,7 +174,7 @@ class ControllerShopifyCreateproduct extends Controller {
 							$optionIndex++;
 							$opt .=$oo[0];
 						}
-						$variant1['option1'] = isset($variant[$key])?$variant[$key]:$product_info['name'].' '.$optionColors[$index].'/'.$opt;
+						$option1[] = $variant1['option1'] = isset($variant[$key])?$variant[$key]:$product_info['name'].' '.$optionColors[$index].'/'.$opt;
 						$variants[]  = $variant1;
 						}
 					}else{
@@ -198,7 +198,7 @@ class ControllerShopifyCreateproduct extends Controller {
 						} else {
 							$optionl = 'option'.$index;
 						}*/
-						
+						$option1[] = isset($variant[$key])?$variant[$key]:'option'.$index;
 						
 						$variants[] = array(
 							'option1' => isset($variant[$key])?$variant[$key]:'option'.$index,
@@ -218,7 +218,10 @@ class ControllerShopifyCreateproduct extends Controller {
 			//}	
 			//$index++;
 		}
-
+	$options[0] = array(
+					'name'=>'Name',
+					'values'=>$option1
+			);
 		$paoduct = array(
 							"title"=>$title,
 							"body_html"=> $pdsc,
