@@ -105,9 +105,7 @@ class ControllerShopifyCreateproduct extends Controller {
 								  }*/
 								}
 								if(!empty($img)){
-									if(!in_array($option_value['name'],$optionColors)){
-										$optionColors[] = $option_value['name'];
-									}
+									$optionColors[] = $option_value['name'];
 									$imgs[$opt['product_option_id']]= $img;
 								}
 								
@@ -167,13 +165,16 @@ class ControllerShopifyCreateproduct extends Controller {
 							"price"=>$pspr,
 							"sku"=> $product_info['sku'].".".$sku_id
 						);
-						$optionIndex =1;
+						$optionIndex =3;
+						$opt='';
 						foreach($v  as $o){
 							$oo = explode(":",$o);
 							$oo = explode(",",$oo[1]);
 							$variant1["option".$optionIndex] = $oo[0];
 							$optionIndex++;
+							$opt .=$oo[0];
 						}
+						$variant1['option1'] = isset($variant[$key])?$variant[$key]:$product_info['name'].' '.$optionColors[$index].'/'.$opt;
 						$variants[]  = $variant1;
 						}
 					}else{
