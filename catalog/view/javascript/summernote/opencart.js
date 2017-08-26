@@ -1,5 +1,9 @@
 $(document).ready(function() {
 	// Override summernotes image manager
+	updateEdit();
+});
+
+function updateEdit(){
 	$('[data-toggle=\'summernote\']').each(function() {
 		var element = this;
 		
@@ -82,4 +86,4 @@ $(document).ready(function() {
   			}
 		});
 	});
-});
+}

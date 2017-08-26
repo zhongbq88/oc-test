@@ -283,35 +283,51 @@
       </div>
     </div>
   </div>
-  <div id="des-body"></div>
+  <div id="des-body" style="display:none;" >
+  <div id="input-body" >
+ <div class="modal-backdrop in"></div>
+ <div id="modal-text" class="modal in" style="display: block;" ><div id="filemanager" class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" style="float:right; margin-left:10px;" data-toggle="tooltip" title="" id="close" class="btn btn-default" data-original-title="Save"><i class="fa fa-reply"></i></button><button type="button" onclick="textsave($('textarea[name=\'product_description\']').val(),$('input[name=\'input_des_node\']').val());" style="float:right" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Save"><i class="fa fa-save"></i></button> 
+      <h4 class="modal-title">编辑</h4>
+    </div>
+     <div class="modal-body">
+           <div class="row">
+       <div class="col-sm-10" id="input-text-body" style="width:100%;">           
+       </div>
+  </div>
+     </div>
+    </div>
+</div>
+</div>
+
+    <link href="view/javascript/codemirror/lib/codemirror.css" rel="stylesheet" />
+  <link href="view/javascript/codemirror/theme/monokai.css" rel="stylesheet" />
+  <script type="text/javascript" src="view/javascript/codemirror/lib/codemirror.js"></script> 
+  <script type="text/javascript" src="view/javascript/codemirror/lib/xml.js"></script> 
+  <script type="text/javascript" src="view/javascript/codemirror/lib/formatting.js"></script> 
+  <script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
+  <link href="view/javascript/summernote/summernote.css" rel="stylesheet" />
+  <script type="text/javascript" src="view/javascript/summernote/summernote-image-attributes.js"></script> 
+  <script type="text/javascript" src="view/javascript/summernote/opencart.js"></script> 
+<script type="text/javascript"><!--
+$('#close').on('click', function() {
+	$('#des-body').attr ("style","display:none;");
+}); 
+</script> 
+  </div>
  <script type="text/javascript">
  
  function textsave(text,node){
 	 $('#input-'+node).val(text);
-	 $('#des-body').html('');
+	 $('#des-body').attr ("style","display:none;");
 }
 function edit(option_value_row,textNode){
-	 var text = $('#input-'+textNode+option_value_row).val();
-	 var formData =  new FormData();
-	 formData.append("node",textNode+option_value_row);
-	  formData.append("text",text);
-	  $.ajax({
-				url: 'index.php?route=catalog/option/editText&user_token={{ user_token }}',
-				type: 'post',
-				data: formData,
-				dataType: 'json',
-				cache: false,
-				contentType: false,
-				processData: false,
-				success: function(json) {
-					if (json['success']) {
-						$('#des-body').html(json['success']);
-					}
-				},
-				error: function(xhr, ajaxOptions, thrownError) {
-					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-				}
-			});
+	var text = $('#input-'+textNode+option_value_row).val();
+	$('#input-text-body').html(' <input type="hidden"  value="'+textNode+option_value_row+'" name="input_des_node" /><textarea name="product_description" placeholder="{{ entry_description }}" id="textarea-description" data-toggle="summernote" data-lang="{{ summernote }}"  class="form-control">'+text+'</textarea>');
+	updateEdit();
+	$('#des-body').attr ("style","display:block;");
 }
 //--></script>
   <script type="text/javascript"><!--
@@ -391,7 +407,89 @@ $('select[name=\'type\']').trigger('change');
 
 
 
+function updateEdit(){
+	$('[data-toggle=\'summernote\']').each(function() {
+		var element = this;
+		if ($(this).attr('data-lang')) {
+			$('head').append('<script type="text/javascript" src="view/javascript/summernote/lang/summernote-' + $(this).attr('data-lang') + '.js"></script>');
+		}
 
+		$(element).summernote({
+			lang: $(this).attr('data-lang'),
+			disableDragAndDrop: true,
+			height: 300,
+			emptyPara: '',
+			codemirror: { // codemirror options
+				mode: 'text/html',
+				htmlMode: true,
+				lineNumbers: true,
+				theme: 'monokai'
+			},			
+			fontsize: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24', '30', '36', '48' , '64'],
+			toolbar: [
+				['style', ['style']],
+				['font', ['bold', 'underline', 'clear']],
+				['fontname', ['fontname']],
+				['fontsize', ['fontsize']],
+				['color', ['color']],
+				['para', ['ul', 'ol', 'paragraph']],
+				['table', ['table']],
+				['insert', ['link', 'image', 'video']],
+				['view', ['fullscreen', 'codeview', 'help']]
+			],
+			popover: {
+           		image: [
+					['custom', ['imageAttributes']],
+					['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+					['float', ['floatLeft', 'floatRight', 'floatNone']],
+					['remove', ['removeMedia']]
+				],
+			},			
+			buttons: {
+    			image: function() {
+					var ui = $.summernote.ui;
+							
+					// create button
+					var button = ui.button({
+						contents: '<i class="note-icon-picture" />',
+						tooltip: $.summernote.lang[$.summernote.options.lang].image.image,
+						click: function () {
+							$('#modal-image').remove();
+							
+							$.ajax({
+								url: 'index.php?route=common/filemanager&user_token=' + getURLVar('user_token'),
+								dataType: 'html',
+								beforeSend: function() {
+									$('#button-image i').replaceWith('<i class="fa fa-circle-o-notch fa-spin"></i>');
+									$('#button-image').prop('disabled', true);
+								},
+								complete: function() {
+									$('#button-image i').replaceWith('<i class="fa fa-upload"></i>');
+									$('#button-image').prop('disabled', false);
+								},
+								success: function(html) {
+									$('body').append('<div id="modal-image" class="modal">' + html + '</div>');
+									
+									$('#modal-image').modal('show');
+									
+									$('#modal-image').delegate('a.thumbnail', 'click', function(e) {
+										e.preventDefault();
+										
+										$(element).summernote('insertImage', $(this).attr('href'));
+																	
+										$('#modal-image').modal('hide');
+									});
+								}
+							});						
+						}
+					});
+				
+					return button.render();
+				}
+  			}
+		});
+	});
+}
 
 
 
