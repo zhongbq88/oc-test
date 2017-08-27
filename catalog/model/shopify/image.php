@@ -33,7 +33,8 @@ class ModelShopifyImage extends Model {
 		$photoArray =   explode('/',$uploadPath);
     	$fileName   =   explode('.',end($photoArray));
     	$fileName   =   $fileName[0]."_".time().'_n.png';
-		imagepng($mergeimg,$savePath.$fileName,8);
+		$this->mergeTop($sourePath,$mergeimg,$savePath.$fileName);
+		//imagepng($mergeimg,$savePath.$fileName,8);
 		imagedestroy($mergeimg);
 		imagedestroy($upload);
 		imagedestroy($soure);
@@ -69,6 +70,26 @@ class ModelShopifyImage extends Model {
 		imagedestroy($bottom);
 		imagedestroy($target_img);
 		return $newFilename;
+	}
+	
+	function mergeTop($path,$bottom,$savePath){
+		if(!file_exists($path.'.top.png')){
+			imagepng($bottom,$savePath,8);
+			return $savePath;
+		}
+		$top = Imagecreatefrompng($path.'.top.png');
+		$width = imagesx($top);
+		$height = imagesy($top);
+		//$bottom = Imagecreatefrompng($bottom);
+		$target_img     = imageCreatetruecolor(imagesx( $top),imagesy( $top));
+		$color = imagecolorallocate($target_img, 255, 255, 255);
+		imagefill($target_img, 0, 0, $color);
+		imagecopy($target_img, $bottom,0, 0, 0, 0,$width,$height);
+		imagecopy($target_img, $top,0, 0, 0, 0,$width,$height);
+		imagepng($target_img,$savePath,8);
+		imagedestroy($top);
+		imagedestroy($target_img);
+		return $savePath;
 	}
 	
 	function imageThumb($sourePic,$width,$heigh){  

@@ -104,7 +104,7 @@ class ControllerToolUpload extends Controller {
 				$json['preimg'] = $host."image/catalog/designs/" . $ttt;
 				$array = getimagesize( DIR_IMAGE."/catalog/designs/" . $ttt); 
 				//print_r($array);
-				$json['viewimg'] = $this->model_shopify_image->resize("/catalog/designs/".$ttt, $array[0]/4, $array[1]/4);
+				$json['viewimg'] = $this->model_shopify_image->resize("/catalog/designs/".$ttt, $array[0]/2.5, $array[1]/2.5);
 			}
 			$json['success'] = $this->language->get('text_upload');
 		}
