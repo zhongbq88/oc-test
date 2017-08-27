@@ -213,7 +213,7 @@
                   
                   </td>
                   <td class="text-center" >
-                  <button type="button" id="button-edit" onclick="edit({{ option_value_row }},'text')" data-toggle="tooltip"  class="btn btn-primary"><i class="fa fa-pencil"></i>产品详情</button>
+                  <button type="button" onclick="edit({{ option_value_row }},'text')" data-toggle="tooltip"  class="btn btn-primary"><i class="fa fa-pencil"></i>产品详情</button>
                     {% for language in languages %}
                    <input type="hidden" name="option_value[{{ option_value_row }}][option_value_description][{{ language.language_id }}][option_description]" value="{{ option_value.option_value_description[language.language_id] ? option_value.option_value_description[language.language_id].option_description }}"   id="input-text{{ option_value_row }}" />
                    
@@ -313,7 +313,8 @@
 <script type="text/javascript"><!--
 
 function updateedit(){
-	$('[data-toggle=\'summernote\']').each(function() {
+	alert(123);
+	/*$('[data-toggle=\'summernote\']').each(function() {
 		var element = this;
 		if ($(this).attr('data-lang')) {
 			$('head').append('<script type="text/javascript" src="view/javascript/summernote/lang/summernote-' + $(this).attr('data-lang') + '.js"></script>');
@@ -393,13 +394,14 @@ function updateedit(){
 				}
   			}
 		});
-	});
+	});*/
 }
 
 $('#close').on('click', function() {
 	$('#des-body').attr ("style","display:none;");
 }); 
 </script> 
+  </div>
  <script type="text/javascript">
  
  function textsave(text,node){
