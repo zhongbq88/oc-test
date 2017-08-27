@@ -15,7 +15,7 @@
             <i class="fa fa-caret-down" style="margin-left:12px;"></i></a>
             <div>
               <input type="text" name="variant[{{ option.product_option_id }}]" value="{{ option.name }}{{ loop.index }}" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  />
-            <div style="float:right;margin-top:-9px;"><img src="" id="src-option{{ option.product_option_id }}"  style="display:none;"/></div></div>
+            <div style="float:right;margin-top:-9px;"><div style=" float: left"><img src="http://127.0.0.1:8080/storage/upload/cache/left.jpg-50x50.jpg" style="display:none" id="src-option1-{{ option.product_option_id }}" /></div><div style=" float: left; margin-left:8px;"><img src="http://127.0.0.1:8080/storage/upload/cache/left.jpg-50x50.jpg" id="src-option2-{{ option.product_option_id }}" style="display:none"/></div></div></div>
           </h4>
         </div>
         <div id="collapse{{options_array[loop.index]}}" class="panel-collapse collapse {% if loop.index==1 %}in {% endif %}">
@@ -166,6 +166,7 @@
 			var option_image_id = $(node).get(0).getAttribute("data-id");
 			var product_option_id = $(node).get(0).getAttribute("data-product-option-id");
 			var formData =  new FormData($('#form-upload')[0]);
+			var index = $(node).get(0).getAttribute("data-index");
 			formData.append("src", $(node).get(0).getAttribute("data-src"));
 			formData.append("width", '{{width}}');
 			formData.append("height", '{{height}}');
@@ -196,8 +197,8 @@
 					if (json['success']) {
 						$('.text-danger').remove();
 						//alert(json['src']+","+json['preimg']+","+json['code']);
-						document.getElementById("src-option"+product_option_id).src = json['src'];
-						$("#src-option"+product_option_id).attr ("style","display:block;");
+						document.getElementById("src-option"+index+"-"+product_option_id).src = json['src'];
+						$("#src-option"+index+"-"+product_option_id).attr ("style","display:block;");
 						//alert(json['preimg']);
 						if(json['preimg']){
 							//alert(document.getElementById("option_image"+option_image_id));
