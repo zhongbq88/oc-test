@@ -313,15 +313,14 @@
 <script type="text/javascript"><!--
 
 function updateedit(){
-	alert(123);
-	/*$('[data-toggle=\'summernote\']').each(function() {
-		var element = this;
-		if ($(this).attr('data-lang')) {
-			$('head').append('<script type="text/javascript" src="view/javascript/summernote/lang/summernote-' + $(this).attr('data-lang') + '.js"></script>');
+	//alert(123);
+		var element = $('[data-toggle=\'summernote\']');
+		if ($(element).attr('data-lang')) {
+			$('head').append('<script type="text/javascript" src="view/javascript/summernote/lang/summernote-' + $(element).attr('data-lang') + '.js"></script>');
 		}
 
 		$(element).summernote({
-			lang: $(this).attr('data-lang'),
+			lang: $(element).attr('data-lang'),
 			disableDragAndDrop: true,
 			height: 300,
 			emptyPara: '',
@@ -394,7 +393,6 @@ function updateedit(){
 				}
   			}
 		});
-	});*/
 }
 
 $('#close').on('click', function() {
