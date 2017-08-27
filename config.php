@@ -7,10 +7,10 @@ define('HTTP_SERVER', 'http://127.0.0.1:8080/');
 define('HTTPS_SERVER', 'http://127.0.0.1:8080/');
 
 // DIR
-define('DIR_APPLICATION', 'D:/xampp/htdocs/oc-test/catalog/');
-define('DIR_SYSTEM', 'D:/xampp/htdocs/oc-test/system/');
-define('DIR_IMAGE', 'D:/xampp/htdocs/oc-test/image/');
-define('DIR_STORAGE', 'D:/xampp/htdocs/oc-test/storage/');
+define('DIR_APPLICATION', 'G:/xampp/htdocs/oc-test/catalog/');
+define('DIR_SYSTEM', 'G:/xampp/htdocs/oc-test/system/');
+define('DIR_IMAGE', 'G:/xampp/htdocs/oc-test/image/');
+define('DIR_STORAGE', 'G:/xampp/htdocs/oc-test/storage/');
 
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/theme/');
