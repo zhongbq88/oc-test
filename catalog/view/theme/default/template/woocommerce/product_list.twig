@@ -1,0 +1,77 @@
+
+	{% if products %}
+  <div class="row">
+      {% for product in products %}
+      
+      <div class="span3" data="{{ product.href }}">
+	      		
+	      		<div class="widget">
+	      			
+	      			<div class="widget-content">
+	      				<div class="image"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></div>
+                       
+            <div id="caption-bg">
+           
+              <div class="caption">
+                <h4>{{ product.name }}</h4>
+               <!-- <p>{{ product.description }}</p>-->
+                {% if product.price %}
+                <p class="price"> {% if not product.special %}
+                  {{ product.price }}
+                  {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
+                  {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} </p>
+                {% endif %}
+                {% if product.rating %}
+                <div class="rating"> {% for i in 1..5 %}
+                  {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>{% endif %}
+                  {% endfor %} </div>
+                {% endif %} </div>
+            </div>
+		      		</div> <!-- /widget-content -->
+		      		
+	      		</div> <!-- /widget -->
+	      		
+      		</div> <!-- /span4 -->
+      
+      
+
+        {% endfor %} </div>
+        
+     <!-- <div class="row">
+        <div class="col-sm-6 text-left">{{ pagination }}</div>
+        <div class="col-sm-6 text-right">{{ results }}</div>
+      </div>-->
+      {% endif %}
+      {% if not categories and not products %}
+      <p>{{ text_empty }}</p>
+     
+      {% endif %}
+
+<style>
+#caption-bg {
+    background: #000;
+    height: 100%;
+    width:240px;
+	padding:15px;
+	margin-left:-15px;
+	margin-right:-15px;
+	margin-bottom:-15px;
+}
+.span3 {
+	width: 220px;
+}
+.caption h4{
+	color:#CCC;
+	}
+	.caption p{
+	color: #999;
+	}
+	.row-fluid > .span3 {
+	width: 23.404255317%;
+}
+table .span3 {
+	float: none;
+	width: 204px;
+	margin-left: 0;
+}
+</style>
