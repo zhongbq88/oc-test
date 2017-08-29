@@ -1,10 +1,10 @@
 <?php
 // HTTP
 
-define('HTTP_SERVER', 'http://127.0.0.1:8080/');
+define('HTTP_SERVER', 'https://127.0.0.1/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://127.0.0.1:8080/');
+define('HTTPS_SERVER', 'https://127.0.0.1/');
 
 // DIR
 define('DIR_APPLICATION', 'D:/xampp/htdocs/oc-test/catalog/');
@@ -34,6 +34,6 @@ define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');
 
 //shopify
-define('REDIRECTION_URL', HTTPS_SERVER.'index.php?route=shopify/dashboard');
+define('REDIRECTION_URL', HTTPS_SERVER.'index.php?route=shopify/connect');
 define('SHOPIFY_APP_API_KEY', '960bd2566abc4ce62a0a0c2eb13d7aa9');
 define('SHOPIFY_APP_SHARED_SECRET', 'ed18156d8d7df8fff567fd02c2703b97');

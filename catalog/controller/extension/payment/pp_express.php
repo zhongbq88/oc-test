@@ -1256,8 +1256,8 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 	}
 	
 	public function paymentRequestInfo() {
-		$this->load->model('shopify/order');
-		$order_product = $this->model_shopify_order->getOrderProductsByIdList($this->session->data['order_id']);
+		$this->load->model('commonipl/order');
+		$order_product = $this->model_commonipl_order->getOrderProductsByIdList($this->session->data['order_id']);
 		$paymentProduct = array();
 		$i = 0;
 		$item_total = 0;
@@ -1295,7 +1295,7 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 			'METHOD'             => 'SetExpressCheckout',
 			'MAXAMT'             => $max_amount,
 			'RETURNURL'          => $this->url->link('extension/payment/pp_express/checkoutReturn', '', true),
-			'CANCELURL'          => $this->url->link('shopify/orders', '', true),
+			'CANCELURL'          => $this->url->link('commonipl/orders', '', true),
 			'REQCONFIRMSHIPPING' => 0,
 			'NOSHIPPING'         => 1,
 			'LOCALECODE'         => 'EN',
@@ -1332,7 +1332,7 @@ print_r($data);
 			 */
 			$this->log->write('Unable to create Paypal session' . json_encode($result));
 
-			//$this->response->redirect($this->url->link('shopify/orders', '', true));
+			//$this->response->redirect($this->url->link('commonipl/orders', '', true));
 			return;
 		}
 
@@ -1612,7 +1612,8 @@ print_r($data);
 				//- handle german redirect here
 				$this->response->redirect('https://www.paypal.com/cgi-bin/webscr?cmd=_complete-express-checkout&token=' . $this->session->data['paypal']['token']);
 			} else {
-				$this->response->redirect($this->url->link('shopify/orders/success'));
+				$this->session->data['success'] = 'pay success';
+				$this->response->redirect($this->url->link('commonipl/orders'));
 			}
 		} else {
 			if ($result['L_ERRORCODE0'] == '10486') {
@@ -1667,8 +1668,8 @@ print_r($data);
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');*/
-			$data['footer'] = $this->load->controller('shopify/footer');
-			$data['header'] = $this->load->controller('shopify/header');
+			$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
+			$data['header'] = $this->load->controller($this->session->data['store'].'/header');
 
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}

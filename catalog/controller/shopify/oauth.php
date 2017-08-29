@@ -3,12 +3,10 @@
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 
-require __DIR__.'/conf.php';
-
 class ControllerShopifyOauth extends Controller {
 	
 	public function index(){
-
+		$this->session->data['store'] = 'shopify';
 		$shop = $_GET['shop'];
 		$shops = explode(".", $shop);
 		$email = $shops[0]."@shopify.com";
@@ -22,7 +20,7 @@ class ControllerShopifyOauth extends Controller {
 			$this->customer->login($email, $shop);
 			$this->session->data['oauth_token'] = $this->customer->getToken();
 			$this->session->data['shop'] = $shop;
-			$this->response->redirect($this->url->link('shopify/dashboard', '', true));
+			$this->response->redirect($this->url->link('shopify/connect', '', true));
 		}
 	}
 }

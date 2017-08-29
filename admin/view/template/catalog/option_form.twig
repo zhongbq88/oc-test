@@ -456,6 +456,19 @@ function addOptionValue() {
 	html += '  </td>';
     html += '  <td class="text-center"><a href="" id="thumb-image' + option_value_row + '" data-toggle="image" class="img-thumbnail"><img src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="option_value[' + option_value_row + '][image]" value="" id="input-image' + option_value_row + '" /></td>';
 	
+	  html += '<td class="text-center" >';
+       html += '<button type="button" onclick="edit('+option_value_row+',\'text\')" data-toggle="tooltip"  class="btn btn-primary"><i class="fa fa-pencil"></i>产品详情</button>';
+                    {% for language in languages %}
+                   html += '<input type="hidden" name="option_value['+option_value_row+'][option_value_description][{{ language.language_id }}][option_description]" value="{{ option_value.option_value_description[language.language_id] ? option_value.option_value_description[language.language_id].option_description }}"   id="input-text'+option_value_row+'" />';
+                   
+                  {% endfor %}
+                  
+                  html += '</td> <td class="text-center" ><button type="button" onclick="edit('+option_value_row+',\'des\')" data-toggle="tooltip"  class="btn btn-primary"><i class="fa fa-pencil"></i>设计描述</button>';
+                     {% for language in languages %}
+                    html += '<input type="hidden" name="option_value['+option_value_row+'][option_value_description][{{ language.language_id }}][option_design_desc]" value="{{ option_value.option_value_description[language.language_id] ? option_value.option_value_description[language.language_id].option_design_desc }}"  id="input-des'+option_value_row+'" />';
+                   
+                  {% endfor %}
+                   html += '</td>';
 	
 	html  += createOptionImageTab(option_value_row);
 	

@@ -7,45 +7,6 @@ class ControllerWoocommerceLogin extends Controller {
 
 		$this->load->model('account/customer');
 
-		if (!empty($this->request->get['token'])) {
-			$this->customer->logout();
-			$this->cart->clear();
-
-			unset($this->session->data['order_id']);
-			unset($this->session->data['payment_address']);
-			unset($this->session->data['payment_method']);
-			unset($this->session->data['payment_methods']);
-			unset($this->session->data['shipping_address']);
-			unset($this->session->data['shipping_method']);
-			unset($this->session->data['shipping_methods']);
-			unset($this->session->data['comment']);
-			unset($this->session->data['coupon']);
-			unset($this->session->data['reward']);
-			unset($this->session->data['voucher']);
-			unset($this->session->data['vouchers']);
-
-			$customer_info = $this->model_account_customer->getCustomerByToken($this->request->get['token']);
-
-			if ($customer_info && $this->customer->login($customer_info['email'], '', true)) {
-				// Default Addresses
-				$this->load->model('account/address');
-
-				if ($this->config->get('config_tax_customer') == 'payment') {
-					$this->session->data['payment_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
-				}
-
-				if ($this->config->get('config_tax_customer') == 'shipping') {
-					$this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
-				}
-
-				$this->response->redirect($this->url->link('account/account', '', true));
-			}
-		}
-
-		if ($this->customer->isLogged()) {
-			$this->response->redirect($this->url->link('account/account', '', true));
-		}
-
 		$this->load->language('woocommerce/login');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -54,52 +15,10 @@ class ControllerWoocommerceLogin extends Controller {
 			// Unset guest
 			unset($this->session->data['guest']);
 
-			// Default Shipping Address
-			$this->load->model('account/address');
-
-			if ($this->config->get('config_tax_customer') == 'payment') {
-				$this->session->data['payment_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
-			}
-
-			if ($this->config->get('config_tax_customer') == 'shipping') {
-				$this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
-			}
-
-			// Wishlist
-			if (isset($this->session->data['wishlist']) && is_array($this->session->data['wishlist'])) {
-				$this->load->model('account/wishlist');
-
-				foreach ($this->session->data['wishlist'] as $key => $product_id) {
-					$this->model_account_wishlist->addWishlist($product_id);
-
-					unset($this->session->data['wishlist'][$key]);
-				}
-			}
-
-			// Added strpos check to pass McAfee PCI compliance test (http://forum.opencart.com/viewtopic.php?f=10&t=12043&p=151494#p151295)
-			if (isset($this->request->post['redirect']) && $this->request->post['redirect'] != $this->url->link('account/logout', '', true) && (strpos($this->request->post['redirect'], $this->config->get('config_url')) !== false || strpos($this->request->post['redirect'], $this->config->get('config_ssl')) !== false)) {
-				$this->response->redirect(str_replace('&amp;', '&', $this->request->post['redirect']));
-			} else {
-				$this->response->redirect($this->url->link('account/account', '', true));
-			}
+			$this->response->redirect($this->url->link('woocommerce/connect', '', true));
+			
 		}
 
-		$data['breadcrumbs'] = array();
-
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
-		);
-
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
-		);
-
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_login'),
-			'href' => $this->url->link('account/login', '', true)
-		);
 
 		if (isset($this->session->data['error'])) {
 			$data['error_warning'] = $this->session->data['error'];
@@ -110,48 +29,29 @@ class ControllerWoocommerceLogin extends Controller {
 		} else {
 			$data['error_warning'] = '';
 		}
+		
+		if ($this->config->get('config_account_id')) {
+			$this->load->model('catalog/information');
 
-		$data['action'] = $this->url->link('account/login', '', true);
-		$data['register'] = $this->url->link('account/register', '', true);
-		$data['forgotten'] = $this->url->link('account/forgotten', '', true);
+			$information_info = $this->model_catalog_information->getInformation($this->config->get('config_account_id'));
 
-		// Added strpos check to pass McAfee PCI compliance test (http://forum.opencart.com/viewtopic.php?f=10&t=12043&p=151494#p151295)
-		if (isset($this->request->post['redirect']) && (strpos($this->request->post['redirect'], $this->config->get('config_url')) !== false || strpos($this->request->post['redirect'], $this->config->get('config_ssl')) !== false)) {
-			$data['redirect'] = $this->request->post['redirect'];
-		} elseif (isset($this->session->data['redirect'])) {
-			$data['redirect'] = $this->session->data['redirect'];
-
-			unset($this->session->data['redirect']);
+			if ($information_info) {
+				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('information/information/agree', 'information_id=' . $this->config->get('config_account_id'), true), $information_info['title'], $information_info['title']);
+			} else {
+				$data['text_agree'] = '';
+			}
 		} else {
-			$data['redirect'] = '';
+			$data['text_agree'] = '';
 		}
 
-		if (isset($this->session->data['success'])) {
-			$data['success'] = $this->session->data['success'];
+		$data['agree'] = false;
+	
 
-			unset($this->session->data['success']);
-		} else {
-			$data['success'] = '';
-		}
-
-		if (isset($this->request->post['email'])) {
-			$data['email'] = $this->request->post['email'];
-		} else {
-			$data['email'] = '';
-		}
-
-		if (isset($this->request->post['password'])) {
-			$data['password'] = $this->request->post['password'];
-		} else {
-			$data['password'] = '';
-		}
-
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['action'] = $this->url->link('woocommerce/login', '', true);
+		$data['register'] = $this->url->link('woocommerce/login/register', '', true);
+		$data['forgotten'] = $this->url->link('woocommerce/forgotten', '', true);
+		$data['footer'] = $this->load->controller('woocommerce/footer');
+		$data['header'] = $this->load->controller('woocommerce/header');
 
 		$this->response->setOutput($this->load->view('woocommerce/login', $data));
 	}
@@ -180,7 +80,180 @@ class ControllerWoocommerceLogin extends Controller {
 				$this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
 			}
 		}
+		
+		
 
 		return !$this->error;
 	}
+	
+	public function register() {
+
+		$this->load->model('account/customer');
+
+		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateRegister()) {
+			$customer_id = $this->model_account_customer->addCustomer($this->request->post,'woocommerce');
+
+			// Clear any previous login attempts for unregistered accounts.
+			$this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
+
+			$this->customer->login($this->request->post['email'], $this->request->post['password']);
+
+			unset($this->session->data['guest']);
+
+			$this->response->redirect($this->url->link('woocommerce/connect'));
+		}
+
+		
+		$data['text_account_already'] = sprintf($this->language->get('text_account_already'), $this->url->link('account/login', '', true));
+
+		if (isset($this->error['warning'])) {
+			$data['error_warning'] = $this->error['warning'];
+		} else {
+			$data['error_warning'] = '';
+		}
+
+		if (isset($this->error['firstname'])) {
+			$data['error_firstname'] = $this->error['firstname'];
+		} else {
+			$data['error_firstname'] = '';
+		}
+
+		if (isset($this->error['lastname'])) {
+			$data['error_lastname'] = $this->error['lastname'];
+		} else {
+			$data['error_lastname'] = '';
+		}
+
+		if (isset($this->error['email'])) {
+			$data['error_email'] = $this->error['email'];
+		} else {
+			$data['error_email'] = '';
+		}
+
+		/*if (isset($this->error['telephone'])) {
+			$data['error_telephone'] = $this->error['telephone'];
+		} else {
+			$data['error_telephone'] = '';
+		}*/
+
+		if (isset($this->error['password'])) {
+			$data['error_password'] = $this->error['password'];
+		} else {
+			$data['error_password'] = '';
+		}
+
+		if (isset($this->error['confirm'])) {
+			$data['error_confirm'] = $this->error['confirm'];
+		} else {
+			$data['error_confirm'] = '';
+		}
+
+		$data['action'] = $this->url->link('longin/index', '', true);
+
+		if (isset($this->request->post['firstname'])) {
+			$data['firstname'] = $this->request->post['firstname'];
+		} else {
+			$data['firstname'] = '';
+		}
+
+		if (isset($this->request->post['lastname'])) {
+			$data['lastname'] = $this->request->post['lastname'];
+		} else {
+			$data['lastname'] = '';
+		}
+
+		if (isset($this->request->post['email'])) {
+			$data['email'] = $this->request->post['email'];
+		} else {
+			$data['email'] = '';
+		}
+
+		if (isset($this->request->post['telephone'])) {
+			$data['telephone'] = $this->request->post['telephone'];
+		} else {
+			$data['telephone'] = '';
+		}
+
+
+		if (isset($this->request->post['password'])) {
+			$data['password'] = $this->request->post['password'];
+		} else {
+			$data['password'] = '';
+		}
+
+		if (isset($this->request->post['confirm'])) {
+			$data['confirm'] = $this->request->post['confirm'];
+		} else {
+			$data['confirm'] = '';
+		}
+
+		if ($this->config->get('config_account_id')) {
+			$this->load->model('catalog/information');
+
+			$information_info = $this->model_catalog_information->getInformation($this->config->get('config_account_id'));
+
+			if ($information_info) {
+				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('information/information/agree', 'information_id=' . $this->config->get('config_account_id'), true), $information_info['title'], $information_info['title']);
+			} else {
+				$data['text_agree'] = '';
+			}
+		} else {
+			$data['text_agree'] = '';
+		}
+
+		if (isset($this->request->post['agree'])) {
+			$data['agree'] = $this->request->post['agree'];
+		} else {
+			$data['agree'] = false;
+		}
+
+		$data['footer'] = $this->load->controller('woocommerce/footer');
+		$data['header'] = $this->load->controller('woocommerce/header');
+
+		$this->response->setOutput($this->load->view('woocommerce/login', $data));
+	}
+
+	private function validateRegister() {
+		if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
+			$this->error['firstname'] = $this->language->get('error_firstname');
+		}
+
+		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
+			$this->error['lastname'] = $this->language->get('error_lastname');
+		}
+
+		if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
+			$this->error['email'] = $this->language->get('error_email');
+		}
+
+		if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
+			$this->error['warning'] = $this->language->get('error_exists');
+		}
+/*
+		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+			$this->error['telephone'] = $this->language->get('error_telephone');
+		}*/
+
+		if ((utf8_strlen(html_entity_decode($this->request->post['password'], ENT_QUOTES, 'UTF-8')) < 4) || (utf8_strlen(html_entity_decode($this->request->post['password'], ENT_QUOTES, 'UTF-8')) > 40)) {
+			$this->error['password'] = $this->language->get('error_password');
+		}
+
+		if ($this->request->post['confirm'] != $this->request->post['password']) {
+			$this->error['confirm'] = $this->language->get('error_confirm');
+		}
+
+		// Agree to terms
+		if ($this->config->get('config_account_id')) {
+			$this->load->model('catalog/information');
+
+			$information_info = $this->model_catalog_information->getInformation($this->config->get('config_account_id'));
+
+			if ($information_info && !isset($this->request->post['agree'])) {
+				$this->error['warning'] = sprintf($this->language->get('error_agree'), $information_info['title']);
+			}
+		}
+		
+		return !$this->error;
+	}
+	
 }

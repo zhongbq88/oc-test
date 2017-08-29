@@ -10,6 +10,9 @@ class Customer {
 	private $newsletter;
 	private $address_id;
 	private $token;
+	private $store;
+	private $consumer_key;
+	private $consumer_secret;
 
 	public function __construct($registry) {
 		$this->config = $registry->get('config');
@@ -30,6 +33,9 @@ class Customer {
 				$this->newsletter = $customer_query->row['newsletter'];
 				$this->address_id = $customer_query->row['address_id'];
 				$this->token= $customer_query->row['token'];
+				$this->store= $customer_query->row['store'];
+				$this->consumer_key = $customer_query->row['consumer_key'];
+				$this->consumer_secret = $customer_query->row['consumer_secret'];
 				$this->db->query("UPDATE " . DB_PREFIX . "customer SET language_id = '" . (int)$this->config->get('config_language_id') . "', ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "' WHERE customer_id = '" . (int)$this->customer_id . "'");
 
 				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_ip WHERE customer_id = '" . (int)$this->session->data['customer_id'] . "' AND ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "'");
@@ -70,6 +76,9 @@ class Customer {
 			$this->newsletter = $customer_query->row['newsletter'];
 			$this->address_id = $customer_query->row['address_id'];
 			$this->token= $customer_query->row['token'];
+			$this->store= $customer_query->row['store'];
+			$this->consumer_key = $customer_query->row['consumer_key'];
+			$this->consumer_secret = $customer_query->row['consumer_secret'];
 			$this->db->query("UPDATE " . DB_PREFIX . "customer SET " . ((isset($new_password_hashed)) ? "salt = '', password = '" . $this->db->escape($new_password_hashed) . "', " : "") . "language_id = '" . (int)$this->config->get('config_language_id') . "', ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "' WHERE customer_id = '" . (int)$this->customer_id . "'");
 
 			return true;
@@ -89,6 +98,10 @@ class Customer {
 		$this->telephone = '';
 		$this->newsletter = '';
 		$this->address_id = '';
+		$this->store = '';
+		$this->token = '';
+		$this->consumer_key = '';
+		$this->consumer_secret = '';
 	}
 
 	public function isLogged() {
@@ -117,6 +130,18 @@ class Customer {
 	
 	public function getToken() {
 		return $this->token;
+	}
+	
+	public function getStore() {
+		return $this->store;
+	}
+
+	public function getConsumerkey() {
+		return $this->consumer_key;
+	}
+	
+	public function getConsumerSecret() {
+		return $this->consumer_secret;
 	}
 
 	public function getTelephone() {

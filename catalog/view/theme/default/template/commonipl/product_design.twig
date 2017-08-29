@@ -1,0 +1,587 @@
+{{ header }}
+<div id="loader"></div>
+<div id="product-product" class="container">
+  <input type="hidden" name="product_id" value="{{ product_id }}" />
+  <div id="product"> {% if options %}
+    <h3>{{ text_option }}</h3>
+    <div class="panel-group" id="accordion"> {% for option in options %}
+      
+      {% if option.type == 'select'%}
+      <div class="panel panel-default">
+        <div class="panel-heading {% if option.required %} required {% endif %}" style="height:52px;" >
+          <h4 class="panel-title" style="height:52px;" ><a  data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapse{{options_array[loop.index]}}" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;">
+            <label class="control-label">{{variant}} {{ loop.index }}</label>
+            <i class="fa fa-caret-down" style="margin-left:12px;"></i></a>
+            <div>
+              <input type="text" name="variant[{{ option.product_option_id }}]" value="{{ option.name }}{{ loop.index }}" class="form-input" style="height:30px;padding:5px 10px;font-size:12px;line-height:1" placeholder="Enter title" id="input-coupon"  />
+            <div style="float:right;margin-top:-9px;"><div style=" float: left"><img src="http://127.0.0.1:8080/storage/upload/cache/left.jpg-50x50.jpg" style="display:none" id="src-option1-{{ option.product_option_id }}" /></div><div style=" float: left; margin-left:8px;"><img src="http://127.0.0.1:8080/storage/upload/cache/left.jpg-50x50.jpg" id="src-option2-{{ option.product_option_id }}" style="display:none"/></div></div></div>
+          </h4>
+        </div>
+        <div id="collapse{{options_array[loop.index]}}" class="panel-collapse collapse {% if loop.index==1 %}in {% endif %}">
+          <div class="panel-body op{{option.option_id}}">
+          	{% if option.option_image_view %}
+             <div id="select_options_style{{option.option_id}}"> 
+             {{ option.option_image_view }}
+             </div>
+             {% else %}
+            <div id="select_options_style{{option.product_option_id}}" style="display:none"></div>
+            <div id="select_options{{option.product_option_id}}">
+              <label class="control-label">{{ option.name }}</label>
+              <div class="row">
+               {% for option_value in option.product_option_value %}
+                <div style="width:388px;float:left; margin-left:15px;">
+                  <div class="product-thumb" > 
+                  {% if option_value.image %}
+                    <div class="image"><a  href="javascript:loadDesignImage({{option_value.option_value_id}},{{ product_id }},{{option.option_id}},{{ option.product_option_id }})"><img src="{{ option_value.image}}" alt="{{ option_value.name}}" title="{{ option_value.name}}" class="img-responsive" /></a></div>
+                    {% endif %}
+                    <div>
+                      <div class="caption">
+                        <h4 ><a href="javascript:loadDesignImage({{option_value.option_value_id}},{{ product_id }},{{option.option_id}},{{ option.product_option_id }})"  style="color:#FFF">{{option_value.name}}</a></h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %} 
+                </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      
+      {% endfor %}
+      {% endif %} </div>
+    <div class="button-group" style="margin:0 auto;">
+      <button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" style=" width:auto; text-align:center;">{{ review_and_publish_designs }}</button>
+    </div>
+  </div>
+  
+  <!--edit shopify produce start-->
+  <div id="theme-content" style="display:none" >
+    <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false"   >
+      <div class="vc_span12 wpb_column column_container " >
+      <!--  <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> <b> {{product_title}} -  {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} each</b><br>
+          &nbsp; </div>-->
+      </div>
+      <div  style="border:1px solid #CCC;background-color:#F4F4F4;padding:12px; overflow:hidden; " >
+        <form id="pubform">
+          <div style="float:left; width:70%">
+            <div class="wpb_row  vc_row-fluid  mk-fullwidth-false add-padding-0 attched-false" >
+              <div style="text-align:left" class="vc_span9 wpb_column column_container ">
+                <div id="mk-text-block-221" style=" margin-bottom:10px;text-align: left;font-size:22px;font-weight:bold" class="mk-text-block  "> {{heading_title}} - {% if not special %}{{ price }}{% else %}{{ special }}{% endif %} each</div>
+                <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;font-size:12px" class="mk-text-block  "> {{shopify_product_des}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{product_title}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+                  <input name="pttl" type="text" style="width:500px" value="{{ heading_title }}">
+                </div>
+                <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{product_description}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+                  <textarea name="pdsc" id="pdsc" style="width:500px;height:100px">{{ description }}</textarea>
+                </div>
+                <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{add_to_shopify_collection}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+                  <select name="pcol" style="width:400px">
+                    <option value="0">- None -</option>
+                    <option value="459306312">Home page</option>
+                  </select>
+                </div>
+                <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{add_product_tags}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:15px;text-align: left;" class="mk-text-block  ">
+                  <input name="ptag" type="text" style="width:500px" placeholder="Comma-separated tags" value="{% for i in 0..tags|length %}{% if i < (tags|length - 1) %}{{ tags[i].tag}},{% else %}{{tags[i].tag}}{% endif %}{% endfor %}">
+                </div>
+                <div id="mk-text-block-221" style=" margin-bottom:0px;text-align: left;" class="mk-text-block  "> {{your_selling_price_for_this_product}} </div>
+                <div id="mk-text-block-221" style=" margin-bottom:40px;text-align: left;" class="mk-text-block  ">
+                  <input name="pspr" type="text" style="width:200px" value="{{ price }}">
+                </div>
+                <div class="mk-button-align fullwidth-button center" style="float:right; margin-right:20%">
+                  <button type="button" id="gopublish" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" ><i class="mk-moon-arrow-right-6"></i>{{publish_product}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center; float:right; margin:0 auto;" class="vc_span3 wpb_column column_container ">
+            <ul class="preview-thumbnails" >
+            </ul>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--edit shopify produce end--> </div>
+</div>
+</div>
+<!--<div class="modal-backdrop in"></div>-->
+<script type="text/javascript"><!--
+
+ function loadDesignImage(option_value_id,product_id,option_id,product_option_id){
+	 //alert(option_id);
+	  $.ajax({
+				url: 'index.php?route=commonipl/productdesign/getOption&product_id='+product_id+'&option_value_id='+option_value_id+'&product_option_id='+product_option_id,
+				type: 'get',
+				dataType: 'json',
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					  //alert(1);
+				},
+				complete: function() {
+					 //alert(2);
+				},
+				success: function(json) {
+					if(json['success']){
+						$('#select_options_style'+product_option_id).html(json['success']);
+						$("#select_options"+product_option_id).attr ("style","display:none;");
+						$('#select_options_style'+product_option_id).attr ("style","display:block;");
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					//alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+	}
+	
+	function load_paired_products(option_id){
+		$("#select_options"+option_id).attr ("style","display:block;");
+		$('#select_options_style'+option_id).attr ("style","display:none;");
+	}
+	
+	function variant_image(node){
+
+	$('#form-upload').remove();
+
+	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+	$('#form-upload input[name=\'file\']').trigger('click');
+
+	if (typeof timer != 'undefined') {
+    	clearInterval(timer);
+	}
+
+	timer = setInterval(function() {
+		if ($('#form-upload input[name=\'file\']').val() != '') {
+			clearInterval(timer);
+			var option_image_id = $(node).get(0).getAttribute("data-id");
+			var product_option_id = $(node).get(0).getAttribute("data-product-option-id");
+			var formData =  new FormData($('#form-upload')[0]);
+			var index = $(node).get(0).getAttribute("data-index");
+			formData.append("src", $(node).get(0).getAttribute("data-src"));
+			formData.append("width", '{{width}}');
+			formData.append("height", '{{height}}');
+			$.ajax({
+				url: 'index.php?route=tool/upload',
+				type: 'post',
+				dataType: 'json',
+				data: formData,
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					//alert(123);
+					$('#loading'+product_option_id+"_"+option_image_id).attr ("style","display:block;");
+					$('#upload_text'+product_option_id+"_"+option_image_id).text('{{text_loading}}');
+				},
+				complete: function() {
+					//alert(456);
+					
+				},
+				success: function(json) {
+					$('.text-danger').remove();
+
+					if (json['error']) {
+						$('#artwork'+product_option_id+"_"+option_image_id).after('<div class="text-danger" ><font color="red" size="4px" ><strong>' + json['error'] + '</strong></font></div>');
+					}
+
+					if (json['success']) {
+						$('.text-danger').remove();
+						//alert(json['src']+","+json['preimg']+","+json['code']);
+						document.getElementById("src-option"+index+"-"+product_option_id).src = json['src'];
+						$("#src-option"+index+"-"+product_option_id).attr ("style","display:block;");
+						//alert(json['preimg']);
+						if(json['preimg']){
+							//alert(document.getElementById("option_image"+option_image_id));
+							document.getElementById("option_image"+product_option_id+"_"+option_image_id).src = json['viewimg'];
+							//$('#thumbnail'+option_id).attr('href',json['preimg']); 
+							$("#option-img"+product_option_id+"_"+option_image_id).val(json['preimg']);
+						}
+						
+						//$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
+						
+						$("#input-option"+product_option_id+"_"+option_image_id).val(json['code']);
+					}
+		  
+				  $('#loading'+product_option_id+"_"+option_image_id).attr ("style","display:none;");
+				  $('#upload_text'+product_option_id+"_"+option_image_id).text('{{button_upload}}');
+						 
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+		}
+	}, 500);
+	}
+	
+//--></script> 
+<script type="text/javascript"><!--
+
+
+$('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
+	$.ajax({
+		url: 'index.php?route=product/product/getRecurringDescription',
+		type: 'post',
+		data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#recurring-description').html('');
+		},
+		success: function(json) {
+			$('.alert-dismissible, .text-danger').remove();
+
+			if (json['success']) {
+				$('#recurring-description').html(json['success']);
+			}
+		}
+	});
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('#gopublish').on('click', function() {
+	//var node = this;
+	$.ajax({
+		url: 'index.php?route=commonipl/publishipl',
+		type: 'post',
+		data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\'],#product-product select,  #product-product textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			//$('#gopublish').button('loading');
+			$('#loader').addClass("loader loader-clock is-active");
+		},
+		complete: function() {
+			$('#loader').removeClass();
+			//$('#gopublish').button('reset');
+		},
+		success: function(json) {
+			//alert(json['success']);
+			if (json['success']) {
+				window.location.href="index.php?route=commonipl/dashboard";
+			}
+			
+			
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            //alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('#button-review').on('click', function() {
+	//alert(123);
+	$.ajax({
+		url: 'index.php?route=commonipl/productdesign/review',
+		type: 'post',
+		data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\']'),
+		dataType: 'json',
+		beforeSend: function() {
+			//alert(123);
+			//$('#button-review').button('loading');
+		},
+		complete: function() {
+			//alert(456);
+			//$('#button-review').button('reset');
+		},
+		success: function(json) {
+			//alert(json);
+			if (json['error']) {
+				//alert('error='+json);
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger"><h4>' + json['error']['option'][i] + '</h4></div>');
+						} else {
+							element.after('<div class="text-danger"><h4>' + json['error']['option'][i] + '</h4></div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+			if (json['success']) {
+				//alert($json['images']);
+				$(".container #product").attr ("style","display:none;");
+				$(".container #theme-content").attr ("style","display:block;");
+				$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+				$('html, body').animate({ scrollTop: 0 }, 'slow');
+				if(json['option_descriptions']){
+					$('#pdsc').val(json['option_descriptions']);
+				}
+
+				//$('#cart > ul').load('index.php?route=common/cart/info ul li');
+				//alert($json['images']);
+				if (json['images']) {
+					 //alert(json['images']);
+					 $(".preview-thumbnails").empty();
+					for (var j in json['images']) {
+						//alert(i);
+						for (var i in json['images'][j]) {
+						//alert(i);
+						$(".preview-thumbnails").append('<li style="list-style-type:none;" > <input type="hidden" name="imgs['+i+']" value="'+json['images'][j][i]+'" id="input-imgs'+i+'" /><a class="thumbnail" href="'+json['images'][j][i]+'" title="{{ heading_title }}" style="border:none;"><img src="'+json['thumbnail'][j][i]+'" style="width: 228px; height:auto;" /></a></li>');
+					}
+					}
+				}else{
+					//alert(0);
+				}
+				//alert($json['images']);
+			}
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('.date').datetimepicker({
+	language: '{{ datepicker }}',
+	pickTime: false
+});
+
+$('.datetime').datetimepicker({
+	language: '{{ datepicker }}',
+	pickDate: true,
+	pickTime: true
+});
+
+$('.time').datetimepicker({
+	language: '{{ datepicker }}',
+	pickDate: false
+});
+
+$('button[id^=\'button-upload\']').on('click', function() {
+	var node = this;
+
+	$('#form-upload').remove();
+
+	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+	$('#form-upload input[name=\'file\']').trigger('click');
+
+	if (typeof timer != 'undefined') {
+    	clearInterval(timer);
+	}
+
+	timer = setInterval(function() {
+		if ($('#form-upload input[name=\'file\']').val() != '') {
+			clearInterval(timer);
+			var id = $(node).get(0).getAttribute("id");
+			var option_id = id.substring('button-upload'.length,id.length);
+			var formData =  new FormData($('#form-upload')[0]);
+			//alert(document.getElementById("product-img"+option_id).value);
+			formData.append("src", document.getElementById("product-img"+option_id).value);
+			$.ajax({
+				url: 'index.php?route=tool/upload',
+				type: 'post',
+				dataType: 'json',
+				data: formData,
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					$(node).button('loading');
+				},
+				complete: function() {
+					$(node).button('reset');
+				},
+				success: function(json) {
+					$('.text-danger').remove();
+
+					if (json['error']) {
+						$(node).parent().find('input').after('<div class="text-danger"><h3>' + json['error'] + '<h3></div>');
+					}
+
+					if (json['success']) {
+						document.getElementById("src-option"+option_id).src = json['src'];
+						//alert(json['preimg']);
+						if(json['preimg']){
+							document.getElementById("preimg-option"+option_id).src = json['preimg'];
+							$('#thumbnail'+option_id).attr('href',json['preimg']); 
+							$("#option-img"+option_id).val(json['preimg']);
+						}
+						
+						$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
+						
+						$("#input-option"+option_id).val(json['code']);
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+		}
+	}, 500);
+});
+$('button[id^=\'button-two-upload\']').on('click', function() {
+	var node = this;
+
+	$('#form-upload').remove();
+
+	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+	$('#form-upload input[name=\'file\']').trigger('click');
+
+	if (typeof timer != 'undefined') {
+    	clearInterval(timer);
+	}
+
+	timer = setInterval(function() {
+		if ($('#form-upload input[name=\'file\']').val() != '') {
+			clearInterval(timer);
+			var id = $(node).get(0).getAttribute("id");
+			var option_id = id.substring('button-two-upload'.length,id.length);
+			var formData =  new FormData($('#form-upload')[0]);
+			//alert(document.getElementById("product-img"+option_id).value);
+			formData.append("src", document.getElementById("product-img-two"+option_id).value);
+			$.ajax({
+				url: 'index.php?route=tool/upload',
+				type: 'post',
+				dataType: 'json',
+				data: formData,
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					$(node).button('loading');
+				},
+				complete: function() {
+					$(node).button('reset');
+				},
+				success: function(json) {
+					$('.text-danger').remove();
+
+					if (json['error']) {
+						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+					}
+
+					if (json['success']) {
+						document.getElementById("src-option-two"+option_id).src = json['src'];
+						if(json['preimg']!=''){
+							document.getElementById("preimg-option-two"+option_id).src = json['preimg'];
+							$('#thumbnail-two'+option_id).attr('href',json['preimg']); 
+						$("#option-img-two"+option_id).val(json['preimg']);
+						}
+						
+						$("#src-option-two"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
+					
+						$("#input-option-two"+option_id).val(json['code']);
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+		}
+	}, 500);
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('#review').delegate('.pagination a', 'click', function(e) {
+    e.preventDefault();
+
+    $('#review').fadeOut('slow');
+
+    $('#review').load(this.href);
+
+    $('#review').fadeIn('slow');
+});
+
+$('#review').load('index.php?route=product/product/review&product_id={{ product_id }}');
+
+$('#button-review').on('click', function() {
+
+	$.ajax({
+		url: 'index.php?route=product/product/write&product_id={{ product_id }}',
+		type: 'post',
+		dataType: 'json',
+		data: $("#form-review").serialize(),
+		beforeSend: function() {
+			$('#button-review').button('loading');
+		},
+		complete: function() {
+			$('#button-review').button('reset');
+		},
+		success: function(json) {
+			$('.alert-dismissible').remove();
+
+			if (json['error']) {
+				$('#review').after('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+			}
+
+			if (json['success']) {
+
+				
+				 //document.getElementById('product').style.display = 'none';
+				 //document.getElementById('heme-content').style.display = 'block';
+				
+				$('#review').after('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+
+				$('input[name=\'name\']').val('');
+				$('textarea[name=\'text\']').val('');
+				$('input[name=\'rating\']:checked').prop('checked', false);
+			}
+		}
+	});
+});
+
+$(document).ready(function() {
+	$('.thumbnails').magnificPopup({
+		type:'image',
+		delegate: 'a',
+		gallery: {
+			enabled: true
+		}
+	});
+	
+});
+//--></script>
+<style>
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+</style>
+<link rel="stylesheet" href="catalog/view/theme/default/stylesheet/css-loader.css">
+{{ footer }} 
