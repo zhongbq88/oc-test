@@ -21,7 +21,7 @@
         <div id="collapse{{options_array[loop.index]}}" class="panel-collapse collapse {% if loop.index==1 %}in {% endif %}">
           <div class="panel-body op{{option.option_id}}">
           	{% if option.option_image_view %}
-             <div id="select_options_style{{option.option_id}}"> 
+             <div id="select_options_style{{option.product_option_id}}"> 
              {{ option.option_image_view }}
              </div>
              {% else %}
@@ -143,9 +143,10 @@
 			});
 	}
 	
-	function load_paired_products(option_id){
-		$("#select_options"+option_id).attr ("style","display:block;");
-		$('#select_options_style'+option_id).attr ("style","display:none;");
+	function load_paired_products(product_option_id){
+		//alert(option_id);
+		$("#select_options"+product_option_id).attr ("style","display:block;");
+		$('#select_options_style'+product_option_id).attr ("style","display:none;");
 	}
 	
 	function variant_image(node){

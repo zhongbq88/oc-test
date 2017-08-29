@@ -1288,7 +1288,7 @@ $data['footer'] = $this->load->controller($this->session->data['store'].'/footer
 		}
 		$this->load->model('commonipl/product');
 		//print_r($option_value_id);
-		$option = $this->model_shopify_product->getOptionValue($option_value_id);
+		$option = $this->model_commonipl_product->getOptionValue($option_value_id);
 		
 		$json = array();
 		$json['success'] = $this->getOptionImageView($product_id,$option_value_id,$product_option_id,1,isset($option['option_design_desc'])?$option['option_design_desc']:'');
