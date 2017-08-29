@@ -197,7 +197,7 @@
       <div class="buttons clearfix"> 
         <div class="pull-right">
           <button type="button" {% if  haspay==1 %} disabled {% endif %} onClick="payclick('{{paid}}');" id="pay{{order.order_id}}"   class="btn btn-success btn-xs" > {% if order_status_id==17
- or order_status_id==3 or order_status_id==5 ' %}{{ text_paid }}{% else %}{{ text_checkout }}{% endif %}</button>
+ or order_status_id==3 or order_status_id==5 %}{{ text_paid }}{% else %}{{ text_checkout }}{% endif %}</button>
       </div>
       </div>
       </div>

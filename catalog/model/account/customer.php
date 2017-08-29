@@ -65,6 +65,16 @@ class ModelAccountCustomer extends Model {
 		return $query->row;
 	}
 	
+	public function getCustomerByGroupName($customer_group_name) {
+		$query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "customer_group cg LEFT JOIN " . DB_PREFIX . "customer_group_description cgd ON (cg.customer_group_id = cgd.customer_group_id) WHERE cgd.name = '" . $this->db->escape($customer_group_name) . "' AND cgd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+
+		if(!isset($query->row)){
+			return;
+		}
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_group_id = '" . (int)$query->row['customer_group_id'] . "'");
+		return $query->rows;
+	}
+	
 	public function getCustomerByGroupId($customer_group_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_group_id = '" . (int)$customer_group_id . "'");
 		return $query->rows;
