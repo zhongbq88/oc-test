@@ -168,7 +168,7 @@ function loadDesignProduct(href,node){
 				beforeSend: function() {
 					//alert(123);
 					$('#loading'+variant_index+"_"+option_image_id).attr ("style","display:block;");
-					$('#upload_text'+variant_index+"_"+option_image_id).text('{{text_loading}}');
+					$('.button-group #upload_text'+variant_index+"_"+option_image_id).text('{{text_loading}}');
 				},
 				complete: function() {
 					//alert(456);
@@ -192,6 +192,8 @@ function loadDesignProduct(href,node){
 							document.getElementById("option_image"+variant_index+"_"+option_image_id).src = json['viewimg'];
 							//$('#thumbnail'+option_id).attr('href',json['preimg']); 
 							$("#option-img"+variant_index+"_"+option_image_id).val(json['preimg']);
+							
+							//$('#button-review').prop('disabled', true);
 						}
 						
 						//$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
