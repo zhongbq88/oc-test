@@ -39,10 +39,12 @@ class Oauthclient {
 	public function post($data,$variant_count=array()){
 		//echo $this->store;
 		//echo $this->oauth_token;
-		//print_r($data);
+		print_r($data);
 		//print_r($this->store);
 		//print_r($this->oauth_token);
-		$shopify = shopify\client($this->store, SHOPIFY_APP_API_KEY, $this->oauth_token);
+		try
+		{
+			$shopify = shopify\client($this->store, SHOPIFY_APP_API_KEY, $this->oauth_token);
 		if(isset($data['product'])){
 			$result =  $shopify('POST /admin/products.json', array(), $data);
 			$variants = $result['variants'];
@@ -63,8 +65,26 @@ class Oauthclient {
 				$image2['variant_ids'] = $variant_ids;
 				$rult = $shopify('PUT /admin/products/'.$result['id'].'/images/'.$image['id'].'.json', array(), array('image' =>$image2));
 			}
+			return $result;
 		}
-		return $result;
+			
+		}
+		catch (shopify\ApiException $e)
+		{
+			# HTTP status code was >= 400 or response contained the key 'errors'
+			//echo $e;
+			print_r($e->getRequest());
+			print_r($e->getResponse());
+		}
+		catch (shopify\CurlException $e)
+		{
+			# cURL error
+			//echo $e;
+			print_r($e->getRequest());
+			print_r($e->getResponse());
+		}
+		
+		return ;
 		
     }
 	
