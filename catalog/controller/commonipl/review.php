@@ -12,9 +12,9 @@ class ControllerCommoniplReview extends Controller {
 			$product_ids = array();
 		}
 		if (isset($this->request->post['option'])) {
-				$option = array_filter($this->request->post['option']);
+				$option_src = array_filter($this->request->post['option']);
 			} else {
-				$option = array();
+				$option_src = array();
 			}
 			if (isset($this->request->post['option-img'])) {
 				$pimgs = array_filter($this->request->post['option-img']);
@@ -94,11 +94,12 @@ class ControllerCommoniplReview extends Controller {
 												
 												
 												$img = array();
-							
+												//print_r($ky);
+												//print_r($option);
 												foreach ($option_images as $option_image) {
 													$img[$option_image['option_image_id']] = array(
 														'src'=>$option_image['image'],
-														'upload' =>$option[$ky][$option_image['option_image_id']]
+														'upload' =>$option_src[$ky][$option_image['option_image_id']]
 													);
 												}
 							
@@ -126,7 +127,7 @@ class ControllerCommoniplReview extends Controller {
 						}
 						
 					}
-					//print_r($srcImages);
+					//print_r($images);
 					
 					//print_r($option_data);
 					$options = $this->calculateCombination($option_data, 0,$arr = array(),$arr2=array());
@@ -236,7 +237,9 @@ class ControllerCommoniplReview extends Controller {
             $arr[$beginIndex] = $c;
             $this->calculateCombination($inputList, $beginIndex + 1,$arr,$arr2);
         }
-		return $arr2;
+		$result = $arr2;
+		$arr2= array();
+		return $result;
    }
 	
 }
