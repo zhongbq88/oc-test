@@ -53,6 +53,7 @@ class Oauthclient {
 			$variants2 = array();
 			$i=0;
 			$count = 0;
+			print_r($variant_count);
 			foreach($images as $key=> $image){
 				$image2 = array();
 				$image2['id'] = $image['id'];
