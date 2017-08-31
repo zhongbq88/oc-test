@@ -1,7 +1,7 @@
 {% if options %}
 {% for option in options %}
 {% if option.type == 'select'%}
-  <div class="panel-heading {% if variant_index==1 or variant_index==2 %} required {% endif %}" style="height:52px;" >
+  <div class="panel-heading {% if variant_index==1 %} required {% endif %}" style="height:52px;" >
     <h4 class="panel-title" style="height:52px;" ><a  data-toggle="collapse" data-parent="#accordion" 
 				   href="#collapse{{options_array[variant_index]}}" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;">
      <input type="hidden" name="product_id[{{ variant_index }}]" value="{{ product_id }}" />

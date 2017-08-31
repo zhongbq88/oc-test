@@ -8,7 +8,7 @@
     <div class="panel-group" id="accordion"> 
     {% for product_view in product_views %}
       <div class="panel panel-default" id="panel-body{{ loop.index }}">
-        <div class="panel-heading {% if loop.index==1 or loop.index==2 %} required {% endif %}" style="height:52px;" >
+        <div class="panel-heading {% if loop.index==1 %} required {% endif %}" style="height:52px;" >
           <h4 class="panel-title" style="height:52px;" ><a  data-toggle="collapse" data-parent="#accordion" 
 				   href="#collapse{{options_array[loop.index]}}" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;">
             <label class="control-label">{{variant}} {{ loop.index }}</label>
@@ -32,7 +32,7 @@
       {% endfor %}
       {% endif %} </div>
     <div class="button-group" style="margin:0 auto;">
-      <button type="submit" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" style=" width:auto; text-align:center;">{{ review_and_publish_designs }}</button>
+      <button type="submit" id="button-review"   disabled data-loading-text="{{ text_loading }}" class="btn btn-primary btn-lg btn-block" style=" width:auto; text-align:center;">{{ review_and_publish_designs }}</button>
     </div>
   </div>
   </div>
@@ -42,6 +42,7 @@
 </div>
 <!--<div class="modal-backdrop in"></div>--> 
 <script type="text/javascript"><!--
+var editarray = new Array();
 function loadDesignProduct(href,node){
 	//var variant_index = $(node).parent().get(0).getAttribute('id');
 	var variant_index =$('.in ').get(0).getAttribute('data-index');
@@ -103,6 +104,13 @@ function loadDesignProduct(href,node){
 	}
 	
 	function load_paired_products(variant_index){
+		
+		editarray = editarray.splice(variant_index);
+		//alert(editarray);
+		if(editarray.length<=0){
+			$('#button-review').prop('disabled', true);
+		}
+		
 	$.ajax({
 				url:  window.location.href+"&variant_index="+variant_index,
 				type: 'get',
@@ -192,8 +200,8 @@ function loadDesignProduct(href,node){
 							document.getElementById("option_image"+variant_index+"_"+option_image_id).src = json['viewimg'];
 							//$('#thumbnail'+option_id).attr('href',json['preimg']); 
 							$("#option-img"+variant_index+"_"+option_image_id).val(json['preimg']);
-							
-							//$('#button-review').prop('disabled', true);
+							editarray.push(variant_index);
+							$('#button-review').removeAttr("disabled"); 
 						}
 						
 						//$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
