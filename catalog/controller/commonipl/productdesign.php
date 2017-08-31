@@ -2,6 +2,7 @@
 
 class ControllerCommoniplProductdesign extends Controller {
 	
+	
 	public function index(){
 		
 		$this->load->language('commonipl/product');
@@ -155,6 +156,12 @@ class ControllerCommoniplProductdesign extends Controller {
 			$product_id = 0;
 		}
 
+		if (isset($this->request->get['variant_index'])) {
+			$variant_index = (int)$this->request->get['variant_index'];
+		} else {
+			$variant_index = 0;
+		}
+		
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
@@ -319,7 +326,7 @@ class ControllerCommoniplProductdesign extends Controller {
 				$count = count($option['product_option_value']);
 				foreach ($option['product_option_value'] as $option_value) {
 					if($count<=1){
-						$option_image_view= $this->getOptionImageView($product_id,$option_value['option_value_id'],$option['product_option_id'],0,$option_value['option_design_desc']);
+						$option_image_view= $this->getOptionImageView($product_id,$option_value['option_value_id'],$option['product_option_id'],0,$option_value['option_design_desc'],$variant_index);
 					}else{
 						if (!$option_value['subtract'] || ($option_value['quantity'] > 0)) {
 						if ((($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) && (float)$option_value['price']) {
@@ -455,9 +462,14 @@ class ControllerCommoniplProductdesign extends Controller {
 
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
 			
-$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
-		$data['header'] = $this->load->controller($this->session->data['store'].'/header');
-			$this->response->setOutput($this->load->view('commonipl/product_design', $data));
+/*$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
+		$data['header'] = $this->load->controller($this->session->data['store'].'/header');*/
+		$data['product_id'] = $product_id;
+		$data['variant_index'] = $variant_index;
+		$json['success'] = $this->load->view('commonipl/product_option', $data);
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+			//$this->response->setOutput();
 		} else {
 			$url = '';
 
@@ -562,23 +574,20 @@ $data['footer'] = $this->load->controller($this->session->data['store'].'/footer
 			} else {
 				$pimgs = array();
 			}
-			/*foreach ($option as $k=>$v) {
-				if(isset($optiontwo[$k])){
-					$option[$k] = 'left:'.$v.";".'right:'.$optiontwo[$k];
-				}
-			}*/
-			//print_r($option);
-			//print_r($pimgs);
-			//echo 'pimgstwo'.json_encode($pimgstwo);
 			$this->load->model('commonipl/image');
 			$images = array();
 			$thumbnail = array();
 			//print_r($option);
 			$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
 			$option_descriptions='';
+			$option_image_price = array();
+			$option_data = array();
+			$index=0;
 			//print_r($product_options);
 			foreach ($product_options as $product_option) {
 				//print_r($product_option);
+				if($product_option['type']=='select'){
+					$create = false;
 					foreach ($product_option['product_option_value'] as $option_value) {
 						//print_r($option_value['option_value_id']);
 						//print_r($option_value['image']);
@@ -623,11 +632,23 @@ $data['footer'] = $this->load->controller($this->session->data['store'].'/footer
 									
 								}
 							}
+						}else{
+							if(!$create){
+								$option_data[$index] = array();
+								$create = true;
+							}
+							$option_data[$index][] = $option_value;
 						}
 					}
+					if($create){
+						$index++;
+					}
+				}
 				
 			}
-			//print_r($images);
+			print_r($option_data);
+			$result = $this->calculateCombination($option_data, 0,$arr = array(),$arr2=array());
+			print_r($result);
 			//echo json_encode($images);
 			if (isset($this->request->post['recurring_id'])) {
 				$recurring_id = $this->request->post['recurring_id'];
@@ -713,6 +734,7 @@ $data['footer'] = $this->load->controller($this->session->data['store'].'/footer
 
 	
 		//echo json_encode($json);
+		$json['html'] = $this->load->view('commonipl/review', $json);
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
@@ -1286,17 +1308,24 @@ $data['footer'] = $this->load->controller($this->session->data['store'].'/footer
 		} else {
 			$product_option_id = 0;
 		}
+		
+		if (isset($this->request->get['variant_index'])) {
+			$variant_index = (int)$this->request->get['variant_index'];
+		} else {
+			$variant_index = 0;
+		}
+		
 		$this->load->model('commonipl/product');
 		//print_r($option_value_id);
 		$option = $this->model_commonipl_product->getOptionValue($option_value_id);
 		
 		$json = array();
-		$json['success'] = $this->getOptionImageView($product_id,$option_value_id,$product_option_id,1,isset($option['option_design_desc'])?$option['option_design_desc']:'');
+		$json['success'] = $this->getOptionImageView($product_id,$option_value_id,$product_option_id,1,isset($option['option_design_desc'])?$option['option_design_desc']:'',$variant_index);
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
 	
-	public function getOptionImageView($product_id,$option_value_id,$product_option_id,$change,$option_design_desc){
+	public function getOptionImageView($product_id,$option_value_id,$product_option_id,$change,$option_design_desc,$variant_index){
 		$this->load->language('commonipl/product');
 		$this->load->model('tool/image');
 		$this->load->model('catalog/product');
@@ -1317,14 +1346,16 @@ $data['footer'] = $this->load->controller($this->session->data['store'].'/footer
 		}
 		
 		$data = array();
+		$data['variant_index'] = $variant_index;
 		$data['product_option_id'] = $product_option_id;
 		$data['option_id'] = $option_id;
 		$data['product_id'] = $product_id;
 		$data['option_design_desc'] = html_entity_decode($option_design_desc, ENT_QUOTES, 'UTF-8');
 		$data['price'] = $product_info['price'];
 		$data['name'] = $product_info['meta_title'];
-		$data['change'] = $change;
+		$data['change'] = 1;//$change;
 		$data['option_images'] = $option_images_data;
 		return $this->load->view('commonipl/product_option_images', $data);
 	}
+	
 }

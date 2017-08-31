@@ -11,30 +11,13 @@ class ControllerCommoniplPublishipl extends Controller {
 
 		$json = array();
 
-		if (isset($this->request->post['product_id'])) {
-			$product_id = (int)$this->request->post['product_id'];
-		} else {
-			$product_id = 0;
-		}
-		//echo __DIR__.'shopifyinstall/create_product.php';
-		$this->load->model('catalog/product');
-		//echo "product_id".$product_id;
-		$product_info = $this->model_catalog_product->getProduct($product_id);
-		//print_r($product_info);
-		//$result = $this->addOrder();
-		/*foreach ($result  as $order) {
-			//echo 'order'.$order;
-			//echo 'order'.$order['order_option'];
-			//echo "cart".$order['cart_id']."--".$order['order_id']."--".$order['product_id'];
-			$this->remove($order['cart_id']);		
-		}
-		$result_one = $result[0];*/
-		//echo 'sku='.$product_info;
-		$title = $this->request->post['pttl'];
-		$pdsc = $this->request->post['pdsc'];
-		$ptag = $this->request->post['ptag'];
-		$pspr = $this->request->post['pspr'];
-		$pcol = $this->request->post['pcol'];
+		$this->load->model('commonipl/order');
+		$this->load->model('commonipl/product');
+		
+		$title = $this->request->post['product_title'];
+		$pdsc = $this->request->post['product_description'];
+		$ptag = $this->request->post['product_tags'];
+		$pcol = $this->request->post['product_pcol'];
 		$pimgs =array();
 		$variants = array();
 		$images = array();
@@ -44,212 +27,158 @@ class ControllerCommoniplPublishipl extends Controller {
 		} else {
 			$variant = array();
 		}
-		if (isset($this->request->post['imgs'])) {
-			$pimgs = array_filter($this->request->post['imgs']);
+		if (isset($this->request->post['product_image'])) {
+			$pimgs = array_filter($this->request->post['product_image']);
 		} else {
 			$pimgs = array();
 		}
-		if (isset($this->request->post['option'])) {
-			$option = array_filter($this->request->post['option']);
+		if (isset($this->request->post['variant_option'])) {
+			$variant_option = array_filter($this->request->post['variant_option']);
 		} else {
-			$option = array();
+			$variant_option = array();
 		}
-		$count = count($option);
-		//print_r($variant);
-		//print_r($option);
-		//print_r($pimgs);
-		//echo(json_encode($pimgs));
-		//echo 'au='.$this->session->data['oauth_token'] ;
-		//echo 'shop='.$this->session->data['shop'] ;
-		//echo "count=".$count;
-		$index =0;
-		$imgs    = array();
-		$productoption = $this->model_catalog_product->getProductOptions($product_id);
-		//print_r($productoption);
-		$option_data = array();
-		$options = array();
-		$optionColors = array();
-		$option_value_id = array();
-		foreach ($productoption as $opt) {
-			if($opt['type']=='select'){
-				
-				$create = false;
-				foreach ($opt['product_option_value'] as $option_value) {
-					if(empty($option_value['image'])){
-						if(!$create){
-							$value = array();
-							$option_data[$index] = array();
-							$options[$index]['name'] = $opt['name'];
-							$create = true;
-						}
-						$option_data[$index][] = 'Color:'.$option_value['name'].','.$opt['name'].":".$option_value['name'];
-						$value[] = $option_value['name'];
-					}else{
-						$option_value_id[$opt['product_option_id']] = $option_value['option_value_id'];
-						$option_images = $this->model_catalog_product->getOptionImages($option_value['option_value_id']);
-							//print_r($option_value['name']);
-							if(isset($option_images)){
-								$img = array();
-								foreach ($option_images as $option_image) {
-									//echo $option_image['option_image_id'];
-									//print_r($option[$option_image['option_image_id']]);
-									if(isset($option[$opt['product_option_id']][$option_image['option_image_id']])){
-										$img[$option_image['option_image_id']] = array(
-											'src'=>$option_image['image'],
-											'upload' =>$option[$opt['product_option_id']][$option_image['option_image_id']]
-										);
-								    } /*else {
-									  $img .= $option_image['image'].":";
-								  }*/
-								}
-								if(!empty($img)){
-									$optionColors[] = $option_value['name'];
-									$imgs[$opt['product_option_id']]= $img;
-								}
-								
-							}
-						
-						//$value = array();
-					}
-				}
-				if($create){
-					$options[$index]['values']  = $value;
-					$index++;
-				}
-				
-				
-			}		
-		}
-		//print_r($imgs);
 		
-		//print_r($optionColors);
-		//print_r($option);
-		$index =0;
-		//$count = count($order_option);
-		//print_r($option_data);
-		//$result = array();
-		$result = $this->calculateCombination($option_data, 0,$arr = array(),$arr2=array());
-		//print_r('result'.$result);
-		$this->load->model('shopify/order');
-		//print_r($option);
+		if (isset($this->request->post['variant_title'])) {
+			$variant_title = array_filter($this->request->post['variant_title']);
+		} else {
+			$variant_title = array();
+		}
+		
+		
+		if (isset($this->request->post['product_price'])) {
+			$product_price = array_filter($this->request->post['product_price']);
+		} else {
+			$product_price = array();
+		}
+		if (isset($this->request->post['compare_price'])) {
+			$compare_price = array_filter($this->request->post['compare_price']);
+		} else {
+			$compare_price = array();
+		}
+		if (isset($this->request->post['each_price'])) {
+			$each_price = array_filter($this->request->post['each_price']);
+		} else {
+			$each_price = array();
+		}
+		if (isset($this->request->post['product_option_value_id'])) {
+			$option_value_id = array_filter($this->request->post['product_option_value_id']);
+		} else {
+			$option_value_id = array();
+		}
+		if (isset($this->request->post['option_type'])) {
+			$option_type = array_filter($this->request->post['option_type']);
+		} else {
+			$option_type = array();
+		}
+		if (isset($this->request->post['product_id'])) {
+			$product_ids = array_filter($this->request->post['product_id']);
+		} else {
+			$product_ids = array();
+		}
 		$option1 = array();
-		
+		$optionSize = array();
+		$srcImages = $this->session->data['srcImages'];
+		//print_r($srcImages);
+		$typeName='';
+		$optionindex = 2;
+		$optionsnew = array();
+		$variant_count = array();
 		foreach ($pimgs as $key => $value) {
-			$count = 0;
-					if(count($result)>0){
-						foreach ($result  as $v) {
-							$count++;
-						$sku =  array(
-							'product_id'  => $product_id,
-							'price'       => $product_info['price'],
-							'sku'        => $product_info['sku'],
-							'model'        => $product_info['model'],
-							'product_option_id'  => $key,
-							'option_value_id'  => $option_value_id[$key] ,
-							'product_options'       => json_encode($v),
-							'option_file'       => $imgs[$key],
-							'design_file'        => HTTP_SERVER.$value
-						);
-						//print_r($sku);
-						$sku_id = $this->model_shopify_order->addProductSku($sku);
-						$variant1 = array(
-							'option2' => $optionColors[$index],
-							"price"=>$pspr,
-							"sku"=> $product_info['sku'].".".$sku_id
-						);
-						$optionIndex =3;
-						$opt='';
-						foreach($v  as $o){
-							$oo = explode(":",$o);
-							$oo = explode(",",$oo[1]);
-							$variant1["option".$optionIndex] = $oo[0];
-							$optionIndex++;
-							$opt .=$oo[0];
-						}
-						$variant1['option1'] = isset($variant[$key])?$variant[$key]:$product_info['name'].' '.$optionColors[$index].'/'.$opt;		$option1[] = $variant1['option1'];
-						$variants[]  = $variant1;
-						}
-					}else{
-						$count++;
-						$sku =  array(
-							'product_id'  => $product_id,
-							'price'       => $product_info['price'],
-							'sku'        => $product_info['sku'],
-							'model'        => $product_info['model'],
-							'product_option_id'  => $key,
-							'option_value_id'  => $option_value_id[$key] ,
-							'option_file'       => $imgs[$key],
-							'product_options'       => '',
-							'design_file'        => HTTP_SERVER.$value
-							//'customer_id'  => $product_info['customer_id']
-						);
-						//print_r($sku);
-						$sku_id = $this->model_shopify_order->addProductSku($sku);
-						/*if (isset($variant[$order_opt['product_option_id']])) {
-							$optionl = $variant[$order_opt['product_option_id']];
-						} else {
-							$optionl = 'option'.$index;
-						}*/
-						$option1[] = isset($variant[$key])?$variant[$key]:'option'.$index;
-						
-						$variants[] = array(
-							'option1' => isset($variant[$key])?$variant[$key]:'option'.$index,
-							'option2' => $optionColors[$index],
-							"price"=>$pspr,
-							"sku"=> $product_info['sku'].".".$sku_id
-						);
+				$i=0;
+				$option1[] =  $variant_title[$key];
+				$product_info = $this->model_commonipl_product->getProduct($product_ids[$key]);
+				foreach ($variant_option[$key]  as $v) {
+					if($typeName !=  $option_type[$key]){
+						  if(!empty($typeName)){
+							  if($optionSize){
+									$optionsnew[] = array(
+											'name'=>'Size',
+											'values'=>array_unique($optionSize)
+									);
+									$optionSize = array();
+									$optionindex++;
+							  }
+							  //print_r($optionsnew);
+						  }
+						$typeName =  $option_type[$key];
 					}
- 					//$im = file_get_contents(DIR_IMAGE.str_replace('image/','',$pimgs[$key]));
-       				//$imdata = base64_encode($im);      
-					
-					$images[] = array(
-						"src"=>HTTPS_SERVER.'image/'.$pimgs[$key]
+					$optionSize[] = $v;
+					$sku =  array(
+						'product_id'  		=> $product_ids[$key],
+						'price'       		=> $each_price[$key][$i],
+						'sku'        		=> $product_info['sku'],
+						'model'        		=> $product_info['model'],
+						'product_option_id' => $key,
+						'option_value_id'   => $option_value_id[$key],//$option_value_id[$key] ,
+						'product_options'   => $v,//json_encode($v),
+						'option_file'       => $srcImages[$key],//$imgs[$key],
+						'design_file'       => HTTP_SERVER.$value
 					);
-					$index++;
+					//print_r($sku);
+					$sku_id = $this->model_commonipl_order->addProductSku($sku);
+					$variants[] = array(
+						'option1' => $variant_title[$key],
+						'option'.$optionindex => $v,
+						'price' => $product_price[$key][$i],
+						'compare_price' => $compare_price[$key][$i],
+						"sku"=> $product_info['sku'].".".$sku_id
+					);		
 					
-			//}	
-			//$index++;
-		}
-	   $optionsnew = array();
-	   $optionsnew[] = array(
-					'name'=>'Name',
-					'values'=>$option1
+					$i++;		
+			}
+			$variant_count[] = array(
+				"variant_count"=>$i
 			);
-		if($optionColors){
-		  $optionsnew[] = array(
-				  'name'=>'Color',
-				  'values'=>array_unique($optionColors)
-		  );
+			$images[] = array(
+				"src"=>HTTPS_SERVER.'image/'.$pimgs[$key]
+			);
+			
 		}
-		foreach($options as $opt){
-			$optionsnew[] = $opt;
+		
+	  if($optionSize){
+			$optionsnew[] = array(
+				  'name'=>'Size',
+				  'values'=>array_unique($optionSize)
+			);
+		}
+		//print_r($optionsnew);
+	   $options = array();
+	   $options[] = array(
+					'name'=>'Type',
+					'values'=>array_unique($option1)
+			);
+		foreach($optionsnew as $optionsn)
+		{
+			$options[] = $optionsn;
 		}	
+		
 		$paoduct = array(
 							"title"=>$title,
 							"body_html"=> html_entity_decode($pdsc),
 							"tags"=> $ptag ,
 							"vendor"=>  "vivajean",
 							"product_type"=>  $product_info['model'],
-							"options"=>$optionsnew,
+							"options"=>$options,
 							"variants"=>$variants,
 							"images"=>$images
 		);
 		//print_r($paoduct);
-		$this->save($paoduct,$product_id,$images,$variants);
+		$this->save($paoduct,$product_ids,$images,$variants,$variant_count);
 	}
 	
-	public function save($paoduct,$product_id,$images,$variants){
+	public function save($paoduct,$product_ids,$images,$variants,$variant_count){
 		//$shopify = shopify\client($this->session->data['shop'], SHOPIFY_APP_API_KEY, $this->session->data['oauth_token']);
 		$json = array();
 		try
 		{
 			include(str_replace('commonipl','',__DIR__).$this->session->data['store'].'/oauthclient.php');
 			$product = Oauthclient::getInstance($this->customer->getStore(),$this->customer->getConsumerkey()
-			,$this->customer->getConsumerSecret(),$this->customer->getToken())->post(array('product' =>$paoduct));
+			,$this->customer->getConsumerSecret(),$this->customer->getToken())->post(array('product' =>$paoduct),$variant_count);
 			$this->load->model('shopify/product');
-			$this->model_shopify_product->saveShopifyAddProduct($product,$product_id);
+			$this->model_shopify_product->saveShopifyAddProduct($product,1);
 			$this->session->data['sussecc'] = sprintf($this->language->get('publish_sucessfully'), 'https://'.$this->session->data['shop'].'/admin/products/'.$product['id']);
 			//$this->response->redirect($this->url->link('shopify/dashboard'));
+			
 		}
 		catch (shopify\ApiException $e)
 		{
@@ -264,6 +193,9 @@ class ControllerCommoniplPublishipl extends Controller {
 			//echo $e;
 			print_r($e->getRequest());
 			print_r($e->getResponse());
+		}
+		if(isset($this->session->data['srcImages'])){
+			unset($this->session->data['srcImages']);
 		}
 		$json['success'] = 'index.php?route=commonipl/dashboard';
 		$this->response->addHeader('Content-Type: application/json');

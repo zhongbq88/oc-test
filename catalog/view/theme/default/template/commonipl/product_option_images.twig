@@ -6,7 +6,7 @@
 
     <div style="width:58%; display:inline-block; float: left; margin-top: 30px; margin-left:15px;">
     {% if change==1 %}
-        <button onclick="load_paired_products({{product_option_id}})" class="btn btn-default">Remove/Change Style</button>
+        <button type="button" onclick="load_paired_products({{variant_index}})" class="btn btn-default">Remove/Change Style</button>
         {% endif %}
         <div>
             {{option_design_desc}}
@@ -17,22 +17,22 @@
     
         {% for option_image in option_images %}
     	<div>
-         <p id="artwork{{ product_option_id }}_{{ option_image.option_image_id }}"><strong>{{option_image.name}}</strong></p>
+         <p id="artwork{{ variant_index }}_{{ option_image.option_image_id }}"><strong>{{option_image.name}}</strong></p>
 
          <span>
          <div> 
-         <img style="height:220px" class="option_image" id="option_image{{ product_option_id }}_{{ option_image.option_image_id }}" src="{{option_image.image}}" alt="Right Side">
+         <img style="height:220px" class="option_image" id="option_image{{ variant_index }}_{{ option_image.option_image_id }}" src="{{option_image.image}}" alt="Right Side">
          </div>
           <div style="height:12px;">
-         <div style="text-align:center;display:none;" id="loading{{ product_option_id }}_{{ option_image.option_image_id }}" ><img src="catalog/view/theme/default/image/loading_h.gif"></div></div>
+         <div style="text-align:center;display:none;" id="loading{{ variant_index }}_{{ option_image.option_image_id }}" ><img src="catalog/view/theme/default/image/loading_h.gif"></div></div>
          </span>
 
         <div class="right_btn" style="margin:8px;">
-          <span class="btn btn-success fileinput-button" data-product-option-id="{{ product_option_id }}" data-id="{{ option_image.option_image_id }}" data-src="{{ option_image.image }}" onclick="variant_image(this)" data-index='{{ loop.index }}' > <i class="glyphicon glyphicon-picture"></i>
-              <span id="upload_text{{ product_option_id }}_{{ option_image.option_image_id }}">{{button_upload}}</span>
-               <input type="hidden" name="option-img[{{ product_option_id }}][{{ option_image.option_image_id }}]" value="" id="option-img{{ product_option_id }}_{{ option_image.option_image_id }}" />
-              <input type="hidden" name="option[{{ product_option_id }}][{{ option_image.option_image_id }}]" value="" id="input-option{{ product_option_id }}_{{ option_image.option_image_id }}" />
-              <input type="button" id="button-upload{{ option_image.option_image_id }}"  data-id="{{ product_option_id }}_{{ option_image.option_image_id }}">
+          <span class="btn btn-success fileinput-button" data-product-option-id="{{ product_option_id }}" data-id="{{ option_image.option_image_id }}" data-src="{{ option_image.image }}" onclick="variant_image(this)" data-variant-index='{{ variant_index }}'  data-index='{{ loop.index }}' > <i class="glyphicon glyphicon-picture"></i>
+              <span id="upload_text{{ variant_index }}_{{ option_image.option_image_id }}">{{button_upload}}</span>
+               <input type="hidden" name="option-img[{{ variant_index }}][{{ option_image.option_image_id }}]" value="" id="option-img{{ variant_index }}_{{ option_image.option_image_id }}" />
+              <input type="hidden" name="option[{{ variant_index }}][{{ option_image.option_image_id }}]" value="" id="input-option{{ variant_index }}_{{ option_image.option_image_id }}" />
+              <input type="button" id="button-upload{{ option_image.option_image_id }}"  data-id="{{ variant_index }}_{{ option_image.option_image_id }}">
           </span>
         </div>
         </div>
