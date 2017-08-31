@@ -34,7 +34,7 @@ class Oauthclient{
     }
 	
 	public function post($data){
-		print_r($data['product']);
+		//print_r($data['product']);
 		if(isset($data['product'])){
 			$product = $data['product'];
 			$data = array(
@@ -61,7 +61,7 @@ class Oauthclient{
 			$data['default_attributes'] = $default_attributes;
 			$data['attributes'] = $attributes;
 			$result = $this->client->post('products',$data);
-			print_r($result);
+			//print_r($result);
 			$variants = $product['variants'];
 			$images = $result['images'];
 			$variants2 = array();
@@ -95,10 +95,10 @@ class Oauthclient{
 				}
 				$data['attributes'] = $attributes;
 				$rult = $this->client->post('products/'.$result['id'].'/variations',$data);
-				print_r($rult);
+				//print_r($rult);
 				$count +=$items;
 			}
-			print_r($result);
+			//print_r($result);
 			return $result;
 			
 		}

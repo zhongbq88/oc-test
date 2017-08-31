@@ -130,6 +130,7 @@ class ControllerCommoniplPublishipl extends Controller {
 				"variant_count"=>$i
 			);
 			$images[] = array(
+			//"src"=>'https://www.customdr.com/image/catalog/designs/23_3_1504177279.jpg'
 				"src"=>HTTPS_SERVER.'image/'.$pimgs[$key]
 			);
 			
@@ -176,7 +177,9 @@ class ControllerCommoniplPublishipl extends Controller {
 			,$this->customer->getConsumerSecret(),$this->customer->getToken())->post(array('product' =>$paoduct),$variant_count);
 			$this->load->model('shopify/product');
 			$this->model_shopify_product->saveShopifyAddProduct($product,1);
-			$this->session->data['sussecc'] = sprintf($this->language->get('publish_sucessfully'), 'https://'.$this->session->data['shop'].'/admin/products/'.$product['id']);
+			if(isset($this->session->data['shop'])){
+				$this->session->data['sussecc'] = sprintf($this->language->get('publish_sucessfully'), 'https://'.$this->session->data['shop'].'/admin/products/'.$product['id']);
+			}
 			//$this->response->redirect($this->url->link('shopify/dashboard'));
 			
 		}
