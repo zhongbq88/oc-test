@@ -49,6 +49,7 @@ class ControllerCommoniplReview extends Controller {
 					$json['title'] = $product_info['name'];
 					$product_options = $this->model_catalog_product->getProductOptions($product_id);
 					//print_r($product_options);
+					$option_descriptions .= html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8').'<br>';
 					$option_data = array();
 					$index=0;
 					$optionName ='';
@@ -104,7 +105,7 @@ class ControllerCommoniplReview extends Controller {
 												$images[$product_option['product_option_id']] = $image;							
 												$array = getimagesize(DIR_IMAGE.$thumb); 
 												$thumbnail[$product_option['product_option_id']] =$this->model_commonipl_image->resize($thumb, $array[0]/4, $array[1]/4);
-												$option_descriptions .= html_entity_decode($option_value['option_description'], ENT_QUOTES, 'UTF-8').'<br>';
+											
 											}
 											
 										}

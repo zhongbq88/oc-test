@@ -52,17 +52,19 @@ class ModelShopifyImage extends Model {
     	$fileName   =   explode('.',str_replace('.png.mbg.png','',end($photoArray)));
 		$sizes   =   explode('_',end($fileName));
 		//print_r(end($sizes));
-		$size   =   explode('x',end($sizes));
+		$sizes   =   explode('-',end($sizes));
+		$start   =   explode('x',$sizes[0]);
+		$sizes   =   explode('x',$sizes[1]);
 		//print_r($size);
  		$top = Imagecreatefrompng($top);
 		$width = imagesx($top);
 		$height = imagesy($top);
 		
-		$bottom = $this->imageThumb($bottom,0,2.5);
+		$bottom = $this->imageThumb($bottom,$sizes[0],$sizes[1]);
 		$target_img     = imageCreatetruecolor(imagesx( $top),imagesy( $top));
 		$color = imagecolorallocate($target_img, 255, 255, 255);
 		imagefill($target_img, 0, 0, $color);
-		imagecopy($target_img, $bottom,$size[0], $size[1], 0, 0,imagesx( $bottom),imagesy( $bottom));
+		imagecopy($target_img, $bottom,$start[0], $start[1], 0, 0,imagesx( $bottom),imagesy( $bottom));
 		imagecopy($target_img, $top,0, 0, 0, 0,imagesx( $top),imagesy( $top));
 		
 		imagepng($target_img,$savePath.$newFilename,8);

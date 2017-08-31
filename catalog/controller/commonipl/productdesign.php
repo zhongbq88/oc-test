@@ -326,7 +326,7 @@ class ControllerCommoniplProductdesign extends Controller {
 				$count = count($option['product_option_value']);
 				foreach ($option['product_option_value'] as $option_value) {
 					if($count<=1){
-						$option_image_view= $this->getOptionImageView($product_id,$option_value['option_value_id'],$option['product_option_id'],0,$option_value['option_design_desc'],$variant_index);
+						$option_image_view= $this->getOptionImageView($product_id,$option_value['option_value_id'],$option['product_option_id'],0,$product_info['description'],$variant_index);
 					}else{
 						if (!$option_value['subtract'] || ($option_value['quantity'] > 0)) {
 						if ((($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) && (float)$option_value['price']) {
@@ -579,7 +579,6 @@ class ControllerCommoniplProductdesign extends Controller {
 			$thumbnail = array();
 			//print_r($option);
 			$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
-			$option_descriptions='';
 			$option_image_price = array();
 			$option_data = array();
 			$index=0;
@@ -627,7 +626,6 @@ class ControllerCommoniplProductdesign extends Controller {
 										$thumbnail[] = array(
 										$product_option['product_option_id']=>$this->model_commonipl_image->resize($thumb, $array[0]/4, $array[1]/4)
 										);
-										$option_descriptions .= html_entity_decode($option_value['option_description'], ENT_QUOTES, 'UTF-8').'<br>';
 									}
 									
 								}
@@ -673,7 +671,7 @@ class ControllerCommoniplProductdesign extends Controller {
 			if (!$json) {
 				$json['thumbnail']=$thumbnail;
 				$json['images'] = $images;
-				$json['option_descriptions'] = $option_descriptions;
+				$json['option_descriptions'] = $product_info['description'];
 				//$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('commonipl/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
 				// Unset all shipping and payment methods
@@ -1317,10 +1315,10 @@ class ControllerCommoniplProductdesign extends Controller {
 		
 		$this->load->model('commonipl/product');
 		//print_r($option_value_id);
-		$option = $this->model_commonipl_product->getOptionValue($option_value_id);
+		$product_info = $this->model_catalog_product->getProduct($product_id);
 		
 		$json = array();
-		$json['success'] = $this->getOptionImageView($product_id,$option_value_id,$product_option_id,1,isset($option['option_design_desc'])?$option['option_design_desc']:'',$variant_index);
+		$json['success'] = $this->getOptionImageView($product_id,$option_value_id,$product_option_id,1,isset($product_info['description'])?$product_info['description']:'',$variant_index);
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
