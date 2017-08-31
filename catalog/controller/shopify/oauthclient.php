@@ -39,7 +39,7 @@ class Oauthclient {
 	public function post($data,$variant_count=array()){
 		//echo $this->store;
 		//echo $this->oauth_token;
-		//print_r($data);
+		print_r($data);
 		//print_r($this->store);
 		//print_r($this->oauth_token);
 		$shopify = shopify\client($this->store, SHOPIFY_APP_API_KEY, $this->oauth_token);
