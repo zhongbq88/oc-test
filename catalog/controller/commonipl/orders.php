@@ -457,7 +457,7 @@ class ControllerCommoniplOrders extends Controller {
 						$image = $option['design_file'];
 						$model = $option['product_model'];
 						if(isset($opts)){
-							foreach ($opts as $opt) {
+							/*foreach ($opts as $opt) {
 								if(isset($option_select_name)&&strpos($opt,$option_select_name) !== false){
 									$str = explode(':',$opt);
 									$selected_name = $str[1];
@@ -467,7 +467,7 @@ class ControllerCommoniplOrders extends Controller {
 							$option_data[] = array(
 							'value' => $opt
 						);
-						}
+						}*/
 					}
 					
 					}
