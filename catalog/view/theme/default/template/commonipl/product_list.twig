@@ -103,8 +103,9 @@ function loadDesignProduct(href,node){
 			});
 	}
 	
-	function load_paired_products(variant_index){
-		
+	function load_paired_products(variant_index,product_option_id){
+		document.getElementById("src-option1-"+product_option_id+"-"+variant_index).src ='';
+		document.getElementById("src-option2-"+product_option_id+"-"+variant_index).src ='';
 		editarray = editarray.splice(variant_index);
 		//alert(editarray);
 		if(editarray.length<=0){

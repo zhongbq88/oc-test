@@ -6,7 +6,7 @@
 
     <div style="width:58%; display:inline-block; float: left; margin-top: 30px; margin-left:15px;">
     {% if change==1 %}
-        <button type="button" onclick="load_paired_products({{variant_index}})" class="btn btn-default">Remove/Change Style</button>
+        <button type="button" onclick="load_paired_products({{variant_index}},{{ product_option_id }})" class="btn btn-default">Remove/Change Style</button>
         {% endif %}
         <div>
             {{option_design_desc}}
