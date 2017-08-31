@@ -131,7 +131,7 @@ class ControllerCommoniplPublishipl extends Controller {
 			);
 			$images[] = array(
 			//"src"=>'https://www.customdr.com/image/catalog/designs/23_3_1504177279.jpg'
-				"src"=>HTTPS_SERVER.'image/'.$pimgs[$key]
+				"src"=>HTTPS_SERVER.$pimgs[$key]
 			);
 			
 		}

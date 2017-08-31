@@ -29,7 +29,7 @@ class ControllerCommoniplReview extends Controller {
 			
 		$this->load->model('catalog/product');
 		$quantity = 1;
-		$images = array();
+		
 		$thumbnail = array();
 		$option_descriptions='';
 		$option_image_price = array();
@@ -41,11 +41,13 @@ class ControllerCommoniplReview extends Controller {
 		//print_r($pimgs);
 		$variants = array();
 		$product_index =0;
+		$viewimages = array();
 		if(isset($product_ids)){
 			
 			foreach($product_ids as $ky => $product_id){
 				$product_info = $this->model_catalog_product->getProduct($product_id);
 				if ($product_info) {
+					$images = array();
 					$json['title'] = $product_info['name'];
 					$product_options = $this->model_catalog_product->getProductOptions($product_id);
 					//print_r($product_options);
@@ -179,6 +181,7 @@ class ControllerCommoniplReview extends Controller {
 						
 						//$json['product_id'] = $product_id;
 				}
+
 				$product_index ++;
 			}
 
