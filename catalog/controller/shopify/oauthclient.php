@@ -47,6 +47,7 @@ class Oauthclient {
 			$shopify = shopify\client($this->store, SHOPIFY_APP_API_KEY, $this->oauth_token);
 		if(isset($data['product'])){
 			$result =  $shopify('POST /admin/products.json', array(), $data);
+			print_r($result);
 			$variants = $result['variants'];
 			$images = $result['images'];
 			$variants2 = array();
@@ -62,6 +63,7 @@ class Oauthclient {
 						$variant_ids[] = $variants[$i]['id'];
 					}
 				}
+				print_r($image2);
 				$image2['variant_ids'] = $variant_ids;
 				$rult = $shopify('PUT /admin/products/'.$result['id'].'/images/'.$image['id'].'.json', array(), array('image' =>$image2));
 			}
