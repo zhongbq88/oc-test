@@ -1,5 +1,5 @@
 <?php
-class ControllerShopifyTransaction extends Controller {
+class ControllerCommoniplTransaction extends Controller {
 	public function index() {
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('shopify/transaction', '', true);
