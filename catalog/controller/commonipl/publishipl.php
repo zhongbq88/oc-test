@@ -122,7 +122,7 @@ class ControllerCommoniplPublishipl extends Controller {
 						'option1' => $variant_title[$key],
 						'option'.$optionindex => $v,
 						'price' => $product_price[$key][$i],
-						'compare_price' => $compare_price[$key][$i],
+						'compare_at_price' => $compare_price[$key][$i],
 						"sku"=> $product_info['sku'].".".$sku_id
 					);		
 					
