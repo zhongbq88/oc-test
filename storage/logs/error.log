@@ -95,3 +95,5 @@
 2017-09-01 4:33:34 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
 2017-09-01 4:58:12 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
 2017-09-01 4:58:12 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
+2017-09-01 8:05:06 - PHP Notice:  Undefined index: store in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\review.php on line 200
+2017-09-01 8:05:06 - PHP Notice:  Undefined index: store in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\review.php on line 201

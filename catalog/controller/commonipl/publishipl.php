@@ -19,7 +19,7 @@ class ControllerCommoniplPublishipl extends Controller {
 		$ptag = $this->request->post['product_tags'];
 		$pcol = $this->request->post['product_pcol'];
 		
-		print_r($pdsc);
+		//print_r($pdsc);
 		$pimgs =array();
 		$variants = array();
 		$images = array();
