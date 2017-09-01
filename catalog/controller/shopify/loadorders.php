@@ -54,7 +54,7 @@ class ControllerShopifyLoadorders extends Controller {
 			  //print_r($orders);
 			  foreach($orders as $order){
 				 $od = $this->initOrder($order,$order_statuses,$customer_info);
-				 print_r($od);
+				 //print_r($od);
 				 $order_id = $this->model_shopify_order->addOrder($od);
 			  }
 			  
@@ -176,7 +176,7 @@ class ControllerShopifyLoadorders extends Controller {
 					  }*/
 					  echo $sk.",";
 					  $orderProducts = $this->model_shopify_order->getOrderProductsBySku($sk);
-					  print_r( $orderProducts);
+					 // print_r( $orderProducts);
 					  if(count($orderProducts)>0&& $orderProducts[0]['sku'].'.'.$orderProducts[0]['sku_id']==$items['sku']){
 						  $od[] = array(
 						  'name'=> $items['name'],
