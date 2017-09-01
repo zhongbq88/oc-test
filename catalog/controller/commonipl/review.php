@@ -31,7 +31,7 @@ class ControllerCommoniplReview extends Controller {
 		$quantity = 1;
 		
 		$thumbnail = array();
-		$option_descriptions='';
+		$option_descriptions=array();
 		$option_image_price = array();
 		
 		$variantTitles = array();
@@ -51,7 +51,9 @@ class ControllerCommoniplReview extends Controller {
 					$json['title'] = $product_info['name'];
 					$product_options = $this->model_catalog_product->getProductOptions($product_id);
 					//print_r($product_options);
-					$option_descriptions .= html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8').'<br>';
+					if(!array_key_exists($product_id,$option_descriptions)){
+						$option_descriptions[$product_id] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8').'<br>';
+					}
 					$option_data = array();
 					$index=0;
 					$optionName ='';
@@ -188,7 +190,11 @@ class ControllerCommoniplReview extends Controller {
 
 		}
 		$this->session->data['srcImages'] = $srcImages;
-		$json['descriptions'] = $option_descriptions;
+		$descriptions = '';
+		foreach($option_descriptions as $des){
+			$descriptions.=$des;
+		}
+		$json['descriptions'] = $descriptions;
 		$json['variants'] = $variants;
 		//print_r($variants);
 		$json['footer'] = $this->load->controller($this->session->data['store'].'/footer');

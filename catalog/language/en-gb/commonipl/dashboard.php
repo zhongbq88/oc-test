@@ -80,7 +80,7 @@ $_['column_location']            = 'Location';
 $_['column_reference']           = 'Reference';
 $_['column_action']              = 'Action';
 $_['column_weight']              = 'Product Weight';
-
+$_['button_edit']              = 'Edit';
 // Entry
 $_['entry_store']                = 'Store';
 $_['entry_customer']             = 'Customer';

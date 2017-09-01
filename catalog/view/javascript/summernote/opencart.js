@@ -52,7 +52,7 @@ function updateEdit(){
 						tooltip: $.summernote.lang[$.summernote.options.lang].image.image,
 						click: function () {
 							$('#modal-image').remove();
-							
+							//$('.note-insert').attr ("style","display:none;");
 							$.ajax({
 								url: 'index.php?route=common/filemanager&user_token=' + getURLVar('user_token'),
 								dataType: 'html',
@@ -80,10 +80,14 @@ function updateEdit(){
 							});						
 						}
 					});
-				
+					//$('.note-insert').attr ("style","display:none;");
 					return button.render();
 				}
   			}
+			
 		});
+		
+		
 	});
+	
 }
