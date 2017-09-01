@@ -67,7 +67,23 @@ class ControllerCommoniplDashboard extends Controller{
 			$p = json_decode($product['shopify_product_json'],true);
 			
 			
-			if(isset($p['name'])){
+			if(isset($p['title'])){
+				
+				if ($p['image']) {
+					$image =$p['image']['src'] ;
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				}
+				$sales = $this->model_commonipl_product->getPublishProductSales($p['id']);
+				$productList[] = array(
+					'name'=>$p['title'],
+					'image'=>$image,
+					'status'=>'published',
+					'published_at'=>date($this->language->get('date_format_short'), strtotime($product['date_added'])),
+					'sales'=>0,
+					'href'  => 'https://vivajean.myshopify.com/admin/products/'.$p['id']
+				);
+			}else if(isset($p['name'])){
 				
 				if ($p['images']) {
 					$image =$p['images'][0]['src'] ;
