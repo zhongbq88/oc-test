@@ -5,7 +5,7 @@ $_['heading_title']              = 'Dashboard';
 
 // Text
 $_['text_success']               = 'Success: You have modified orders!';
-$_['text_list']                  = 'Order List';
+$_['text_list']                  = 'Publish List';
 $_['text_add']                   = 'Add Order';
 $_['text_edit']                  = 'Edit Order';
 $_['text_filter']                = 'Filter';
@@ -61,18 +61,19 @@ $_['text_commission_removed']    = 'Success: Commission removed!';
 $_['text_restock']               = 'Success: Products have been restocked!';
 $_['text_upload']                = 'Your file was successfully uploaded!';
 $_['text_picklist']              = 'Dispatch Note';
+$_['add_product']              = 'Add Product';
 
 // Column
-$_['column_order_id']            = 'Order ID';
-$_['column_customer']            = 'Customer';
+$_['column_image']            = 'Image';
+$_['column_product_name']            = 'Product Name';
 $_['column_status']              = 'Status';
 $_['column_date_added']          = 'Date Added';
 $_['column_date_modified']       = 'Date Modified';
 $_['column_total']               = 'Total';
 $_['column_product']             = 'Product';
 $_['column_model']               = 'Model';
-$_['column_quantity']            = 'Quantity';
-$_['column_price']               = 'Unit Price';
+$_['column_sales']            	 = 'Sales';
+$_['column_price']               = 'Price';
 $_['column_comment']             = 'Comment';
 $_['column_notify']              = 'Customer Notified';
 $_['column_location']            = 'Location';

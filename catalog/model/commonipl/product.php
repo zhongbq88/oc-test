@@ -518,11 +518,24 @@ class ModelCommoniplProduct extends Model {
 		return $query->row['total'];
 	}
 	
-	public function saveShopifyAddProduct($product,$product_id){
+	public function saveShopifyAddProduct($product,$product_id,$product_id_list){
 		if ($product) {
 			//foreach ($products as $product) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "shopify_add_product SET product_id = '" .$product_id . "', shopify_product_id = '" .$product['id'] . "', shopify_product_json = '" .$this->db->escape(json_encode($product)) . "',  customer_id = '" .(int)$this->customer->getId() . "',date_added = NOW() ");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "shopify_add_product SET product_id = '" .$product_id . "', shopify_product_id = '" .$product['id'] . "', shopify_product_json = '" .$this->db->escape(json_encode($product)) . "', product_id_list = '" .$this->db->escape(json_encode($product_id_list)) . "',  customer_id = '" .(int)$this->customer->getId() . "',date_added = NOW() ");
 			//}
 		}
+	}
+	
+	
+	public function getPublishProduct(){
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "shopify_add_product WHERE customer_id = '" . (int)$this->customer->getId() . "'  ORDER BY date_added DESC ");
+
+		return $query->rows;
+	}
+	
+	public function getPublishProductSales($product_id){
+		$query = $this->db->query("SELECT sum(quantity) AS total FROM " . DB_PREFIX . "order_product WHERE shopify_product_id = '" . (int)$product_id . "'");
+
+		return $query->row['total'];
 	}
 }

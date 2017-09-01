@@ -14,7 +14,7 @@ class ControllerCommoniplDashboard extends Controller{
 		}
 		$user_id =  $this->request->get['user_id'];*/
 
-		$this->load->language('shopify/dashboard');
+		$this->load->language('commonipl/dashboard');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 		
@@ -57,6 +57,37 @@ class ControllerCommoniplDashboard extends Controller{
 		$data['aug_total'] = $total; 
 		$data['aug_charges'] = $charges; 
 		$data['tabtype'] = 0;
+		
+		$this->load->language('commonipl/product');
+		$this->load->model('commonipl/product');
+		
+		$products = $this->model_commonipl_product->getPublishProduct();
+		$productList = array();
+		foreach($products as $product){
+			$p = json_decode($product['shopify_product_json'],true);
+			
+			
+			if(isset($p['name'])){
+				
+				if ($p['images']) {
+					$image =$p['images'][0]['src'] ;
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				}
+				$sales = $this->model_commonipl_product->getPublishProductSales($p['id']);
+				$productList[] = array(
+					'name'=>$p['name'],
+					'image'=>$image,
+					'status'=>$p['status'],
+					'published_at'=>date($this->language->get('date_format_short'), strtotime($product['date_added'])),
+					'sales'=>0,
+					'href'  => 'https://vivajean.myshopify.com/admin/products/'.$p['id']
+				);
+			}
+		}
+		//print_r($productList);
+		$data['products'] = $productList;
+		
 		$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
 		$data['header'] = $this->load->controller($this->session->data['store'].'/header');
 		if(isset($this->session->data['sussecc'])){

@@ -21,3 +21,73 @@
 2017-08-31 14:03:15 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
 2017-08-31 14:07:23 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
 2017-08-31 14:07:23 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:44:39 - PHP Warning:  json_decode() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 16
+2017-09-01 2:45:53 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:45:53 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:45:53 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:45:53 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:46:58 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:46:58 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:46:58 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:46:58 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:08 - PHP Notice:  Undefined offset: 0 in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:17 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:17 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:17 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:47:17 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:48:12 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:48:12 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:48:12 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:48:12 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 17
+2017-09-01 2:50:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:50:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:50:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:50:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:50:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:50:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:50:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:50:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:51:15 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:51:15 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:51:15 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:51:15 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:51:15 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:51:15 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:51:15 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:51:15 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 18
+2017-09-01 2:56:16 - PHP Notice:  Undefined variable: result in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 32
+2017-09-01 2:56:16 - PHP Notice:  Undefined variable: result in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 32
+2017-09-01 2:56:16 - PHP Notice:  Undefined variable: result in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 32
+2017-09-01 2:56:16 - PHP Notice:  Undefined variable: result in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 32
+2017-09-01 2:56:16 - PHP Notice:  Undefined variable: result in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 32
+2017-09-01 2:56:16 - PHP Notice:  Undefined variable: result in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 32
+2017-09-01 2:56:16 - PHP Notice:  Undefined variable: result in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 32
+2017-09-01 2:56:16 - PHP Notice:  Undefined variable: result in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishlist.php on line 32
+2017-09-01 3:10:54 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-09-01 3:10:54 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
+2017-09-01 3:11:15 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-09-01 3:11:15 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
+2017-09-01 3:11:35 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-09-01 3:11:35 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124

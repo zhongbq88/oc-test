@@ -175,8 +175,8 @@ class ControllerCommoniplPublishipl extends Controller {
 			include(str_replace('commonipl','',__DIR__).$this->session->data['store'].'/oauthclient.php');
 			$product = Oauthclient::getInstance($this->customer->getStore(),$this->customer->getConsumerkey()
 			,$this->customer->getConsumerSecret(),$this->customer->getToken())->post(array('product' =>$paoduct),$variant_count);
-			$this->load->model('shopify/product');
-			$this->model_shopify_product->saveShopifyAddProduct($product,1);
+			$this->load->model('commonipl/product');
+			$this->model_commonipl_product->saveShopifyAddProduct($product,1,$product_ids);
 			if(isset($this->session->data['shop'])){
 				$this->session->data['sussecc'] = sprintf($this->language->get('publish_sucessfully'), 'https://'.$this->session->data['shop'].'/admin/products/'.$product['id']);
 			}
