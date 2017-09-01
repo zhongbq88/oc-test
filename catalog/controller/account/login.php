@@ -3,7 +3,8 @@ class ControllerAccountLogin extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->response->redirect($this->url->link('error/not_found', '', true));
+		$this->response->redirect('https://apps.shopify.com/customdr');
+		//$this->response->redirect($this->url->link('error/not_found', '', true));
 		$this->load->model('account/customer');
 
 		// Login override for admin users
