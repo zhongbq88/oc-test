@@ -147,12 +147,12 @@ border-radius:4px;">
                         <div class="row size-price0" >
                           <label class="col-md-2 col-md-offset-1 control-label">{{ option.name }}<span class="badge badge-primary">${{ option.each_price }} each</span></label>
                           <div class="col-md-3">
-                            <div class="input-group"> <span class="input-group-addon" id="sizing-addon1">Price</span>
+                            <div class="input-group"> <span class="input-group-addon" id="sizing-addon1">Sale Price</span>
                               <input name="product_price[{{ variant.variant_index}}][]" type="text" class="form-control" placeholder="Price" aria-describedby="sizing-addon1" data-input="product_price" value="{{ option.product_price }}">
                             </div>
                           </div>
                           <div class="col-md-3">
-                            <div class="input-group"> <span class="input-group-addon" id="sizing-addon1">Compare</span>
+                            <div class="input-group"> <span class="input-group-addon" id="sizing-addon1">MSRP</span>
                               <input name="compare_price[{{ variant.variant_index}}][]" type="text" class="form-control" placeholder="Compare price" aria-describedby="sizing-addon1" data-input="compare_price" value="{{ option.compare_price }}">
                             </div>
                           </div>
