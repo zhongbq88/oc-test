@@ -42,7 +42,7 @@ public function index(){
 		//$update = array('order'=>array("id"=>5238292616,'fulfillments' =>$fulfillments));
 		//print_r($fulfillments);
 		$product = $shopify('POST /admin/orders/'.$line_item_order_id.'/fulfillments.json', array(),array('fulfillment'=>$fulfillments));
-		print_r($product);
+		//print_r($product);
 	}
 	catch (shopify\ApiException $e)
 	{
