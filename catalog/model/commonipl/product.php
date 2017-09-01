@@ -528,7 +528,7 @@ class ModelCommoniplProduct extends Model {
 	
 	
 	public function getPublishProduct(){
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "shopify_add_product WHERE customer_id = '6'  ORDER BY date_added DESC ");
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "shopify_add_product WHERE customer_id = '" . (int)$this->customer->getId() . "'  ORDER BY date_added DESC ");
 
 		return $query->rows;
 	}
