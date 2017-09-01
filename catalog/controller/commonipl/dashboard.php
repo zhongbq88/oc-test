@@ -60,15 +60,13 @@ class ControllerCommoniplDashboard extends Controller{
 		
 		$this->load->language('commonipl/product');
 		$this->load->model('commonipl/product');
-		
+		$this->load->model('tool/image');
 		$products = $this->model_commonipl_product->getPublishProduct();
 		$productList = array();
 		foreach($products as $product){
 			$p = json_decode($product['shopify_product_json'],true);
-			
-			
-			if(isset($p['title'])){
 				
+			if(isset($p['title'])){
 				if ($p['image']) {
 					$image =$p['image']['src'] ;
 				} else {
