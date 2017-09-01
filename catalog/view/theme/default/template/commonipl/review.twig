@@ -37,7 +37,10 @@ border-radius:4px;">
                       <div class="col-sm-9 controls">
                         <div class="row mgbt-xs-0">
                           <div class="col-xs-13">
-                          <div id="input-description"><p>{{ descriptions }}</p></div>
+                         <div style="display:none">
+                          <textarea name="product_description"  id="input-description"></textarea>
+                         </div>
+                          <div id="edit_des"><p>{{ descriptions }}</p></div>
                           </div>
                           <!-- col-xs-12 --> 
                         </div>
@@ -189,24 +192,6 @@ border-radius:4px;">
 </div>
 <script type="text/javascript"><!--
 
-function isRepeat(arr){
-
-　　var hash = {};
-
-　　for(var i in arr) {
-
-　　　　if(hash[arr[i]])
-
-　　　　return true;
-
-　　　　hash[arr[i]] = true;
-
-　　}
-
-　　return false;
-
-}
-
 $('#publish_product_btn').on('click', function() {
 
 	var i=0,j=0;
@@ -226,6 +211,7 @@ $('#publish_product_btn').on('click', function() {
 		alert('Please enter different variant title!');
 		return;
 	 }
+	 $('#input-description').val(editor.txt.html());
 	//var node = this;
 	$.ajax({
 		url: 'index.php?route=commonipl/publishipl',
@@ -258,7 +244,7 @@ $('#publish_product_btn').on('click', function() {
 <script type="text/javascript" src="catalog/view/javascript/editor/wangEditor.min.js"></script>
     <script type="text/javascript">
         var E = window.wangEditor;
-var editor = new E('#input-description');
+var editor = new E('#edit_des');
 editor.create();
     </script>
 {{footer }}
