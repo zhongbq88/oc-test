@@ -534,8 +534,8 @@ class ModelCommoniplProduct extends Model {
 	}
 	
 	public function getPublishProductSales($product_id){
-		$query = $this->db->query("SELECT sum(quantity) AS total FROM " . DB_PREFIX . "order_product WHERE shopify_product_id = '" . (int)$product_id . "'");
+		$query = $this->db->query("SELECT sum(quantity) AS total FROM " . DB_PREFIX . "order_product WHERE shopify_product_id = '" .$product_id . "'");
 
-		return $query->row['total'];
+		return isset($query->row['total'])?$query->row['total']:0;
 	}
 }
