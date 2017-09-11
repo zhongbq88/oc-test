@@ -112,8 +112,8 @@ class ControllerCommoniplOrders extends Controller {
 	
 	public function filter(){
 		$filter = array();
-		if (isset($this->request->get['filter_order_status_id'])) {
-			$filterstr =  $this->request->get['filter_order_status_id'];
+		if (isset($this->request->get['filter_order_status'])) {
+			$filterstr =  $this->request->get['filter_order_status'];
 			if($filterstr=='Pending'){
 				$filter['filter_order_status_id'] = 1;
 			}elseif($filterstr=='InProd'){
@@ -237,7 +237,7 @@ class ControllerCommoniplOrders extends Controller {
 		$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
 		$data['header'] = $this->load->controller($this->session->data['store'].'/header');
 		$data['paid'] = $this->url->link('extension/payment/pp_express/ipn', '', true);
-
+		$data['filter_order_status_id'] = $filter['filter_order_status_id'];
 		$this->response->setOutput($this->load->view('commonipl/orders', $data));
 	}
 
