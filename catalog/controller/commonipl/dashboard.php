@@ -51,7 +51,10 @@ class ControllerCommoniplDashboard extends Controller{
 				//$charges+=(float)$result['total'];
 			}
 		}
+		echo $orderIds;
+		
 		if(!empty($orderIds)){
+			echo '----'.substr($orderIds,1);
 			$results = $this->model_commonipl_order->getOrderProductSales(substr($orderIds,1));
 			foreach ($results as $result) {
 				$total+=(float)$result['shopify_price']*(float)$result['quantity'];
