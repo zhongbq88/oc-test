@@ -125,6 +125,8 @@ class ControllerCommoniplOrders extends Controller {
 			}else if($filterstr=='Cancelled'){
 				$filter['filter_order_status_id'] = 7;
 			}
+		}else if (isset($this->request->get['filter_order_status_id'])) {
+				$filter['filter_order_status_id'] = $this->request->get['filter_order_status_id'];
 		}
 		if (isset($this->request->get['filter_customer'])) {
 			$filter['filter_customer'] =  $this->request->get['filter_customer'];
@@ -237,7 +239,10 @@ class ControllerCommoniplOrders extends Controller {
 		$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
 		$data['header'] = $this->load->controller($this->session->data['store'].'/header');
 		$data['paid'] = $this->url->link('extension/payment/pp_express/ipn', '', true);
+		if(isset($filter['filter_order_status_id'])){
 		$data['filter_order_status_id'] = $filter['filter_order_status_id'];
+		}
+		
 		$this->response->setOutput($this->load->view('commonipl/orders', $data));
 	}
 
