@@ -120,7 +120,7 @@ class ModelCommoniplOrder extends Model {
 			$sql .= " AND o.order_status_id > '0'";
 		}
 		if (!empty($data['filter_customer'])) {
-			$sql .= " AND CONCAT(o.shipping_firstname, ' ', o.shipping_lastname) LIKE '%" . $this->db->escape($data['filter_customer']) . "%'";
+			$sql .= " AND ( CONCAT(o.shipping_firstname, ' ', o.shipping_lastname) LIKE '%" . $this->db->escape($data['filter_customer']) . "%' OR CONCAT(o.firstname, ' ', o.lastname) LIKE '%" . $this->db->escape($data['filter_customer']) . "%')";
 		}
 $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 		$query = $this->db->query($sql);
