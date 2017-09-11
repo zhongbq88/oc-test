@@ -464,7 +464,7 @@ if (isset($data['products'])) {
 	}
 	
 	public function getOrderProductSales($order_ids) {
-		$query = $this->db->query("SELECT quantity,price,shopify_price FROM " . DB_PREFIX . "order_product WHERE order_id in (" . (int)$order_ids . ") AND quantity>0 AND price>0");
+		$query = $this->db->query("SELECT quantity,price,shopify_price FROM " . DB_PREFIX . "order_product WHERE order_id in (" .$order_ids . ") AND quantity>0 AND price>0");
 
 		return $query->rows;
 	}
