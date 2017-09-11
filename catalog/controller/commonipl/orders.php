@@ -111,6 +111,7 @@ class ControllerCommoniplOrders extends Controller {
 	}
 	
 	public function filter(){
+		$data = array();
 		$filter = array();
 		if (isset($this->request->get['filter_order_status'])) {
 			$filterstr =  $this->request->get['filter_order_status'];
@@ -130,9 +131,11 @@ class ControllerCommoniplOrders extends Controller {
 		}
 		if (isset($this->request->get['filter_customer'])) {
 			$filter['filter_customer'] =  $this->request->get['filter_customer'];
+			$data['filter_customer']=$filter['filter_customer'];
 		}
 		if (isset($this->request->get['filter_order_id'])) {
 			$filter['filter_order_id'] =  $this->request->get['filter_order_id'];
+			$data['filter_order_id']=$filter['filter_order_id'];
 		}
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/order', '', true);
@@ -150,22 +153,6 @@ class ControllerCommoniplOrders extends Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 		
-		$data['breadcrumbs'] = array();
-
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
-		);
-
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('commonipl/account', '', true)
-		);
-		
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('account/order', $url, true)
-		);
 
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
