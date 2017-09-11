@@ -299,7 +299,7 @@ $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 	}
 
 	public function getStatusTotalOrders() {
-		$query = $this->db->query("SELECT o.total,o.order_status_id FROM `" . DB_PREFIX . "order` o WHERE customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "'");
+		$query = $this->db->query("SELECT o.total,o.order_id,o.order_status_id FROM `" . DB_PREFIX . "order` o WHERE customer_id = '" . (int)$this->customer->getId() . "' AND o.order_status_id > '0' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "'");
 
 		return $query->rows;
 	}
@@ -459,6 +459,12 @@ if (isset($data['products'])) {
 	
 	public function getOrderProductLineItemId($order_id) {
 		$query = $this->db->query("SELECT line_item_id,line_item_order_id FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "' AND quantity>0 AND price>0");
+
+		return $query->rows;
+	}
+	
+	public function getOrderProductSales($order_ids) {
+		$query = $this->db->query("SELECT quantity,price,shopify_price FROM " . DB_PREFIX . "order_product WHERE order_id in (" . (int)$order_ids . ") AND quantity>0 AND price>0");
 
 		return $query->rows;
 	}

@@ -20,9 +20,9 @@ class ControllerCommoniplDashboard extends Controller{
 		
 		$data = array();
 
-		$this->load->model('shopify/order');
+		$this->load->model('commonipl/order');
 
-		$results = $this->model_shopify_order->getStatusTotalOrders();
+		$results = $this->model_commonipl_order->getStatusTotalOrders();
 
 		$pending =0;
 		$in_production =0;
@@ -31,6 +31,7 @@ class ControllerCommoniplDashboard extends Controller{
 		$cancelled =0;
 		$total =0;
 		$charges =0;
+		$orderIds ='';
 		foreach ($results as $result) {
 			
 			if($result['order_status_id']==1){
@@ -45,10 +46,19 @@ class ControllerCommoniplDashboard extends Controller{
 				$cancelled+=1;
 			}
 			if($result['order_status_id']==17 || $result['order_status_id']==13 || $result['order_status_id']==17|| $result['order_status_id']==5|| $result['order_status_id']==3){
-				$total+=(float)$result['total'];
-				$charges+=(float)$result['total'];
+				$orderIds .=",'".$result['order_id']."'";
+				//$total+=(float)$result['total'];
+				//$charges+=(float)$result['total'];
 			}
 		}
+		if(!empty($orderIds)){
+			$results = $this->model_commonipl_order->getOrderProductSales(substr($orderIds,1));
+			foreach ($results as $result) {
+				$total+=(float)$result['shopify_price']*(float)$result['quantity'];
+				$charges+=(float)$result['price']*(float)$result['quantity'];
+			}
+		}
+		
 		$data['pending'] = $pending; 
 		$data['in_production'] = $in_production; 
 		$data['shipped'] = $shipped; 
