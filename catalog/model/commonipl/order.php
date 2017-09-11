@@ -112,7 +112,7 @@ class ModelCommoniplOrder extends Model {
 		}
 		$sql = "SELECT o.order_id, o.firstname, o.lastname, os.name as status, o.date_added, o.total, o.currency_code, o.currency_value,o.forwarded_ip FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_status os ON (o.order_status_id = os.order_status_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND o.store_id = '" . (int)$this->config->get('config_store_id') . "' AND os.language_id = '" . (int)$this->config->get('config_language_id') . "'";
 		if (!empty($data['filter_order_id'])) {
-			if(strpos($data['filter_order_id'], '#')==TRUE){
+			if(strpos($data['filter_order_id'], '#')!=-1){
 				$sql .= " AND o.forwarded_ip = '" . $data['filter_order_id'] . "'";
 			}else{
 				$sql .= " AND o.forwarded_ip = '#" . $data['filter_order_id'] . "'";
