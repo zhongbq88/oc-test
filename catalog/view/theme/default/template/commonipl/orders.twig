@@ -92,38 +92,8 @@
             <div class="panel-heading">
               <h3 class="panel-title"><i class="fa fa-list"></i> {{ text_list }}</h3>
             </div>
-            <div class="panel-body">
-              <form method="post" action="" enctype="multipart/form-data" id="form-order">
-                <div class="table-responsive">
-                  <table class="table table-bordered table-hover">
-                    <thead>
-                      <tr>
-                        <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
-                        <td class="text-right">{{ column_order_id }}</td>
-                        <td class="text-left">{{ column_customer }}</td>
-                        <!--<td class="text-left">{% if sort == 'product' %} <a href="{{ column_product }}" class="{{ order|lower }}">{{ column_product }}</a> {% else %} <a href="{{ sort_product }}">{{ column_product }}</a> {% endif %}</td>-->
-                        <td class="text-left">{{ column_status }}</td>
-                        <td class="text-right">{{ column_total }}</td>
-                        <td class="text-left">{{ column_date_added }}</td>
-                        <!--<td class="text-left">{{ column_quantity }}</td>-->
-                        <td class="text-right" style=" text-align:right">{{ column_action }}</td>
-                      </tr>
-                    </thead>
-                    <tbody id="order_list">
-                    
-                    {{ order_list }}
-                      </tbody>
-                    
-                  </table>
-                </div>
-                <div class="row">
-                  <div class="btn-group" style="float: right; margin-right:20px;"><a href="javascript:pay();" data-toggle="tooltip" title="{{ text_paid_selected }}" class="btn btn-success btn-xs" >{{ text_paid_selected }}</a></div>
-                </div>
-              </form>
-              <div class="row">
-                <div class="col-sm-6 text-left">{{ pagination }}</div>
-                <!-- <div class="col-sm-6 text-right">{{ results }}</div>--> 
-              </div>
+            <div class="panel-body" id="order_body">
+                {{ order_list }}
             </div>
           </div>
         </div>
@@ -187,7 +157,7 @@ $.ajax({
 				success: function(json) {
 					//alert(json['success']);
 					if (json['success']) {
-						$('#order_list').html(json['success']);
+						$('#order_body').html(json['success']);
 						//window.location.reload();
 						//window.location.href="index.php?route=shopify/orders#syn";
 					}
@@ -235,7 +205,7 @@ $.ajax({
 				success: function(json) {
 					//alert(json['success']);
 					if (json['order_list']) {
-						$('#order_list').html(json['success']);
+						$('#order_body').html(json['success']);
 						//window.location.reload();
 						//window.location.href="index.php?route=shopify/orders#syn";
 					}

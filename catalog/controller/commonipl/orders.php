@@ -5,6 +5,16 @@ class ControllerCommoniplOrders extends Controller {
 			$this->session->data['redirect'] = $this->url->link('account/order', '', true);
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
+		$this->load->model('localisation/order_status');
+
+		$data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
+		$index = 0;
+		foreach($data['order_statuses'] as $result){
+			if($result['order_status_id']!=1 && $result['order_status_id']!=3 && $result['order_status_id']!=7&& $result['order_status_id']!=17&& $result[	'order_status_id']!=18){
+				unset($data['order_statuses'][$index]);
+			}
+			$index++;
+		}
 		$data['continue'] = $this->url->link('commonipl/account', '', true);
 		$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
 		$data['header'] = $this->load->controller($this->session->data['store'].'/header');
@@ -111,16 +121,7 @@ class ControllerCommoniplOrders extends Controller {
 			
 		}
 
-		$this->load->model('localisation/order_status');
-
-		$data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
-		$index = 0;
-		foreach($data['order_statuses'] as $result){
-			if($result['order_status_id']!=1 && $result['order_status_id']!=3 && $result['order_status_id']!=7&& $result['order_status_id']!=17&& $result[	'order_status_id']!=18){
-				unset($data['order_statuses'][$index]);
-			}
-			$index++;
-		}
+		
 		$pagination = new Pagination();
 		$pagination->total = $order_total;
 		$pagination->page = $page;
