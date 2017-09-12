@@ -203,9 +203,9 @@ $.ajax({
 					  $("#Synchronize").stopRotate();
 				},
 				success: function(json) {
-					//alert(json['success']);
+					alert(json['order_list']);
 					if (json['order_list']) {
-						$('#order_body').html(json['success']);
+						$('#order_body').html(json['order_list']);
 						//window.location.reload();
 						//window.location.href="index.php?route=shopify/orders#syn";
 					}
