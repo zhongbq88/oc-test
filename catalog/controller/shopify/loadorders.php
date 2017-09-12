@@ -133,8 +133,8 @@ class ControllerShopifyLoadorders extends Controller {
 				'currency_value'          => $order['id'],
 				'ip'                      => $order['browser_ip'],
 				'forwarded_ip'            => $order['name'],
-				'user_agent'              =>  $this->getValue(isset($order['client_details'])?$order['client_details']:'','user_agent'),
-				'accept_language'         =>  $this->getValue(isset($order['client_details'])?$order['client_details']:'','accept_language'),
+				'user_agent'              => $this->getValue(isset($order['client_details'])?$order['client_details']:'','user_agent'),
+				'accept_language'         => $this->getValue(isset($order['client_details'])?$order['client_details']:'','accept_language'),
 				'date_added'              => $order['created_at'],
 				'date_modified'           => $order['updated_at']
 			);
@@ -192,7 +192,8 @@ class ControllerShopifyLoadorders extends Controller {
 						  'tax'=> 0,
 						  'reward'=> '',
 						  'line_item_id'=> $items['id'],
-						  'line_item_order_id'=>  $order['id']
+						  'line_item_order_id'=>  $order['id'],
+						  'shopify_product_id'=> $items['product_id']
 						  );
 						  $total +=$orderProducts[0]['price']*$items['quantity'];
 					  }else{
@@ -210,7 +211,8 @@ class ControllerShopifyLoadorders extends Controller {
 						  'tax'=> 0,
 						  'reward'=> '',
 						  'line_item_id'=> $items['id'],
-						  'line_item_order_id'=>  $order['id']
+						  'line_item_order_id'=>  $order['id'],
+						  'shopify_product_id'=> $items['product_id']
 						  );
 					 }
 				//}
