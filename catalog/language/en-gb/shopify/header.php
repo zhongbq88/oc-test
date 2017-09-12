@@ -20,6 +20,7 @@ $_['add_products']      = 'Add Products';
 $_['orders']        = 'Orders';
 $_['account_settings']        = 'Account Settings';
 $_['dashboard']        = 'Dashboard';
+$_['faq']        = 'Faq';
 $_['add_products']        = 'Add Products';
 $_['add_express_line_products']        = 'Add Express-Line Products';
 $_['view_orders']        = 'View Orders';

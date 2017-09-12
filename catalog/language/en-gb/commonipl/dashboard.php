@@ -125,7 +125,7 @@ $_['entry_date_added']           = 'Date Added';
 $_['entry_date_modified']        = 'Date Modified';
 $_['text_empty']            = '<span style="font-size:20px">No orders found</span><br><br>You can find orders by changing your search or filtering options.';
 $_['text_error']            = 'The order you requested could not be found!';
-$_['your_vivajean_profits_orders']            = 'Your Vivajean Profits Orders';
+$_['your_vivajean_profits_orders']            = 'Orders';
 $_['text_pending']        = 'Pending:';
 $_['text_in_production']        = 'In-Production:';
 $_['text_shipped']        = 'Shipped:';
