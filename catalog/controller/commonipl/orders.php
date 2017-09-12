@@ -44,7 +44,7 @@ class ControllerCommoniplOrders extends Controller {
 			}else if($filterstr=='OnHold'){
 				$filter['filter_order_status_id'] = 18;
 			}else if($filterstr=='Cancelled'){
-				$filter['filter_order_status_id'] = 7;
+				$filter['filter_order_status_id'] = array('7','11','10','14');
 			}
 		}else if (isset($this->request->get['filter_order_status_id'])) {
 				$filter['filter_order_status_id'] = $this->request->get['filter_order_status_id'];

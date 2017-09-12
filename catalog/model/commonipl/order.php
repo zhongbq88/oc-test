@@ -120,7 +120,11 @@ class ModelCommoniplOrder extends Model {
 			
 		}
 		if (isset($data['filter_order_status_id']) && $data['filter_order_status_id'] !== '') {
-			$sql .= " AND o.order_status_id = '" . (int)$data['filter_order_status_id'] . "'";
+			if(is_array($data['filter_order_status_id'])){
+				$sql .= " AND o.order_status_id in (" .implode (',', $data['filter_order_status_id'] ). ")";
+			}else{
+				$sql .= " AND o.order_status_id = '" . (int)$data['filter_order_status_id'] . "'";
+			}
 		} else {
 			$sql .= " AND o.order_status_id > '0'";
 		}
@@ -327,7 +331,12 @@ $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 			$sql .= " AND o.order_id = '" . (int)$data['filter_order_id'] . "'";
 		}
 		if (isset($data['filter_order_status_id']) && $data['filter_order_status_id'] !== '') {
-			$sql .= " AND o.order_status_id = '" . (int)$data['filter_order_status_id'] . "'";
+			if(is_array($data['filter_order_status_id'])){
+				$sql .= " AND o.order_status_id in (" .implode (',', $data['filter_order_status_id'] ). ")";
+			}else{
+				$sql .= " AND o.order_status_id = '" . (int)$data['filter_order_status_id'] . "'";
+			}
+			
 		} else {
 			$sql .= " AND o.order_status_id > '0'";
 		}
