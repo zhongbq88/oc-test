@@ -252,7 +252,7 @@ $('#button-filter').on('click', function() {
 				success: function(json) {
 					//alert(json['success']);
 					if (json['success']) {
-						window.location.reload();
+						location = 'index.php?route=commonipl/orders/filter&user_token={{ user_token }}'
 						//window.location.href="index.php?route=shopify/orders#syn";
 					}
 				},
