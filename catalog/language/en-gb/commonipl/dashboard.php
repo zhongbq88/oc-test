@@ -142,7 +142,7 @@ $_['store_account_settings']        = 'Account Settings';
 $_['reports']        = 'Reports';
 $_['search_for_orders_by_customer_name_or_order_number']        = 'Search for Orders by Customer Name or Order Number';
 $_['welcome_tips'] = 'Welcome to the <strong> customDR </strong> Shopify app.<br>
-              If this is your first time here, please see our <a href="index.php?route=shopify/dashboard" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Quick Start Guide</a> for more information.';
+              If this is your first time here, please see our <a href="" target="_blank" style="text-decoration:underline;font-weight:bold;color:#479ccf">Quick Start Guide</a> for more information.';
 
 // Help
 $_['help_override']              = 'If the customers order is being blocked from changing the order status due to an anti-fraud extension enable override.';
