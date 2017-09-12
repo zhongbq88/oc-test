@@ -3,114 +3,24 @@ class ControllerCommoniplOrders extends Controller {
 	public function index() {
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/order', '', true);
-
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
-
-		$this->load->language('commonipl/order');
-
-		$this->document->setTitle($this->language->get('heading_title'));
-		$this->document->setTabIndex(2);
-		$url = '';
-
-		if (isset($this->request->get['page'])) {
-			$url .= '&page=' . $this->request->get['page'];
-		}
-		
-		$data['breadcrumbs'] = array();
-
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
-		);
-
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('commonipl/account', '', true)
-		);
-		
-		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('account/order', $url, true)
-		);
-
-		if (isset($this->request->get['page'])) {
-			$page = $this->request->get['page'];
-		} else {
-			$page = 1;
-		}
-
-		$data['orders'] = array();
-
-		$this->load->model('commonipl/order');
-
-		$order_total = $this->model_commonipl_order->getTotalOrders();
-
-		$results = $this->model_commonipl_order->getOrders(($page - 1) * 10, 10);
-        //print_r($results);
-		foreach ($results as $result) {
-			//echo $result['order_id'];
-			$orderProducts = $this->model_commonipl_order->getOrderProducts($result['order_id']);
-			//$total = isset($orderProducts[0])?$orderProducts[0]['total']:0;
-			
-			$total = 0;
-			$quantity = 0;
-			foreach($orderProducts as $orderProduct){
-				if($orderProduct['shopify_price']==0){
-					continue;
-				}
-				$total += isset($orderProduct)?$orderProduct['total']:0;
-				$quantity += isset($orderProduct)?$orderProduct['quantity']:0;
-			}
-			$data['orders'][] = array(
-				'order_id'   => $result['order_id'],
-				'shopify_order_id'   => $result['forwarded_ip'],
-				//'order_product_id' =>isset($$orderProduct)?$orderProduct['name']:'0',
-				'name'       => isset($result['shipping_firstname'])?$result['shipping_firstname'] . ' ' . $result['shipping_lastname']:$result['firstname'] . ' ' . $result['lastname'],
-				'status'     => $result['status'],
-				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				//'products'   => isset($orderProduct)?$orderProduct['name']:'',
-				'cancel' => 'cancel',
-				'quantity'   => $quantity,
-				'total'      => "$".$total,
-				'total_paid' => $total,
-				'view'       => $this->url->link('commonipl/orders/info', 'order_id=' . $result['order_id'], true),
-				'pay'       => $this->url->link('commonipl/orders/pay', 'order_id=' . $result['order_id'], true),
-			);
-			
-		}
-
-		$this->load->model('localisation/order_status');
-
-		$data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
-		$index = 0;
-		foreach($data['order_statuses'] as $result){
-			if($result['order_status_id']!=1 && $result['order_status_id']!=3 && $result['order_status_id']!=7&& $result['order_status_id']!=17&& $result[	'order_status_id']!=18){
-				unset($data['order_statuses'][$index]);
-			}
-			$index++;
-		}
-		$pagination = new Pagination();
-		$pagination->total = $order_total;
-		$pagination->page = $page;
-		$pagination->limit = 10;
-		$pagination->url = $this->url->link('commonipl/orders', 'page={page}', true);
-
-		$data['pagination'] = $pagination->render();
-
-		$data['results'] = sprintf($this->language->get('text_pagination'), ($order_total) ? (($page - 1) * 10) + 1 : 0, ((($page - 1) * 10) > ($order_total - 10)) ? $order_total : ((($page - 1) * 10) + 10), $order_total, ceil($order_total / 10));
-
 		$data['continue'] = $this->url->link('commonipl/account', '', true);
-
 		$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
 		$data['header'] = $this->load->controller($this->session->data['store'].'/header');
 		$data['paid'] = $this->url->link('extension/payment/pp_express/ipn', '', true);
 		$data['sys_action'] = $this->url->link($this->session->data['store'].'/loadorders', 'syn=true', true);
-
+		$data['order_list'] = $this->getList();
 		$this->response->setOutput($this->load->view('commonipl/orders', $data));
 	}
 	
 	public function filter(){
+		$json['success'] = $this->getList();
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}
+	
+	public function getList(){
 		$data = array();
 		$filter = array();
 		if (isset($this->request->get['filter_order_status'])) {
@@ -220,17 +130,8 @@ class ControllerCommoniplOrders extends Controller {
 		$data['pagination'] = $pagination->render();
 
 		$data['results'] = sprintf($this->language->get('text_pagination'), ($order_total) ? (($page - 1) * 10) + 1 : 0, ((($page - 1) * 10) > ($order_total - 10)) ? $order_total : ((($page - 1) * 10) + 10), $order_total, ceil($order_total / 10));
-
-		$data['continue'] = $this->url->link('commonipl/account', '', true);
-
-		$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
-		$data['header'] = $this->load->controller($this->session->data['store'].'/header');
-		$data['paid'] = $this->url->link('extension/payment/pp_express/ipn', '', true);
-		if(isset($filter['filter_order_status_id'])){
-		$data['filter_order_status_id'] = $filter['filter_order_status_id'];
-		}
 		
-		$this->response->setOutput($this->load->view('commonipl/orders', $data));
+		return $this->load->view('commonipl/order_list', $data);
 	}
 
 	public function info() {
