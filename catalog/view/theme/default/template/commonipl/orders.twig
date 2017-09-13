@@ -203,11 +203,10 @@ $.ajax({
 					  $("#Synchronize").stopRotate();
 				},
 				success: function(json) {
-					alert(json['order_list']);
+					//alert(json['order_list']);
+					$("#Synchronize").stopRotate();
 					if (json['order_list']) {
-						$('#order_body').html(json['order_list']);
-						//window.location.reload();
-						//window.location.href="index.php?route=shopify/orders#syn";
+						('#order_body').html(json['order_list']);
 					}
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
