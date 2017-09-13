@@ -439,7 +439,7 @@ if (isset($data['products'])) {
 	public function saveShopifyOrders($orders){
 		if ($orders) {
 			foreach ($orders as $order) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "shopify_orders SET order_id = '" .$order['id'] . "', email = '" .$order['email'] . "', order_name = '" .$order['name'] . "', financial_status = '" . $this->db->escape($order['financial_status']) . "', fulfillment_status = '" . $this->db->escape($order['fulfillment_status']) . "', order_json = '" .$this->db->escape(json_encode($order)) . "',  customer_id = '" .(int)$this->customer->getId() . "'");
+				$this->db->query("REPLACE INTO " . DB_PREFIX . "shopify_orders SET order_id = '" .$order['id'] . "', email = '" .$order['email'] . "', order_name = '" .$order['name'] . "', financial_status = '" . $this->db->escape($order['financial_status']) . "', fulfillment_status = '" . $this->db->escape($order['fulfillment_status']) . "', order_json = '" .$this->db->escape(json_encode($order)) . "',  customer_id = '" .(int)$this->customer->getId() . "'");
 			}
 		}
 	}
