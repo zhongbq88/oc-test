@@ -58,7 +58,7 @@ class ControllerShopifyLoadorders extends Controller {
 				 $order_id = $this->model_shopify_order->addOrder($od);
 			  }
 			  
-			 // $this->model_shopify_order->saveShopifyOrders($orders);
+			 $this->model_shopify_order->saveShopifyOrders($orders);
 		  }
 		  catch (shopify\ApiException $e)
 		  {
