@@ -132,3 +132,9 @@
 2017-09-12 2:53:39 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
 2017-09-13 1:36:14 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
 2017-09-13 1:36:14 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-13 4:12:14 - PHP Notice:  Undefined index: telephone in D:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 10
+2017-09-13 4:12:15 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\oc-test\system\library\mail\mail.php on line 77
+2017-09-13 4:12:57 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-09-13 4:12:57 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
+2017-09-13 6:05:18 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-09-13 6:05:18 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
