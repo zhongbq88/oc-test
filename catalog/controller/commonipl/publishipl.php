@@ -182,6 +182,7 @@ class ControllerCommoniplPublishipl extends Controller {
 			if(isset($this->session->data['shop'])){
 				$this->session->data['sussecc'] = sprintf($this->language->get('publish_sucessfully'), 'https://'.$this->session->data['shop'].'/admin/products/'.$product['id']);
 			}
+			
 			//$this->response->redirect($this->url->link('shopify/dashboard'));
 			
 		}
@@ -199,9 +200,7 @@ class ControllerCommoniplPublishipl extends Controller {
 			print_r($e->getRequest());
 			print_r($e->getResponse());
 		}
-		if(isset($this->session->data['srcImages'])){
-			unset($this->session->data['srcImages']);
-		}
+		
 		$json['success'] = 'index.php?route=commonipl/dashboard';
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));

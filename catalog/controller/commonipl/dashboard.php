@@ -8,6 +8,9 @@ class ControllerCommoniplDashboard extends Controller{
 		if (!$this->customer->isLogged()) {
 			$this->response->redirect($this->url->link($this->session->data['store'].'/login', '', true));
 		}
+		if(isset($this->session->data['srcImages'])){
+			unset($this->session->data['srcImages']);
+		}
 		/*$status = $this->request->get['success'];
 		if($status!=1){
 			unset($this->session->data['shop']);
