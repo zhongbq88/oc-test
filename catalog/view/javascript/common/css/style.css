@@ -655,11 +655,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 #fh5co-features .fh5co-feature .fh5co-icon {
-  width: 112px;
-  height: 112px;
+  width: 160px;
+  height: 160px;
   display: table;
   margin: 0 auto 30px auto;
-  background: #e6f2d4;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
