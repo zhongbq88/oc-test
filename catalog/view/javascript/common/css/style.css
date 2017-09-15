@@ -19,7 +19,7 @@ body {
   color: #85919d;
   height: 100%;
   position: relative;
-  background-color:#f9f9f9;
+  background:#f9f9f9;
 }
 body.fh5co-overflow {
   overflow-x: auto;
