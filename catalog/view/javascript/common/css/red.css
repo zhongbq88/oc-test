@@ -652,8 +652,8 @@ body {
   }
 }
 #fh5co-features .fh5co-feature .fh5co-icon {
-  width: 112px;
-  height: 112px;
+  width: auto;
+  height: 160px;
   display: table;
   margin: 0 auto 30px auto;
   background: #fff8f8;
