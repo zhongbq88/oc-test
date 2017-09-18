@@ -438,7 +438,7 @@ class ControllerSaleProduction extends Controller {
 
 		$this->load->model('localisation/order_status');
 
-		$data['product_model'] = $this->model_sale_production->getProductModel();
+		$data['product_models'] = $this->model_sale_production->getProductModel();
 
 		// API login
 		$data['catalog'] = $this->request->server['HTTPS'] ? HTTPS_CATALOG : HTTP_CATALOG;
