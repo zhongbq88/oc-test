@@ -189,7 +189,10 @@ class ModelSaleProduction extends Model {
 		}
 		$sql .=") AND price > '0' ";
 		if (!empty($data['filter_product_model'])) {
-			$sql .= " AND filter_product_model = '" . $this->db->escape($data['filter_product_model']) . "'";
+			$sql .= " AND model = '" . $this->db->escape($data['filter_product_model']) . "'";
+		}
+		if (!empty($data['filter_product_status'])) {
+			$sql .= " AND status = '" . $this->db->escape($data['filter_product_status']) . "'";
 		}
 		if (isset($data['start']) || isset($data['limit'])) {
 			if ($data['start'] < 0) {
@@ -299,7 +302,10 @@ class ModelSaleProduction extends Model {
 		}
 		$sql .=")";
 		if (!empty($data['filter_product_model'])) {
-			$sql .= " AND filter_product_model = '" . $this->db->escape($data['filter_product_model']) . "'";
+			$sql .= " AND model = '" . $this->db->escape($data['filter_product_model']) . "'";
+		}
+		if (!empty($data['filter_product_status'])) {
+			$sql .= " AND status = '" . $this->db->escape($data['filter_product_status']) . "'";
 		}
 		$query = $this->db->query($sql);
 
