@@ -223,20 +223,72 @@ class ControllerSaleProduction extends Controller {
 		$order_total = $this->model_sale_production->getTotalOrders($filter_data);
 
 		$results = $this->model_sale_production->getOrders($filter_data);
-
-		foreach ($results as $result) {
-			$data['orders'][] = array(
-				'order_id'      => $result['order_id'],
-				'shopify_order_id'      => $result['forwarded_ip'],
-				'customer'      => $result['customer'],
-				'order_status'  => $result['order_status'] ? $result['order_status'] : $this->language->get('text_missing'),
-				'total'         => $result['total'],
-				'date_added'    => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				'date_modified' => date($this->language->get('date_format_short'), strtotime($result['date_modified'])),
-				'shipping_code' => $result['shipping_code'],
-				'view'          => $this->url->link('sale/production/info', 'user_token=' . $this->session->data['user_token'] . '&order_id=' . $result['order_id'] . $url, true),
-				'edit'          => $this->url->link('sale/production/edit', 'user_token=' . $this->session->data['user_token'] . '&order_id=' . $result['order_id'] . $url, true)
-			);
+		//print_r($results);
+		foreach ($results as $product) {
+			if($product['shopify_price']==0){
+					continue;
+				}
+				$option_data1 = array();
+				$option_data = array();
+				$sk = $product['shopify_sku'];
+				$skus = explode('.', $product['shopify_sku']);
+				if(count($skus)>1){
+					$sk = $skus[count($skus)-1];
+				}
+				//print_r($product['shopify_sku']);
+				//print_r($sk);
+				$options1 = $this->model_sale_production->getProductSku($sk);
+				if(count($options1)>0&&$options1[0]['sku'].'.'.$options1[0]['sku_id']!=$product['shopify_sku']){
+					$options1 = array();
+				}
+				//print_r($product['shopify_sku']);
+				//print_r($options1);
+				$image='';
+				$model ='';
+				$sku =$product['shopify_sku'];
+				foreach ($options1 as $option) {
+					$option_file = isset($option['option_file'])?json_decode($option['option_file'],true):array();
+					$opts = json_decode($option['product_options'],true);
+					$image = $option['design_file'];
+					$model = $option['product_model'];
+					$sku = "SKU: ".$product['shopify_sku'];
+					if(isset($opts)){
+						foreach ($opts as $opt) {
+							$option_data1[] = array(
+							'value' => $opt
+							);
+						}
+					}
+					foreach ($option_file as $k=>$v) {
+						$upload_info = $this->model_tool_upload->getUploadByCode($v['upload']);
+							if ($upload_info) {
+								$pop = DIR_UPLOAD.$upload_info['filename'];
+								$option_data[] = array(
+									'name'  => $k,
+									'value' => $upload_info['name'],
+									'type'  => 'File',
+									'href'  => $this->url->link('tool/upload/download', 'user_token=' . $this->session->data['user_token'] . '&code=' . $upload_info['code'], true)
+								);
+							}
+					}
+				}
+				//print_r ($product);
+				$data['products'][] = array(
+				    'sku'   => $sku,
+					'order_product_id' => $product['order_product_id'],
+					'product_id'       => $product['product_id'],
+					'name'    	 	   => $product['name'],
+					'model'    		   => $product['model'],
+					'design_file'      => $image,
+					'option1'   	   => $option_data1,
+					'option'   		   => $option_data,
+					'quantity'		   => $product['quantity'],
+					'price'    		   => $product['price'],
+					'total'    		   => $product['total'],
+					'sale_total'       => $product['shopify_price']*$product['quantity'],
+					//'date_added'       => date($this->language->get('date_format_short'), strtotime($product['date_added'])),
+					'href'     		   => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product['product_id'], true)
+				);
 		}
 
 		$data['user_token'] = $this->session->data['user_token'];
