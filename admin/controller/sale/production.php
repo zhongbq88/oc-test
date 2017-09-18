@@ -297,7 +297,7 @@ print_r($data['products']);
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('sale/production_list', $data));
+		//$this->response->setOutput($this->load->view('sale/production_list', $data));
 	}
 		
 	public function getForm() {
