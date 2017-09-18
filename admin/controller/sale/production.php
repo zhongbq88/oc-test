@@ -400,7 +400,7 @@ class ControllerSaleProduction extends Controller {
 			$url .= '&filter_order_status=' . $this->request->get['filter_order_status'];
 		}
 		
-		if (isset($this->request->get['filter_product_model'])) {
+		if (isset($this->request->get['filter_order_status_id'])) {
 			$url .= '&filter_order_status_id=' . $this->request->get['filter_order_status_id'];
 		}
 			
