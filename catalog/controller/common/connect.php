@@ -13,7 +13,7 @@ class ControllerCommonConnect extends Controller {
 		if(!isset($shop)){
 			return;
 		}
-		$shops = explode(".", $store_url);
+		$shops = explode(".", $shop);
 		$email = $shops[0]."@shopify.com";
 		$customer = $this->model_account_customer->getCustomerByEmail($email);
 		if(empty($customer)){
