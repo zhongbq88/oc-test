@@ -110,7 +110,24 @@
     </div>
   </div>
   <script type="text/javascript"><!--
-  
+  $('#button-filter').on('click', function() {
+	url = '';
+	var filter_product_status = $('select[name=\'filter_product_status\']').val();
+
+	if (filter_product_status) {
+		url += '&filter_product_status=' + encodeURIComponent(filter_product_status);
+	}
+
+	var filter_product_model = $('select[name=\'filter_product_model\']').val();
+
+	if (filter_product_model !== '') {
+		url += '&filter_product_model=' + encodeURIComponent(filter_product_model);
+	}
+	
+	if (url) {
+		window.location.href='index.php?route=sale/production'+url;
+	}
+  });
   function edit(order_product_id,node){
 	  
 	  $.ajax({

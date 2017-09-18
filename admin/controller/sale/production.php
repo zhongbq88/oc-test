@@ -134,11 +134,19 @@ class ControllerSaleProduction extends Controller {
 			$filter_date_modified = '';
 		}
 		
+		if (isset($this->request->get['filter_product_status'])) {
+			$filter_product_status = $this->request->get['filter_product_status'];
+		} else {
+			$filter_product_status = '';
+		}
+
+
 		if (isset($this->request->get['filter_product_model'])) {
 			$filter_product_model = $this->request->get['filter_product_model'];
 		} else {
 			$filter_product_model = '';
 		}
+
 
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
@@ -230,6 +238,7 @@ class ControllerSaleProduction extends Controller {
 			'sort'                   => $sort,
 			'order'                  => $order,
 			'filter_product_model'	 =>$filter_product_model,
+			'filter_product_status'  =>$filter_product_status,
 			'start'                  => ($page - 1) * $this->config->get('config_limit_admin'),
 			'limit'                  => $this->config->get('config_limit_admin')
 		);
@@ -427,7 +436,7 @@ class ControllerSaleProduction extends Controller {
 
 		$data['filter_order_id'] = $filter_order_id;
 		$data['filter_customer'] = $filter_customer;
-		$data['filter_order_status'] = $filter_order_status;
+		$data['filter_product_status'] = $filter_product_status;
 		$data['filter_product_model'] = $filter_product_model;
 		$data['filter_total'] = $filter_total;
 		$data['filter_date_added'] = $filter_date_added;
