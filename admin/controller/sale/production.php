@@ -133,6 +133,12 @@ class ControllerSaleProduction extends Controller {
 		} else {
 			$filter_date_modified = '';
 		}
+		
+		if (isset($this->request->get['filter_product_model'])) {
+			$filter_product_model = $this->request->get['filter_product_model'];
+		} else {
+			$filter_product_model = '';
+		}
 
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
@@ -223,6 +229,7 @@ class ControllerSaleProduction extends Controller {
 			'filter_date_modified'   => $filter_date_modified,
 			'sort'                   => $sort,
 			'order'                  => $order,
+			'filter_product_model'	 =>$filter_product_model,
 			'start'                  => ($page - 1) * $this->config->get('config_limit_admin'),
 			'limit'                  => $this->config->get('config_limit_admin')
 		);
@@ -384,7 +391,7 @@ class ControllerSaleProduction extends Controller {
 			$url .= '&filter_order_status=' . $this->request->get['filter_order_status'];
 		}
 		
-		if (isset($this->request->get['filter_order_status_id'])) {
+		if (isset($this->request->get['filter_product_model'])) {
 			$url .= '&filter_order_status_id=' . $this->request->get['filter_order_status_id'];
 		}
 			
@@ -421,7 +428,7 @@ class ControllerSaleProduction extends Controller {
 		$data['filter_order_id'] = $filter_order_id;
 		$data['filter_customer'] = $filter_customer;
 		$data['filter_order_status'] = $filter_order_status;
-		$data['filter_order_status_id'] = $filter_order_status_id;
+		$data['filter_product_model'] = $filter_product_model;
 		$data['filter_total'] = $filter_total;
 		$data['filter_date_added'] = $filter_date_added;
 		$data['filter_date_modified'] = $filter_date_modified;
@@ -431,7 +438,7 @@ class ControllerSaleProduction extends Controller {
 
 		$this->load->model('localisation/order_status');
 
-		$data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
+		$data['product_model'] = $this->model_sale_production->getProductModel();
 
 		// API login
 		$data['catalog'] = $this->request->server['HTTPS'] ? HTTPS_CATALOG : HTTP_CATALOG;

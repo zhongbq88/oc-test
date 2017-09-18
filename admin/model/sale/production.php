@@ -188,6 +188,9 @@ class ModelSaleProduction extends Model {
 			$sql .= " AND total = '" . (float)$data['filter_total'] . "'";
 		}
 		$sql .=") AND price > '0' ";
+		if (!empty($data['filter_product_model'])) {
+			$sql .= " AND filter_product_model = '" . $this->db->escape($data['filter_product_model']) . "'";
+		}
 		if (isset($data['start']) || isset($data['limit'])) {
 			if ($data['start'] < 0) {
 				$data['start'] = 0;
@@ -249,6 +252,11 @@ class ModelSaleProduction extends Model {
 		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET status = 'Processed' WHERE order_product_id = '" . (int)$order_product_id . "'");
 	}
 	
+	public function getProductModel(){
+		$query = $this->db->query("SELECT model FROM `" . DB_PREFIX . "order_product` WHERE order_id in ( SELECT order_id FROM `" . DB_PREFIX . "order`  WHERE order_status_id = '17') GROUP BY model");
+		return $query->rows;
+	}
+	
 	public function getTotalOrders($data = array()) {
 		$sql = "SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "order_product` WHERE order_id in ( SELECT order_id FROM `" . DB_PREFIX . "order`  WHERE order_status_id = '17'";
 /*
@@ -290,6 +298,9 @@ class ModelSaleProduction extends Model {
 			$sql .= " AND total = '" . (float)$data['filter_total'] . "'";
 		}
 		$sql .=")";
+		if (!empty($data['filter_product_model'])) {
+			$sql .= " AND filter_product_model = '" . $this->db->escape($data['filter_product_model']) . "'";
+		}
 		$query = $this->db->query($sql);
 
 		return $query->row['total'];

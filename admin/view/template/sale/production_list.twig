@@ -12,13 +12,63 @@
     </div>
   </div>
   <div class="container-fluid">
-    
+    <div class="panel panel-default">
+      <div class="panel-body" >
+        <div style="float:left; margin-left:20px;">
+          <label class="control-label" for="input-order-status">{{ column_model }}</label>
+          <select name="filter_product_model" id="input-product-model" class="form-control">
+            <option value=""></option>
+            
+
+              {% for product_model in product_models %}
+              {% if product_model.model == filter_product_model %}
+
+                  
+            <option value="{{ product_model.model }}" selected="selected">{{ product_model.model }}</option>
+            
+
+              
+              {% else %}
+              
+              
+                  
+                  
+            <option value="{{ product_model.model }}">{{ product_model.model }}</option>
+            
+                  
+                  
+              
+              {% endif %}
+              {% endfor %}
+            
+            
+                
+                
+          </select>
+        </div>
+        <div style="float:left; margin-left:20px;">
+          <label class="control-label" for="input-order-status">Status</label>
+          <select name="filter_product_status" id="input-product-statu" class="form-control">
+            <option value=""></option>
+             <option value="Processing" {% if 'Processing' == filter_product_status %} selected="selected" {% endif %} >
+            Processing
+            </option>
+            <option value="Processed"  {% if 'Processed' == filter_product_status %} selected="selected" {% endif %}>
+            Processed
+            </option>
+           
+          </select>
+        </div>
+        <div style="float:left; margin-left:20px; margin-top:25px;">
+          <button type="button" id="button-filter" class="btn btn-default"><i class="fa fa-filter"></i> {{ button_filter }}</button>
+        </div>
+      </div>
+    </div>
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-info-circle"></i> {{ text_order }}</h3>
       </div>
       <div class="panel-body">
-       
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -26,47 +76,37 @@
               <td class="text-center" style="width:15%">{{ column_model }}</td>
               <td class="text-center" style="width:15%">{{ column_quantity }}</td>
               <td class="text-center" style="width:15%">{{ text_action }}</td>
-
             </tr>
           </thead>
           <tbody>
           
           {% for product in products %}
           <tr id="{{ product.order_product_id}}">
-            <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a>
-            <br />
-             
-              &nbsp;<small> - {{ product.sku }}</small>
-            {% for option in product.option1 %} <br />
-             
-              &nbsp;<small> - {{ option.value }}</small>
-              
-              {% endfor %}
-             {% for option in product.option %} <br />
-              &nbsp;<small> - {{ option.name }}: <a href="{{ option.href }}">{{ option.value }}</a></small> 
-              {% endfor %}
-              &nbsp;<small> -  {% if product.total==0 %} <br /><span style="color:#F00">{{text_not_customdr_order}}</span> {% endif %}
+            <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a> <br />
+              &nbsp;<small> - {{ product.sku }}</small> {% for option in product.option1 %} <br />
+              &nbsp;<small> - {{ option.value }}</small> {% endfor %}
+              {% for option in product.option %} <br />
+              &nbsp;<small> - {{ option.name }}: <a href="{{ option.href }}">{{ option.value }}</a></small> {% endfor %}
+              &nbsp;<small> -  {% if product.total==0 %} <br />
+              <span style="color:#F00">{{text_not_customdr_order}}</span> {% endif %}
               {% if product.design_file %}
-              
               <div style="float: right"><a class="thumbnail" style="border:none;"><img src="{{  product.design_file }}"   style="width: auto; height: 120px;" /></a></div>
-              {% endif %}
-              </td>
-             <td class="text-center" style="width:15%">{{ product.model }}</td>
-             <td class="text-center" style="width:15%">{{ product.quantity }}</td>
-              <td class="text-center" style="width:15%">
-               <button type="button" {% if product.status=='Processed'  %} disabled class="btn btn-danger" {% else %} class="btn btn-success" {% endif%} onClick="edit('{{ product.order_product_id}}',this);"   >
-              <i class="fa fa-pencil"></i> {% if product.status=='Processed'  %} {{ text_processed }} {% else %} Processing {% endif%}</button></td>
+              {% endif %} </td>
+            <td class="text-center" style="width:15%">{{ product.model }}</td>
+            <td class="text-center" style="width:15%">{{ product.quantity }}</td>
+            <td class="text-center" style="width:15%"><button type="button" {% if product.status=='Processed'  %} disabled class="btn btn-danger" {% else %} class="btn btn-success" {% endif%} onClick="edit('{{ product.order_product_id}}',this);"   >
+              <i class="fa fa-pencil"></i> {% if product.status=='Processed'  %} {{ text_processed }} {% else %} Processing {% endif%}
+              </button></td>
           </tr>
           {% endfor %}
-        
             </tbody>
           
         </table>
-         </div>
-          <div class="row">
-            <div class="col-sm-6 text-left">{{ pagination }}</div>
-            <div class="col-sm-6 text-right">{{ results }}</div>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 text-left">{{ pagination }}</div>
+        <div class="col-sm-6 text-right">{{ results }}</div>
+      </div>
     </div>
   </div>
   <script type="text/javascript"><!--
@@ -87,6 +127,7 @@
 
 			if (json['success']) {
 				$(node).attr('disabled',"false");
+				$(node).addClass("btn btn-danger");
 			}
 		},
 		error: function(xhr, ajaxOptions, thrownError) {
