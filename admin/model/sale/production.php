@@ -246,9 +246,9 @@ class ModelSaleProduction extends Model {
 	}
 	
 	public function getTotalOrders($data = array()) {
-		$sql = "SELECT * FROM `" . DB_PREFIX . "order_product` WHERE order_id in ( SELECT order_id FROM `" . DB_PREFIX . "order`  WHERE order_status_id = '17'";
-
-		/*if (!empty($data['filter_order_status'])) {
+		$sql = "SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "order_product` WHERE order_id in ( SELECT order_id FROM `" . DB_PREFIX . "order`  WHERE order_status_id = '17'";
+/*
+		if (!empty($data['filter_order_status'])) {
 			$implode = array();
 
 			$order_statuses = explode(',', $data['filter_order_status']);
