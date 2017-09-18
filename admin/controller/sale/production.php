@@ -253,7 +253,7 @@ class ControllerSaleProduction extends Controller {
 					$image = $option['design_file'];
 					$model = $option['product_model'];
 					$sku = "SKU: ".$product['shopify_sku'];
-					if(isset($opts)&& !empty($opts)){
+					if(isset($opts)&& is_array($opts)){
 						foreach ($opts as $opt) {
 							$option_data1[] = array(
 							'value' => $opt
