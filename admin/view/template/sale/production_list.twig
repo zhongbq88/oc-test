@@ -54,7 +54,7 @@
              <td class="text-center" style="width:15%">{{ product.model }}</td>
              <td class="text-center" style="width:15%">{{ product.quantity }}</td>
               <td class="text-center" style="width:15%">
-               <button type="button" {% if product.status=='Processed'  %} disabled class="btn btn-danger" {% else %} class="btn btn-success btn-xs" {% endif%} onClick="edit('{{ product.order_product_id}}',this);"   >
+               <button type="button" {% if product.status=='Processed'  %} disabled class="btn btn-danger" {% else %} class="btn btn-success" {% endif%} onClick="edit('{{ product.order_product_id}}',this);"   >
               <i class="fa fa-pencil"></i> {% if product.status=='Processed'  %} {{ text_processed }} {% else %} Processing {% endif%}</button></td>
           </tr>
           {% endfor %}
