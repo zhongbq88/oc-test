@@ -9,12 +9,14 @@ class ControllerCommonConnect extends Controller {
 	}
 	
 	public function install(){
-		$shop = $this->request->post['Store'];
+		$shop = $this->request->post['store'];
 		if(!isset($shop)){
 			return;
 		}
+		//print_r( $shop);
 		$shops = explode(".", $shop);
 		$email = $shops[0]."@shopify.com";
+		$this->load->model('account/customer');
 		$customer = $this->model_account_customer->getCustomerByEmail($email);
 		if(empty($customer)){
 			$url = $this->url->link('shopify/install', 'shop='. $shop);

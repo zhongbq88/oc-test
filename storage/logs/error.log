@@ -180,3 +180,7 @@
 2017-09-18 4:25:48 - PHP Notice:  Undefined index: shipping_code in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 236
 2017-09-18 5:22:24 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
 2017-09-18 5:22:24 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-18 6:10:03 - PHP Notice:  Undefined index: Store in D:\xampp\htdocs\oc-test\catalog\controller\common\connect.php on line 12
+2017-09-18 6:10:22 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\common\connect.php on line 16
+2017-09-18 6:10:22 - PHP Warning:  explode() expects parameter 2 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\common\connect.php on line 17
+2017-09-18 6:11:00 - PHP Warning:  explode() expects parameter 2 to be string, array given in D:\xampp\htdocs\oc-test\catalog\controller\common\connect.php on line 17
