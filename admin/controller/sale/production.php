@@ -223,7 +223,7 @@ class ControllerSaleProduction extends Controller {
 		$order_total = $this->model_sale_production->getTotalOrders($filter_data);
 
 		$results = $this->model_sale_production->getOrders($filter_data);
-		//print_r($results);
+		print_r($results);
 		foreach ($results as $product) {
 			if($product['shopify_price']==0){
 					continue;
@@ -451,7 +451,7 @@ class ControllerSaleProduction extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('sale/production_list', $data));
+		//$this->response->setOutput($this->load->view('sale/production_list', $data));
 	}
 		
 	public function getForm() {
