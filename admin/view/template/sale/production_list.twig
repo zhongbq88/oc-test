@@ -32,7 +32,7 @@
           <tbody>
           
           {% for product in products %}
-          <tr>
+          <tr id="{{ product.order_product_id}}">
             <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a>
             <br />
              
@@ -54,8 +54,8 @@
              <td class="text-center" style="width:15%">{{ product.model }}</td>
              <td class="text-center" style="width:15%">{{ product.quantity }}</td>
               <td class="text-center" style="width:15%">
-               <button type="button" onClick="payclick('{{order.pay}}');" id="pay{{order.order_id}}"   class="btn btn-success btn-xs" >
-              <i class="fa fa-pencil"></i> {{ text_processed }}</button></td>
+               <button type="button" {% if product.status!='Processing'  %} disabled {% endif%} onClick="edit('{{ product.order_product_id}}');"  class="btn btn-success btn-xs" >
+              <i class="fa fa-pencil"></i> {% if product.status!='Processing'  %} {{ text_processed }} {% else %} Processing {% endif%}</button></td>
           </tr>
           {% endfor %}
         

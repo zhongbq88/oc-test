@@ -276,9 +276,11 @@ class ControllerSaleProduction extends Controller {
 				//print_r ($product);
 				$data['products'][] = array(
 				    'sku'   => $sku,
+					'order_id' => $product['order_id'],
 					'order_product_id' => $product['order_product_id'],
 					'product_id'       => $product['product_id'],
 					'name'    	 	   => $product['name'],
+					'status'		   => $product['status'],
 					'model'    		   => $product['model'],
 					'design_file'      => $image,
 					'option1'   	   => $option_data1,
