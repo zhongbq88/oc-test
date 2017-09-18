@@ -28,8 +28,15 @@ class ControllerSaleProduction extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->load->model('sale/production');
+		$json = array();
+		if (isset($this->request->get['order_product_id'])) {
+			$order_product_id = $this->request->get['order_product_id'];
+			$this->model_sale_production->updateOrderProduct($order_product_id);
+			$json['success'] = $order_product_id;
+		}
 
-		$this->getForm();
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
 	}
 	
 	public function delete() {

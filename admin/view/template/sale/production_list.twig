@@ -54,8 +54,8 @@
              <td class="text-center" style="width:15%">{{ product.model }}</td>
              <td class="text-center" style="width:15%">{{ product.quantity }}</td>
               <td class="text-center" style="width:15%">
-               <button type="button" {% if product.status!='Processing'  %} disabled {% endif%} onClick="edit('{{ product.order_product_id}}');"  class="btn btn-success btn-xs" >
-              <i class="fa fa-pencil"></i> {% if product.status!='Processing'  %} {{ text_processed }} {% else %} Processing {% endif%}</button></td>
+               <button type="button" {% if product.status=='Processed'  %} disabled {% endif%} onClick="edit('{{ product.order_product_id}}');"  class="btn btn-success btn-xs" >
+              <i class="fa fa-pencil"></i> {% if product.status=='Processed'  %} {{ text_processed }} {% else %} Processing {% endif%}</button></td>
           </tr>
           {% endfor %}
         
@@ -70,6 +70,30 @@
     </div>
   </div>
   <script type="text/javascript"><!--
+  
+  function edit(order_product_id,node){
+	  
+	  $.ajax({
+		url: 'index.php?route=sale/production/edit&user_token={{ user_token }}&order_product_id='+order_product_id,
+		dataType: 'json',
+		/*beforeSend: function() {
+			$('#button-invoice').button('loading');
+		},
+		complete: function() {
+			$('#button-invoice').button('reset');
+		},*/
+		success: function(json) {
+			
+
+			if (json['success']) {
+				$(node).attr('disabled',"false");
+			}
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+}
+  
 $(document).delegate('#button-invoice', 'click', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/createinvoiceno&user_token={{ user_token }}&order_id={{ order_id }}',

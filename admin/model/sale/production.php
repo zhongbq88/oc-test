@@ -245,6 +245,10 @@ class ModelSaleProduction extends Model {
 		return $query->rows;
 	}
 	
+	public function updateOrderProduct($order_product_id){
+		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET status = 'Processed' WHERE order_product_id = '" . (int)$order_product_id . "'");
+	}
+	
 	public function getTotalOrders($data = array()) {
 		$sql = "SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "order_product` WHERE order_id in ( SELECT order_id FROM `" . DB_PREFIX . "order`  WHERE order_status_id = '17'";
 /*
