@@ -148,9 +148,9 @@ class ModelSaleProduction extends Model {
 	}
 
 	public function getOrders($data = array()) {
-		$sql = "SELECT * FROM `" . DB_PREFIX . "order_product` WHERE order_id in ( SELECT order_id FROM `" . DB_PREFIX . "order` ";
+		$sql = "SELECT * FROM `" . DB_PREFIX . "order_product` WHERE order_id in ( SELECT order_id FROM `" . DB_PREFIX . "order`  WHERE order_status_id = '17'";
 
-		if (!empty($data['filter_order_status'])) {
+		/*if (!empty($data['filter_order_status'])) {
 			$implode = array();
 
 			$order_statuses = explode(',', $data['filter_order_status']);
@@ -166,7 +166,7 @@ class ModelSaleProduction extends Model {
 			$sql .= " WHERE order_status_id = '" . (int)$data['filter_order_status_id'] . "'";
 		} else {
 			$sql .= " WHERE order_status_id > '0'";
-		}
+		}*/
 
 		if (!empty($data['filter_order_id'])) {
 			$sql .= " AND order_id = '" . (int)$data['filter_order_id'] . "'";
@@ -187,7 +187,7 @@ class ModelSaleProduction extends Model {
 		if (!empty($data['filter_total'])) {
 			$sql .= " AND total = '" . (float)$data['filter_total'] . "'";
 		}
-		$sql .=")";
+		$sql .=") AND price > '0' ";
 		if (isset($data['start']) || isset($data['limit'])) {
 			if ($data['start'] < 0) {
 				$data['start'] = 0;
@@ -246,9 +246,9 @@ class ModelSaleProduction extends Model {
 	}
 	
 	public function getTotalOrders($data = array()) {
-		$sql = "SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "order_product` WHERE order_id in ( SELECT order_id FROM `" . DB_PREFIX . "order` ";
+		$sql = "SELECT * FROM `" . DB_PREFIX . "order_product` WHERE order_id in ( SELECT order_id FROM `" . DB_PREFIX . "order`  WHERE order_status_id = '17'";
 
-		if (!empty($data['filter_order_status'])) {
+		/*if (!empty($data['filter_order_status'])) {
 			$implode = array();
 
 			$order_statuses = explode(',', $data['filter_order_status']);
@@ -264,7 +264,7 @@ class ModelSaleProduction extends Model {
 			$sql .= " WHERE order_status_id = '" . (int)$data['filter_order_status_id'] . "'";
 		} else {
 			$sql .= " WHERE order_status_id > '0'";
-		}
+		}*/
 
 		if (!empty($data['filter_order_id'])) {
 			$sql .= " AND order_id = '" . (int)$data['filter_order_id'] . "'";

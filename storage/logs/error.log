@@ -254,3 +254,4 @@
 2017-09-18 7:29:20 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 289
 2017-09-18 7:29:20 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 289
 2017-09-18 7:29:20 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 289
+2017-09-18 8:47:17 - PHP Notice:  Undefined index: total in D:\xampp\htdocs\oc-test\admin\model\sale\production.php on line 291
