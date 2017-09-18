@@ -25,7 +25,7 @@
               <td class="text-left" style="width:50%">{{ column_product }}</td>
               <td class="text-center" style="width:15%">{{ column_model }}</td>
               <td class="text-center" style="width:15%">{{ column_quantity }}</td>
-              <td class="text-center" style="width:15%">{{ column_model }}</td>
+              <td class="text-center" style="width:15%">{{ text_action }}</td>
 
             </tr>
           </thead>
@@ -53,7 +53,7 @@
               </td>
              <td class="text-center" style="width:15%">{{ product.model }}</td>
              <td class="text-center" style="width:15%">{{ product.quantity }}</td>
-              <td class="text-center" style="width:15%"><a href="javascript:onhod({{order.order_id}});"  data-toggle="tooltip" ><i class="fa fa-pencil"></i> {{ text_onhold }}</a></td
+              <td class="text-center" style="width:15%"><a href="javascript:onhod({{order.order_id}});"  data-toggle="tooltip" ><i class="fa fa-pencil"></i> {{ text_processed }}</a></td
           </tr>
           {% endfor %}
         

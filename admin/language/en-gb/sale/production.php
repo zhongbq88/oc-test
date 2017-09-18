@@ -61,6 +61,8 @@ $_['text_restock']               = 'Success: Products have been restocked!';
 $_['text_upload']                = 'Your file was successfully uploaded!';
 $_['text_picklist']              = 'Dispatch Note';
 $_['text_not_customdr_order']    = 'Not A customDR Order';
+$_['text_processed']             = 'Processed';
+$_['text_action']                = 'Action';
 
 // Column
 $_['column_order_id']            = 'Order ID';
