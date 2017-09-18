@@ -290,7 +290,7 @@ class ControllerSaleProduction extends Controller {
 					'href'     		   => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $product['product_id'], true)
 				);
 		}
-//print_r($data['products']);
+print_r($data['products']);
 		$data['user_token'] = $this->session->data['user_token'];
 
 		$data['header'] = $this->load->controller('common/header');
