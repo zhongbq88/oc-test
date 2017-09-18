@@ -245,6 +245,14 @@ class ControllerCommonColumnLeft extends Controller {
 				);	
 			}
 			
+			if ($this->user->hasPermission('access', 'sale/production')) {
+				$sale[] = array(
+					'name'	   => $this->language->get('text_in_production'),
+					'href'     => $this->url->link('sale/production', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);	
+			}
+			
 			if ($this->user->hasPermission('access', 'sale/recurring')) {	
 				$sale[] = array(
 					'name'	   => $this->language->get('text_recurring'),

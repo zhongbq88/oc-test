@@ -148,3 +148,35 @@
 2017-09-15 12:40:40 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
 2017-09-16 1:42:11 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
 2017-09-16 1:42:11 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 230
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: customer in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 231
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: order_status in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 232
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 234
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: date_modified in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 235
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: shipping_code in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 236
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 230
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: customer in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 231
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: order_status in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 232
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 234
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: date_modified in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 235
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: shipping_code in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 236
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 230
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: customer in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 231
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: order_status in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 232
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 234
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: date_modified in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 235
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: shipping_code in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 236
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 230
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: customer in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 231
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: order_status in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 232
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 234
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: date_modified in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 235
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: shipping_code in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 236
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: forwarded_ip in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 230
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: customer in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 231
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: order_status in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 232
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 234
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: date_modified in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 235
+2017-09-18 4:25:48 - PHP Notice:  Undefined index: shipping_code in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 236
+2017-09-18 5:22:24 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-18 5:22:24 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7

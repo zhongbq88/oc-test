@@ -6,7 +6,7 @@ class ControllerCommoniplDashboard extends Controller{
 
 	public function index(){
 		if (!$this->customer->isLogged()) {
-			$this->response->redirect($this->url->link($this->session->data['store'].'/login', '', true));
+			$this->response->redirect($this->url->link('common/connect', '', true));
 		}
 		if(isset($this->session->data['srcImages'])){
 			unset($this->session->data['srcImages']);
