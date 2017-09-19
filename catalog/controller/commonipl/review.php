@@ -51,7 +51,7 @@ class ControllerCommoniplReview extends Controller {
 					$json['title'] = $product_info['name'];
 					$product_options = $this->model_catalog_product->getProductOptions($product_id);
 					//print_r($product_options);
-					if(!array_key_exists($product_id,$option_descriptions)){
+					if(!isset($option_descriptions[$product_id])){
 						$option_descriptions[$product_id] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8').'<br>';
 					}
 					$option_data = array();
