@@ -298,3 +298,6 @@
 2017-09-19 3:38:17 - PHP Warning:  password_verify() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 57
 2017-09-19 3:38:17 - PHP Warning:  sha1() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
 2017-09-19 3:38:17 - PHP Warning:  md5() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 4:10:08 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-19 4:10:08 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-19 4:19:26 - PHP Notice:  Undefined index: shop in D:\xampp\htdocs\oc-test\catalog\controller\shopify\oauth.php on line 56

@@ -12,7 +12,8 @@ class ControllerShopifyOauth extends Controller {
 		$email = $shops[0]."@shopify.com";
 		$this->load->model('account/customer');
 		$customer = $this->model_account_customer->getCustomerByEmail($email);
-		$this->session->data['shop'] = $shop;
+		
+		//echo $shop;
 		if (isset($this->session->data['install']) || !isset($_GET['code']) && empty($customer))
 		{
 			unset($this->session->data['install']);
@@ -22,8 +23,11 @@ class ControllerShopifyOauth extends Controller {
 			{
 				$shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, $customer['token']);
 				$shopInfo = $shopify('GET /admin/shop.json');
-				if(isset($shopInfo['error'])){
-					$this->oauth();
+				if(!isset($shopInfo['error'])){
+					$this->customer->login($email, $shop);
+					$this->session->data['shop'] = $shop;
+					$this->session->data['oauth_token'] = $this->customer->getToken();
+			        $this->response->redirect($this->url->link('shopify/connect', '', true));
 					return;
 				}
 			}
@@ -43,14 +47,17 @@ class ControllerShopifyOauth extends Controller {
 				print_R($e->getResponse());
 				
 			}
-			$this->customer->login($email, $shop);
-			$this->session->data['oauth_token'] = $this->customer->getToken();
-			$this->response->redirect($this->url->link('shopify/connect', '', true));
+			
+			$this->oauth();
 		}
 	}
 	
 	public function oauth(){
+		if(isset($this->session->data['shop'])){
+			unset($this->session->data['shop']);
+		}
 		$permission_url = shopify\authorization_url($_GET['shop'], SHOPIFY_APP_API_KEY, array('read_products',/* 'read_customers',*/ 'write_products','read_orders', 'write_orders', 'read_fulfillments', 'write_fulfillments'),REDIRECTION_URL);
+		//echo $permission_url;
 		die("<script> top.location.href='$permission_url'</script>");
 	}
 }
