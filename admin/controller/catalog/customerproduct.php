@@ -38,7 +38,7 @@ class ControllerCatalogCustomerproduct extends Controller {
 		$this->load->model('tool/image');
 		foreach($products as $product){
 			$p = json_decode($product['shopify_product_json'],true);
-			print_r($p);
+			//print_r($p);
 			if(isset($p['title'])){
 				if ($p['image']) {
 					$image =$p['image']['src'] ;
@@ -47,7 +47,7 @@ class ControllerCatalogCustomerproduct extends Controller {
 				}
 				
 				if($p['variants']){
-					$price = $p['variants']['price'] ;
+					$price = $p['variants'][0]['price'] ;
 				}else{
 					$price = 0;
 				}
