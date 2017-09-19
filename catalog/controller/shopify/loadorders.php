@@ -3,8 +3,6 @@
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 
-require __DIR__.'/conf.php';
-
 class ControllerShopifyLoadorders extends Controller {
 	
 	public function index(){

@@ -19,14 +19,15 @@ class ControllerCommonConnect extends Controller {
 		$email = $shops[0]."@shopify.com";
 		$this->load->model('account/customer');
 		$customer = $this->model_account_customer->getCustomerByEmail($email);
-		
-		try
+		if(isset($customer)&&isset($customer['token'])){
+			try
 		{
 			require(str_replace('common','',__DIR__).'shopify/vendor/autoload.php');
 			$shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, $customer['token']);
-			$shop = $shopify('GET /admin/shop.json');
-			if(!isset($shop['error'])){
-				//print_r($shop);
+			$shopInfo = $shopify('GET /admin/shop.json');
+			//print_r($shopInfo);
+			if(!isset($shopInfo['error'])){
+				//print_r($email);
 				$this->customer->login($email, $shop);
 				$this->session->data['oauth_token'] = $this->customer->getToken();
 				$this->session->data['shop'] = $shop;
@@ -55,7 +56,7 @@ class ControllerCommonConnect extends Controller {
 			print_R($e->getResponse());
 			
 		}
-		
+		}
 		$url = $this->url->link('shopify/install', 'shop='. $shop);
 		$this->response->redirect($url);
 	}

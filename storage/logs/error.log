@@ -263,3 +263,38 @@
 2017-09-19 2:55:22 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
 2017-09-19 2:55:22 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
 2017-09-19 2:57:02 - PHP Notice:  Undefined index: token in D:\xampp\htdocs\oc-test\catalog\controller\common\connect.php on line 26
+2017-09-19 3:31:46 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-19 3:31:46 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-19 3:32:00 - PHP Notice:  Undefined index: token in D:\xampp\htdocs\oc-test\catalog\controller\common\connect.php on line 26
+2017-09-19 3:32:08 - PHP Warning:  require(D:\xampp\htdocs\oc-test\catalog\controller\shopify/conf.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\shopify\loadorders.php on line 6
+2017-09-19 3:34:21 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-19 3:34:21 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-19 3:34:39 - PHP Warning:  password_verify() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 57
+2017-09-19 3:34:39 - PHP Warning:  sha1() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:34:39 - PHP Warning:  md5() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:34:48 - PHP Warning:  password_verify() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 57
+2017-09-19 3:34:48 - PHP Warning:  sha1() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:34:48 - PHP Warning:  md5() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:35:04 - PHP Warning:  password_verify() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 57
+2017-09-19 3:35:04 - PHP Warning:  sha1() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:35:04 - PHP Warning:  md5() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:35:43 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\common\connect.php on line 28
+2017-09-19 3:35:43 - PHP Warning:  password_verify() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 57
+2017-09-19 3:35:43 - PHP Warning:  sha1() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:35:43 - PHP Warning:  md5() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:36:22 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\common\connect.php on line 28
+2017-09-19 3:36:22 - PHP Warning:  password_verify() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 57
+2017-09-19 3:36:22 - PHP Warning:  sha1() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:36:22 - PHP Warning:  md5() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:36:47 - PHP Warning:  password_verify() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 57
+2017-09-19 3:36:47 - PHP Warning:  sha1() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:36:47 - PHP Warning:  md5() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:37:37 - PHP Warning:  password_verify() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 57
+2017-09-19 3:37:37 - PHP Warning:  sha1() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:37:37 - PHP Warning:  md5() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:37:44 - PHP Warning:  password_verify() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 57
+2017-09-19 3:37:44 - PHP Warning:  sha1() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:37:44 - PHP Warning:  md5() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:38:17 - PHP Warning:  password_verify() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 57
+2017-09-19 3:38:17 - PHP Warning:  sha1() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
+2017-09-19 3:38:17 - PHP Warning:  md5() expects parameter 1 to be string, array given in D:\xampp\htdocs\oc-test\system\library\cart\customer.php on line 61
