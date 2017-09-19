@@ -6,32 +6,32 @@ use phpish\shopify;
 class ControllerShopifyConnect extends Controller {
 	
 	public function index(){
-		//if(empty($this->session->data['shop'])||empty($this->customer->getId())){
+		if(empty($this->session->data['shop'])||empty($this->customer->getId())){
 			$this->getToken();
-		//}
+		}
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('commonipl/dashboard', '', true);
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
-		//$this->response->redirect($this->url->link('commonipl/dashboard', '', true));
+		$this->response->redirect($this->url->link('commonipl/dashboard', '', true));
 	}
 	
 		public function getToken(){
-		/*if(!empty($this->customer->getId())&&(!isset($_GET['shop'])||!isset($_GET['code']))){
+		if(!empty($this->customer->getId())&&(!isset($_GET['shop'])||!isset($_GET['code']))){
 			if ($this->customer->isLogged()) {
 				$this->session->data['oauth_token'] = $this->customer->getToken();
 				$this->session->data['shop'] = $this->customer->getFirstName().".myshopify.com";
 			
 			}
 			return;
-		}*/
+		}
 		try
 		{
 			//echo 'shop='.$_GET['shop'];
 			//echo 'code='.$_GET['code'];
 			# shopify\access_token can throw an exception
 			$oauth_token = shopify\access_token($_GET['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_GET['code']);
-			echo $oauth_token;
+			//echo $oauth_token;
 			$this->load->model('account/customer');
 			$shop = $_GET['shop'];
 			$shops = explode(".", $shop);
