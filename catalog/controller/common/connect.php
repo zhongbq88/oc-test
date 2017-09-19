@@ -23,7 +23,7 @@ class ControllerCommonConnect extends Controller {
 		try
 		{
 			require(str_replace('common','',__DIR__).'shopify/vendor/autoload.php');
-			$shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, '3075ec902895ece5b984bdab665bafcc');
+			$shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, $customer['token']);
 			$shop = $shopify('GET /admin/shop.json');
 			if(!isset($shop['error'])){
 				//print_r($shop);
@@ -33,6 +33,7 @@ class ControllerCommonConnect extends Controller {
 				$this->session->data['store'] = 'shopify';
 				$url = $this->url->link('commonipl/dashboard', '');
 				$this->response->redirect($url);
+				return;
 			}
 		    
 			//return $shop;
