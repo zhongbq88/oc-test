@@ -23,9 +23,18 @@ class ControllerCommonConnect extends Controller {
 		try
 		{
 			require(str_replace('common','',__DIR__).'shopify/vendor/autoload.php');
-			$shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, '708e8ea78a7f32594f661ed40e9755e4');
-			$products = $shopify('GET /admin/products.json', array('published_status'=>'Unpublished'));
-		print_r($products);
+			$shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, '3075ec902895ece5b984bdab665bafcc');
+			$shop = $shopify('GET /admin/shop.json');
+			if(!isset($shop['error'])){
+				//print_r($shop);
+				$this->customer->login($email, $shop);
+				$this->session->data['oauth_token'] = $this->customer->getToken();
+				$this->session->data['shop'] = $shop;
+				$this->session->data['store'] = 'shopify';
+				$url = $this->url->link('commonipl/dashboard', '');
+				$this->response->redirect($url);
+			}
+		    
 			//return $shop;
 			//echo 'App Successfully Installed!';
 		}
@@ -46,16 +55,8 @@ class ControllerCommonConnect extends Controller {
 			
 		}
 		
-		//if(empty($customer)){
-			//$url = $this->url->link('shopify/install', 'shop='. $shop);
-		/*}else{
-			$this->customer->login($email, $shop);
-			$this->session->data['oauth_token'] = $this->customer->getToken();
-			$this->session->data['shop'] = $shop;
-			$this->session->data['store'] = 'shopify';
-			$url = $this->url->link('commonipl/dashboard', '');
-		}		*/
-		//$this->response->redirect($url);
+		$url = $this->url->link('shopify/install', 'shop='. $shop);
+		$this->response->redirect($url);
 	}
 	
 }
