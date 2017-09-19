@@ -147,7 +147,7 @@ class ControllerCommoniplPublishipl extends Controller {
 		//print_r($optionsnew);
 	   $options = array();
 	   $options[] = array(
-					'name'=>'Type',
+					'name'=>'Style',
 					'values'=>array_unique($option1)
 			);
 		foreach($optionsnew as $optionsn)
