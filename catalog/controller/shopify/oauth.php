@@ -35,16 +35,16 @@ class ControllerShopifyOauth extends Controller {
 			{
 				# HTTP status code was >= 400 or response contained the key 'errors'
 				//echo $e;
-				print_R($e->getRequest());
-				print_R($e->getResponse());
+				//print_R($e->getRequest());
+				//print_R($e->getResponse());
 				
 			}
 			catch (shopify\CurlException $e)
 			{
 				# cURL error
 				//echo $e;
-				print_R($e->getRequest());
-				print_R($e->getResponse());
+				//print_R($e->getRequest());
+				//print_R($e->getResponse());
 				
 			}
 			
