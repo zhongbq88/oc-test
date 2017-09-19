@@ -305,3 +305,8 @@
 2017-09-19 5:57:11 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
 2017-09-19 6:05:36 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
 2017-09-19 6:05:36 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-19 7:44:33 - PHP Notice:  Undefined variable: filter_order_id in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 82
+2017-09-19 7:44:33 - PHP Notice:  Undefined index: store in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 86
+2017-09-19 7:44:33 - PHP Notice:  Undefined index: store in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 87
+2017-09-19 7:45:04 - PHP Notice:  Undefined index: store in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 86
+2017-09-19 7:45:04 - PHP Notice:  Undefined index: store in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 87

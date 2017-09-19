@@ -1,0 +1,99 @@
+<?php
+
+
+
+
+class ControllerCatalogCustomerproduct extends Controller {
+	
+	public function index() {
+
+		$this->load->language('catalog/product');
+		$this->load->model('catalog/product');
+		if (isset($this->request->get['filter_customer'])) {
+			$filter_customer = $this->request->get['filter_customer'];
+		} else {
+			$filter_customer = '';
+		}
+		if (isset($this->request->get['order'])) {
+			$order = $this->request->get['order'];
+		} else {
+			$order = 'DESC';
+		}
+
+		if (isset($this->request->get['page'])) {
+			$page = $this->request->get['page'];
+		} else {
+			$page = 1;
+		}
+		
+		$filter_data = array(
+			'filter_customer'	 	 => $filter_customer,
+			'start'                  => ($page - 1) * $this->config->get('config_limit_admin'),
+			'limit'                  => $this->config->get('config_limit_admin')
+		);
+		$order_total = $this->model_catalog_product->geFiltertTotalPublishProduct($filter_data);
+		$products = $this->model_catalog_product->getPublishProduct($filter_data);
+		//print_r($products);
+		$productList = array();
+		$this->load->model('tool/image');
+		foreach($products as $product){
+			$p = json_decode($product['shopify_product_json'],true);
+					
+			if(isset($p['name'])){
+				
+			if (isset($p['images'])) {
+				$image =$p['images'][0]['src'] ;
+			}else if (isset($p['src'])) {
+				$image =$p['src'] ;
+			} else {
+				$image = $this->model_tool_image->resize('no_image.png', 40, 40);
+			}
+			//print_r($image);
+				$productList[] = array(
+					'name'=>$p['name'],
+					'image'=>$image,
+					'status'=>$p['status'],
+					'published_at'=>date($this->language->get('date_format_short'), strtotime($product['date_added'])),
+					'sales'=>0,
+					'price'=>$p['price'],
+					'href'        => ''
+				);
+			}
+		}
+		$data['user_token'] = $this->session->data['user_token'];
+
+		$url = '';
+
+		if (isset($this->request->get['filter_customer'])) {
+			$url .= '&filter_customer=' . urlencode(html_entity_decode($this->request->get['filter_customer'], ENT_QUOTES, 'UTF-8'));
+		}
+
+		if (isset($this->request->get['sort'])) {
+			$url .= '&sort=' . $this->request->get['sort'];
+		}
+
+		if (isset($this->request->get['order'])) {
+			$url .= '&order=' . $this->request->get['order'];
+		}
+
+		$pagination = new Pagination();
+		$pagination->total = $order_total;
+		$pagination->page = $page;
+		$pagination->limit = $this->config->get('config_limit_admin');
+		$pagination->url = $this->url->link('catalog/customerproduct', 'user_token=' . $this->session->data['user_token'] . $url . '&page={page}', true);
+
+		$data['pagination'] = $pagination->render();
+
+		$data['filter_customer'] = $filter_customer;
+		
+		//print_r($productList);
+		$data['products'] = $productList;
+		
+		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('common/column_left');
+		$data['footer'] = $this->load->controller('common/footer');
+		$this->response->setOutput($this->load->view('catalog/customerproduct', $data));
+	}
+	
+
+}

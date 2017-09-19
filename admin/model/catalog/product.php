@@ -720,4 +720,53 @@ class ModelCatalogProduct extends Model {
 
 		return $query->row['total'];
 	}
+	
+	public function geFiltertTotalPublishProduct($data) {
+		
+		$sql = "SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "shopify_add_product` ";
+		if (!empty($data['customer_id'])) {
+			$sql .= " WHERE customer_id = '" . (int)$data['customer_id']. "' ";
+		}
+		$query = $this->db->query($sql);
+
+		return $query->row['total'];
+	}
+		
+	public function getPublishProduct($data=array()){
+		$sql = "SELECT * FROM " . DB_PREFIX . "shopify_add_product ";
+		
+		if (isset($data['customer_id'])) {
+			$sql .= " WHERE customer_id = '" . (int)$data['customer_id']. "' ";
+		}
+		
+		$sql .=' ORDER BY date_added ';
+		
+		if (isset($data['order']) && ($data['order'] == 'ASC')) {
+			$sql .= " ASC";
+		} else {
+			$sql .= " DESC";
+		}
+
+		if (isset($data['start']) || isset($data['limit'])) {
+			if ($data['start'] < 0) {
+				$data['start'] = 0;
+			}
+
+			if ($data['limit'] < 1) {
+				$data['limit'] = 20;
+			}
+
+			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+		}
+
+		$query = $this->db->query($sql);
+
+		return $query->rows;
+	}
+	
+	public function getPublishProductSales($product_id){
+		$query = $this->db->query("SELECT sum(quantity) AS total FROM " . DB_PREFIX . "order_product WHERE shopify_product_id = '" .$product_id . "'");
+
+		return isset($query->row['total'])?$query->row['total']:0;
+	}
 }
