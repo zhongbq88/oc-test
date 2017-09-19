@@ -98,17 +98,7 @@
 
 	// Offcanvas
 	var offcanvasMenu = function() {
-		//$('body').prepend('<div id="fh5co-offcanvas" />');
-		//$('#fh5co-offcanvas').prepend('<ul id="fh5co-side-links">');
-		//$('body').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>');
-
-		/*$('.left-menu li, .right-menu li').each(function(){
-
-			var $this = $(this);
-
-			$('#fh5co-offcanvas ul').append($this.clone());
-
-		});*/
+		
 	};
 
 	// Burger Menu
