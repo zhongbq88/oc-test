@@ -45,6 +45,12 @@ class ControllerCatalogCustomerproduct extends Controller {
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				}
+				
+				if($p['variants']){
+					$price = $p['variants']['price'] ;
+				}else{
+					$price = 0;
+				}
 				$sales = $this->model_catalog_product->getPublishProductSales($p['id']);
 				$productList[] = array(
 					'name'=>$p['title'],
@@ -52,7 +58,7 @@ class ControllerCatalogCustomerproduct extends Controller {
 					'status'=>'published',
 					'published_at'=>date($this->language->get('date_format_short'), strtotime($product['date_added'])),
 					'sales'=>$sales,
-					'price'=>$p['price'],
+					'price'=>$price,
 					'href'  => 'https://vivajean.myshopify.com/admin/products/'.$p['id']
 				);
 			}else if(isset($p['name'])){
