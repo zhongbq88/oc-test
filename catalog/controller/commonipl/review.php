@@ -192,7 +192,8 @@ class ControllerCommoniplReview extends Controller {
 		$this->session->data['srcImages'] = $srcImages;
 		$descriptions = '';
 		foreach($option_descriptions as $des){
-			$descriptions.=$des;
+			$descriptions = $des;
+			break;
 		}
 		$json['descriptions'] = $descriptions;
 		$json['variants'] = $variants;
