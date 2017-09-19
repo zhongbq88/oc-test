@@ -256,3 +256,10 @@
 2017-09-18 7:29:20 - PHP Notice:  Undefined index: date_added in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 289
 2017-09-18 8:47:17 - PHP Notice:  Undefined index: total in D:\xampp\htdocs\oc-test\admin\model\sale\production.php on line 291
 2017-09-18 10:07:58 - PHP Notice:  Undefined variable: filter_order_status_id in D:\xampp\htdocs\oc-test\admin\controller\sale\production.php on line 220
+2017-09-19 2:46:36 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-19 2:46:36 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-19 2:49:51 - PHP Warning:  require(vendor/autoload.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\common\connect.php on line 2
+2017-09-19 2:50:39 - PHP Warning:  require(../shopify/vendor/autoload.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\common\connect.php on line 2
+2017-09-19 2:55:22 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-19 2:55:22 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-19 2:57:02 - PHP Notice:  Undefined index: token in D:\xampp\htdocs\oc-test\catalog\controller\common\connect.php on line 26
