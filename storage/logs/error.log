@@ -310,3 +310,170 @@
 2017-09-19 7:44:33 - PHP Notice:  Undefined index: store in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 87
 2017-09-19 7:45:04 - PHP Notice:  Undefined index: store in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 86
 2017-09-19 7:45:04 - PHP Notice:  Undefined index: store in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 87
+2017-09-20 1:29:53 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 1:29:53 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 1:31:45 - PHP Notice:  Undefined index: telephone in D:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 10
+2017-09-20 1:31:46 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\oc-test\system\library\mail\mail.php on line 77
+2017-09-20 1:40:23 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-09-20 1:40:23 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
+2017-09-20 2:30:02 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:30:02 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:31:05 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:31:05 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:31:47 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:31:47 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:33:05 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:33:05 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:33:12 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:33:12 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:34:21 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:34:21 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:34:41 - PHP Notice:  Undefined variable: data in D:\xampp\htdocs\oc-test\catalog\controller\common\index.php on line 19
+2017-09-20 2:34:41 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:34:41 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:35:46 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 2:35:46 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-20 3:03:17 - PHP Notice:  Undefined index: telephone in D:\xampp\htdocs\oc-test\catalog\model\account\customer.php on line 10
+2017-09-20 3:03:18 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\oc-test\system\library\mail\mail.php on line 77
+2017-09-20 3:28:04 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-09-20 3:28:04 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
+2017-09-20 3:37:13 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\model\commonipl\product.php on line 524
+2017-09-20 3:37:13 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishipl.php on line 183
+2017-09-20 3:37:39 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\model\commonipl\product.php on line 524
+2017-09-20 3:37:39 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\publishipl.php on line 183
+2017-09-20 3:41:30 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:41:30 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:41:30 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:41:30 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 93
+2017-09-20 3:41:30 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:41:30 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:41:30 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 93
+2017-09-20 3:41:30 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:41:56 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:41:56 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:41:56 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:41:56 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 93
+2017-09-20 3:41:56 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:41:56 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:41:56 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 93
+2017-09-20 3:41:56 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:43:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:43:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:43:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:43:46 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 93
+2017-09-20 3:43:46 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:43:46 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:43:46 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 93
+2017-09-20 3:43:46 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:45:51 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:45:51 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:45:51 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:45:51 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 97
+2017-09-20 3:45:51 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 104
+2017-09-20 3:45:51 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 88
+2017-09-20 3:45:51 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 97
+2017-09-20 3:45:51 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 104
+2017-09-20 3:48:55 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 95
+2017-09-20 3:48:55 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 102
+2017-09-20 3:48:55 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 95
+2017-09-20 3:48:55 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 102
+2017-09-20 3:50:16 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 87
+2017-09-20 3:50:16 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 93
+2017-09-20 3:50:16 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:50:16 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 87
+2017-09-20 3:50:16 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 93
+2017-09-20 3:50:16 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:51:24 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 87
+2017-09-20 3:51:24 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:51:24 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 87
+2017-09-20 3:51:24 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:51:58 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 86
+2017-09-20 3:51:58 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 87
+2017-09-20 3:51:58 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:51:58 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 86
+2017-09-20 3:51:58 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 87
+2017-09-20 3:51:58 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:52:28 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 86
+2017-09-20 3:52:28 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:52:28 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 86
+2017-09-20 3:52:28 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:52:46 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 3:52:46 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\catalog\controller\commonipl\dashboard.php on line 100
+2017-09-20 4:00:53 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 43
+2017-09-20 4:00:53 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 43
+2017-09-20 4:00:53 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 43
+2017-09-20 4:00:53 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 54
+2017-09-20 4:00:53 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 62
+2017-09-20 4:00:53 - PHP Notice:  Undefined index: image in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 43
+2017-09-20 4:00:53 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 54
+2017-09-20 4:00:53 - PHP Notice:  Undefined index: id in D:\xampp\htdocs\oc-test\admin\controller\catalog\customerproduct.php on line 62
+2017-09-20 8:02:38 - PHP Notice:  Undefined variable: image in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 31
+2017-09-20 8:07:42 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-09-20 8:07:42 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
+2017-09-20 8:12:09 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-09-20 8:12:09 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
+2017-09-20 8:13:31 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-09-20 8:13:31 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
+2017-09-20 8:32:46 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 88
+2017-09-20 8:32:46 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 88
+2017-09-20 8:32:46 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 88
+2017-09-20 8:33:10 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 88
+2017-09-20 8:33:10 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 88
+2017-09-20 8:33:10 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 88
+2017-09-20 8:33:32 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 88
+2017-09-20 8:33:32 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 88
+2017-09-20 8:33:32 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 88
+2017-09-20 9:08:52 - PHP Notice:  Undefined index: option3 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 49
+2017-09-20 9:08:52 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 49
+2017-09-20 9:08:52 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 49
+2017-09-20 9:08:52 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 49
+2017-09-20 9:10:06 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 49
+2017-09-20 9:10:06 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 49
+2017-09-20 9:10:06 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 49
+2017-09-20 9:10:39 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:10:39 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:10:39 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:12:30 - PHP Notice:  Undefined index: 'option1' in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:12:30 - PHP Notice:  Undefined index: 'option2' in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:12:30 - PHP Notice:  Undefined index: 'option1' in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:12:30 - PHP Notice:  Undefined index: 'option2' in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:12:30 - PHP Notice:  Undefined index: 'option1' in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:12:30 - PHP Notice:  Undefined index: 'option2' in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:12:30 - PHP Notice:  Undefined index: 'option1' in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:12:30 - PHP Notice:  Undefined index: 'option2' in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:13:49 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:13:49 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:13:49 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:14:03 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:14:03 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:14:03 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:14:03 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:14:03 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:14:03 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 50
+2017-09-20 9:15:46 - PHP Notice:  Undefined index: option3 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 51
+2017-09-20 9:15:46 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 51
+2017-09-20 9:15:46 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 51
+2017-09-20 9:15:46 - PHP Notice:  Undefined index: option2 in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 51
+2017-09-20 9:30:40 - PHP Notice:  Undefined index: Style in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 62
+2017-09-20 9:33:45 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 140
+2017-09-20 9:34:12 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 128
+2017-09-20 9:34:12 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 141
+2017-09-20 9:35:12 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 128
+2017-09-20 9:56:23 - PHP Notice:  Undefined variable: value in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 62
+2017-09-20 9:56:23 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 62
+2017-09-20 9:57:47 - PHP Notice:  Undefined variable: value in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 62
+2017-09-20 9:57:47 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 62
+2017-09-20 9:58:20 - PHP Notice:  Undefined variable: value in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 62
+2017-09-20 9:58:20 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\oc-test\catalog\controller\store\product.php on line 62
+2017-09-20 10:05:27 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 234
+2017-09-20 10:08:25 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 234
+2017-09-20 11:20:18 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 164
+2017-09-20 11:20:41 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 164
+2017-09-20 12:01:23 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 270
+2017-09-20 12:01:23 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 270
+2017-09-20 12:01:23 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 270
+2017-09-20 12:01:23 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 270
+2017-09-20 12:01:41 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 270
+2017-09-20 12:01:41 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 270
+2017-09-20 12:01:41 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 270
+2017-09-20 12:01:41 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 270

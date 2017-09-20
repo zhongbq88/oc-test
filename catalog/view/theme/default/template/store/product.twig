@@ -1,0 +1,162 @@
+{{ header }} 
+{% if product %} 
+<!--start-single-->
+<div class="single contact">
+  <div class="container">
+    <div class="single-main">
+     {% set option_row = 1 %}
+      <div class="col-md-13 single-main-left">
+        <div class="sngl-top">
+          <div class="col-md-5 single-top-left">
+            <div class="flexslider">
+              <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                <ul class="slides">
+                {% if product.images %}
+                <div class="thumb-image">
+                {% for image in product.images %}         
+                  <img src="{{ image.pop_image }}" id="image{{ loop.index }}" {% if loop.index==option_row %} style="display:block" {% else %}  style="display: none" {% endif %} data-imagezoom="true" class="img-responsive" alt=""/>
+                {% endfor %}
+                 </div>
+                {% endif %}
+
+              </div>
+              <ol class="flex-control-nav flex-control-thumbs">
+              {% if product.images %}
+                {% for image in product.images %}
+                <li><img src="{{ image.thumb_image }}" class="flex-active" draggable="false"></li>
+               
+                {% endfor %}
+                {% endif %}
+               
+              </ol>
+              <ul class="flex-direction-nav">
+                <li class="flex-nav-prev"><a class="flex-prev" href="#">Previous</a></li>
+                <li class="flex-nav-next"><a class="flex-next" href="#">Next</a></li>
+              </ul>
+            </div>
+            <!--<div class="flexslider">
+              <ul class="slides">
+                {% if product.images %}
+                {% for image in product.images %}
+                <li data-thumb="{{ image.thumb_image }}">
+                  <div class="thumb-image"> <img src="{{ image.pop_image }}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+                </li>
+                {% endfor %}
+                {% endif %}
+              </ul>
+            </div>--> 
+          </div>
+          <div class="col-md-7 single-top-right">
+            <div class="single-para simpleCart_shelfItem">
+              <h2>{{ product.name }}</h2>
+              <h5 class="item_price">$ {{ product.prices[0][0].price }}</h5>
+              <div class="available"> {% if product.style %}
+                <div class="form-group" style="float:left; margin-right:20px;" >
+                  <label class="control-label">{{ product.style.name }}</label>
+                  <select class="form-control" style=" min-width:200px; min-height:35px; padding:5px;" onChange="check(this,0);" >
+                    
+                    
+                   {% for val in product.style.values %}
+                    
+                    
+                    <option >{{val}}</option>
+                    
+                    
+                    {% endfor %}
+                  
+                  
+                  </select>
+                </div>
+                {% endif %}
+                {% if product.options %}
+               
+                {% for option in product.options %}
+                <div id="option-body{{ loop.index }}" {% if loop.index==option_row %} style="display:block" {% else %}  style="display: none" {% endif %}>
+                {% if option %}
+                {% for key,opt in option %}
+                <div class="form-group" style="float:left; margin-right:20px;" >
+                  <label class="control-label">{{ key }}</label>
+                  <select class="form-control" style=" min-width:200px; min-height:35px; padding:5px;" onChange="check(this,1);" >
+                    
+                      
+                   {% for val in opt %}
+                    
+                      
+                    <option value="{{val.price}}">{{val.name}}</option>
+                    
+                      
+                    {% endfor %}
+                  
+                    
+                  </select>
+                </div>
+                {% endfor %}
+                
+                {% endif %} </div>
+              {% endfor %}
+              {% endif %}
+              <div class="form-group" style="float:left; margin-right:20px;">
+                <label class="control-label" for="input-quantity">Qty</label>
+                <input type="text" style="min-width:60px;" name="quantity" value="1" size="2" id="input-quantity" class="form-control">
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+            {% if product.tags%}
+            <ul class="tag-men">
+              <li><span>TAG</span> <span class="women1">: {{ product.tags }}</span></li>
+              <!--<li><span>SKU</span> <span class="women1">: CK09</span></li>-->
+            </ul>
+            {% endif %} <a href="#" class="add-cart item_add">ADD TO CART</a>
+            <p>{{ product.des }}</p>
+          </div>
+        </div>
+        <!--<div class="clearfix"> </div>--> 
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{% endif %} 
+<!--end-single-->
+<link href="catalog/view/javascript/store/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- FlexSlider --> 
+<script src="catalog/view/javascript/store/js/imagezoom.js"></script> 
+<!--<script defer src="catalog/view/javascript/store/js/jquery.flexslider.js"></script>-->
+<link rel="stylesheet" href="catalog/view/javascript/store/css/flexslider.css" type="text/css" media="screen" />
+<script>
+var option_row = {{ option_row }};
+function check(elem,index) {
+	
+	if(index ==0){
+		$('#option-body'+option_row).attr ("style","display:none;");
+		$('#image'+option_row).attr ("style","display:none;");
+		option_row = elem.selectedIndex+1;
+		$('#option-body'+(option_row)).attr ("style","display:block;");
+		$('#image'+(option_row)).attr ("style","display:block;");
+		$('.flex-active').removeClass();
+		$(".flex-control-thumbs img").eq(elem.selectedIndex).addClass('flex-active');
+		//price_row_1 = elem.selectedIndex;
+		//{% set price_row_1 = price_row_1 %}
+		//alert({{ price_row }});
+		//alert({{ product.prices[price_row_1][0].price }});
+		//$('.item_price').html('$ '+{{ product.prices[price_row_1][0].price }});
+		//option_row+=1;
+		price_row =0;
+	}else{
+		//alert(elem.se)
+		//price_row = elem.selectedIndex;
+		//alert(index+'--'+option_row);
+		//$('.item_price').html('$ '+{{ product.prices[price_row_1][price_row].price }});
+	}
+	
+}
+
+						</script>
+<style>
+.thumb-image {
+    width: 100%;
+}
+
+</style>
+{{ footer }}

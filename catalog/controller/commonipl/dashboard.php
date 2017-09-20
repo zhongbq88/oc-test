@@ -83,9 +83,24 @@ class ControllerCommoniplDashboard extends Controller{
 		foreach($products as $product){
 			//$productIds .=",'".$product['shopify_product_id']."'";
 			$p = json_decode($product['shopify_product_json'],true);
-				
-			if(isset($p['title'])){
-				if ($p['image']) {
+			//print_r($p['id']);
+			if(empty($p['id'])||$p['id']==0){
+				 if (isset($p['images'])) {
+					$image =$p['images'][0]['src'] ;
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				}
+				$sales = $this->model_commonipl_product->getPublishProductSales($product['add_product_id']);
+				$productList[] = array(
+					'name'=>$p['title'],
+					'image'=>$image,
+					'status'=>'published',
+					'published_at'=>date($this->language->get('date_format_short'), strtotime($product['date_added'])),
+					'sales'=>$sales,
+					'view'  => 'index.php?route=store/product&product_id='.$product['add_product_id']
+				);
+			}else if(isset($p['title'])){
+				if (isset($p['image'])) {
 					$image =$p['image']['src'] ;
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));

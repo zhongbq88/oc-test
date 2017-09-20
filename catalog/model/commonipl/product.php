@@ -533,6 +533,11 @@ class ModelCommoniplProduct extends Model {
 		return $query->rows;
 	}
 	
+	public function getPublishProductById($add_product_id){
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "shopify_add_product WHERE add_product_id = '" . (int)$add_product_id . "'  ORDER BY date_added DESC ");
+		return $query->row;
+	}
+	
 	public function getPublishProductSales($product_id){
 		$query = $this->db->query("SELECT sum(quantity) AS total FROM " . DB_PREFIX . "order_product WHERE shopify_product_id = '" .$product_id . "'");
 

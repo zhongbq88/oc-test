@@ -152,3 +152,4 @@ $_['error_warning']              = 'Warning: Please check the form carefully for
 $_['error_permission']           = 'Warning: You do not have permission to modify orders!';
 $_['error_action']               = 'Warning: Could not complete this action!';
 $_['error_filetype']             = 'Invalid file type!';
+
