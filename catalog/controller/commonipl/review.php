@@ -155,6 +155,7 @@ class ControllerCommoniplReview extends Controller {
 								foreach($options as $option){
 									$name = '';
 									$price = $product_info['price'];
+									print_r($price);
 									foreach($option as $opt){
 										$price += $opt['price'];
 										$name.='- '.$opt['name'].' ';
@@ -171,12 +172,15 @@ class ControllerCommoniplReview extends Controller {
 								}
 								$variants[$product_index]['options'] = $opts;
 							}else{
+								//print_r($product_info['price']);
+								$price = $product_info['price']*1.0;
 								$variants[$product_index]['type'] = "Color";
 								$variants[$product_index]['options'][] = array(
 										'name'=>$optionName,
-										'price'=>$product_info['price'],
-								'product_price'=>$product_info['price']*2,
-								'compare_price'=>$product_info['price']*4
+										'price'=>$price,
+										'each_price'=>$price,
+								'product_price'=>$price*2,
+								'compare_price'=>$price*4
 									); 
 							}
 						}

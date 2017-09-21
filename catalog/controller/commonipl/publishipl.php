@@ -178,9 +178,15 @@ class ControllerCommoniplPublishipl extends Controller {
 			$product = Oauthclient::getInstance($this->customer->getStore(),$this->customer->getConsumerkey()
 			,$this->customer->getConsumerSecret(),$this->customer->getToken())->post(array('product' =>$paoduct),$variant_count);
 			$this->load->model('commonipl/product');
-			$this->model_commonipl_product->saveShopifyAddProduct($product,1,$product_ids);
+			$product_Add_id = $this->model_commonipl_product->saveShopifyAddProduct($product,1,$product_ids);
 			if(isset($this->session->data['shop'])){
-				$this->session->data['sussecc'] = sprintf($this->language->get('publish_sucessfully'), 'https://'.$this->session->data['shop'].'/admin/products/'.$product['id']);
+				if(!isset($product['id'])||$product['id']==0){
+					//$product['id'] =  ($this->model_commonipl_product->getLastOAddProductId();
+					$this->session->data['sussecc'] = sprintf($this->language->get('publish_store_sucessfully'), 'index.php?route=store/product&product_id='.$product_Add_id);
+				}else{
+					$this->session->data['sussecc'] = sprintf($this->language->get('publish_sucessfully'), 'https://'.$this->session->data['shop'].'/admin/products/'.$product['id']);
+				}
+				
 			}
 			
 			//$this->response->redirect($this->url->link('shopify/dashboard'));

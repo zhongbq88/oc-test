@@ -93,16 +93,20 @@ class ControllerCommoniplOrders extends Controller {
 			//echo $result['order_id'];
 			$orderProducts = $this->model_commonipl_order->getOrderProducts($result['order_id']);
 			//$total = isset($orderProducts[0])?$orderProducts[0]['total']:0;
-			
+			//print_r($orderProducts);
 			$total = 0;
 			$quantity = 0;
 			foreach($orderProducts as $orderProduct){
 				if($orderProduct['shopify_price']==0){
 					continue;
 				}
-				$total += isset($orderProduct)?$orderProduct['total']:0;
-				$quantity += isset($orderProduct)?$orderProduct['quantity']:0;
+				//print_r($orderProduct['price']);
+				$qty = isset($orderProduct)?$orderProduct['quantity']:0;
+				//print_r($qty);
+				$total += isset($orderProduct)?$orderProduct['price']*$qty:0;
+				$quantity += $qty;
 			}
+			//print_r($total);
 			$data['orders'][] = array(
 				'order_id'   => $result['order_id'],
 				'shopify_order_id'   => $result['forwarded_ip'],

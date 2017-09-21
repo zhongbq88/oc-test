@@ -37,6 +37,7 @@ $_['button_upload']               = 'Upload File';
 $_['button_upload_left']               = 'Upload File Left';
 $_['button_upload_right']                = 'Upload File Right';
 $_['publish_sucessfully']               = 'Your Design has been created sucessfully, <a href="%s" target="_parent" >Click here</a> to make further edit in your shopify store.';
+$_['publish_store_sucessfully']               = 'Your Design has been created sucessfully, <a href="%s" target="_parent" >Click here</a> to make further view in store.';
 // Entry
 $_['entry_qty']                = 'Qty';
 $_['entry_name']               = 'Your Name';

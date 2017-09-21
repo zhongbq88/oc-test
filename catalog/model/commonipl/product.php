@@ -523,6 +523,7 @@ class ModelCommoniplProduct extends Model {
 			//foreach ($products as $product) {
 				$this->db->query("INSERT INTO " . DB_PREFIX . "shopify_add_product SET product_id = '" .$product_id . "', shopify_product_id = '" .$product['id'] . "', shopify_product_json = '" .$this->db->escape(json_encode($product)) . "', product_id_list = '" .$this->db->escape(json_encode($product_id_list)) . "',  customer_id = '" .(int)$this->customer->getId() . "',date_added = NOW() ");
 			//}
+			return $this->db->getLastId();
 		}
 	}
 	
@@ -542,5 +543,13 @@ class ModelCommoniplProduct extends Model {
 		$query = $this->db->query("SELECT sum(quantity) AS total FROM " . DB_PREFIX . "order_product WHERE shopify_product_id = '" .$product_id . "'");
 
 		return isset($query->row['total'])?$query->row['total']:0;
+	}
+	
+	public function getLastOAddProductId(){
+		$query = $this->db->query("SELECT add_product_id FROM " . DB_PREFIX . "shopify_add_product  ORDER BY add_product_id DESC LIMIT 1");
+		if(isset($query->row['add_product_id'])){
+			return $query->row['add_product_id'];
+		}
+		return 1;
 	}
 }
