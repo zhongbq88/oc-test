@@ -14,12 +14,8 @@ class ControllerCommonHome extends Controller {
 		$data['content_top'] = $this->load->controller('common/content_top');
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
-		
-		if ($this->customer->isLogged() && $this->session->data['store']=='store') {
-			$data['header'] = $this->load->controller('store/header');
-		}else{
-			$data['header'] = $this->load->controller('common/header');
-		}
+
+		$data['header'] = $this->load->controller('common/header');
 		
 
 		$this->response->setOutput($this->load->view('common/home', $data));
