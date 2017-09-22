@@ -100,11 +100,10 @@ class ControllerCommonDashboard extends Controller {
 	}
 	
 	public function invitationcode(){
-		$data['code'] = rand(1000,9999);//$this->encryption->encrypt('customdr#007','uid='.$this->user->getId());
+		$data['code'] = rand(1000,9999);
 		$this->load->model('setting/extension');
-		$this->model_setting_extension->addCode($data['code'],$this->user->getId());
+		//$this->model_setting_extension->addCode($data['code'],$this->user->getId());
 		$this->response->setOutput($this->load->view('common/invitationcode', $data));
-		//echo $enc.'------';
-		//echo $this->encryption->decrypt('123',$enc);
+		
 	}
 }
