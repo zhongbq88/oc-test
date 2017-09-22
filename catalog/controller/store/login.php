@@ -5,6 +5,8 @@ class ControllerStoreLogin extends Controller {
 
 	public function index() {
 
+		
+
 		$this->load->model('account/customer');
 
 		$this->load->language('store/login');
@@ -18,6 +20,9 @@ class ControllerStoreLogin extends Controller {
 			$this->session->data['store'] = 'store';
 			$this->response->redirect($this->url->link('commonipl/dashboard', '', true));
 			
+		}
+		if(!isset($this->request->get['action'])){
+			$data['login_active'] = true;
 		}
 
 
@@ -90,7 +95,11 @@ class ControllerStoreLogin extends Controller {
 	
 	public function register() {
 
-		echo 'register';
+		$this->load->model('account/customer');
+
+		$this->load->language('account/register');
+
+		$this->document->setTitle($this->language->get('heading_title'));
 		$this->load->model('account/customer');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateRegister()) {
@@ -190,6 +199,12 @@ class ControllerStoreLogin extends Controller {
 		} else {
 			$data['confirm'] = '';
 		}
+		
+		if (isset($this->request->post['invitationcode'])) {
+			$data['invitationcode'] = $this->request->post['invitationcode'];
+		} else {
+			$data['invitationcode'] = '';
+		}
 
 		if ($this->config->get('config_account_id')) {
 			$this->load->model('catalog/information');
@@ -210,7 +225,7 @@ class ControllerStoreLogin extends Controller {
 		} else {
 			$data['agree'] = false;
 		}
-
+		$data['login_active'] = false;
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
@@ -231,7 +246,7 @@ class ControllerStoreLogin extends Controller {
 		}
 
 		if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
-			$this->error['warning'] = $this->language->get('error_exists');
+			$this->error['email'] = $this->language->get('error_exists');
 		}
 /*
 		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
@@ -258,6 +273,20 @@ class ControllerStoreLogin extends Controller {
 		}
 		
 		return !$this->error;
+	}
+	
+	public function validateCode(){
+		$json = array();
+		if(isset($this->request->get['code'])){
+			$this->load->model('setting/extension');
+		    $data = $this->model_setting_extension->cechkCode($this->request->get['code']);
+			if(isset($data)){
+				$json['success'] =$this->request->get['code'];
+			}
+			
+		}
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
 	}
 	
 }

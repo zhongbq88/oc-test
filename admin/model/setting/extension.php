@@ -74,4 +74,10 @@ class ModelSettingExtension extends Model {
 
 		return $query->rows;
 	}
+	
+	public function addCode($code, $uid) {
+		
+		$this->db->query("INSERT INTO `" . DB_PREFIX . "invitation_code` SET `code` = '" . $this->db->escape($code) . "',`user_id` = '" . (int)$uid . "',`date_added` = NOW()");
+		
+	}
 }

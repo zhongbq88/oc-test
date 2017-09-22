@@ -5,4 +5,9 @@ class ModelSettingExtension extends Model {
 
 		return $query->rows;
 	}
+	
+	public function cechkCode($code) {
+		$query = $this->db->query("SELECT code FROM " . DB_PREFIX . "invitation_code WHERE `code` = '" . $this->db->escape($code) . "'");
+		return isset($query->row['code']);
+	}
 }
