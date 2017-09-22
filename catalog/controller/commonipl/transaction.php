@@ -77,9 +77,9 @@ class ControllerCommoniplTransaction extends Controller {
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');*/
-		$data['footer'] = $this->load->controller('shopify/footer');
-		$data['header'] = $this->load->controller('shopify/header');
+		$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
+		$data['header'] = $this->load->controller($this->session->data['store'].'/header');
 
-		$this->response->setOutput($this->load->view('shopify/transaction', $data));
+		$this->response->setOutput($this->load->view('commonipl/transaction', $data));
 	}
 }
