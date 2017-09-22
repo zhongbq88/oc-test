@@ -43,7 +43,7 @@ class ControllerCommonHeader extends Controller {
 			$data['logo'] = '';
 		}
 
-		$this->load->language('common/header');
+		$this->load->language('store/header');
 
 		// Wishlist
 		if ($this->customer->isLogged()) {

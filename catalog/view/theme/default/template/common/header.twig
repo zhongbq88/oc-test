@@ -271,14 +271,13 @@ s0.parentNode.insertBefore(s1,s0);
   <div class="nav pull-right" style="margin-top:18px; margin-right:50px;">
   <ul class="list-inline">
   {% if login_store %}
-        <li><a href="index.php?route=commonipl/category" style=" font-size:15px" id="wishlist-total" title="{{ add_products }}"><span class="hidden-xs hidden-sm hidden-md">{{ add_products }}</span></a></li>
-        <li><a href="index.php?route=commonipl/orders" style=" font-size:15px" title="{{ orders }}"><span class="hidden-xs hidden-sm hidden-md">{{ orders }}</span></a></li>
-        <li><a href="index.php?route=commonipl/edit" style=" font-size:15px" title="{{ account_settings }}"> <span class="hidden-xs hidden-sm hidden-md">{{ account_settings }}</span></a></li>
-        <li><a href="index.php?route=commonipl/transaction"  style=" font-size:15px" title="{{ acct_balance_transactions }}"> {{acct_balance_transactions}}</a></li>
+        <li><a href="index.php?route=commonipl/category" style=" font-size:15px;color:#818892" id="wishlist-total" title="{{ add_products }}"><span class="hidden-xs hidden-sm hidden-md">{{ add_products }}</span></a></li>
+        <li><a href="index.php?route=commonipl/orders" style=" font-size:15px;color:#818892" title="{{ orders }}"><span class="hidden-xs hidden-sm hidden-md">{{ orders }}</span></a></li>
+        <li><a href="index.php?route=commonipl/edit" style=" font-size:15px;color:#818892" title="{{ account_settings }}"> <span class="hidden-xs hidden-sm hidden-md">{{ account_settings }}</span></a></li>
+        <li><a href="index.php?route=commonipl/transaction"  style=" font-size:15px;color:#818892" title="{{ acct_balance_transactions }}">{{acct_balance_transactions}}</a></li>
         
-         <li><a href="index.php?route=commonipl/dashboard" style=" font-size:15px" title="{{ dashboard }}"> <span class="hidden-xs hidden-sm hidden-md">{{ dashboard }}</span></a></li>
+         <li><a href="index.php?route=commonipl/dashboard" style=" font-size:15px;color:#818892" title="{{ dashboard }}"> <span class="hidden-xs hidden-sm hidden-md">{{ dashboard }}</span></a></li>
          
-         <li><a href="" style=" font-size:15px" title="FAQS"> <span class="hidden-xs hidden-sm hidden-md">FAQS</span></a></li>
         {% else %}
         
 			<li><a href="index.php?route=store/login" style="color:#818892">Login</a></li>
