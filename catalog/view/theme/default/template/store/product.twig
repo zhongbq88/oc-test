@@ -17,13 +17,16 @@
 <div class="thumb-image"> {% for image in product.images %} <img src="{{ image.pop_image }}" id="image{{ loop.index }}" {% if loop.index==option_row %} style="display:block" {% else %}  style="display: none" {% endif %} data-imagezoom="true" class="img-responsive" alt=""/> {% endfor %} </div>
 {% endif %}
 </div>
+<div id="listBox" class="listBox">
 <ol class="flex-control-nav flex-control-thumbs">
   {% if product.images %}
   {% for image in product.images %}
   <li><img src="{{ image.thumb_image }}" {% if loop.index==option_row %} class="flex-active" {% endif %}  draggable="false" data-index='{{ image.image_pos }}'></li>
+ 
   {% endfor %}
   {% endif %}
 </ol>
+</div>
 <ul class="flex-direction-nav">
   <li class="flex-nav-prev"><a class="flex-prev" href="#">Previous</a></li>
   <li class="flex-nav-next"><a class="flex-next" href="#">Next</a></li>
@@ -278,6 +281,23 @@ $('.flex-control-thumbs img').on('click',function(){
 
 });
 
+/*$(document).ready(function() {	
+	 var index=0;
+    var length=$(".thumb-image img").length;
+    var i=1;
+	$('.flex-control-thumb').attr('style','width:'+length*145);
+    showImg(index);
+    //关键函数：通过控制i ，来显示图片
+    function showImg(i){
+       /* $(".thumb-image img")
+            .eq(i).stop(true,true).fadeIn(800)
+            .siblings("img").hide();
+         $("#cbtn li")
+            .eq(i).attr ("class","slide active")
+            .siblings().attr ("class","slide ");
+    }
+});
+*/
 						</script>
 <style>
 .thumb-image {
