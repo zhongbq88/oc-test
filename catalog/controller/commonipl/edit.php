@@ -4,9 +4,9 @@ class ControllercommoniplEdit extends Controller {
 
 	public function index() {
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('shopify/edit', '', true);
+			//$this->session->data['redirect'] = $this->url->link('common/edit', '', true);
 
-			$this->response->redirect($this->url->link('shopify/login', '', true));
+			$this->response->redirect($this->url->link('common/login', '', true));
 		}
 
 		$this->load->language('shopify/edit');
@@ -77,6 +77,10 @@ class ControllercommoniplEdit extends Controller {
 
 		if ($this->request->server['REQUEST_METHOD'] != 'POST') {
 			$customer_info = $this->model_shopify_user->getUser($this->customer->getId());
+			if(isset($this->session->data['store'])&&$this->session->data['store']=='store'){
+				$this->load->model('account/customer');
+				$customer_info = $this->model_account_customer->getCustomerByEmail($this->customer->getEmail());
+			}
 		}
 
 		if (isset($this->request->post['firstname'])) {
@@ -141,7 +145,7 @@ class ControllercommoniplEdit extends Controller {
 		$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
 		$data['header'] = $this->load->controller($this->session->data['store'].'/header');
 
-		$this->response->setOutput($this->load->view('shopify/edit', $data));
+		$this->response->setOutput($this->load->view('commonipl/edit', $data));
 	}
 
 	protected function validate() {
