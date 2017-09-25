@@ -80,6 +80,7 @@ class ControllerStoreProduct extends Controller {
 		$data['footer'] = $this->load->controller('store/footer');
 		$data['header'] = $this->load->controller('store/header');
 		
+		//print_r($this->);
 		$this->response->setOutput($this->load->view('store/product', $data));
 	}
 	
@@ -321,7 +322,7 @@ class ControllerStoreProduct extends Controller {
 					$order_data['affiliate_id'] = 0;
 					$order_data['commission'] = 0;
 				}
-
+				
 				// Marketing
 				$this->load->model('checkout/marketing');
 

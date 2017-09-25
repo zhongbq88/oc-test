@@ -1317,9 +1317,9 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 		
 		$data = array_merge($data, $paymentProduct);
 		
-print_r($data);
+//print_r($data);
 		$result = $this->model_extension_payment_pp_express->call($data);
-		print_r($result);
+		//print_r($result);
 		/**
 		 * If a failed PayPal setup happens, handle it.
 		 */
@@ -1460,7 +1460,7 @@ print_r($data);
 		$this->session->data['paypal']['payerid'] = $result['PAYERID'];
 		$this->session->data['paypal']['result'] = $result;
 
-		$order_id = $this->session->data['order_id'];
+		$order_ids = $this->session->data['order_id'];
 
 		$paypal_data = array(
 			'TOKEN'                      => $this->session->data['paypal']['token'],
@@ -1510,8 +1510,8 @@ print_r($data);
 					$order_status_id = $this->config->get('payment_pp_express_on_hold_status_id');
 					break;
 			}
-
-			$this->model_checkout_order->addOrderHistory($order_id, $order_status_id);
+			foreach ($order_ids as $order_id){
+				$this->model_checkout_order->addOrderHistory($order_id, $order_status_id);
 
 			//add order to paypal table
 			$paypal_order_data = array(
@@ -1540,6 +1540,9 @@ print_r($data);
 				'debug_data'            => json_encode($result)
 			);
 			$this->model_extension_payment_pp_express->addTransaction($paypal_transaction_data);
+				
+			}
+			
 
 			/*$products = $this->model_checkout_order->getOrderProducts($order_id);
 
