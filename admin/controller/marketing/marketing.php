@@ -450,6 +450,14 @@ class ControllerMarketingMarketing extends Controller {
 		} else {
 			$data['code'] = uniqid();
 		}
+		
+		if (isset($this->request->post['link'])) {
+			$data['link'] = $this->request->post['link'];
+		} elseif (!empty($marketing_info)) {
+			$data['link'] = $marketing_info['link'];
+		} else {
+			$data['link'] = '';
+		}
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');

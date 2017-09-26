@@ -851,3 +851,7 @@
 2017-09-25 9:42:46 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\model\checkout\order.php on line 241
 2017-09-25 9:53:44 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\pp_express.php on line 1513
 2017-09-25 9:56:14 - PHP Notice:  Array to string conversion in D:\xampp\htdocs\oc-test\catalog\controller\extension\payment\pp_express.php on line 1513
+2017-09-25 10:16:06 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-25 10:16:06 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-26 1:18:58 - PHP Warning:  include_once(D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7
+2017-09-26 1:18:58 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\oc-test\catalog\controller\event\theme.php on line 7

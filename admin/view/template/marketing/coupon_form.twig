@@ -87,6 +87,37 @@
                   <input type="text" name="total" value="{{ total }}" placeholder="{{ entry_total }}" id="input-total" class="form-control" />
                 </div>
               </div>
+              
+              <div class="form-group">
+                <label class="col-sm-2 control-label">是否分销商</label>
+                <div class="col-sm-10">
+                  <label class="radio-inline">
+                                        <input type="radio" name="is_referrer_profit" value="1" {% if is_referrer_profit == 1 %} checked="checked" {% endif %}  >
+                    是                                      </label>
+                  <label class="radio-inline">
+                                        <input type="radio" name="is_referrer_profit" value="0" {% if is_referrer_profit == 0 %} checked="checked" {% endif %} >
+                    否                                      </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-level1_profit"><span data-toggle="tooltip" title="" data-original-title="购买者的上级分销商佣金率，示例：0.03代表佣金为商品价格乘0.03">一级分销商佣金率</span></label>
+                <div class="col-sm-10">
+                  <input type="text" name="level1_profit" value="{{ level1_profit }}" placeholder="一级分销商佣金率" id="input-level1_profit" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-level2_profit"><span data-toggle="tooltip" title="" data-original-title="购买者的上级的上级分销商佣金率，示例：0.03代表佣金为商品价格乘0.03">二级分销商佣金率</span></label>
+                <div class="col-sm-10">
+                  <input type="text" name="level2_profit" value="{{ level2_profit }}" placeholder="二级分销商佣金率" id="input-level2_profit" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-level3_profit"><span data-toggle="tooltip" title="" data-original-title="购买者的上级的上级的上级分销商佣金率，示例：0.03代表佣金为商品价格乘0.03">三级分销商佣金率</span></label>
+                <div class="col-sm-10">
+                  <input type="text" name="level3_profit" value="{{ level3_profit }}" placeholder="三级分销商佣金率" id="input-level3_profit" class="form-control">
+                </div>
+              </div>
+              
               <div class="form-group">
                 <label class="col-sm-2 control-label"><span data-toggle="tooltip" title="{{ help_logged }}">{{ entry_logged }}</span></label>
                 <div class="col-sm-10">

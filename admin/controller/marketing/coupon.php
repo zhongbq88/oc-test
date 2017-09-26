@@ -473,6 +473,38 @@ class ControllerMarketingCoupon extends Controller {
 		} else {
 			$data['status'] = true;
 		}
+		
+		if (isset($this->request->post['is_referrer_profit'])) {
+			$data['is_referrer_profit'] = $this->request->post['is_referrer_profit'];
+		} elseif (!empty($coupon_info)) {
+			$data['is_referrer_profit'] = $coupon_info['is_referrer_profit'];
+		} else {
+			$data['is_referrer_profit'] = 1;
+		}
+		
+		if (isset($this->request->post['level1_profit'])) {
+			$data['level1_profit'] = $this->request->post['level1_profit'];
+		} elseif (!empty($coupon_info)) {
+			$data['level1_profit'] = $coupon_info['level1_profit'];
+		} else {
+			$data['level1_profit'] = 0.0000;
+		}
+		
+		if (isset($this->request->post['level2_profit'])) {
+			$data['level2_profit'] = $this->request->post['level2_profit'];
+		} elseif (!empty($coupon_info)) {
+			$data['level2_profit'] = $coupon_info['level2_profit'];
+		} else {
+			$data['level2_profit'] = 0.0000;
+		}
+		
+		if (isset($this->request->post['level2_profit'])) {
+			$data['level3_profit'] = $this->request->post['level3_profit'];
+		} elseif (!empty($coupon_info)) {
+			$data['level3_profit'] = $coupon_info['level3_profit'];
+		} else {
+			$data['level3_profit'] =  0.0000;
+		}
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
