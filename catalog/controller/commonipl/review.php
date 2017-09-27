@@ -155,7 +155,7 @@ class ControllerCommoniplReview extends Controller {
 								foreach($options as $option){
 									$name = '';
 									$price = $product_info['price'];
-									print_r($price);
+									//print_r($price);
 									foreach($option as $opt){
 										$price += $opt['price'];
 										$name.='- '.$opt['name'].' ';
