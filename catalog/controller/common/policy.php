@@ -1,6 +1,8 @@
 <?php
 class ControllerCommonPolicy extends Controller {
 	public function index() {
-		$this->response->setOutput($this->load->view('common/policy', ''));
+		$data['footer'] = $this->load->controller('common/footer');
+		$data['header'] = $this->load->controller('common/header');
+		$this->response->setOutput($this->load->view('common/policy1', $data));
 	}
 }
