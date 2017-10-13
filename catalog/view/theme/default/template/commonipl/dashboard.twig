@@ -12,7 +12,80 @@
         <div class="alert alert-success alert-dismissible" style="margin-bottom:10px;"><i class="fa fa-check-circle"></i> {{ success }}
         </div>
         {% endif %}
-           
+        
+      
+           <div class="row" id="tips">
+    <div class="col-md-12">
+        
+        
+                    <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="RPC('store/dismiss-welcome', {storeId: 481485});">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <div id="sync-graphic">
+                    <div>
+                        <img src="./image/store.svg" alt="">
+                    </div>
+                    <img src="./image/arrow.svg" alt="" height="50">
+                    <div>
+                        <img src="./image/logo.png" alt="" style="position: relative; top:-2px;">
+                    </div>
+                </div>
+
+                <style>
+                    #sync-graphic {
+                        text-align: center;
+                        margin-top: 5px;
+                    }
+
+                    #sync-graphic > div {
+                        display: inline-block;
+                        vertical-align: middle;
+                        background-color: white;
+                        border-radius: 100%;
+                        height: 90px;
+                        width: 90px;
+                        line-height: 90px;
+                    }
+
+                    #sync-graphic > div img {
+                        width: 61px;
+                        vertical-align: middle;
+                    }
+
+                    #sync-graphic > img {
+                        margin-left: 10px;
+                        margin-right: 10px;
+                    }
+                </style>
+
+                <p style="font-size: 1.3em; font-weight: bold; margin-bottom: 15px;">
+                    Hey!
+                </p>
+
+                <p style="margin-bottom: 15px;">
+                    We imported your products from your store. You can go ahead and <strong>
+                        sync them now
+                    </strong>,
+                    or <strong>
+                        <a target="_blank" href="/faq/shopify/138-how-do-i-configure-and-sync-my-shopify-products-">sync</a>                        them as orders come in</strong>. If there are products you don't wish to fulfill
+                    through Printful, you can mark them as ignored.
+                </p>
+
+                <p style="margin-bottom: 15px;">
+                    If automatic fulfillment is turned on and <strong>all of the products in an order are synced</strong>,
+                    the order will be <strong>fulfilled automatically</strong>.
+                    If some products aren't synced, the order will be <strong>saved as a draft</strong> so you
+                    can sync products on the fly.
+                </p>
+
+                <p>
+                    You can manage how orders are processed in your
+                    <a href="/dashboard/store-settings/481485/orders">store settings</a>.
+                </p>
+            </div>
+            </div>
+</div>
             </div>
             <div class="clearboth"></div>
           </div>
@@ -204,6 +277,9 @@
 <script type="text/javascript">
 $('.orderib').on('click', function() {
 	window.location.href='index.php?route=commonipl/orders&filter_order_status='+ this.getAttribute('data-filter'); 
+});
+$('.close').on('click', function() {
+	$('#tips').attr('style','display:none');
 });
 function addproduct(){
 	window.location.href='index.php?route=commonipl/category';
