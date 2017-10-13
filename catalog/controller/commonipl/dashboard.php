@@ -112,7 +112,7 @@ class ControllerCommoniplDashboard extends Controller{
 					'status'=>'published',
 					'published_at'=>date($this->language->get('date_format_short'), strtotime($product['date_added'])),
 					'sales'=>$sales,
-					'href'  => 'https://'.$this->session->data['store'].'.myshopify.com/admin/products/'.$p['id']
+					'href'  => 'https://'.$this->session->data['shop'].'/admin/products/'.$p['id']
 				);
 			}else if(isset($p['name'])){
 				
@@ -128,7 +128,7 @@ class ControllerCommoniplDashboard extends Controller{
 					'status'=>$p['status'],
 					'published_at'=>date($this->language->get('date_format_short'), strtotime($product['date_added'])),
 					'sales'=>$sales,
-					'href'  => 'https://'.$this->session->data['store'].'.myshopify.com/admin/products/'.$p['id']
+					'href'  => 'https://'.$this->session->data['shop'].'/admin/products/'.$p['id']
 				);
 			}
 		}
