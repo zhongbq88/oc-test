@@ -45,7 +45,7 @@ class ControllerShopifyLoadorders extends Controller {
 			  if(isset($adddate)&&$adddate!=0){
 			  	$adddate = str_replace(' ',"T",$adddate)."+00:00";
 			  //print_r($adddate);
-			  	$orders = $shopify('GET /admin/orders.json?status=any&processed_at_min='.$adddate.'&created_at_min='.$adddate);
+			  	$orders = $shopify('GET /admin/orders.json?status=any'/*&processed_at_min='.$adddate.'&created_at_min='.$adddate*/);
 			  }else{
 			  	  $orders = $shopify('GET /admin/orders.json?status=any');
 			  }
@@ -55,7 +55,7 @@ class ControllerShopifyLoadorders extends Controller {
 			  if(count($orders)>0){
 				  $json['success'] = 'true';
 			  }
-			  //print_r($orders);
+			  print_r($orders);
 			  foreach($orders as $order){
 				 $od = $this->initOrder($order,$order_statuses,$customer_info);
 				 //print_r($od);
