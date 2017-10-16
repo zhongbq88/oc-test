@@ -1,5 +1,5 @@
 <?php
-class ControllerShopifyAddress extends Controller {
+class ControllerCommoniplAddress extends Controller {
 	private $error = array();
 
 	public function index() {
