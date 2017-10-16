@@ -267,14 +267,16 @@ $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 	public function updateOrderProduct($order_product_id,$quantity,$options){
 		
 		$query = $this->db->query("SELECT price,product_id FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$order_product_id . "'");
-		$price = $query->row['price'];
-		$sql = "SELECT price FROM `oc_product_sku` WHERE product_id='".$query->row['product_id']."' AND product_options like '%" . $this->db->escape($options). "%'";
-		print_r($sql);
+		$order = $query->row;
+		$price = $order['price'];
+		
 		if(!empty($options)){
+			$sql = "SELECT price FROM " . DB_PREFIX . "product_sku WHERE product_id='".$order['product_id']."' AND product_options like '%" . $this->db->escape($options). "%'";
+			echo($sql);
 			$query2 = $this->db->query($sql);
-			if($query2->row){
+			//if($query2->row){
 				$price = $query2->row['price'];
-			}
+			//}
 			
 		}
 		
