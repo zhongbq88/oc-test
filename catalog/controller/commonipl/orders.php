@@ -520,7 +520,7 @@ class ControllerCommoniplOrders extends Controller {
 		    $order_info = $this->model_commonipl_order->updateOrderProduct($order_product_id,$quantity,$size_name);
 			$json['success'] ='1';
 			$this->response->addHeader('Content-Type: application/json');
-			//$this->response->setOutput(json_encode($json));
+			$this->response->setOutput(json_encode($json));
 		}
 	
 	}
