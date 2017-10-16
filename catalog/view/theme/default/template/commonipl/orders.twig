@@ -220,7 +220,7 @@ $.ajax({
 	function onhod(order_id){
 		//alert(order_id);
 	  $.ajax({
-				url: 'index.php?route=shopify/orders/onhod&order_id='+order_id,
+				url: 'index.php?route=commonipl/orders/onhod&order_id='+order_id,
 				dataType: 'json',
 				cache: false,
 				contentType: false,
@@ -252,7 +252,7 @@ $.ajax({
 		ShopifyApp.Modal.confirm("Are you sure cancel this order?", function(result){
   			if(result){
    				  $.ajax({
-				  url: 'index.php?route=shopify/orders/cancel&order_id='+order_id,
+				  url: 'index.php?route=commonipl/orders/cancel&order_id='+order_id,
 				  dataType: 'json',
 				  cache: false,
 				  contentType: false,
@@ -300,7 +300,7 @@ $.ajax({
 	  var formData =  new FormData();
 	  formData.append("order_id",order_id);
 	  $.ajax({
-				url: 'index.php?route=shopify/orders/pay',
+				url: 'index.php?route=commonipl/orders/pay',
 				type: 'post',
 				data: formData,
 				dataType: 'json',
