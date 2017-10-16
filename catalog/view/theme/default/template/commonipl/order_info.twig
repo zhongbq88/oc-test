@@ -216,7 +216,7 @@
   
   function editAddress(order_id){
 	   $.ajax({
-				url: 'index.php?route=shopify/address/edit&order_id='+order_id,
+				url: 'index.php?route=commonipl/address/edit&order_id='+order_id,
 				dataType: 'json',
 				cache: false,
 				contentType: false,
@@ -248,7 +248,7 @@
 	  formData.append("order_product_id",order_product_id);
 	  formData.append("size_name",encodeURIComponent($('select[name=\'size_name'+order_product_id+'\']').val()));
 	  $.ajax({
-				url: 'index.php?route=shopify/orders/update',
+				url: 'index.php?route=commonipl/orders/update',
 				type: 'post',
 				data: formData,
 				dataType: 'json',
@@ -279,7 +279,7 @@
 	  formData.append("quantity",$(node).val());
 	  formData.append("order_id",$(node).attr("data-id"));
 	  $.ajax({
-				url: 'index.php?route=shopify/orders/update',
+				url: 'index.php?route=commonipl/orders/update',
 				type: 'post',
 				data: formData,
 				dataType: 'json',
