@@ -516,6 +516,7 @@ class ControllerCommoniplOrders extends Controller {
 			$quantity = $this->request->post['quantity'];
 			$size_name = $this->request->post['size_name'];
 			$this->load->model('commonipl/order');
+			
 		    $order_info = $this->model_commonipl_order->updateOrderProduct($order_product_id,$quantity,$size_name);
 			$json['success'] ='1';
 			$this->response->addHeader('Content-Type: application/json');

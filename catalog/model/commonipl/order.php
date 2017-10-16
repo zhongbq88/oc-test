@@ -266,10 +266,17 @@ $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 	
 	public function updateOrderProduct($order_product_id,$quantity,$options){
 		
-		$query = $this->db->query("SELECT price FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$order_product_id . "'");
-
+		$query = $this->db->query("SELECT price,product_id FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$order_product_id . "'");
+		$price = $query->row['price'];
+		if(!empty($options)){
+			$query = $this->db->query("SELECT price FROM " . DB_PREFIX . "product_sku WHERE product_id='".(int)$query->row['product_id']."' AND product_options like '%'" . $this->db->escape($options). "'%'");
+			if($query->row){
+				$price = $query->row['price'];
+			}
+			
+		}
 		
-		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET options = '" . $this->db->escape($options). "',quantity = '" . (int)$quantity . "',total ='".(float)$query->row['price']*((int)$quantity)."' WHERE order_product_id = '" . (int)$order_product_id . "'");
+		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET options = '" . $this->db->escape($options). "',price='".(float)$price."', quantity = '" . (int)$quantity . "',total ='".(float)$price*((int)$quantity)."' WHERE order_product_id = '" . (int)$order_product_id . "'");
 
 	}
 	
