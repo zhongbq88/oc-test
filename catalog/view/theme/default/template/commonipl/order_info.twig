@@ -246,7 +246,7 @@
 	  var formData =  new FormData();
 	  formData.append("quantity",quantity);
 	  formData.append("order_product_id",order_product_id);
-	  formData.append("size_name",encodeURIComponent($('select[name=\'size_name'+order_product_id+'\']').val()));
+	  formData.append("size_name",$('select[name=\'size_name'+order_product_id+'\']').val());
 	  $.ajax({
 				url: 'index.php?route=commonipl/orders/update',
 				type: 'post',
