@@ -268,15 +268,15 @@ $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 		
 		$query = $this->db->query("SELECT price,product_id FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$order_product_id . "'");
 		$price = $query->row['price'];
-		$sql = "SELECT price FROM " . DB_PREFIX . "product_sku WHERE product_id='".(int)$query->row['product_id']."' ";
+		$sql = "SELECT price FROM `oc_product_sku` WHERE product_id='".$query->row['product_id']."' AND product_options like '%40X40CM(NO FRAME)%'";
 		print_r($sql);
-		/*if(!empty($options)){
-			$query2 = $this->db->query();
+		if(!empty($options)){
+			$query2 = $this->db->query($sql);
 			if($query2->row){
 				$price = $query2->row['price'];
 			}
 			
-		}*/
+		}
 		
 		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET options = '" . $this->db->escape($options). "',price='".(float)$price."', quantity = '" . (int)$quantity . "',total ='".(float)$price*((int)$quantity)."' WHERE order_product_id = '" . (int)$order_product_id . "'");
 
