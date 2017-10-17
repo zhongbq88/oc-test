@@ -27,6 +27,9 @@ class ControllerShopifyLoadorders extends Controller {
 			}
 			//print_r($customer_info);
 			$json =  $this->getOrders($this->session->data['shop'],$this->session->data['oauth_token'],$customer_info);
+			if(isset($json['success'])){
+				$json['order_list'] = $this->load->controller('commonipl/orders/getList');
+			}
 		}
 		if (isset($this->request->get['syn'])) {
 			$this->response->addHeader('Content-Type: application/json');
@@ -45,7 +48,7 @@ class ControllerShopifyLoadorders extends Controller {
 			  if(isset($adddate)&&$adddate!=0){
 			  	$adddate = str_replace(' ',"T",$adddate)."+00:00";
 			  //print_r($adddate);
-			  	$orders = $shopify('GET /admin/orders.json?status=any'/*&processed_at_min='.$adddate.'&created_at_min='.$adddate*/);
+			  	$orders = $shopify('GET /admin/orders.json?status=any&processed_at_min='.$adddate.'&created_at_min='.$adddate);
 			  }else{
 			  	  $orders = $shopify('GET /admin/orders.json?status=any');
 			  }

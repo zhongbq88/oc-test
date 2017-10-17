@@ -5,7 +5,7 @@ use phpish\shopify;
 
 require __DIR__.'/conf.php';
 
-class ControllerShopifyLoadorders extends Controller {
+class ControllerCommoniplLoadorders extends Controller {
 	
 	public function index(){
 		
@@ -30,9 +30,9 @@ class ControllerShopifyLoadorders extends Controller {
 			print_r('123');
 			//print_r($customer_info);
 			$json =  $this->getOrders($this->session->data['shop'],$this->session->data['oauth_token'],$customer_info);
-			//if(isset($json['success'])){
+			if(isset($json['success'])){
 				$json['order_list'] = $this->load->controller('commonipl/orders/getList');
-			//}
+			}
 			
 		}
 		if (isset($this->request->get['syn'])) {
