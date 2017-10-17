@@ -199,6 +199,7 @@ class ControllerShopifyLoadorders extends Controller {
 						  'tax'=> 0,
 						  'reward'=> '',
 						  'line_item_id'=> $items['id'],
+						  'options'=>$orderProducts[0]['product_options'],
 						  'line_item_order_id'=>  $order['id'],
 						  'shopify_product_id'=> $items['product_id']
 						  );
@@ -213,6 +214,7 @@ class ControllerShopifyLoadorders extends Controller {
 						  'quantity'=> $items['quantity'],
 						  'price'=> 0,
 						  'total'=> 0,
+						  'options'=>'',
 						  'shopify_price'=> $items['price'],
 						  'shopify_sku'=> $items['sku'],
 						  'tax'=> 0,

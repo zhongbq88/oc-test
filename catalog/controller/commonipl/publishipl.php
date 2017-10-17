@@ -159,7 +159,7 @@ class ControllerCommoniplPublishipl extends Controller {
 							"title"=>$title,
 							"body_html"=> html_entity_decode($pdsc),
 							"tags"=> $ptag ,
-							"vendor"=>  "vivajean",
+							"vendor"=>  $this->customer->getFirstName(),
 							"product_type"=>  $product_info['model'],
 							"options"=>$options,
 							"variants"=>$variants,
