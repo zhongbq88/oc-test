@@ -375,6 +375,9 @@ class ControllerCommoniplOrders extends Controller {
 							'value' => 'SKU:'.$product['shopify_sku']
 						);
 				}*/
+				$option_data[] = array(
+							'value' => 'SKU:'.$product['shopify_sku']
+				);
 				if(!empty($product['options'])){
 					$selected_name = $product['options'];
 				}

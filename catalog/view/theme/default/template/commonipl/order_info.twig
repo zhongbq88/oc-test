@@ -68,8 +68,8 @@
           {% for product in products %}
           <tr>
             <td class="text-left"><div style="float:left">{{ product.name }}
-               <!-- {% for option in product.option %} <br />
-                &nbsp;<small>{{ option.value }}</small> {% endfor %}-->
+                {% for option in product.option %} <br />
+                &nbsp;<small>{{ option.value }}</small> {% endfor %}
                  {% if product.price==0 %} <br /><span style="color:#F00">{{text_not_customdr_order}}</span> {% endif %}
                 </div>
               {% if product.design_file %}
