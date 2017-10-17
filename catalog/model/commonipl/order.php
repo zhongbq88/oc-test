@@ -271,8 +271,8 @@ $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 		$price = $order['price'];
 		
 		if(!empty($options)){
-			$sql = "SELECT price FROM " . DB_PREFIX . "product_sku WHERE product_id='".$order['product_id']."' AND product_options like '%" . $this->db->escape($options). "%'";
-			print_r(html_entity_decode($options));
+			$sql = "SELECT price FROM " . DB_PREFIX . "product_sku WHERE product_id='".$order['product_id']."' AND product_options like '%" . html_entity_decode($options). "%'";
+			//print_r();
 			echo($sql);
 			$query2 = $this->db->query($sql);
 			if($query2->row){
