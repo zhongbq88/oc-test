@@ -29,9 +29,9 @@ class ControllerShopifyLoadorders extends Controller {
 			}
 			//print_r($customer_info);
 			$json =  $this->getOrders($this->session->data['shop'],$this->session->data['oauth_token'],$customer_info);
-			if(isset($json['success'])){
+			//if(isset($json['success'])){
 				$json['order_list'] = $this->load->controller('commonipl/orders/getList');
-			}
+			//}
 			
 		}
 		if (isset($this->request->get['syn'])) {
@@ -49,7 +49,7 @@ class ControllerShopifyLoadorders extends Controller {
 			  $this->load->model('shopify/order');
 			  $adddate = $this->model_shopify_order->getOrderLastAddDate($customer_info['customer_group_id']);
 			  $adddate = str_replace(' ',"T",$adddate)."+00:00";
-			  $orders = $shopify('GET /admin/orders.json?status=any'/*&processed_at_min='.$adddate.'&created_at_min='.$adddate*/);
+			  $orders = $shopify('GET /admin/orders.json?status=any&processed_at_min='.$adddate.'&created_at_min='.$adddate);
 			  $this->load->model('localisation/order_status');
 			  $order_statuses = $this->model_localisation_order_status->getOrderStatuses();
 			  if(count($orders)>0){
