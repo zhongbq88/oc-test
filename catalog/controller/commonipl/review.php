@@ -165,7 +165,7 @@ class ControllerCommoniplReview extends Controller {
 									}
 									$opts[] = array(
 										'name'=>substr($name,1),
-										'each_price'=>number_format($$price,2),
+										'each_price'=>number_format($price,2),
 										'product_price'=>number_format($price*2,2),
 										'compare_price'=>number_format($price*4,2)
 									); 
@@ -177,8 +177,8 @@ class ControllerCommoniplReview extends Controller {
 								$variants[$product_index]['type'] = "Color";
 								$variants[$product_index]['options'][] = array(
 										'name'=>$optionName,
-										'price'=>number_format($$price,2),
-										'each_price'=>number_format($$price,2),
+										'price'=>number_format($price,2),
+										'each_price'=>number_format($price,2),
 								'product_price'=>number_format($price*2,2),
 								'compare_price'=>number_format($price*4,2)
 									); 
