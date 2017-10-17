@@ -48,7 +48,7 @@ class ControllerShopifyLoadorders extends Controller {
 			  if(isset($adddate)&&$adddate!=0){
 			  	$adddate = str_replace(' ',"T",$adddate)."+00:00";
 			  //print_r($adddate);
-			  	$orders = $shopify('GET /admin/orders.json?status=any&processed_at_min='.$adddate.'&created_at_min='.$adddate);
+			  	$orders = $shopify('GET /admin/orders.json?status=any'/*&processed_at_min='.$adddate.'&created_at_min='.$adddate*/);
 			  }else{
 			  	  $orders = $shopify('GET /admin/orders.json?status=any');
 			  }
