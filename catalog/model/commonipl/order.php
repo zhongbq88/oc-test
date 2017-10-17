@@ -274,7 +274,7 @@ $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 		if(!empty($options)){
 			$sql = "SELECT price,sku_id,sku FROM " . DB_PREFIX . "product_sku WHERE product_id='".$order['product_id']."' AND design_file='".$this->db->escape($design_file)."' AND product_options like '%" .$options. "%'";
 			//print_r();
-			//echo($sql);
+			echo($sql);
 			$query2 = $this->db->query($sql);
 			if($query2->row){
 				//echo($sql);
