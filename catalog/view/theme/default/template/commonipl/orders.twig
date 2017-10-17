@@ -206,7 +206,7 @@ $.ajax({
 					//alert(json['order_list']);
 					$("#Synchronize").stopRotate();
 					if (json['order_list']) {
-						('#order_body').html(json['order_list']);
+						$('#order_body').html(json['order_list']);
 					}
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
