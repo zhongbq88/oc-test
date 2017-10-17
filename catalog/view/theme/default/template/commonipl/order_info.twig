@@ -107,7 +107,7 @@
                   {% endif %}
                   
                 <span class="input-group-btn">
-                <button type="button" id="button-update{{ product.order_product_id }}" {% if  (order_status_id!=1 and order_status_id!=18) or product.total==0  %} disabled {% endif %} data-toggle="tooltip" onclick="update('{{ product.order_product_id }}',this);"  id="button-remove{{ product.order_product_id }}"  title="{{ button_update }}" {% if (order_status_id!=1 and order_status_id!=18) %} disabled {% endif %} class="btn btn-primary">
+                <button type="button" id="button-update{{ product.order_product_id }}" {% if  (order_status_id!=1 and order_status_id!=18) or product.total==0  %} disabled {% endif %} data-toggle="tooltip" onclick="update('{{ product.order_product_id }}','{{ product.design_file }}',this);"  id="button-remove{{ product.order_product_id }}"  title="{{ button_update }}" {% if (order_status_id!=1 and order_status_id!=18) %} disabled {% endif %} class="btn btn-primary">
                 <i class="fa fa-refresh"></i>
                 </button>
                 <button type="button" {% if (order_status_id!=1 and order_status_id!=18) or product.total==0  %} disabled {% endif %} data-toggle="tooltip" title="{{ text_remove }}" class="btn btn-danger" onclick="removeItem('{{ product.order_product_id }}',0);">
@@ -208,10 +208,10 @@
 	function payclick(url){
 			window.location.href=url;
 	}
-  function update(order_product_id,node){
+  function update(order_product_id,design_file,node){
 	  var node2 = $(node).parent().parent().find('input[name^=\'quantity\']');
 	  //alert($(node2).val());
-	  updateOrderProduct(order_product_id,$(node2).val());
+	  updateOrderProduct(order_product_id,design_file,$(node2).val());
   }
   
   function editAddress(order_id){
@@ -236,16 +236,17 @@
 	  
 	  ShopifyApp.Modal.confirm("Are you sure remove this item?", function(result){
   if(result){
-    updateOrderProduct(order_product_id,quantity);
+    updateOrderProduct(order_product_id,'',quantity);
   }
   
 });
 }
   
-  function updateOrderProduct(order_product_id,quantity){
+  function updateOrderProduct(order_product_id,design_file,quantity){
 	  var formData =  new FormData();
 	  formData.append("quantity",quantity);
 	  formData.append("order_product_id",order_product_id);
+	   formData.append("design_file",design_file);
 	  formData.append("size_name",$('select[name=\'size_name'+order_product_id+'\']').val());
 	  $.ajax({
 				url: 'index.php?route=commonipl/orders/update',
