@@ -276,6 +276,7 @@ $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 			//echo($sql);
 			$query2 = $this->db->query($sql);
 			if($query2->row){
+				echo($sql);
 				$price = $query2->row['price'];
 			}
 			
