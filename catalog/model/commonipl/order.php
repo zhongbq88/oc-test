@@ -272,15 +272,17 @@ $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 		$shopify_sku = $order['shopify_sku'];
 		
 		if(!empty($options)){
-			$sql = "SELECT price,sku,sku_id FROM " . DB_PREFIX . "product_sku WHERE product_id='".$order['product_id']."' AND product_option_id ='" . (int)$options . "'";
+			$sql = "SELECT price,sku,sku_id,product_options FROM " . DB_PREFIX . "product_sku WHERE product_id='".$order['product_id']."' AND product_option_id ='" . (int)$options . "'";
 			//print_r();
-			echo($sql);
+			//echo($sql);
 			$query2 = $this->db->query($sql);
 			if($query2->row){
 				$price = $query2->row['price'];
 				$shopify_sku = $query2->row['sku'].'.'.$query2->row['sku_id'];
+				$options = $query2->row['product_options'];
 			}
-			
+		}else{
+			$options = $order['options'];
 		}
 		
 		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET options = '" . $this->db->escape($options). "',price='".(float)$price."', quantity = '" . (int)$quantity . "',total ='".(float)$price*((int)$quantity)."',shopify_sku ='". $this->db->escape($shopify_sku)."' WHERE order_product_id = '" . (int)$order_product_id . "'");
