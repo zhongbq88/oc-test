@@ -346,6 +346,7 @@ class ModelCatalogProduct extends Model {
 
 			foreach ($product_option_value_query->rows as $product_option_value) {
 				$product_option_value_data[] = array(
+				    'product_option_id'    => $product_option['product_option_id'],
 					'product_option_value_id' => $product_option_value['product_option_value_id'],
 					'option_value_id'         => $product_option_value['option_value_id'],
 					'name'                    => $product_option_value['name'],

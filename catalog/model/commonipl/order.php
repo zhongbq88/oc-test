@@ -266,22 +266,24 @@ $sql .="ORDER BY o.date_added DESC LIMIT " . (int)$start . "," . (int)$limit;
 	
 	public function updateOrderProduct($order_product_id,$quantity,$options){
 		
-		$query = $this->db->query("SELECT price,product_id FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$order_product_id . "'");
+		$query = $this->db->query("SELECT price,product_id,shopify_sku FROM " . DB_PREFIX . "order_product WHERE order_product_id = '" . (int)$order_product_id . "'");
 		$order = $query->row;
 		$price = $order['price'];
+		$shopify_sku = $order['shopify_sku'];
 		
 		if(!empty($options)){
-			$sql = "SELECT price FROM " . DB_PREFIX . "product_sku WHERE product_id='".$order['product_id']."' AND product_options like '%" . html_entity_decode($options). "%'";
+			$sql = "SELECT price,sku,sku_id FROM " . DB_PREFIX . "product_sku WHERE product_id='".$order['product_id']."' AND product_option_id ='" . (int)$options . "'";
 			//print_r();
-			//echo($sql);
+			echo($sql);
 			$query2 = $this->db->query($sql);
 			if($query2->row){
 				$price = $query2->row['price'];
+				$shopify_sku = $query2->row['sku'].'.'.$query2->row['sku_id'];
 			}
 			
 		}
 		
-		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET options = '" . $this->db->escape($options). "',price='".(float)$price."', quantity = '" . (int)$quantity . "',total ='".(float)$price*((int)$quantity)."' WHERE order_product_id = '" . (int)$order_product_id . "'");
+		$this->db->query("UPDATE `" . DB_PREFIX . "order_product` SET options = '" . $this->db->escape($options). "',price='".(float)$price."', quantity = '" . (int)$quantity . "',total ='".(float)$price*((int)$quantity)."',shopify_sku ='". $this->db->escape($shopify_sku)."' WHERE order_product_id = '" . (int)$order_product_id . "'");
 
 	}
 	

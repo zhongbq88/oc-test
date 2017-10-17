@@ -86,11 +86,11 @@
                 {% for option_select in product.option_select %}
                   {% if option_select.name == product.selected_name %}
                 
-                <option value="{{ option_select.name }}" selected="selected">{{ option_select.name }}</option>
+                <option value="{{ option_select.product_option_id }}" selected="selected">{{ option_select.name }}</option>
                 
                   {% else %}
                 
-                <option value="{{ option_select.name }}">{{ option_select.name }}</option>
+                <option value="{{ option_select.product_option_id }}">{{ option_select.name }}</option>
                 
                   {% endif %}
                 {% endfor %}
