@@ -106,6 +106,7 @@ class ControllerCommoniplOrders extends Controller {
 				$total += isset($orderProduct)?$orderProduct['price']*$qty:0;
 				$quantity += $qty;
 			}
+			$total = number_format($total,2);
 			//print_r($total);
 			$data['orders'][] = array(
 				'order_id'   => $result['order_id'],
@@ -394,9 +395,9 @@ class ControllerCommoniplOrders extends Controller {
 					'selected_name'    => $selected_name,
 					'quantity' => $product['quantity'],
 					'design_file'    => $image,
-					'price'    => $product['price'],
-					'sale_total'    => $product['shopify_price']*$product['quantity'],
-					'total'    => $product['price']*$product['quantity'],
+					'price'    => number_format($product['price'],2),
+					'sale_total'    => number_format($product['shopify_price']*$product['quantity'],2),
+					'total'    => number_format($product['price']*$product['quantity'],2),
 					'order_product_id'    => $product['order_product_id'],
 					'reorder'  => $reorder,
 					'return'   => $this->url->link('account/return/add', 'order_id=' . $order_info['order_id'] . '&product_id=' . $product['product_id'], true)
@@ -410,18 +411,18 @@ class ControllerCommoniplOrders extends Controller {
 			$data['totals'] = array();
 			$data['totals'][] = array(
 					'title' => "Sub-Total:",
-					'text'  => $subtotal,
-					'text2'  => $saletotal
+					'text'  => number_format($subtotal,2),
+					'text2'  => number_format($saletotal,2)
 				);
 				
 				$data['totals'][] = array(
 					'title' => "tax:",
-					'text'  => $tax,
+					'text'  => number_format($tax,2),
 					'text2'  => 0
 				);
 				$data['totals'][] = array(
 					'title' => "Total:",
-					'text'  => $subtotal+$tax,
+					'text'  => number_format($subtotal+$tax,2),
 					'text2'  => ''
 				);
 			// Voucher

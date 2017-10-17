@@ -870,3 +870,7 @@
 2017-10-16 10:38:08 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/op/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\op\oc-test\catalog\controller\event\theme.php on line 7
 2017-10-16 10:59:12 - PHP Warning:  include_once(D:/xampp/htdocs/op/oc-test/system/library/template/Twig/Autoloader.php): failed to open stream: No such file or directory in D:\xampp\htdocs\op\oc-test\catalog\controller\event\theme.php on line 7
 2017-10-16 10:59:12 - PHP Warning:  include_once(): Failed opening 'D:/xampp/htdocs/op/oc-test/system/library/template/Twig/Autoloader.php' for inclusion (include_path='D:\xampp\php\PEAR') in D:\xampp\htdocs\op\oc-test\catalog\controller\event\theme.php on line 7
+2017-10-17 0:55:01 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\op\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-10-17 0:55:01 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\op\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124
+2017-10-17 0:56:16 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\op\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-10-17 0:56:16 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\op\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124

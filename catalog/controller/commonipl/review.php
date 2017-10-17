@@ -142,9 +142,9 @@ class ControllerCommoniplReview extends Controller {
 								'product_name'    =>$product_info['name'].'-'.$optionName,
 								'option_value_id'=>$option_value_ids[$key],
 								'name'=>$varianttitle[$ky],
-								'price'=>$product_info['price'],
-								'product_price'=>$product_info['price']*2,
-								'compare_price'=>$product_info['price']*4,
+								'price'=>number_format($product_info['price'],2),
+								'product_price'=>number_format($product_info['price']*2,2),
+								'compare_price'=>number_format($product_info['price']*4,2),
 								'thumbnail' => $thumbnail[$key],
 								'image' => $image
 							);
@@ -154,7 +154,7 @@ class ControllerCommoniplReview extends Controller {
 								$opts = array();
 								foreach($options as $option){
 									$name = '';
-									$price = $product_info['price'];
+									$price = number_format($product_info['price'],2);
 									//print_r($price);
 									foreach($option as $opt){
 										$price += $opt['price'];
@@ -166,21 +166,21 @@ class ControllerCommoniplReview extends Controller {
 									$opts[] = array(
 										'name'=>substr($name,1),
 										'each_price'=>$price,
-										'product_price'=>$price*2,
-										'compare_price'=>$price*4
+										'product_price'=>number_format($price*2,2),
+										'compare_price'=>number_format($price*4,2)
 									); 
 								}
 								$variants[$product_index]['options'] = $opts;
 							}else{
 								//print_r($product_info['price']);
-								$price = $product_info['price']*1.0;
+								$price = number_format($product_info['price']*1.0,2);
 								$variants[$product_index]['type'] = "Color";
 								$variants[$product_index]['options'][] = array(
 										'name'=>$optionName,
 										'price'=>$price,
 										'each_price'=>$price,
-								'product_price'=>$price*2,
-								'compare_price'=>$price*4
+								'product_price'=>number_format($price*2,2),
+								'compare_price'=>number_format($price*4,2)
 									); 
 							}
 						}
