@@ -395,7 +395,7 @@ class ControllerCommoniplOrders extends Controller {
 					'model'    => $model,
 					'option'   => $option_data,
 					'option_select'   => $option_select,
-					'selected_name'    => $selected_name,
+					'selected_name'    => trim($selected_name),
 					'quantity' => $product['quantity'],
 					'design_file'    => $image,
 					'price'    => number_format($product['price'],2),
