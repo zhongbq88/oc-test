@@ -178,6 +178,7 @@ $.ajax({
 	}
 		//syn(this);
    });*/
+   var loading = false;
   var rotation = function (){
       $(this).rotate({
         angle:0,
@@ -190,6 +191,10 @@ $.ajax({
       });
     }
   function syn(node){
+	  if(loading){
+		  return;
+	  }
+	  loading = true;
 	  $.ajax({
 				url: '{{ sys_action }}',
 				dataType: 'json',
@@ -203,6 +208,7 @@ $.ajax({
 					  $("#Synchronize").stopRotate();
 				},
 				success: function(json) {
+					loading = false;
 					//alert(json['order_list']);
 					$("#Synchronize").stopRotate();
 					if (json['order_list']) {
@@ -211,6 +217,7 @@ $.ajax({
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
 					//alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+					loading = false;
 				}
 			});
 	}
