@@ -19,7 +19,7 @@ class ControllerCommoniplOrders extends Controller {
 		$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
 		$data['header'] = $this->load->controller($this->session->data['store'].'/header');
 		$data['paid'] = $this->url->link('extension/payment/pp_express/ipn', '', true);
-		$data['sys_action'] = $this->url->link($this->session->data['store'].'/loadorders&syn=true','', true);
+		$data['sys_action'] = $this->url->link('shopify/loadorders&syn=true','', true);
 		$data['order_list'] = $this->getList();
 		$this->response->setOutput($this->load->view('commonipl/orders', $data));
 	}
