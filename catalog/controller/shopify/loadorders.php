@@ -145,7 +145,11 @@ class ControllerShopifyLoadorders extends Controller {
 				'date_added'              => $order['created_at'],
 				'date_modified'           => $order['updated_at']
 			);
-			
+			if (isset($this->session->data['payment_method']['code'])) {
+					$order_data['payment_code'] = $this->session->data['payment_method']['code'];
+			} else {
+					$order_data['payment_code'] = '';
+			}
 			if (!empty($customer_info)) {
 				$order_data['customer_id'] = $customer_info['customer_id'];
 				$order_data['customer_group_id'] = $customer_info['customer_group_id'];

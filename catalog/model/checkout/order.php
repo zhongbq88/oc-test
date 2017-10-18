@@ -266,8 +266,12 @@ class ModelCheckoutOrder extends Model {
 		
 		return $query->rows;
 	}	
+	
+	public function addOrderHistory($order_id, $order_status_id, $payment_code='') {
+		 addOrderHistory($order_id, $order_status_id, '', false,false,'', '',$payment_code) ;
+	}
 			
-	public function addOrderHistory($order_id, $order_status_id, $comment = '', $notify = false, $override = false, $shopping_number='', $shopping_method = '') {
+	public function addOrderHistory($order_id, $order_status_id, $comment = '', $notify = false, $override = false, $shopping_number='', $shopping_method = '',$payment_code='') {
 		$order_info = $this->getOrder($order_id);
 		
 		if ($order_info) {
@@ -344,6 +348,10 @@ class ModelCheckoutOrder extends Model {
 						$this->model_account_customer->addTransaction($order_info['affiliate_id'], $this->language->get('text_order_id') . ' #' . $order_id, $order_info['commission'], $order_id);
 					}
 				}
+			}
+			$updatepayment_code ='';
+			if(!empty($payment_code)){
+				$updatepayment_code=",payment_code='" . $this->db->escape($payment_code) . "'";
 			}
 
 			// Update the DB with the new statuses
