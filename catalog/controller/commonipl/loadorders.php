@@ -103,7 +103,7 @@ class ControllerCommoniplLoadorders extends Controller {
 				'payment_address_format'  => $this->getValue($order,'payment_address_format'),
 				'payment_custom_field'    => '',
 				'payment_method'          => $this->getValue($order,'payment_method'),
-				'payment_code'            => $this->getValue($order,'payment_code'),
+				'payment_code'            => 'pp_express',
 				'shipping_firstname'      => isset($order['shipping_address'])?$order['shipping_address']['first_name']:'',
 				'shipping_lastname'       => isset($order['shipping_address'])?$order['shipping_address']['last_name']:'',
 				'shipping_company'        => isset($order['shipping_address'])?$order['shipping_address']['company']:'',
