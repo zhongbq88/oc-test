@@ -1,6 +1,7 @@
 <fieldset>
   <legend>{{ text_transaction }}</legend>
-  <div id="paypal-transaction"></div>
+  <div id="paypal-transaction">
+  </div>
 </fieldset>
 
 <fieldset>
@@ -17,10 +18,10 @@
     <tr>
       <td>{{ text_amount_authorised }}</td>
       <td>{{ total }}
-	  	{% if capture_status != 'Complete' %}
+	  	<!--{% if capture_status != 'Complete' %}-->
         &nbsp;&nbsp;&nbsp;
         <button type="button" id="button-void" data-loading="{{ text_loading }}" class="btn btn-danger">{{ button_void }}</button>
-        {% endif %}</td>
+        <!--{% endif %}--></td>
     </tr>
     <tr>
       <td>{{ text_amount_captured }}</td>
