@@ -62,7 +62,7 @@ class ControllerCatalogCustomerproduct extends Controller {
 					'sales'=>$sales,
 					'price'=>$price,
 					'customer' =>$p['vendor'],
-					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.$p['handle']
+					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.(isset($p['handle'])?$p['handle']:'')
 				);
 			}else if(isset($p['name'])){
 				
