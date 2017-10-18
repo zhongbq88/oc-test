@@ -249,7 +249,7 @@
                 {% endfor %} </td>
               <td class="text-center" ><button type="button" onclick="edit({{ option_value_row }},'des')" data-toggle="tooltip"  class="btn btn-primary"><i class="fa fa-pencil"></i>设计描述</button>
                 {% for language in languages %}
-                <input type="hidden" name="option_value[{{ option_value_row }}][option_value_description][{{ language.language_id }}][option_design_desc]" value='{{ option_value.option_value_description[language.language_id] ? option_value.option_value_description[language.language_id].option_design_desc }}'  id="input-des{{ option_value_row }}" />
+                <input type="hidden" name="option_value[{{ option_value_row }}][option_value_description][{{ language.language_id }}][option_design_desc]" value="{{ option_value.option_value_description[language.language_id] ? option_value.option_value_description[language.language_id].option_design_desc }}"  id="input-des{{ option_value_row }}" />
                 {% endfor %} </td>
               <td class="text-left"><div class="table-responsive">
                   <table id="images{{ option_value_row }}" class="table table-striped table-bordered table-hover">
