@@ -1,17 +1,37 @@
 <?php
+/**
+ *
+ * @copyright        2017 www.guangdawangluo.com - All Rights Reserved
+ * @author           opencart.cn <support@opencart.cn>
+ * @created          2016-10-22 09:12:56
+ * @modified         2016-11-05 17:35:25
+ */
+
 // Heading
-$_['heading_title']    = '备份和还原';
+$_['heading_title']     = '备份&amp;恢复';
 
 // Text
-$_['text_backup']      = '下载备份';
-$_['text_success']     = '成功： 你已成功导入您的数据库 ！';
-$_['text_list']        = '上传清单';
+$_['text_success']      = '成功：数据库已导入！';
+$_['text_backup']       = '备份选项';
+$_['text_progress']     = '进度';
+$_['text_modified']     = '被修改文件';
+$_['text_image']        = '图片';
+$_['text_download']     = '下载';
+$_['text_upload']       = '上传';
 
 // Entry
-$_['entry_restore']    = '还原备份';
-$_['entry_backup']     = '备份';
+$_['entry_export']      = '导出';
+$_['entry_file']        = '文件';
+$_['entry_database']    = '数据库';
+
+// Button
+$_['button_start']      = '开始';
+
+// Tab
+$_['tab_backup']        = '备份';
+$_['tab_restore']       = '恢复';
 
 // Error
-$_['error_permission'] = '警告: 您没有权限修改备份 ！';
-$_['error_backup']     = '警告: 您必须选择至少一个表格到备份 ！';
-$_['error_empty']      = '警告: 您上传的文件是空的 ！';
+$_['error_permission']  = '错误：您没有权限修改备份！';
+$_['error_export']      = '错误：请选择要导出的表！';
+$_['error_file']        = '无法找到文件！';

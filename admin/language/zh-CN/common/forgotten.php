@@ -1,4 +1,11 @@
 <?php
+/**
+ *
+ * @copyright        2017 www.guangdawangluo.com - All Rights Reserved
+ * @author           opencart.cn <support@opencart.cn>
+ * @created          2016-10-22 09:12:56
+ * @modified         2016-11-05 17:35:21
+ */
 
 // Heading
 $_['heading_title']   = '找回密码？';
@@ -16,5 +23,5 @@ $_['entry_confirm']   = '确认密码';
 
 // Error
 $_['error_email']     = '错误：没有找到相应的 Email 地址，请确认后重试！';
-$_['error_password']  = '错误：密码必须在 2 至 20个字符之间！';
+$_['error_password']  = '错误：密码必须在 4 至 20个字符之间！';
 $_['error_confirm']   = '错误：新密码和确认密码不一致！';
