@@ -40,7 +40,7 @@ class ControllerCatalogCustomerproduct extends Controller {
 			$p = json_decode($product['shopify_product_json'],true);
 			//print_r($p);
 			if(isset($p['title'])){
-				if ($p['image']) {
+				if (isset($p['image'])) {
 					$image =$p['image']['src'] ;
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
