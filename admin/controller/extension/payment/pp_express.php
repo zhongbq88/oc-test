@@ -469,6 +469,8 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 				$data['capture_status'] = $paypal_info['capture_status'];
 				
 				$data['transaction_id'] = $paypal_info['authorization_id'];
+				
+				$data['date_added'] = date($this->language->get('datetime_format'), strtotime($paypal_info['date_added']));
 
 				$data['total'] = $paypal_info['total'];
 
