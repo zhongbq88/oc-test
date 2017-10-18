@@ -467,6 +467,8 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 				$data['order_id'] = $this->request->get['order_id'];
 
 				$data['capture_status'] = $paypal_info['capture_status'];
+				
+				$data['transaction_id'] = $paypal_info['transaction_id'];
 
 				$data['total'] = $paypal_info['total'];
 

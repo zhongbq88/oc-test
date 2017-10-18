@@ -11,6 +11,10 @@
       <td id="capture-status">{{ capture_status }}</td>
     </tr>
     <tr>
+      <td>Transaction ID</td>
+      <td id="transaction-id">{{ transaction_id }}</td>
+    </tr>
+    <tr>
       <td>{{ text_amount_authorised }}</td>
       <td>{{ total }}
 	  	{% if capture_status != 'Complete' %}
