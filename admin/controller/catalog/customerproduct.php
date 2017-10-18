@@ -78,7 +78,7 @@ class ControllerCatalogCustomerproduct extends Controller {
 					'sales'=>$sales,
 					'price'=>$p['price'],
 					'customer' =>$p['vendor'],
-					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.strtolower(str_replace('/[/s+]/','-',trim($p['title'])))
+					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.strtolower(str_replace(' ','-',trim($p['title'])))
 				);
 			}
 		}
