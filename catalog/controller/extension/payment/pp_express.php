@@ -1511,7 +1511,7 @@ class ControllerExtensionPaymentPPExpress extends Controller {
 					break;
 			}
 			foreach ($order_ids as $order_id){
-				$this->model_checkout_order->addOrderHistory($order_id, $order_status_id,"pp_express");
+				$this->model_checkout_order->addOrderHistory($order_id, $order_status_id, '', false,false,'', '',"pp_express");
 
 			//add order to paypal table
 			$paypal_order_data = array(

@@ -266,10 +266,6 @@ class ModelCheckoutOrder extends Model {
 		
 		return $query->rows;
 	}	
-	
-	public function addOrderHistory($order_id, $order_status_id, $payment_code='') {
-		 addOrderHistory($order_id, $order_status_id, '', false,false,'', '',$payment_code) ;
-	}
 			
 	public function addOrderHistory($order_id, $order_status_id, $comment = '', $notify = false, $override = false, $shopping_number='', $shopping_method = '',$payment_code='') {
 		$order_info = $this->getOrder($order_id);
