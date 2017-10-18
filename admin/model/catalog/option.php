@@ -201,8 +201,8 @@ public function editOption1($option_id, $data) {
 			$option_value_description_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value_description WHERE option_value_id = '" . (int)$option_value['option_value_id'] . "'");
 
 			foreach ($option_value_description_query->rows as $option_value_description) {
-				$option_description=htmlentities($option_value_description['option_description']);
-				$option_design_desc=htmlentities($option_value_description['option_design_desc']);
+				$option_description=urlencode($option_value_description['option_description']);
+				$option_design_desc=urlencode($option_value_description['option_design_desc']);
 				$option_value_description_data[$option_value_description['language_id']] = array('name' => $option_value_description['name'],
 				'option_description' => $option_description,
 				'option_design_desc' => $option_design_desc
