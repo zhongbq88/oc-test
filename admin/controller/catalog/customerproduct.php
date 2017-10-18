@@ -38,7 +38,7 @@ class ControllerCatalogCustomerproduct extends Controller {
 		$this->load->model('tool/image');
 		foreach($products as $product){
 			$p = json_decode($product['shopify_product_json'],true);
-			print_r($p);
+			//print_r($p);
 			if(isset($p['title'])){
 				if (isset($p['image'])) {
 					$image =$p['image']['src'] ;
@@ -60,7 +60,7 @@ class ControllerCatalogCustomerproduct extends Controller {
 					'sales'=>$sales,
 					'price'=>$price,
 					'customer' =>$p['vendor'],
-					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.strtolower(str_replace('/[/s+]/','-',trim($p['title'])))
+					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.$p['handle']
 				);
 			}else if(isset($p['name'])){
 				
@@ -78,7 +78,7 @@ class ControllerCatalogCustomerproduct extends Controller {
 					'sales'=>$sales,
 					'price'=>$p['price'],
 					'customer' =>$p['vendor'],
-					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.strtolower(str_replace(' ','-',trim($p['title'])))
+					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.$p['name']
 				);
 			}
 		}
