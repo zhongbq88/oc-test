@@ -122,14 +122,14 @@ class ControllerCatalogCustomerproduct extends Controller {
 	public function getPublishProductSoret($customer_id,$product_id,$add_product_id){
 		$soret = '';
 		
-		if(isset($this->$productSoret[$customer_id])&&isset($this->$productSoret[$customer_id][$add_product_id])){
-			$product = $this->$productSoret[$customer_id];
+		if(isset($this->productSoret[$customer_id])&&isset($this->productSoret[$customer_id][$add_product_id])){
+			$product = $this->productSoret[$customer_id];
 		}else{
-			$this->load->model('catalog/product');
 			$product =  $this->model_catalog_product->getPublishProductSoret($customer_id,$product_id);
+			$this->productSoret[$customer_id] = $product;
 		}
 		if(isset($product)){
-			$this->$productSoret[$customer_id] = $product;
+			
 			$count = count($product);
 			for($i=0;$i<$count;$i++){
 				if($add_product_id==$product[$i]['add_product_id']){
