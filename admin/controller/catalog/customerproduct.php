@@ -62,7 +62,7 @@ class ControllerCatalogCustomerproduct extends Controller {
 					'sales'=>$sales,
 					'price'=>$price,
 					'customer' =>$p['vendor'],
-					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.$p['handle'].'-'.$this->getPublishProductSoret($product['customer_id'],$product['product_id'],$product['add_product_id'])
+					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.$p['handle']
 				);
 			}else if(isset($p['name'])){
 				
