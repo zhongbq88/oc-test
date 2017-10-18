@@ -726,7 +726,7 @@ class ControllerSaleOrder extends Controller {
 			$this->document->setTitle($this->language->get('heading_title'));
 
 			$data['text_ip_add'] = sprintf($this->language->get('text_ip_add'), $this->request->server['REMOTE_ADDR']);
-			$data['text_order'] = sprintf($this->language->get('text_order'), $order_info['forwarded_ip'].'---'.$order_id);
+			$data['text_order'] = sprintf($this->language->get('text_order'), $order_id.'---'.$order_info['forwarded_ip']);
 
 			$url = '';
 
