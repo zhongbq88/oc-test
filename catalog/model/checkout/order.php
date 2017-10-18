@@ -351,7 +351,7 @@ class ModelCheckoutOrder extends Model {
 			}
 
 			// Update the DB with the new statuses
-			$this->db->query("UPDATE `" . DB_PREFIX . "order` SET order_status_id = '" . (int)$order_status_id . "', date_modified = NOW() WHERE order_id = '" . (int)$order_id . "'");
+			$this->db->query("UPDATE `" . DB_PREFIX . "order` SET order_status_id = '" . (int)$order_status_id . "', date_modified = NOW() WHERE order_id = '" . (int)$order_id . "'".$updatepayment_code);
 
 			$this->db->query("INSERT INTO " . DB_PREFIX . "order_history SET order_id = '" . (int)$order_id . "', order_status_id = '" . (int)$order_status_id . "', notify = '" . (int)$notify . "', comment = '" . $this->db->escape($comment) . "',shopping_number = '" . $this->db->escape($shopping_number) . "', shopping_method = '" . $this->db->escape($shopping_method) . "', date_added = NOW()");
 
