@@ -5,6 +5,8 @@
 
 class ControllerCatalogCustomerproduct extends Controller {
 	
+	private $productSoret = array();
+	
 	public function index() {
 
 		$this->load->language('catalog/product');
@@ -60,7 +62,7 @@ class ControllerCatalogCustomerproduct extends Controller {
 					'sales'=>$sales,
 					'price'=>$price,
 					'customer' =>$p['vendor'],
-					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.$p['handle']
+					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.$p['handle'].'-'.$this->getPublishProductSoret($product['customer_id'],$product['product_id'],$product['add_product_id'])
 				);
 			}else if(isset($p['name'])){
 				
@@ -117,5 +119,28 @@ class ControllerCatalogCustomerproduct extends Controller {
 		$this->response->setOutput($this->load->view('catalog/customerproduct', $data));
 	}
 	
+	public function getPublishProductSoret($customer_id,$product_id,$add_product_id){
+		$soret = '';
+		
+		if(isset($this->$productSoret[$customer_id])&&isset($this->$productSoret[$customer_id][$add_product_id])){
+			$product = $this->$productSoret[$customer_id];
+		}else{
+			$this->load->model('catalog/product');
+			$product =  $this->model_catalog_product->getPublishProductSoret($customer_id,$product_id);
+		}
+		if(isset($product)){
+			$this->$productSoret[$customer_id] = $product;
+			$count = count($product);
+			for($i=0;$i<$count;$i++){
+				if($add_product_id==$product[$i]['add_product_id']){
+					if($i!=0){
+						$soret = $i;
+					}
+					break;
+				}
+			}
+		}
+		return $soret;
+	}
 
 }

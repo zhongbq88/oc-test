@@ -731,6 +731,12 @@ class ModelCatalogProduct extends Model {
 
 		return $query->row['total'];
 	}
+	
+	public function getPublishProductSoret($customer_id,$product_id){
+		$query = $this->db->query("SELECT add_product_id FROM " . DB_PREFIX . "shopify_add_product WHERE customer_id = '" . (int)$customer_id . "' AND product_id = '" . (int)$product_id . "'");
+
+		return $query->rows;
+	}
 		
 	public function getPublishProduct($data=array()){
 		$sql = "SELECT * FROM " . DB_PREFIX . "shopify_add_product ";
