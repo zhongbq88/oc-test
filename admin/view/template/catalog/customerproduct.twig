@@ -84,6 +84,7 @@
           <thead>
             <tr>
               <td class="text-center">{{ column_image }}</td>
+              <td class="text-center">{{ Customer }}</td>
               <td class="text-center">{{ column_name }}</td>
               <td class="text-center">{{ column_status }}</td>
               <td class="text-center">{{ column_sales}}</td>
@@ -97,7 +98,8 @@
           {% for product in products %}
           <tr>
             <td class="text-center"><img src="{{ product.image }}" style="width: auto; height:100px;" alt="{{ product.name }}" class="img-thumbnail" /></td>
-            <td class="text-center">{{ product.name }}</td>
+            <td class="text-center">{{ product.customer }}</td>
+            <td class="text-center"><a href="{{ product.href }}">{{ product.name }}</a></td>
             <td class="text-center">{{ product.status }}</td>
             <td class="text-center">{{ product.sales }}</td>
             <td class="text-center">{{ product.price }}</td>

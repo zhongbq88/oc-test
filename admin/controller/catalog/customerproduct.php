@@ -59,7 +59,8 @@ class ControllerCatalogCustomerproduct extends Controller {
 					'published_at'=>date($this->language->get('date_format_short'), strtotime($product['date_added'])),
 					'sales'=>$sales,
 					'price'=>$price,
-					'href'  => 'https://vivajean.myshopify.com/admin/products/'.$p['id']
+					'customer' =>$p['vendor'],
+					'href'  => 'https://'.$p['vendor'].'.myshopify.com/admin/products/'.$p['title']
 				);
 			}else if(isset($p['name'])){
 				
@@ -76,7 +77,8 @@ class ControllerCatalogCustomerproduct extends Controller {
 					'published_at'=>date($this->language->get('date_format_short'), strtotime($product['date_added'])),
 					'sales'=>$sales,
 					'price'=>$p['price'],
-					'href'  => 'https://vivajean.myshopify.com/admin/products/'.$p['id']
+					'customer' =>$p['vendor'],
+					'href'  => 'https://'.$p['vendor'].'.myshopify.com/products/'.strtolower(str_replace('/[/s+]/','-',trim($p['title'])))
 				);
 			}
 		}
