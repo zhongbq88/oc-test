@@ -1,10 +1,10 @@
 <?php
 // HTTP
 
-define('HTTP_SERVER', 'https://127.0.0.1/');
+define('HTTP_SERVER', 'http://127.0.0.1:8080/');
 
 // HTTPS
-define('HTTPS_SERVER', 'https://127.0.0.1/');
+define('HTTPS_SERVER', 'http://127.0.0.1:8080/');
 
 // DIR
 define('DIR_APPLICATION', 'D:/xampp/htdocs/op/oc-test/catalog/');
