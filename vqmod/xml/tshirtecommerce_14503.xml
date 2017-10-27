@@ -1,0 +1,27 @@
+<modification>
+	<id>tshirtecommerce</id>
+	<version>4.2.0</version>
+	<vqmver>2.4.0</vqmver>
+	<author>Tshirtecommerce Team</author>
+
+	<!-- @deprecated -->
+
+	<!-- @since 4.2.0 -->
+	<!-- extend mini cart information and confirm order informations -->
+	<file name="catalog/controller/common/cart.php,system/storage/modification/catalog/common/cart.php,catalog/controller/checkout/confirm.php,system/storage/modification/catalog/controller/checkout/confirm.php">
+		<operation error="skip">
+			<search position="before"><![CDATA[
+				$data['products'][]
+			]]></search>
+			<add><![CDATA[
+				/* vqmod/xml/tshirtecommerce_14503.xml */
+				$this->load->model('tshirtecommerce/order');
+				$tshirtecommerce = isset($product['tshirtecommerce']) ? $product['tshirtecommerce'] : array();
+				if (count($tshirtecommerce) > 0) $tshirtecommerce['parent_id'] = $product['product_id'];
+				$option_data_new = $this->model_tshirtecommerce_order->extendOptions($tshirtecommerce, $option_data);
+				$option_data = $option_data_new;
+			]]></add>
+		</operation>
+	</file>
+
+</modification>

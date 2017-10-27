@@ -1,5 +1,14 @@
 <?php
 class ModelCatalogProduct extends Model {
+	
+	public function getDesignProducts(){
+		
+		$sql = "SELECT * FROM " . DB_PREFIX . "product WHERE  status = '1' AND date_available <= NOW() AND design_product_id!='' ORDER BY sort_order ASC , date_added DESC";
+		$query = $this->db->query($sql);
+		
+		return $query->rows;
+	}
+	
 	public function updateViewed($product_id) {
 		$this->db->query("UPDATE " . DB_PREFIX . "product SET viewed = (viewed + 1) WHERE product_id = '" . (int)$product_id . "'");
 	}
