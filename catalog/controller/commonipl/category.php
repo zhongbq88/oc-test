@@ -65,6 +65,7 @@ class ControllerCommoniplCategory extends Controller {
 						'category_id'=> $category['category_id'],
 						'product_id'  => $result['product_id'],
 						'thumb'       => $image,
+						'price'       => $price,
 						'name'        => $result['name'],
 						'href' => $this->url->link('commonipl/productlist', 'category_id='. $category['category_id'])
 					);
