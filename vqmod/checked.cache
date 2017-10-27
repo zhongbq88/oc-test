@@ -217,3 +217,4 @@ catalog\controller\tshirtecommerce\designer_api_oc.php
 catalog\controller\tshirtecommerce\designer_api_oc.php
 catalog\controller\tshirtecommerce\designer_api_oc.php
 catalog\controller\commonipl\productdesign.php
+admin\model\tshirtecommerce\order.php

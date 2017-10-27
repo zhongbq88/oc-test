@@ -10,10 +10,10 @@ class ControllerShopifyConnect extends Controller {
 			$this->getToken();
 		}
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('commonipl/dashboard', '', true);
+			$this->session->data['redirect'] = $this->url->link('commonipl/category', '', true);
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
-		$this->response->redirect($this->url->link('commonipl/dashboard', '', true));
+		$this->response->redirect($this->url->link('commonipl/category', '', true));
 	}
 	
 		public function getToken(){
