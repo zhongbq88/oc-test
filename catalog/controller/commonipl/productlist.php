@@ -16,6 +16,10 @@ class ControllerCommoniplProductlist extends Controller {
 			$this->response->setOutput(json_encode($json));
 			return;
 		}
+		if(isset($this->request->get['product_id'])){
+			$this->session->data['variant_index'] = 1;
+			$data['productDesign'] = $this->load->controller('commonipl/productdesign');
+		}
 		for($i=0;$i<4;$i++){
 			$data['product_views'][] =  $product_view;
 		}

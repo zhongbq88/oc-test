@@ -158,7 +158,10 @@ class ControllerCommoniplProductdesign extends Controller {
 
 		if (isset($this->request->get['variant_index'])) {
 			$variant_index = (int)$this->request->get['variant_index'];
-		} else {
+		}else if (isset($this->session->data['variant_index'])) {
+			$variant_index = $this->session->data['variant_index'];
+		}
+		 else {
 			$variant_index = 0;
 		}
 		
@@ -466,7 +469,12 @@ class ControllerCommoniplProductdesign extends Controller {
 		$data['header'] = $this->load->controller($this->session->data['store'].'/header');*/
 		$data['product_id'] = $product_id;
 		$data['variant_index'] = $variant_index;
-		$json['success'] = $this->load->view('commonipl/product_option', $data);
+		$view = $this->load->view('commonipl/product_option', $data);
+		if(isset($this->session->data['variant_index'])){
+			unset($this->session->data['variant_index']);
+			return $view;
+		}
+		$json['success'] = $view;
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 			//$this->response->setOutput();

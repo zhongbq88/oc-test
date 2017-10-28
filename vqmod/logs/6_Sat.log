@@ -1,0 +1,29 @@
+---------- Date: 2017-10-28 03:44:00 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /
+MOD DETAILS:
+   modFile   : D:\xampp\htdocs\op\oc-test\vqmod/xml/tshirtecommerce.xml
+   id        : tshirtecommerce
+   version   : 4.2.0
+   vqmver    : 2.4.0
+   author    : Tshirtecommerce Team
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/admin/controller/common/logout.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/admin/controller/common/header.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/admin/controller/common/column_left.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/catalog/controller/account/account.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/catalog/controller/checkout/login.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/catalog/controller/account/logout.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/catalog/common/cart.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/catalog/controller/checkout/confirm.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/admin/controller/catalog/product.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/admin/model/catalog/product.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/admin/view/template/catalog/product_form.twig] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/catalog/controller/product/product.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/catalog/controller/checkout/cart.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/system/library/cart/cart.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/catalog/controller/checkout/confirm.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/catalog/model/checkout/order.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/catalog/controller/account/order.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/storage/modification/admin/controller/sale/order.php] (SKIPPED)
+----------------------------------------------------------------------
+
+

@@ -6,8 +6,11 @@
    {% if product_views %}
     <h3>{{ text_option }}</h3>
     <div class="panel-group" id="accordion"> 
+    
     {% for product_view in product_views %}
+   
       <div class="panel panel-default" id="panel-body{{ loop.index }}">
+      {% if productDesign and loop.index==1 %}{{ productDesign }}{% else %}
         <div class="panel-heading {% if loop.index==1 %} required {% endif %}" style="height:52px;" >
           <h4 class="panel-title" style="height:52px;" ><a  data-toggle="collapse" data-parent="#accordion" 
 				   href="#collapse{{options_array[loop.index]}}" class="accordion-toggle" style="float:left; width:180px; text-decoration:none; margin-top:6px;">
@@ -27,6 +30,7 @@
             <div id="{{loop.index}}"> {{ product_view }} </div>
           </div>
         </div>
+        {%endif%}
       </div>
        
       {% endfor %}
