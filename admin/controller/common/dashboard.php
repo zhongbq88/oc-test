@@ -9,7 +9,7 @@ class ControllerCommonDashboard extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$data['user_token'] = $this->session->data['user_token'];
-		$this->session->data['token'] = $this->session->data['user_token'];
+		
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(

@@ -8,7 +8,7 @@ class ControllerCommonHeader extends Controller {
 		} else {
 			$data['base'] = HTTP_SERVER;
 		}
-		$this->session->data['token'] = $this->session->data['user_token'];
+		
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();
 		$data['links'] = $this->document->getLinks();
