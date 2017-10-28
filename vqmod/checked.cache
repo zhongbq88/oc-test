@@ -113,3 +113,4 @@ catalog\language\en-gb\product\product.php
 catalog\model\tshirtecommerce\sproduct.php
 catalog\language\en-gb\extension\module\tshirtecommerce.php
 catalog\model\tshirtecommerce\order.php
+catalog\controller\product\designermore.php
