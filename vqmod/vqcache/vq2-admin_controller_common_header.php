@@ -8,7 +8,7 @@ class ControllerCommonHeader extends Controller {
 		} else {
 			$data['base'] = HTTP_SERVER;
 		}
-
+		
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();
 		$data['links'] = $this->document->getLinks();
