@@ -71,18 +71,19 @@
           }
 					},
 					{
+          label: '{{ add_express_line_products }}',
+          message: '{{ add_express_line_products }}',
+          callback: function(){
+		   window.location.href="index.php?route=commonipl/category&parent_id=62";
+          }
+         },
+					{
           label: '{{ orders }}',
           message: '{{ orders }}',
           callback: function(){
 		   window.location.href="index.php?route=commonipl/orders";
           }
-         },/*{
-          label: '{{ acct_balance_transactions }}',
-          message: '{{ acct_balance_transactions }}',
-          callback: function(){
-		   window.location.href="index.php?route=commonipl/transaction";
-          }
-         },*/
+         },
 		 {
           label: '{{ account_settings }}',
           message: '{{ account_settings }}',
@@ -157,19 +158,20 @@ header {
 }
 </style>
 </head><body>
-{% if informations %}
+
 <header id="header" class="navbar navbar-static-top">
   <div class="container"> 
     <div class="nav pull-left" style=" padding-top:23px; margin-right:50px;">
       <ul class="list-inline">
+      <li><a href="http://www.customdr.com/index.php?route=common/faqs" target="_blank" class="panel " >{{ faq }}</a></li>
+      {% if informations %}
         {% for info in informations%}
         <li><a href="{{ info.href }}" class="panel {% if information_id == info.information_id %} activie {%endif%}" title="{{ info.title }}">{{ info.title }}</a></li>
         {% endfor %}
+        {% endif %} 
       </ul>
     </div>
   </div>
   </div>
 </header>
-{%else%}
- <div  style="height:30px;"> </div>
-{% endif %} 
+

@@ -38,7 +38,7 @@
          .after(this.$element = $('<div class="ssi-uploader">'));
         var $chooseBtn = $('' +
          '<span class="ssi-InputLabel">' +
-         '<button class="ssi-button success" id="chooseBtn">' + this.language.chooseFiles + '</button>' +
+         '<button class="ssi-button success " id="chooseBtn">' + this.language.chooseFiles + '</button>' +
          '</span>').append(element);
         var $uploadBtn = $('<button id="ssi-uploadBtn" class="ssi-button error ssi-hidden " >' +
          '<span class="ssi-btnIn" id="ssi-upload_text" style="text-align:center;">' + this.language.upload + '&nbsp;</span>' +
@@ -83,6 +83,10 @@
         $chooseBtn.find('button').click(function () {
             $input.trigger('click');
         });
+		
+		var chooseImage = function(){
+			$input.trigger('click');
+		}
 
         $input.on('change', function () { //choose files
             thisS.toUploadFiles(this.files);
@@ -236,6 +240,7 @@
 					var formData =  new FormData();
 					formData.append("quantity",design.quantity);
 					formData.append("product_id",design.product_id);
+					//formData.append('option[tshirtecommerce][image]',thisS.$element.find('#ssi-imgToUpload'+index).get(0).getAttribute('src'));
 					formData.append('option[tshirtecommerce][t_product_id]',design.design_product_id);
 					formData.append('option[tshirtecommerce][options][t_product_id]',design.design_product_id);
 			   		formData.append('option[tshirtecommerce][option_oc]',"");
@@ -917,9 +922,11 @@
     };
 	
 	var createView =  function(index,pindex,dataURL,style){
+		/*return '<div class="image-select"><div class="product-img"><div class="product-img-action"><img src="https://img.oberlo.com/?url=https://supply-cdn.oberlo.com/products/61/965c415c82820f2571d5f1069c111fb7.jpg" class="border-img"> <div class="icon-selected-box align-center"><svg class="icon-selected"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/img/app-icons.svg#icon-selected"></use></svg></div></div> <div class="image-link"><a href="https://img.oberlo.com/?url=https://supply-cdn.oberlo.com/products/61/965c415c82820f2571d5f1069c111fb7.jpg">View Original Size</a></div></div></div>';*/
 		return '<table class="ssi-imgToUploadTable ssi-completed"><tbody>'+
-		'<tr id="editbtntr'+index+'" style="'+style+'"><td><input  type="checkbox" checked id="checkbox[]"  name="selected[]" value="'+index+'" style="margin: 5px 0 5px 5px;padding: 0;width:25px;height:25px;" /><button id = "ssi-editBtn'+index+'" data-edit="' + index + '" data-product="'+pindex+'"  class="ssi-button success  ssi-editBtn" style="margin: 5px 0 5px 8px;padding: 0;float:right; width:25px;height:25px;"><span class="fa fa-pencil"></span></button></td></tr>'+
+		'<tr id="editbtntr'+index+'" style="'+style+'"><td style="margin-left:-1px;margin-top:-1px;"><input  type="checkbox" checked id="checkbox[]"  name="selected[]" value="'+index+'" style="margin: 5px 0 5px 5px;padding: 0;width:25px;height:25px;" class="css-checkbox" /><label for="checkbox[]" class="css-label"></label></td></tr>'+
 '<tr><td class="ssi-upImgTd"><img class="ssi-imgToUpload" id="ssi-imgToUpload'+index+'" src="'+dataURL+'"></td></tr>' +
+'<tr><td class="ssi-buttonDesign"><button id = "ssi-editBtn'+index+'" data-edit="' + index + '" data-product="'+pindex+'"  class="image-link" style="width: 342px;" ><span class="fa fa-pencil"></span>&nbsp;&nbsp;Custom Design</button></td></tr>'+
 		'</tbody></table>';
 	}
 	
@@ -982,7 +989,7 @@
 						//console.log( items);
 						var colors = design.design_info.design.color_hex;
 						console.log('pindex='+pindex+'index*len+pindex='+(index*len+pindex));
-						thisS.design[index*len+pindex]='{"vectors":'+JSON.stringify('{\"front\":{\"0\":{\"type\":\"clipart\",\"upload\":1,\"title\":\"'+items.title+'\",\"url\":\"'+siteURL+items.url+'\",\"file_name\":\"'+items.file_name+'\",\"thumb\":\"'+siteURL+items.thumb+'\",\"confirmColor\":true,\"remove\":true,\"edit\":false,\"rotate\":0,\"file\":{\"type\":\"image\"},\"width\":\"'+width+'px\",\"height\":\"'+height+'px\",\"change_color\":0,\"svg\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" xml:space=\\\"preserve\\\" width=\\\"'+design.area.width+'\\\" height=\\\"'+design.area.height+'\\\" preserveAspectRatio=\\\"none\\\" xmlns:xlink=\\\"http://www.w3.org/1999/xlink\\\"><g><image x=\\\"0\\\" y=\\\"0\\\" width=\\\"'+img.width*scale+'\\\" height=\\\"'+img.height*scale+'\\\" preserveAspectRatio=\\\"none\\\" xlink:href=\\\"'+siteURL+items.url+'\\\"></image></g></svg>\",\"id\":0,\"lockedProportion\":0,\"colors\":[\"'+colors+'\"],\"top\":\"-'+top+'px\",\"left\":\"-'+left+'px\",\"zIndex\":\"6\"}}}')+',"images": {"front":"'+c.toDataURL("image/jpeg")+'"},"isIE": false,"file_name": "'+items.file_name+'"}';
+						
 						//console.log( design.front.img);
 						//drawing(thisS, design, design.front.img,1,ctx,c,element,index);
 						if(thisS.productImg[pindex]){
@@ -990,6 +997,7 @@
 							//console.log(0,0,productImg.width,productImg.height,design.front.left,design.front.top,design.front.width,design.front.height);
 							ctx.drawImage(productImg,0,0,productImg.width,productImg.height,design.front.left,design.front.top,design.front.width,design.front.height);
 							callback(element,c.toDataURL("image/jpeg"),index*len+pindex,pindex);
+							thisS.design[index*len+pindex]='{"vectors":'+JSON.stringify('{\"front\":{\"0\":{\"type\":\"clipart\",\"upload\":1,\"title\":\"'+items.title+'\",\"url\":\"'+siteURL+items.url+'\",\"file_name\":\"'+items.file_name+'\",\"thumb\":\"'+siteURL+items.thumb+'\",\"confirmColor\":true,\"remove\":true,\"edit\":false,\"rotate\":0,\"file\":{\"type\":\"image\"},\"width\":\"'+width+'px\",\"height\":\"'+height+'px\",\"change_color\":0,\"svg\":\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" xml:space=\\\"preserve\\\" width=\\\"'+design.area.width+'\\\" height=\\\"'+design.area.height+'\\\" preserveAspectRatio=\\\"none\\\" xmlns:xlink=\\\"http://www.w3.org/1999/xlink\\\"><g><image x=\\\"0\\\" y=\\\"0\\\" width=\\\"'+img.width*scale+'\\\" height=\\\"'+img.height*scale+'\\\" preserveAspectRatio=\\\"none\\\" xlink:href=\\\"'+siteURL+items.url+'\\\"></image></g></svg>\",\"id\":0,\"lockedProportion\":0,\"colors\":[\"'+colors+'\"],\"top\":\"-'+top+'px\",\"left\":\"-'+left+'px\",\"zIndex\":\"6\"}}}')+',"images": {"front":"'+c.toDataURL("image/jpeg")+'"},"isIE": false,"file_name": "'+items.file_name+'"}';
 						}
 					}
 				}
@@ -1175,14 +1183,14 @@
         en: {
             success: 'Success',
             sucUpload: 'Successful upload',
-            chooseFiles: '上传图片（可多图）',
-			chooseMoreFiles: '继续上图',
+            chooseFiles: 'Upload Image（more）',
+			chooseMoreFiles: 'Upload Image',
             uploadFailed: 'Upload failed',
 			tips:'<p>(We accept the following file types: <strong>png, jpg, gif</strong>)</p>',
             serverError: 'Internal server error',
             error: 'Error',
             abort: 'Abort',
-			buynew: '购买',
+			buynew: 'Push to shop',
             aborted: 'Aborted',
             files: 'files',
             upload: '上传',

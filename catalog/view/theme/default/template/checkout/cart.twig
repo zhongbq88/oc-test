@@ -1,26 +1,11 @@
 {{ header }}
-<div id="checkout-cart" class="container">
-  <ul class="breadcrumb">
-    {% for breadcrumb in breadcrumbs %}
-    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-    {% endfor %}
-  </ul>
-  {% if attention %}
-  <div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ attention }}
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-  </div>
-  {% endif %}
-  {% if success %}
+<div id="loader"></div>
+<div id="account-wishlist" class="container" style="padding:40px;"> {% if success %}
   <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
     <button type="button" class="close" data-dismiss="alert">&times;</button>
   </div>
   {% endif %}
-  {% if error_warning %}
-  <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-  </div>
-  {% endif %}
-  <div class="row">{{ column_left }}
+  <div class="row"> {{ column_left }}
     {% if column_left and column_right %}
     {% set class = 'col-sm-6' %}
     {% elseif column_left or column_right %}
@@ -28,92 +13,318 @@
     {% else %}
     {% set class = 'col-sm-12' %}
     {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}
-      <h1>{{ heading_title }}
-        {% if weight %}
-        &nbsp;({{ weight }})
-        {% endif %} </h1>
-      <form action="{{ action }}" method="post" enctype="multipart/form-data">
-        <div class="table-responsive">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <td class="text-center">{{ column_image }}</td>
-                <td class="text-left">{{ column_name }}</td>
-                <td class="text-left">{{ column_model }}</td>
-                <td class="text-left">{{ column_quantity }}</td>
-                <td class="text-right">{{ column_price }}</td>
-                <td class="text-right">{{ column_total }}</td>
-              </tr>
-            </thead>
-            <tbody>
-            
-            {% for product in products %}
-            <tr>
-              <td class="text-center">{% if product.thumb %} <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" /></a> {% endif %}</td>
-              <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a> {% if not product.stock %} <span class="text-danger">***</span> {% endif %}
-                {% if product.option %}
-                {% for option in product.option %} <br />
-                <small>{{ option.name }}: {{ option.value }}</small> {% endfor %}
-                {% endif %}
-                {% if product.reward %} <br />
-                <small>{{ product.reward }}</small> {% endif %}
-                {% if product.recurring %} <br />
-                <span class="label label-info">{{ text_recurring_item }}</span> <small>{{ product.recurring }}</small> {% endif %}</td>
-              <td class="text-left">{{ product.model }}</td>
-              <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
-                  <input type="text" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="form-control" />
-                  <span class="input-group-btn">
-                  <button type="submit" data-toggle="tooltip" title="{{ button_update }}" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-                  <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="cart.remove('{{ product.cart_id }}');"><i class="fa fa-times-circle"></i></button>
-                  </span></div></td>
-              <td class="text-right">{{ product.price }}</td>
-              <td class="text-right">{{ product.total }}</td>
-            </tr>
-            {% endfor %}
-            {% for voucher in vouchers %}
-            <tr>
-              <td></td>
-              <td class="text-left">{{ voucher.description }}</td>
-              <td class="text-left"></td>
-              <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
-                  <input type="text" name="" value="1" size="1" disabled="disabled" class="form-control" />
-                  <span class="input-group-btn">
-                  <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="voucher.remove('{{ voucher.key }}');"><i class="fa fa-times-circle"></i></button>
-                  </span></div></td>
-              <td class="text-right">{{ voucher.amount }}</td>
-              <td class="text-right">{{ voucher.amount }}</td>
-            </tr>
-            {% endfor %}
-              </tbody>
-            
-          </table>
-        </div>
-      </form>
-      {% if modules %}
-      <h2>{{ text_next }}</h2>
-      <p>{{ text_next_choice }}</p>
-      <div class="panel-group" id="accordion"> {% for module in modules %}
-        {{ module }}
-        {% endfor %} </div>
-      {% endif %} <br />
-      <div class="row">
-        <div class="col-sm-4 col-sm-offset-8">
-          <table class="table table-bordered">
-            {% for total in totals %}
-            <tr>
-              <td class="text-right"><strong>{{ total.title }}:</strong></td>
-              <td class="text-right">{{ total.text }}</td>
-            </tr>
-            {% endfor %}
-          </table>
+    <div id="content" class="{{ class }}" > {{ content_top }} 
+      <!-- <h2>{{ heading_title }}</h2>--> 
+      {% if products %}
+      <div class="row" style="margin-top:15px;">
+        <div style="float:left; margin-top:10px;">
+          <div style="float:left;">
+            <input type="checkbox"  checked="checked" onclick="$('input[name*=\'product[selected]\']').prop('checked', this.checked);" />
+          </div>
+          <strong style="margin-left:5px; margin-bottom:5px;"> Select All Products </strong> </div>
+        <button  type="button" id="push_all" style="float:right;"class="btn btn-success btn-icon-left margin-right"><i class="fa fa-plus"></i>Push All Products to Shop</button>
+      </div>
+      {% for  product in products%}
+      <div class="row" style="margin-top:20px;" id="product_item{{product.product_id}}">
+        <div class="tab" role="tabpanel">
+          <input  type="hidden" name="product[{{product.product_id}}][model]" value="{{ image.thumb}}"/>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist" >
+            <li style="width:50px; height:100%; text-align:center; margin-top:10px;">
+              <input type="checkbox" name="product[selected][{{product.product_id}}]" checked="checked" value="{{product.product_id}}"/>
+            </li>
+            <li role="presentation" class="active"><a style="border-left: 1px solid #ddd;" href="#Section1_{{product.product_id}}" aria-controls="Product" role="tab" data-toggle="tab">Product</a></li>
+            <li role="presentation"><a href="#Section2_{{product.product_id}}" aria-controls="Description" role="tab" data-toggle="tab">Description</a></li>
+            <li role="presentation"><a href="#Section3_{{product.product_id}}" aria-controls="Variants" role="tab" data-toggle="tab">Variants</a></li>
+            <li role="presentation"><a href="#Section4_{{product.product_id}}" aria-controls="Images" role="tab" data-toggle="tab">Images</a></li>
+            <li style="float:right">
+              <button  type="button" id="push_one" data-productid='{{product.product_id}}' onclick="pushone('{{product.product_id}}');" style="height:30px; padding:0px; padding-left:20px; padding-right:20px; margin-right:15px;margin-top:5px; "class="btn btn-success btn-icon-left margin-right"><i class="fa fa-plus"></i>Push to Shop</button>
+              <a href="javascript:remove('{{ product.remove }}');" style="float:right; height:30px; width:30px;margin-right:5px; margin-top:5px; padding:5px; padding-left:10px;" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Remove"><i class="fa fa-times"></i></a>
+              
+            </li>
+          </ul>
+          
+          <!-- Tab panes -->
+          <div class="tab-content tabs">
+            <div role="tabpanel" class="tab-pane fade in active" id="Section1_{{product.product_id}}">
+              <div class="row">
+                <div class="col-md-3 col-xs-4">
+                  <div class="product-img"> <img style="max-width:252px; max-height:252px;" src="{{ product.thumb}}" alt="{{ product.name}}" class="responsive-img border-img"> </div>
+                </div>
+                <div class="col-md-9 col-xs-8">
+                  <div class="container-flex">
+                    <div class="mr10 no-shrink oberlo-supplier"></div>
+                    <h3><a href="" target="_blank" class="blue-color"> {{ product.name}}</a> <span class="red-color"></span></h3>
+                  </div>
+                  <div class="row space-small-top space-bottom">
+                    <div class="col-md-12 input-block">
+                      <label>Change name:</label>
+                      </br>
+                      <input  type="text" style="width:100%"  id="product_title" value="{{ product.name}}" name="product[{{product.product_id}}][title]">
+                    </div>
+                    {% if collection %}
+                    <div class="col-md-12 input-block js-build-wrapper" style="margin-top:10px;">
+                      <label>Collections:</label>
+                      </br>
+                      <select style="width:100%" name="product[{{product.product_id}}][coll]"  >
+                      {%for coll in collection %}
+                        <option value="{{coll.collection_id}}">{{ coll.title }}</option>
+                       {%endfor%}
+                      </select>
+                    </div>
+                    {%endif%}
+                    <div class="col-md-12 input-block" style="margin-top:10px;">
+                      <label>Tags:</label>
+                      </br>
+                      <input style="width:100%"  name="product[{{product.product_id}}][tag]"  id="product_tags" value="{{ product.tag}}" type="text" >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="Section2_{{product.product_id}}">
+              <div class="row" style="padding-left:15px; padding-right:15px;">
+                <div style="display:none">
+                  <textarea name="product[{{product.product_id}}][description]" id="input-description{{product.product_id}}"></textarea>
+                </div>
+                <div id="edit_des{{product.product_id}}">
+                  <p>{{ product.description}}</p>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="Section3_{{product.product_id}}">
+              <div class="row">
+                <div class="col-md-3 col-xs-4" style="text-align:center;"> {% if product.variants %}
+                  <table class="table table-bordered table-hover">
+                    {% for variant in product.variants %}
+                    {% if loop.index ==1 %}
+                    <thead>
+                      <tr>
+                        <td class="text-center"><input type="checkbox" checked="checked" onclick="$('input[name*=\'product[{{product.product_id}}][variant][selected]\']').prop('checked', this.checked);" /></td>
+                        <td class="text-center">{{ column_image }}</td>
+                        
+                        {% if variant.option1 %}
+                        <td class="text-center">Color</td>
+                        <input  type="hidden" name="product[{{product.product_id}}][option1]" value="Color"/>
+                        {% endif %}
+                        {% if variant.option2 %}
+                        <td class="text-center">Size</td>
+                        <input  type="hidden" name="product[{{product.product_id}}][option2]" value="Size"/>
+                        {% endif %}
+                        <td class="text-center">Cost</td>
+                        <td class="text-center">Sale Price</td>
+                        <td class="text-center">MSRP</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    
+                    {% endif %}
+                    <tr>
+                      <td class="text-center"><input type="checkbox" name="product[{{product.product_id}}][variant][selected][]" checked="checked" value="{{ loop.index }}" /></td>
+                      <td class="text-center">{% if variant.thumb  %} <a href="{{ product.href }}"><img style="max-height:50px; max-width:50px;" src="{{ variant.thumb}}" alt="{{ product.name}}"  title="{{ product.name}}" /></a>
+                        <input  type="hidden" name="product[{{product.product_id}}][variant][images][]" value="{{ variant.thumb }}"/>
+                        {% endif %}</td>
+                      
+                      {% if variant.option1 %}
+                      <td class="text-center"><input type="text" name="product[{{product.product_id}}][variant][option1][]" value="{{ variant.option1}}"/></td>
+                      {% endif %}
+                      {% if variant.option2 %}
+                      <td class="text-center"><input  type="text" name="product[{{product.product_id}}][variant][option2][]" value="{{ variant.option2}}"/></td>
+                      {% endif %}
+                      <td class="text-center"><label style="height:100%; margin-top:12px;">${{ variant.price}}</label></td>
+                      <td class="text-center"><input  type="text" name="product[{{product.product_id}}][variant][price][]" value="{{ (variant.sale_price)|number_format(2, '.', ',')}}"/></td>
+                      <td class="text-center"><input  type="text" name="product[{{product.product_id}}][variant][compare_price][]" value="{{ (variant.msrp)|number_format(2, '.', ',')}}"/></td>
+                    </tr>
+                    {% endfor %}
+                      </tbody>
+                    
+                  </table>
+                  {% endif %} </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="Section4_{{product.product_id}}"> {% if product.images %}
+            <div class="product-grid">
+              <div class="row"> {% for image in product.images %}
+              
+              
+              
+                <div class="col-sm-2 col-xs-6 col-md-25 col-lg-2 col-sm-3" >
+                   
+                    <div class="image" style=" text-align:center;vertical-align:middle; margin-top:10px;"><!--<a href="{{ product.href }}" >--><img src="{{ image }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive"  /><!--</a>-->
+                      <input  type="hidden" name="product[{{product.product_id}}][images][]" value="{{ image}}"/>
+                    </div>
+                  
+                </div>
+                {% endfor %} </div>
+                </div>
+              {% endif %} </div>
+          </div>
         </div>
       </div>
-      <div class="buttons clearfix">
-        <div class="pull-left"><a href="{{ continue }}" class="btn btn-default">{{ button_shopping }}</a></div>
-        <div class="pull-right"><a href="{{ checkout }}" class="btn btn-primary">{{ button_checkout }}</a></div>
-      </div>
+      {% endfor %}
+      {% else %}
+      <p>{{ text_empty }}</p>
+      {% endif %} 
+      <!--<div class="buttons clearfix">
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>--> 
       {{ content_bottom }}</div>
     {{ column_right }}</div>
 </div>
-{{ footer }} 
+{{ footer }}
+<style>
+a {
+    color: #555555;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+a:hover {
+    color: #555555;
+   
+}
+
+.product-grid .image{
+	 border: 1px solid transparent;
+}
+
+.image:hover{
+	   border: 1px solid #bc985c;
+}
+
+.tab {
+    border: 1px solid #dddddd;
+}
+.nav-tabs{
+	 border-bottom: 1px solid #dddddd;
+	 padding:0xp;
+	 margin:0px;
+	 height:40px;
+}
+
+.tab-content{
+	padding:10px;
+	
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #555555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+	border-left-color: transparent;
+	border-top-color: transparent;
+    cursor: default;
+	height:40px;
+	z-index:2;
+}
+.nav-tabs > li > a {
+    margin-right: 0px;
+    border: 1px solid #ddd;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	border-bottom-color: transparent;
+    border-radius: 0px 0px 0 0;
+	height:40px;
+}
+</style>
+<link rel="stylesheet" href="catalog/view/theme/default/stylesheet/css-loader.css">
+<script type="text/javascript" src="catalog/view/javascript/editor/wangEditor.min.js"></script> 
+<script type="text/javascript">
+var editors = new Array();
+ {% for product in products %}
+ var E=window.wangEditor;
+ var editor =new E('#edit_des{{ product.product_id }}');
+ editor.create();
+ editors['{{ product.product_id }}'] = editor;
+{% endfor %}
+
+</script> 
+<script type="text/javascript"><!--
+$('#push_all').on('click', function() {
+	 {% for product in products %}
+		$('#input-description{{ product.product_id }}').val(editors['{{ product.product_id }}'].txt.html());
+	{% endfor %}
+	pushProduct('');
+});
+function pushone(productid) {
+	$('#input-description'+productid).val(editors[productid].txt.html());
+	pushProduct(productid);
+};
+
+function remove(reqUrl){
+	$.ajax({
+		url: reqUrl,
+		dataType: 'json',
+		beforeSend: function() {
+			//$('#gopublish').button('loading');
+			//$('#loader').addClass("loader loader-clock is-active");
+		},
+		complete: function() {
+			//$('#loader').removeClass();
+			//$('#gopublish').button('reset');
+		},
+		success: function(json) {
+			//console.log(json);
+			//alert(json['success']);
+			$('.alert-dismissible').remove();
+			if (json['success']) {
+				
+				$('#product_item'+json['product_id']).remove();
+
+					$('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> '+json['success']+' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+				
+					$('html, body').animate({ scrollTop: 0 }, 'slow');
+				
+			}
+			
+			
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            //alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+}
+
+ function pushProduct(productid){
+	
+	//var node = this;
+	$.ajax({
+		url: 'index.php?route=commonipl/publishipl&product_id='+productid,
+		type: 'post',
+		data: $('.tab input[type=\'text\'], .tab input[type=\'hidden\'], .tab input[type=\'checkbox\']:checked,.tab select, .tab textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			//$('#gopublish').button('loading');
+			$('#loader').addClass("loader loader-clock is-active");
+		},
+		complete: function() {
+			$('#loader').removeClass();
+			//$('#gopublish').button('reset');
+		},
+		success: function(json) {
+			//alert(json['success']);
+			$('.alert-dismissible').remove();
+			if (json['success']) {
+				var result = json['success'];
+				
+				for(var id in result){
+					if(result[id]){
+						$('#product_item'+id).remove();
+					}
+				}
+				if(json['text']){
+					$('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> '+json['text']+' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+				
+					$('html, body').animate({ scrollTop: 0 }, 'slow');
+				}
+			}
+			
+			
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            //alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+}
+//--></script>

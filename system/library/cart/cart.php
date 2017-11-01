@@ -33,7 +33,7 @@ class Cart {
 	public function getProducts() {
 		$product_data = array();
 
-		$cart_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "cart WHERE api_id = '" . (isset($this->session->data['api_id']) ? (int)$this->session->data['api_id'] : 0) . "' AND customer_id = '" . (int)$this->customer->getId() . "' AND session_id = '" . $this->db->escape($this->session->getId()) . "'");
+		$cart_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "cart WHERE api_id = '" . (isset($this->session->data['api_id']) ? (int)$this->session->data['api_id'] : 0) . "' AND customer_id = '" . (int)$this->customer->getId() . "' AND session_id = '" . $this->db->escape($this->session->getId()) . "' ORDER BY date_added DESC");
 
 		foreach ($cart_query->rows as $cart) {
 			$stock = true;
@@ -235,7 +235,21 @@ class Cart {
 					$recurring = false;
 				}
 
+
+				/* vqmod/xml/tshirtecommerce_product.xml */
+				$tshirtecommerce_price = 0;
+				$tshirtecommerce_cart_options = json_decode($cart['option'], true);
+				if (isset($tshirtecommerce_cart_options['tshirtecommerce']) && count($tshirtecommerce_cart_options['tshirtecommerce'])) {
+					$tshirtecommerce = $tshirtecommerce_cart_options['tshirtecommerce'];
+					if (isset($tshirtecommerce['options']) && isset($tshirtecommerce['price_of_print']))
+						$tshirtecommerce_price = $tshirtecommerce['price_of_print'];
+				}
+				$option_price += $tshirtecommerce_price;
+		
 				$product_data[] = array(
+
+				'tshirtecommerce' => isset($tshirtecommerce_cart_options['tshirtecommerce']) ? $tshirtecommerce_cart_options['tshirtecommerce'] : array(), /* vqmod/xml/tshirtecommerce_product.xml */
+		
 					'cart_id'         => $cart['cart_id'],
 					'product_id'      => $product_query->row['product_id'],
 					'name'            => $product_query->row['name'],
@@ -259,6 +273,7 @@ class Cart {
 					'width'           => $product_query->row['width'],
 					'height'          => $product_query->row['height'],
 					'length_class_id' => $product_query->row['length_class_id'],
+					'description' => $product_query->row['description'],
 					'recurring'       => $recurring
 				);
 			} else {

@@ -37,4 +37,4 @@ define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');
 
 // OpenCart API
-define('OPENCART_SERVER', 'https://www.opencart.com/');
+define('OPENCART_SERVER', 'https://www.customdr.com/');

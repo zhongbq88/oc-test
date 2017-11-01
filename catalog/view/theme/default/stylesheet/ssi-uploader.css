@@ -423,8 +423,8 @@ table.ssi-fileList tr.ssi-space > td {
   margin-bottom:8px;
   margin-left: 8px;
   margin-right: 8px;
-  box-shadow: 0 10px 6px -6px #777;
-  padding: 5px;
+  /*box-shadow: 0 10px 6px -6px #777;*/
+  /*padding: 5px;*/
   display: inline-block;
   /*width: 262px;*/
   -ms-word-break: break-all;
@@ -550,3 +550,123 @@ span.ssi-InputLabel input[type="file"] {
   top: -7px;
   left: 61px;
 }
+.image-select:hover:not(.selected) {
+    border: 1px solid #a5adb3;
+    margin: 0;
+}
+
+.image-select {
+    cursor: pointer;
+    border: 1px solid #e1e8f0;
+    overflow: hidden;
+}
+
+.image-select .product-img {
+    white-space: nowrap;
+    height: 210px;
+}
+.image-select .product-img-action {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-select .border-img {
+    border: none;
+}
+
+
+.image-select img {
+    max-height: 100%;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.border-img {
+    border: 1px solid #e1e8f0;
+}
+
+img {
+    border: 0;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+
+.icon-selected {
+    height: 14px;
+    width: 14px;
+    fill: #92bf45;
+}
+.image-select .icon-selected-box, .image-select .image-link {
+    display: none;
+}
+a {
+    text-decoration: none;
+    background: transparent;
+    color: #1a81c5;
+    display: inline-block;
+    cursor: pointer;
+}
+.image-link {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #a5adb3;
+	border-bottom:0px;
+	border-left:0px;
+	border-right:0px;
+    text-align: center;
+	 display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 12px 12px;
+  margin:0;
+	
+}
+
+.ssi-buttonDesign{
+	display:none;
+	position: absolute; 
+}
+.ssi-imgToUploadTable:hover {
+  border: 1px solid #a5adb3;
+}
+
+.ssi-imgToUploadTable:hover .ssi-buttonDesign{
+	display:inline-block;
+}
+input[type=checkbox].css-checkbox {
+							position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+						}
+
+						input[type=checkbox].css-checkbox + label.css-label {
+							padding-left:35px;
+							height:30px; 
+							display:inline-block;
+							line-height:30px;
+							background-repeat:no-repeat;
+							background-position: 0 0;
+							font-size:30px;
+							vertical-align:middle;
+							cursor:pointer;
+
+						}
+
+						input[type=checkbox].css-checkbox:checked + label.css-label {
+							background-position: 0 -30px;
+						}
+						label.css-label {
+				background-image:url(../image/csscheckbox.png);
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}

@@ -4,7 +4,7 @@ class ControllerCheckoutCart extends Controller {
 		$this->load->language('checkout/cart');
 
 		$this->document->setTitle($this->language->get('heading_title'));
-
+		$this->load->model('catalog/product');
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -58,8 +58,23 @@ class ControllerCheckoutCart extends Controller {
 			$products = $this->cart->getProducts();
 
 			foreach ($products as $product) {
+				if(isset($product['tshirtecommerce']['options']['images'])){
+					//print_r($product['tshirtecommerce']['options']['images']);
+					//
+					$images = str_replace("quot;","", explode(':', $product['tshirtecommerce']['options']['images']));
+					
+					$image = 'tshirtecommerce/'.substr($images[1],1,strlen($images[1])-3);
+				}else if ($product['image']) {
+					$image = $this->model_tool_image->resize($product['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_height'));
+				} else {
+					$image = '';
+				}
+				if(isset($data['products'][$product['product_id']])){
+					$data['products'][$product['product_id']]['images'][] =$image;
+					continue;
+				}
 				$product_total = 0;
-
+				//print_r($product['option']);
 				foreach ($products as $product_2) {
 					if ($product_2['product_id'] == $product['product_id']) {
 						$product_total += $product_2['quantity'];
@@ -69,16 +84,13 @@ class ControllerCheckoutCart extends Controller {
 				if ($product['minimum'] > $product_total) {
 					$data['error_warning'] = sprintf($this->language->get('error_minimum'), $product['name'], $product['minimum']);
 				}
-
-				if ($product['image']) {
-					$image = $this->model_tool_image->resize($product['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_height'));
-				} else {
-					$image = '';
-				}
+				
+				
 
 				$option_data = array();
 
 				foreach ($product['option'] as $option) {
+					print_r($option);
 					if ($option['type'] != 'file') {
 						$value = $option['value'];
 					} else {
@@ -130,20 +142,24 @@ class ControllerCheckoutCart extends Controller {
 					}
 				}
 
-				$data['products'][] = array(
+				$data['products'][$product['product_id']] = array(
+					'product_id'=> $product['product_id'],
 					'cart_id'   => $product['cart_id'],
 					'thumb'     => $image,
 					'name'      => $product['name'],
 					'model'     => $product['model'],
 					'option'    => $option_data,
 					'recurring' => $recurring,
+					'variants' => $this->getVariants($product['product_id'],$image,$unit_price),
 					'quantity'  => $product['quantity'],
 					'stock'     => $product['stock'] ? true : !(!$this->config->get('config_stock_checkout') || $this->config->get('config_stock_warning')),
 					'reward'    => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
 					'price'     => $price,
 					'total'     => $total,
+					'description' => html_entity_decode($product['description'], ENT_QUOTES, 'UTF-8'),
 					'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
 				);
+				$data['products'][$product['product_id']]['images'][] =$image;
 			}
 
 			// Gift Voucher
@@ -475,4 +491,101 @@ class ControllerCheckoutCart extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+	
+	private function getVariants($product_id,$thumb,$pprice){
+		
+			$product_options = $this->model_catalog_product->getProductOptions($product_id);
+			$option_data = array();
+			$index=0;
+			$optionName ='';
+			foreach ($product_options as $product_option) {
+				if($product_option['type']=='select'){
+					$create = false;
+					foreach ($product_option['product_option_value'] as $option_value) {
+						$optionName =  $option_value['name'];
+						
+							if(!$create){
+								$option_data[$index] = array();
+								$create = true;
+							}
+							$option_data[$index][] = $option_value;
+						
+					}
+					if($create){
+						$index++;
+					}
+				}
+				
+			}
+			//print_r($images);
+			
+			//print_r($option_data);
+			$options = $this->getArrSet($option_data);
+			$variants = array();
+			foreach($options as $key=> $option){
+				$variants[$key]['thumb'] = $thumb;
+				$price = $pprice;
+				foreach($option as $i=> $v){
+					$variants[$key]['option'.($i+1)] = $v['name'];
+					$price+=$v['price'];
+				}
+				$variants[$key]['price'] = $price;
+				$variants[$key]['sale_price'] = $price*2;
+				$variants[$key]['msrp'] = $price*4;
+				$variants[$key]['variants_sku'] = '123';
+			}
+			return $variants;
+	}
+	
+	  public function getArrSet($arrs,$_current_index=-1)
+	  {
+		  //总数组
+		  static $_total_arr;
+		  //总数组下标计数
+		  static $_total_arr_index;
+		  //输入的数组长度
+		  static $_total_count;
+		  //临时拼凑数组
+		  static $_temp_arr;
+		  
+		  //进入输入数组的第一层，清空静态数组，并初始化输入数组长度
+		  if($_current_index<0)
+		  {
+			  $_total_arr=array();
+			  $_total_arr_index=0;
+			  $_temp_arr=array();
+			  $_total_count=count($arrs)-1;
+			  $this->getArrSet($arrs,0);
+		  }
+		  else
+		  {
+			  //循环第$_current_index层数组
+			  foreach($arrs[$_current_index] as $v)
+			  {
+				  //如果当前的循环的数组少于输入数组长度
+				  if($_current_index<$_total_count)
+				  {
+					  //将当前数组循环出的值放入临时数组
+					  $_temp_arr[$_current_index]=$v;
+					  //继续循环下一个数组
+					  $this->getArrSet($arrs,$_current_index+1);
+					  
+				  }
+				  //如果当前的循环的数组等于输入数组长度(这个数组就是最后的数组)
+				  else if($_current_index==$_total_count)
+				  {
+					  //将当前数组循环出的值放入临时数组
+					  $_temp_arr[$_current_index]=$v;
+					  //将临时数组加入总数组
+					  $_total_arr[$_total_arr_index]=$_temp_arr;
+					  //总数组下标计数+1
+					  $_total_arr_index++;
+				  }
+	  
+			  }
+		  }
+		  
+		  return $_total_arr;
+	  }
+
 }

@@ -29,8 +29,8 @@ class ControllerProductDesignermore extends Controller {
 				
 			}
 			
-			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');
+			$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
+			$data['header'] = $this->load->controller($this->session->data['store'].'/header');
 			if ($this->request->server['HTTPS']) {
 				$server = $this->config->get('config_ssl');
 			} else {

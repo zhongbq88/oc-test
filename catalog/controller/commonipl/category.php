@@ -43,7 +43,11 @@ class ControllerCommoniplCategory extends Controller {
 		$this->load->language('commonipl/category');
 		$this->load->model('commonipl/product');
 		$products = array();
-		$category_info = $this->model_catalog_category->getCategories();
+		if(isset($this->request->get['parent_id'])){
+			$category_info = $this->model_catalog_category->getCategories($this->request->get['parent_id']);
+		}else{
+			$category_info = $this->model_catalog_category->getCategories();
+		}
 		if ($category_info) {
 
 			foreach ($category_info as $category) {
