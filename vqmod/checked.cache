@@ -199,3 +199,17 @@ system\library\cart\cart.php
 admin\controller\catalog\category.php
 admin\language\en-gb\catalog\category.php
 system\library\image.php
+admin\controller\error\permission.php
+admin\language\en-gb\error\permission.php
+admin\controller\common\filemanager.php
+admin\language\en-gb\common\filemanager.php
+admin\controller\catalog\option.php
+admin\language\en-gb\catalog\option.php
+catalog\controller\commonipl\productlist.php
+catalog\controller\commonipl\products.php
+catalog\controller\commonipl\productdesign.php
+catalog\model\catalog\manufacturer.php
+catalog\model\catalog\review.php
+catalog\controller\tool\upload.php
+catalog\language\en-gb\tool\upload.php
+catalog\model\shopify\image.php

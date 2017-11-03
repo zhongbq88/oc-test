@@ -50,17 +50,25 @@ class ModelShopifyImage extends Model {
 		
 		$photoArray =   explode('/',$top);
     	$fileName   =   explode('.',str_replace('.png.mbg.png','',end($photoArray)));
-		$sizes   =   explode('_',end($fileName));
+		$split   =   explode('_',end($fileName));
 		//print_r(end($sizes));
-		$sizes   =   explode('-',end($sizes));
-		$start   =   explode('x',$sizes[0]);
-		$sizes   =   explode('x',$sizes[1]);
+		$split   =   explode('-',end($split));
+		$start   =   explode('x',$split[0]);
+		$sizes   =   explode('x',$split[1]);
 		//print_r($size);
  		$top = Imagecreatefrompng($top);
 		$width = imagesx($top);
 		$height = imagesy($top);
 		
-		$bottom = $this->imageThumb($bottom,$sizes[0],$sizes[1]);
+		//print_r($split);
+		if(isset($split[2])){
+			$scale   =   explode('x',$split[2]);
+			//print_r($scale);
+			//print_r($scale[3]);
+			$bottom = $this->rotate($bottom,-$scale[3],$scale[0],$scale[1],$sizes[0],$sizes[1],$scale[2]);
+		}else{
+			$bottom = $this->imageThumb($bottom,$sizes[0],$sizes[1]);
+		}
 		$target_img     = imageCreatetruecolor(imagesx( $top),imagesy( $top));
 		$color = imagecolorallocate($target_img, 255, 255, 255);
 		imagefill($target_img, 0, 0, $color);
@@ -73,6 +81,23 @@ class ModelShopifyImage extends Model {
 		imagedestroy($target_img);
 		return $newFilename;
 	}
+	
+	function rotate($filename,$degrees,$x,$y,$final_width,$final_height,$scale){
+ 		$source = imagecreatefromjpeg($filename);
+		$pngTransparency = imagecolorallocatealpha($source, 0, 0, 0, 127);
+		imagefill($source, 0, 0, $pngTransparency);
+        $rotate = imagerotate($source, $degrees, $pngTransparency);
+		$width = imagesx($rotate);
+		$height = imagesy($rotate);
+		$new_image = imagecreatetruecolor($final_width, $final_height);
+		$color = imagecolorallocate($new_image, 255, 255, 255);
+		imagefill($new_image, 0, 0, $color);
+		imagecopyresampled($new_image, $rotate, 0, 0, $x, $y,  $scale, round($scale* $height / $width), $width, $height);
+		//header('Content-Type: image/jpg');
+	    //imagejpeg($new_image);
+		return $new_image;
+        //$imagejpeg($rotate,$filename);
+    }
 	
 	function mergeTop($path,$bottom,$savePath){
 		if(!file_exists($path.'.top.png')){
