@@ -28,6 +28,7 @@ class ControllerProductDesignermore extends Controller {
 				}
 				
 			}
+			$data['edit'] = isset($edit) ? $edit : 0;
 			
 			$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
 			$data['header'] = $this->load->controller($this->session->data['store'].'/header');
@@ -36,6 +37,7 @@ class ControllerProductDesignermore extends Controller {
 			} else {
 				$server = $this->config->get('config_url');
 			}
+			$data['url']  = $server;
 			$data['baseurl'] = $server.'/tshirtecommerce/';
 			$this->response->setOutput($this->load->view('product/designmore', $data));
 		}

@@ -114,7 +114,7 @@ class ControllerCommoniplPublishipl extends Controller {
 						'option_value_id'   => $option_value_id[$key],//$option_value_id[$key] ,
 						'product_options'   => $v,//json_encode($v),
 						'option_file'       => $srcImages[$key],//$imgs[$key],
-						'design_file'       => HTTP_SERVER.$value
+						'design_file'       => HTTP_SERVER.$value[0]
 					);
 					//print_r($sku);
 					$sku_id = $this->model_commonipl_order->addProductSku($sku);
@@ -129,12 +129,16 @@ class ControllerCommoniplPublishipl extends Controller {
 					$i++;		
 			}
 			$variant_count[] = array(
-				"variant_count"=>$i
+				"variant_count"=>$i,
+				"image_count"=>count($value)
 			);
-			$images[] = array(
+			foreach($value as $src){
+				$images[] = array(
 			//"src"=>'https://www.customdr.com/image/catalog/designs/23_3_1504177279.jpg'
-				"src"=>HTTPS_SERVER.$pimgs[$key]
-			);
+				"src"=>HTTPS_SERVER.$src
+				);
+			}
+			
 			
 		}
 		

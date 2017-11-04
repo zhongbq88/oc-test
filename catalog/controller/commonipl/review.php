@@ -75,15 +75,32 @@ class ControllerCommoniplReview extends Controller {
 											if(!empty($image)){
 												$imgs = array();
 												$thumb;
+												$thumList = array();
+												$imageList = array();
 												if(count($option_images)>1){
-													$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
-													$imgs[1] = str_replace(HTTP_SERVER,'/',$pimgs[$ky][$option_images[1]['option_image_id']]);
-													$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
-													$imgs[1] = str_replace('/image/',DIR_IMAGE,$imgs[1]);
-													$image = 'catalog/designs/'.$product_option['product_option_id'].'_'.$this->customer->getId().'_'.time().".jpg";
-													$this->createImage($imgs,DIR_IMAGE.$image);
-													$thumb = $image;
-													$image = "image/".$image;
+													
+													if($option_images[0]['name']==$option_images[1]['name']){
+														foreach($option_images as $i=>$value){
+															//print_r($value['option_image_id']);
+															$imgs[0] = str_replace(HTTP_SERVER,'/',$pimgs[$ky][$value['option_image_id']]);
+															$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
+															$image = 'catalog/designs/'.$value['option_image_id'].'_'.$this->customer->getId().'_'.time().".jpg";
+													//print_r($imgs[0]);
+															$this->createImage($imgs,DIR_IMAGE.$image);
+															$thumList[] = $image;
+															$imageList[] = "image/".$image;
+														}
+														
+													}else{
+														$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
+														$imgs[1] = str_replace(HTTP_SERVER,'/',$pimgs[$ky][$option_images[1]['option_image_id']]);
+														$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
+														$imgs[1] = str_replace('/image/',DIR_IMAGE,$imgs[1]);
+														$image = 'catalog/designs/'.$product_option['product_option_id'].'_'.$this->customer->getId().'_'.time().".jpg";
+														$this->createImage($imgs,DIR_IMAGE.$image);
+														$thumb = $image;
+														$image = "image/".$image;
+													}
 												}else{
 													$imgs[0] = str_replace(HTTP_SERVER,'/',$image);
 													$imgs[0] = str_replace('/image/',DIR_IMAGE,$imgs[0]);
@@ -107,9 +124,18 @@ class ControllerCommoniplReview extends Controller {
 							
 												$option_value_ids[$product_option['product_option_id']] = $option_value['option_value_id'];		
 												$srcImages[$product_index] = $img;	
-												$images[$product_option['product_option_id']] = $image;							
-												$array = getimagesize(DIR_IMAGE.$thumb); 
-												$thumbnail[$product_option['product_option_id']] =$this->model_commonipl_image->resize($thumb, $array[0]/4, $array[1]/4);
+												if(isset($thumList)){
+													foreach($thumList as $i=>$thum){
+														$images[$product_option['product_option_id']][] = $imageList[$i];							
+														$array = getimagesize(DIR_IMAGE.$thum); 
+														$thumbnail[$product_option['product_option_id']][] =$this->model_commonipl_image->resize($thum, $array[0]/4, $array[1]/4);
+													}
+												}else{
+													$images[$product_option['product_option_id']][] = $image;							
+													$array = getimagesize(DIR_IMAGE.$thumb); 
+													$thumbnail[$product_option['product_option_id']][] =$this->model_commonipl_image->resize($thumb, $array[0]/4, $array[1]/4);
+												}
+												
 											
 											}
 											
@@ -145,8 +171,8 @@ class ControllerCommoniplReview extends Controller {
 								'price'=>number_format($product_info['price'],2),
 								'product_price'=>number_format($product_info['price']*2,2),
 								'compare_price'=>number_format($product_info['price']*4,2),
-								'thumbnail' => $thumbnail[$key],
-								'image' => $image
+								'thumbnails' => $thumbnail[$key],
+								'images' => $image
 							);
 							//print_r(count($options));
 							if(count($options)>0){

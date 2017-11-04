@@ -26,15 +26,17 @@
           <div style="height:12px;">
          <div style="text-align:center;display:none;" id="loading{{ variant_index }}_{{ option_image.option_image_id }}" ><img src="catalog/view/theme/default/image/loading_h.gif"></div></div>
          </span>
-
+          <input type="hidden" name="option-img[{{ variant_index }}][{{ option_image.option_image_id }}]" value="" id="option-img{{ variant_index }}_{{ option_image.option_image_id }}" />
+          <input type="hidden" name="option[{{ variant_index }}][{{ option_image.option_image_id }}]" value="" id="input-option{{ variant_index }}_{{ option_image.option_image_id }}" />
+		{% if option_image.name %}
         <div class="right_btn" style="margin:8px;">
-          <span class="btn btn-success fileinput-button" data-product-option-id="{{ product_option_id }}" data-id="{{ option_image.option_image_id }}" data-src="{{ option_image.image }}" onclick="variant_image(this)" data-variant-index='{{ variant_index }}'  data-index='{{ loop.index }}' > <i class="glyphicon glyphicon-picture"></i>
+          <span class="btn btn-success fileinput-button" data-product-option-id="{{ product_option_id }}" data-imgidlist="{{ imageIdList }}" data-id="{{ option_image.option_image_id }}" data-src="{{ option_image.image }}" data-imglist="{{ imageList }}" onclick="variant_image(this)" data-variant-index='{{ variant_index }}'  data-index='{{ loop.index }}' > <i class="glyphicon glyphicon-picture"></i>
               <span id="upload_text{{ variant_index }}_{{ option_image.option_image_id }}">{{button_upload}}</span>
-               <input type="hidden" name="option-img[{{ variant_index }}][{{ option_image.option_image_id }}]" value="" id="option-img{{ variant_index }}_{{ option_image.option_image_id }}" />
-              <input type="hidden" name="option[{{ variant_index }}][{{ option_image.option_image_id }}]" value="" id="input-option{{ variant_index }}_{{ option_image.option_image_id }}" />
+              
               <input type="button" id="button-upload{{ option_image.option_image_id }}"  data-id="{{ variant_index }}_{{ option_image.option_image_id }}">
           </span>
         </div>
+        {% endif %}
         </div>
         {% endfor %}
        

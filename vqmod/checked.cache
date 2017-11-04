@@ -227,3 +227,7 @@ catalog\controller\tshirtecommerce\designer.php
 catalog\controller\commonipl\publishipl.php
 catalog\language\en-gb\shopify\product.php
 catalog\controller\product\designer.php
+catalog\model\account\cart.php
+catalog\controller\error\not_found.php
+catalog\controller\commonipl\review.php
+catalog\model\commonipl\image.php

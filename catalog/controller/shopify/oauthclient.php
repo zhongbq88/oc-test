@@ -53,20 +53,29 @@ class Oauthclient {
 			$variants2 = array();
 			$i=0;
 			$count = 0;
+			$j = 0;
+			$imageCount = 0;
 			//print_r($variant_count);
 			foreach($images as $key=> $image){
+				if($j<$imageCount){
+					$j++;
+					continue;
+				}
 				$image2 = array();
 				$image2['id'] = $image['id'];
 				$variant_ids = array();
 				$count+=$variant_count[$key]['variant_count'];
+				$imageCount += $variant_count[$key]['image_count'];
 				for(;$i<$count;$i++){
 					if(isset($variants[$i])){
 						$variant_ids[] = $variants[$i]['id'];
 					}
 				}
+				$j++;
 				//print_r($image2);
 				$image2['variant_ids'] = $variant_ids;
 				$rult = $shopify('PUT /admin/products/'.$result['id'].'/images/'.$image['id'].'.json', array(), array('image' =>$image2));
+				
 			}
 			return $result;
 		}

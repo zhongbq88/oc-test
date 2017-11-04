@@ -157,13 +157,17 @@ var app = {
 		}
 	},
 	cart: function(content){
+		parent.design.saveDesign(content);
+		return;
 		var data = {			
 			product_id: content.product_id,
 			quantity: content.quantity,
 			design: content,
 			//option_oc: option_oc,
 		};
-		var ocedit = window.parent.ocedit;
+		console.log(data);
+		var ocedit = '0';
+		
 		if(ocedit !== 'undefined' && ocedit != '0' && parseInt(ocedit) != 'NaN' && parseInt(ocedit) > 0)
 		{
 			jQuery.ajax({
@@ -189,16 +193,18 @@ var app = {
 		}
 		else
 		{
-			jQuery.ajax({
-				url: 'index.php?route=checkout/cart/add',
+			
+			/*jQuery.ajax({
+				url: 'index.php?route=checkout/cart/save',
 				type: 'post',
 				data: data,
 				dataType: 'json',
 				success: function (json) {
 					window.location.href = 'index.php?route=checkout/cart';
 				}
-			});
+			});*/
 		}
+		
 	}
 }
 

@@ -65,7 +65,8 @@ class ModelShopifyImage extends Model {
 			$scale   =   explode('x',$split[2]);
 			//print_r($scale);
 			//print_r($scale[3]);
-			$bottom = $this->rotate($bottom,-$scale[3],$scale[0],$scale[1],$sizes[0],$sizes[1],$scale[2]);
+			$degrees = substr($scale[3],1);
+			$bottom = $this->rotate($bottom,(strpos($scale[3],'l')!==false?$degrees:-$degrees),$scale[0],$scale[1],$sizes[0],$sizes[1],$scale[2]);
 		}else{
 			$bottom = $this->imageThumb($bottom,$sizes[0],$sizes[1]);
 		}

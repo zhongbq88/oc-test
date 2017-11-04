@@ -24,7 +24,13 @@ class ControllerToolUpload extends Controller {
 		} else {
 			$src = '';
 		}
-		//echo 'src'.$src;
+		if (isset($this->request->post['imglist'])) {
+			$imglist = $this->request->post['imglist'];
+		} else {
+			$imglist = '';
+		}
+		
+		
 		
 		if (!empty($this->request->files['file']['name']) && is_file($this->request->files['file']['tmp_name'])) {
 			// Sanitize the filename
@@ -93,11 +99,11 @@ class ControllerToolUpload extends Controller {
 				$host = $this->config->get('config_url');
 			}
 			$this->load->model('shopify/image');
+			$savepat = DIR_IMAGE."/catalog/designs/";
+			$json['src'] = $this->model_shopify_image->resizeupload($file,50,50);
 			
 			$src = DIR_IMAGE.str_replace($host."image/",'',$src);
 			$src = str_replace(".jpg",'.png',$src);
-			$savepat = DIR_IMAGE."/catalog/designs/";
-			$json['src'] = $this->model_shopify_image->resizeupload($file,50,50);
 			//print_r($src.'.mbg.png');
 			if(file_exists($src)||file_exists($src.'.mbg.png')){
 				$ttt =  $this->model_shopify_image->merge(DIR_UPLOAD . $file,$src,$savepat);
@@ -105,6 +111,24 @@ class ControllerToolUpload extends Controller {
 				$array = getimagesize( DIR_IMAGE."/catalog/designs/" . $ttt); 
 				//print_r($array);
 				$json['viewimg'] = $this->model_shopify_image->resize("/catalog/designs/".$ttt, $array[0]/2.5, $array[1]/2.5);
+			}
+	
+			
+			if(!empty($imglist)){
+				$split = explode(',',$imglist);
+				foreach($split as $src){
+					$src = DIR_IMAGE.str_replace($host."image/",'',$src);
+					$src = str_replace(".jpg",'.png',$src);
+					//print_r($src.'.mbg.png');
+					if(file_exists($src)||file_exists($src.'.mbg.png')){
+						$ttt =  $this->model_shopify_image->merge(DIR_UPLOAD . $file,$src,$savepat);
+						$json['preimgList'][] = $host."image/catalog/designs/" . $ttt;
+						$array = getimagesize( DIR_IMAGE."/catalog/designs/" . $ttt); 
+						//print_r($array);
+						$json['viewimgList'][] = $this->model_shopify_image->resize("/catalog/designs/".$ttt, $array[0]/2.5, $array[1]/2.5);
+					}
+					
+				}
 			}
 			$json['success'] = $this->language->get('text_upload');
 		}

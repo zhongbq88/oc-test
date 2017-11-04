@@ -101,7 +101,10 @@ border-radius:4px;">
               {% for  variant in variants %}
               <input type="hidden" name="product_id[{{ variant.variant_index}}]" value="{{ variant.product_id }}" />
               <input type="hidden" name="option_type[{{ variant.variant_index}}]" value="{{ variant.type }}" />
-              <input type="hidden" name="product_image[{{ variant.variant_index}}]" value="{{ variant.image }}" />
+              {% for image in variant.images%}
+              <input type="hidden" name="product_image[{{ variant.variant_index}}][]" value="{{ image }}" />
+              
+              {% endfor %}
               <input type="hidden" name="product_option_value_id[{{ variant.variant_index}}]" value="{{ variant.option_value_id }}" />
               <div class="panel-body variant_body" style="border-top: 20px solid #f0f0f0;">
                 <h2 class="mgbt-xs-20"> {{ variant.product_name}} <span class="font-semibold">$ {{ variant.price }}</span> Each </h2>
@@ -163,9 +166,15 @@ border-radius:4px;">
                   </div>
                   <div class="col-sm-3 mgbt-xs-20">
                     <div class="form-group">
+                    {% for thumbnail in variant.thumbnails %}
                       <div class="col-xs-12">
-                        <div class="mockup-wrapper form-img text-center mgbt-xs-15"> <img class="mockup-img" src="{{ variant.thumbnail }}" style="width:250px; height:auto;"> </div>
+                        <div class="mockup-wrapper form-img text-center mgbt-xs-15"> 
+                        
+                        <img class="mockup-img" src="{{ thumbnail }}" style="width:250px; height:auto;"> 
+                        
+                        </div>
                       </div>
+                      {% endfor %}
                     </div>
                   </div>
                   

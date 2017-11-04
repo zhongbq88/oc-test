@@ -1339,19 +1339,35 @@ class ControllerCommoniplProductdesign extends Controller {
 		$option_images = $this->model_catalog_product->getOptionImages($option_value_id);
 		$option_images_data = array();
 		$option_id = 0;
+		$name = '';
+		$imageList = '';
+		$imageIdList = '';
+		//print_r($option_images);
 		foreach($option_images as $option_image){
+			$image = $this->model_tool_image->getImagePath($option_image['image']);
 			$option_images_data[] = array(
 					'option_image_id'    => $option_image['option_image_id'],
 					'option_value_id' => $option_image['option_value_id'],
 					'option_id'            => $option_image['option_id'],
-					'name'                 => $option_image['name'],
+					'name'                 => ($name ==$option_image['name'])?'':$option_image['name'],
 					'sort_order'         => $option_image['sort_order'],
-					'image'              =>  $this->model_tool_image->getImagePath($option_image['image'])
+					'image'              =>  $image
 			);
+			if($name == $option_image['name']){
+				$imageList .=','.$image;
+				$imageIdList .=','.$option_image['option_image_id'];
+			}
+			$name = $option_image['name'];
 			$option_id = $option_image['option_id'];
 		}
 		
 		$data = array();
+		if(!empty($imageList)){
+			$data['imageList'] = substr($imageList,1);
+		}
+		if(!empty($imageIdList)){
+			$data['imageIdList'] = substr($imageIdList,1);
+		}
 		$data['variant_index'] = $variant_index;
 		$data['product_option_id'] = $product_option_id;
 		$data['option_id'] = $option_id;
@@ -1361,6 +1377,7 @@ class ControllerCommoniplProductdesign extends Controller {
 		$data['name'] = $product_info['meta_title'];
 		$data['change'] = 1;//$change;
 		$data['option_images'] = $option_images_data;
+		//print_r($data);
 		return $this->load->view('commonipl/product_option_images', $data);
 	}
 	

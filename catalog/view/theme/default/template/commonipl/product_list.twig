@@ -164,8 +164,12 @@ function loadDesignProduct(href,node){
 			var formData =  new FormData($('#form-upload')[0]);
 			var variant_index = $(node).get(0).getAttribute("data-variant-index");
 			var index = $(node).get(0).getAttribute("data-index");
+			var imgIdList = $(node).get(0).getAttribute('data-imgidlist');
 			//alert(width);
+			var imglist = $(node).get(0).getAttribute('data-imglist');
+			console.log(imglist);
 			formData.append("src", $(node).get(0).getAttribute("data-src"));
+			formData.append("imglist", imglist);
 			formData.append("width", $('#size_width'+variant_index).val());
 			formData.append("height", $('#size_height'+variant_index).val());
 			//alert($('#size_height'+variant_index).val());
@@ -211,6 +215,17 @@ function loadDesignProduct(href,node){
 						//$("#src-option"+option_id).attr ("style","float:right;  width: auto; height:35px; display:block;");
 						
 						$("#input-option"+variant_index+"_"+option_image_id).val(json['code']);
+						if(json['preimgList']){
+							console.log(imgIdList);
+							var imgids = imgIdList.split(",");
+							for(i in imgids){
+								
+								document.getElementById("option_image"+variant_index+"_"+imgids[i]).src = json['viewimgList'][i];
+							//$('#thumbnail'+option_id).attr('href',json['preimg']); 
+								$("#option-img"+variant_index+"_"+imgids[i]).val(json['preimgList'][i]);
+							}
+							
+						}
 					}
 		  
 				  $('#loading'+variant_index+"_"+option_image_id).attr ("style","display:none;");
