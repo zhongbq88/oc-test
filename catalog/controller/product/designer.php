@@ -444,8 +444,8 @@ class ControllerProductDesigner extends Controller {
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
-			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');
+			$data['footer'] = $this->load->controller($this->session->data['store'].'/footer');
+			$data['header'] = $this->load->controller($this->session->data['store'].'/header');
 			if ($this->request->server['HTTPS']) {
 				$server = $this->config->get('config_ssl');
 			} else {

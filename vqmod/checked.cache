@@ -213,3 +213,17 @@ catalog\model\catalog\review.php
 catalog\controller\tool\upload.php
 catalog\language\en-gb\tool\upload.php
 catalog\model\shopify\image.php
+admin\controller\catalog\information.php
+admin\language\en-gb\catalog\information.php
+admin\model\catalog\information.php
+catalog\controller\information\information.php
+catalog\language\en-gb\information\information.php
+catalog\controller\product\designeredit.php
+catalog\model\setting\store.php
+catalog\controller\tshirtecommerce\designer_api_oc.php
+catalog\controller\tshirtecommerce\designer_api_oc.php
+catalog\controller\tshirtecommerce\designer_api_oc.php
+catalog\controller\tshirtecommerce\designer.php
+catalog\controller\commonipl\publishipl.php
+catalog\language\en-gb\shopify\product.php
+catalog\controller\product\designer.php

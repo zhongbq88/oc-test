@@ -276,9 +276,13 @@
 			});			
 		}
 		
-		 $uploadBox.on('click', '.ssi-editBtn', function (e) { //remove the file from list
+		 $uploadBox.on('click', '.image-link', function (e) { //remove the file from list
             var $currentTarget = $(e.currentTarget);
             var index = $currentTarget.data('edit'); //get file's index
+			if(!thisS.design[index]){
+				design(thisS,thisS.options.design.design_info.design_product_id,thisS.options.design.product_id,'');
+				return;
+			}
 			var datas = getDesignInfo(thisS,index);
 			jQuery.ajax({
 				type: "POST",
@@ -294,10 +298,8 @@
                     data = responseData;
                 }
 				if(data.error==0){
-					var _href='index.php?route=product/designeredit&parent_id='+thisS.options.design.product_id+'&product_id='+thisS.options.design.design_info.design_product_id+'&cart_id='+data.product.rowid;
+					design(thisS,thisS.options.design.design_info.design_product_id,thisS.options.design.product_id,data.product.rowid);
 					
-					$('body').append('<a href="'+_href+'" id="goto" target="_blank"></a>');
-					$('#goto').get(0).click();
 				}
 				
             	console.log(data);
@@ -306,6 +308,15 @@
 			
 			
         });
+		
+		var design = function(thisS,design_product_id,product_id,cart_id){
+				var url = thisS.options.siteURL+'index.php?product='+design_product_id+'&parent='+product_id;
+				if(cart_id){
+					url +='&cart_id='+cart_id;
+				}
+				$('#input-text-body').html('<iframe src="'+url+'" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 600px;"></iframe>');
+				$('#designer-body').attr("style",'display:block;');
+		}
 		
 //----------------------------UPLOADFILES------------------------------------
         $uploadBtn.click(function () {// upload the files
@@ -467,13 +478,19 @@
     };
 	
 	var getTemplate = function (content,index) {
-                    return '<table class="ssi-imgToUploadTable ssi-pending">' +
+                    /*return '<table class="ssi-imgToUploadTable ssi-pending">' +
 					'<tr id="editbtntr'+index+'" style="display:none"><td><input  type="checkbox" checked id="checkbox[]"  name="selected[]" value="'+index+'" style="margin: 5px 0 5px 5px;padding: 0;width:25px;height:25px;" /><button id = "ssi-editBtn'+index+'" data-edit="' + index + '" class="ssi-button success  ssi-editBtn" style="margin: 5px 0 5px 8px;padding: 0;float:right; width:25px;height:25px;"><span class="fa fa-pencil"></span></button></td></tr>'+
 '<tr><td class="ssi-upImgTd" >' + content + '</td></tr>' +
                      '<tr><td><div id="ssi-uploadProgress' + index + '" class="ssi-hidden ssi-uploadProgress"></div></td></tr>' +
                    /*  '<tr><td><button data-delete="' + index + '" class=" ssi-button error ssi-removeBtn"><span class="trash10 trash"></span></button></td></tr>' +*/
-                     /*'<tr><td>' + cutFileName(filename, ext, 15) + '</td></tr>'*/
-					 '</table>';
+                     /*'<tr><td>' + cutFileName(filename, ext, 15) + '</td></tr>'
+					 '</table>';*/
+					 
+					 return '<table class="ssi-imgToUploadTable ssi-completed"><tbody>'+
+		'<tr id="editbtntr'+index+'" style="display:none"><td style="margin-left:-1px;margin-top:-1px;"><input  type="checkbox" checked id="checkbox[]"  name="selected[]" value="'+index+'" style="margin: 5px 0 5px 5px;padding: 0;width:25px;height:25px;" class="css-checkbox" /><label for="checkbox[]" class="css-label"></label></td></tr>'+
+'<tr><td class="ssi-upImgTd">' + content + '</td></tr>' +
+'<tr><td class="ssi-buttonDesign"><button id = "ssi-editBtn'+index+'" data-edit="' + index + '" class="image-link" style="width: 342px;" ><span class="fa fa-pencil"></span>&nbsp;&nbsp;Custom Design</button></td></tr>'+
+		'</tbody></table>';
      };
 	
 	var getDesignInfo = function(thisS,index){
@@ -1109,17 +1126,17 @@
         en: {
             success: 'Success',
             sucUpload: 'Successful upload',
-            chooseFiles: '上传图片（可多图）',
-			chooseMoreFiles: '继续上图',
+            chooseFiles: 'Upload (multi - supported)',
+			chooseMoreFiles: 'Upload more',
             uploadFailed: 'Upload failed',
 			tips:'<p>(We accept the following file types: <strong>png, jpg, gif</strong>)</p>',
             serverError: 'Internal server error',
             error: 'Error',
             abort: 'Abort',
-			buynew: '购买',
+			buynew: 'Buy',
             aborted: 'Aborted',
             files: 'files',
-            upload: 'OK',
+            upload: 'Uploading',
             clear: 'Clear',
             drag: 'Drag n Drop',
             sizeError: '$1 exceed the size limit of $2',// $1=file name ,$2=max ie( example.jpg has has exceed the size limit of 2mb)

@@ -523,16 +523,19 @@ class ControllerCheckoutCart extends Controller {
 			$options = $this->getArrSet($option_data);
 			$variants = array();
 			foreach($options as $key=> $option){
+				//print_r($option);
 				$variants[$key]['thumb'] = $thumb;
 				$price = $pprice;
 				foreach($option as $i=> $v){
 					$variants[$key]['option'.($i+1)] = $v['name'];
 					$price+=$v['price'];
+					$variants[$key]['product_option_id'] = $v['product_option_id'];
+					$variants[$key]['option_value_id'] = $v['option_value_id'];
 				}
 				$variants[$key]['price'] = $price;
 				$variants[$key]['sale_price'] = $price*2;
 				$variants[$key]['msrp'] = $price*4;
-				$variants[$key]['variants_sku'] = '123';
+				
 			}
 			return $variants;
 	}

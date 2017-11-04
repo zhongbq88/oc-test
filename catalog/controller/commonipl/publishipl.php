@@ -1,6 +1,6 @@
 <?php
 
-
+include(DIR_APPLICATION.'/controller/shopify/oauthclient.php');
 
 class ControllerCommoniplPublishipl extends Controller {
 	
@@ -169,12 +169,192 @@ class ControllerCommoniplPublishipl extends Controller {
 		$this->save($paoduct,$product_ids,$images,$variants,$variant_count);
 	}
 	
+	public function push(){
+		$this->load->language('checkout/cart');
+		$this->load->language('shopify/product');
+
+		$json = array();
+
+		$this->load->model('commonipl/order');
+		$this->load->model('commonipl/product');
+		$this->load->model('account/cart');
+		if (isset($this->request->get['product_id'])) {
+			$product_id = $this->request->get['product_id'];
+		} else {
+			$product_id = '';
+		}
+		
+		if (isset($this->request->post['product'])) {
+			$products = array_filter($this->request->post['product']);
+		} else {
+			$products = array();
+		}
+		//print_r($products);
+		$results = array();
+		if(!empty($product_id)){
+			$results[$product_id] = $this->pushProduct($products[$product_id],$product_id);
+		}else{
+			foreach($products['selected'] as $id){
+				//if($product['checked']=='on'){
+				$results[$id] = $this->pushProduct($products[$id],$id);
+				//}
+			}	
+		}
+		if(isset($results)){
+			$json['success'] = $results;
+			foreach($results as  $value){
+				if(!empty($value)){
+					$json['text'] = sprintf($this->language->get('publish_sucessfully'), 'https://'.$this->session->data['shop'].'/admin/products/'.$value);
+				}
+			}
+			
+		}else{
+			$json['error'] = 'Push Error';
+		}
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+		
+	}
+	
+	
+	public function pushProduct($product,$product_id){
+		if(!isset($product['variant']['selected'])){
+			return;
+		}
+		$variants = array();
+		$images = array();
+		$options = array();
+		$position = 1;
+		$variantImages = array();
+		$option1Value = array();
+		$option2Value = array();
+		$product_info = $this->model_commonipl_product->getProduct($product_id);		
+		//print_r($product['variant']['selected']);
+		foreach($product['variant']['selected'] as $key){
+				$key = $key-1;
+				$variant = array(
+					'position' => $position,
+					'price' => $product['variant']['price'][$key],
+					'compare_at_price' => $product['variant']['compare_price'][$key],
+					"inventory_policy"=> "continue",
+    				"inventory_management"=>"shopify",
+					"inventory_quantity"=> $product_info['quantity'],
+   					"weight"=> $product_info['weight'],
+   					"weight_unit"=>"g"
+				);	
+				if(isset($product['variant']['option1'])){
+					$variant['option1'] = $product['variant']['option1'][$key];
+					$option1Value[] = $variant['option1'];
+				}
+				if(isset($product['variant']['option2'])){
+					if(isset($variant['option1'])){
+						$variant['option2'] = $product['variant']['option2'][$key];
+						$option2Value[] = $variant['option2'];
+					}else{
+						$variant['option1'] = $product['variant']['option2'][$key];
+						$option1Value[] = $variant['option1'];
+					}
+				}
+				$sku =  array(
+					'product_id'  		=> $product_id,
+					'price'       		=> $product['variant']['cost'][$key],
+					'sku'        		=> $product_info['sku'],
+					'model'        		=> $product_info['model'],
+					'product_option_id' => $product['variant']['product_option_id'][$key],
+					'option_value_id'   => $product['variant']['option_value_id'][$key],
+					'product_options'   => (isset($variant['option2'])?$variant['option2']:$variant['option1']),
+					'option_file'       => $product['variant']['images'][$key],//$imgs[$key],
+					'design_file'       => $product['variant']['images'][$key]
+				);
+				//print_r($sku);
+				$sku_id = $this->model_commonipl_order->addProductSku($sku);
+				if(isset($sku_id)){
+					$variant['sku']  =  $product_info['sku'].".".$sku_id;
+				}
+				$variants[] = $variant;
+				$image = $product['variant']['images'][$key];
+				if(!in_array($image, $images)){
+					$images[] = $image;
+				}
+				$variantImages[HTTPS_SERVER.'image/'.$product['variant']['images'][$key]][] = $position;
+				$position++;
+			
+		}
+		if(!empty($option1Value)){
+			$options[] = array(
+				'name'=>isset($product['option1'])?$product['option1']:$product['option2'],
+				'values'=>array_unique($option1Value)
+			);
+		}
+		if(!empty($option2Value)){
+			$options[] = array(
+				'name'=>$product['option2'],
+				'values'=>array_unique($option2Value)
+			);
+		}
+		$imageArray = array_merge($images,$product['images']);
+		$images = array();
+		foreach($imageArray as $position => $image){
+			$images[] = array(
+				'position'=>$position+1,
+				"src"=>HTTPS_SERVER.'image/'.$image
+			);
+		}
+		
+		$data =  array(
+			"title"=>$product['title'],
+			"body_html"=> html_entity_decode($product['description']),
+			"tags"=> $product['tag'],
+			"vendor"=>  $this->customer->getFirstName(),
+			"product_type"=>  $product['model'],
+			"options"=>$options,
+			"variants"=>$variants,
+			"images"=>$images
+		);
+		//print_r($images);
+		//print_r($variantImages);
+		return $this->pushToShop($data,$variantImages,$product_id);
+	}
+	
+	public function pushToShop($paoducts,$variantImages,$product_id){
+		//$shopify = shopify\client($this->session->data['shop'], SHOPIFY_APP_API_KEY, $this->session->data['oauth_token']);
+		$json = array();
+		try
+		{
+			
+			$product = Oauthclient::getInstance($this->customer->getStore(),$this->customer->getConsumerkey()
+			,$this->customer->getConsumerSecret(),$this->customer->getToken())->push(array('product' =>$paoducts),$variantImages);
+			$product_Add_id = $this->model_commonipl_product->saveShopifyAddProduct($product,$product_id,array($product_id));
+			if(isset($product['id'])){
+				$this->model_account_cart->deleteCart($product_id);
+				return $product['id'];
+			}
+			//$this->response->redirect($this->url->link('shopify/dashboard'));
+			
+		}
+		catch (shopify\ApiException $e)
+		{
+			# HTTP status code was >= 400 or response contained the key 'errors'
+			//echo $e;
+			print_r($e->getRequest());
+			print_r($e->getResponse());
+		}
+		catch (shopify\CurlException $e)
+		{
+			# cURL error
+			//echo $e;
+			print_r($e->getRequest());
+			print_r($e->getResponse());
+		}
+		return '';
+		
+	}
+	
 	public function save($paoduct,$product_ids,$images,$variants,$variant_count){
 		//$shopify = shopify\client($this->session->data['shop'], SHOPIFY_APP_API_KEY, $this->session->data['oauth_token']);
 		$json = array();
 		try
 		{
-			include(str_replace('commonipl','',__DIR__).$this->session->data['store'].'/oauthclient.php');
 			$product = Oauthclient::getInstance($this->customer->getStore(),$this->customer->getConsumerkey()
 			,$this->customer->getConsumerSecret(),$this->customer->getToken())->post(array('product' =>$paoduct),$variant_count);
 			$this->load->model('commonipl/product');

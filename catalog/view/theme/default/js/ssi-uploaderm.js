@@ -292,10 +292,26 @@
 			});			
 		}
 		
-		 $uploadBox.on('click', '.ssi-editBtn', function (e) { //remove the file from list
+		 $uploadBox.on('click', '.ssi-imgToUpload', function (e) { 
+		 	var $currentTarget = $(e.currentTarget);
+			var pindex = $currentTarget.data('product'); 
+			var product = thisS.options.products[pindex];
+			var url = 'index.php?route=product/designer&design_product_id='+product.design_product_id+'&product_id='+product.product_id;
+		 	 window.location.href=url;
+		 });
+		
+		 $uploadBox.on('click', '.image-link', function (e) { //remove the file from list
+		 
+		 	
             var $currentTarget = $(e.currentTarget);
             var index = $currentTarget.data('edit'); //get file's index
 			var pindex = $currentTarget.data('product'); //get file's index
+			
+			if(!thisS.design[index]){
+				design(pindex,thisS,'');
+				return;
+			}
+			
 			var datas = getDesignInfo(thisS,index,pindex);
 			
             console.log(datas);
@@ -314,19 +330,25 @@
                     data = responseData;
                 }
 				if(data.error==0){
-					var product = thisS.options.products[pindex];
-					var _href='index.php?route=product/designeredit&parent_id='+product.product_id+'&product_id='+product.design_product_id+'&cart_id='+data.product.rowid;
-					$('body').append('<a href="'+_href+'" id="goto" target="_blank"></a>');
-					$('#goto').get(0).click();
+					design(pindex,thisS,data.product.rowid);
 					
 				}
 				
             	console.log(data);
 
 			});			
-			
-			
+
         });
+		
+		var design = function(pindex,thisS,cart_id){
+				var product = thisS.options.products[pindex];
+				var url = thisS.options.siteURL+'index.php?product='+product.design_product_id+'&parent='+product.product_id;
+				if(cart_id){
+					url +='&cart_id='+cart_id;
+				}
+				$('#input-text-body').html('<iframe src="'+url+'" frameborder="0" border="0" cellspacing="0" style="border-style: none;width: 100%; height: 600px;"></iframe>');
+				$('#designer-body').attr("style",'display:block;');
+		}
 		
 //----------------------------UPLOADFILES------------------------------------
         $uploadBtn.click(function () {// upload the files
@@ -925,7 +947,7 @@
 		/*return '<div class="image-select"><div class="product-img"><div class="product-img-action"><img src="https://img.oberlo.com/?url=https://supply-cdn.oberlo.com/products/61/965c415c82820f2571d5f1069c111fb7.jpg" class="border-img"> <div class="icon-selected-box align-center"><svg class="icon-selected"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/img/app-icons.svg#icon-selected"></use></svg></div></div> <div class="image-link"><a href="https://img.oberlo.com/?url=https://supply-cdn.oberlo.com/products/61/965c415c82820f2571d5f1069c111fb7.jpg">View Original Size</a></div></div></div>';*/
 		return '<table class="ssi-imgToUploadTable ssi-completed"><tbody>'+
 		'<tr id="editbtntr'+index+'" style="'+style+'"><td style="margin-left:-1px;margin-top:-1px;"><input  type="checkbox" checked id="checkbox[]"  name="selected[]" value="'+index+'" style="margin: 5px 0 5px 5px;padding: 0;width:25px;height:25px;" class="css-checkbox" /><label for="checkbox[]" class="css-label"></label></td></tr>'+
-'<tr><td class="ssi-upImgTd"><img class="ssi-imgToUpload" id="ssi-imgToUpload'+index+'" src="'+dataURL+'"></td></tr>' +
+'<tr><td class="ssi-upImgTd"><img class="ssi-imgToUpload" id="ssi-imgToUpload'+index+'" data-product="'+pindex+'" src="'+dataURL+'"></td></tr>' +
 '<tr><td class="ssi-buttonDesign"><button id = "ssi-editBtn'+index+'" data-edit="' + index + '" data-product="'+pindex+'"  class="image-link" style="width: 342px;" ><span class="fa fa-pencil"></span>&nbsp;&nbsp;Custom Design</button></td></tr>'+
 		'</tbody></table>';
 	}
@@ -1183,17 +1205,17 @@
         en: {
             success: 'Success',
             sucUpload: 'Successful upload',
-            chooseFiles: 'Upload Image（more）',
-			chooseMoreFiles: 'Upload Image',
+            chooseFiles: 'Upload (multi - supported)',
+			chooseMoreFiles: 'Upload more',
             uploadFailed: 'Upload failed',
 			tips:'<p>(We accept the following file types: <strong>png, jpg, gif</strong>)</p>',
             serverError: 'Internal server error',
             error: 'Error',
             abort: 'Abort',
-			buynew: 'Push to shop',
+			buynew: 'Buy',
             aborted: 'Aborted',
             files: 'files',
-            upload: '上传',
+            upload: 'Uploading',
             clear: 'Clear',
             drag: 'Drag n Drop',
             sizeError: '$1 exceed the size limit of $2',// $1=file name ,$2=max ie( example.jpg has has exceed the size limit of 2mb)

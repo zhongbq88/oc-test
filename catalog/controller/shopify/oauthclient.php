@@ -91,6 +91,66 @@ class Oauthclient {
 		
     }
 	
+	public function push($data,$variantImages=array()){
+		//echo $this->store;
+		//echo $this->oauth_token;
+		//print_r($data);
+		//print_r($this->store);
+		//print_r($this->oauth_token);
+		try
+		{
+			$shopify = shopify\client($this->store, SHOPIFY_APP_API_KEY, $this->oauth_token);
+		if(isset($data['product'])){
+			$result =  $shopify('POST /admin/products.json', array(), $data);
+			//print_r($result);
+			$variants = $result['variants'];
+			$images = $result['images'];
+			$variants2 = array();
+			$i=0;
+			$count = 0;
+			//print_r($variantImages);
+			foreach($data['product']['images'] as $key=> $image){
+				if(isset($variantImages[$image['src']])&&isset($images[$key])){
+					$variant_postion = $variantImages[$image['src']];
+					$image2 = array();
+					$image2['id'] = $images[$key]['id'];
+					$variant_ids = array();
+					foreach($variant_postion as $pos){
+						if(isset($variants[$pos-1])){
+							$variant_ids[] = $variants[$pos-1]['id'];
+						}
+					}
+					//print_r($image2);
+					if(!empty($variant_ids)){
+						$image2['variant_ids'] = $variant_ids;
+						$rult = $shopify('PUT /admin/products/'.$result['id'].'/images/'.$image2['id'].'.json', array(), array('image' =>$image2));
+					}
+				}
+				
+			}
+			return $result;
+		}
+			
+		}
+		catch (shopify\ApiException $e)
+		{
+			# HTTP status code was >= 400 or response contained the key 'errors'
+			//echo $e;
+			print_r($e->getRequest());
+			print_r($e->getResponse());
+		}
+		catch (shopify\CurlException $e)
+		{
+			# cURL error
+			//echo $e;
+			print_r($e->getRequest());
+			print_r($e->getResponse());
+		}
+		
+		return ;
+		
+    }
+	
 	/*public function post($data,$variantImages=array()){
 		//echo $this->store;
 		//echo $this->oauth_token;
