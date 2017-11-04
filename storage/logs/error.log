@@ -1378,3 +1378,5 @@
 2017-11-04 12:12:38 - PHP Warning:  getimagesize(D:/xampp/htdocs/op/oc-test/image/catalog/designs/54_14_1509797558.jpg): failed to open stream: No such file or directory in D:\xampp\htdocs\op\oc-test\catalog\controller\commonipl\review.php on line 129
 2017-11-04 12:12:38 - PHP Warning:  getimagesize(D:/xampp/htdocs/op/oc-test/image/catalog/designs/54_14_1509797558.jpg): failed to open stream: No such file or directory in D:\xampp\htdocs\op\oc-test\catalog\controller\commonipl\review.php on line 129
 2017-11-04 12:12:38 - PHP Warning:  getimagesize(D:/xampp/htdocs/op/oc-test/image/catalog/designs/54_14_1509797558.jpg): failed to open stream: No such file or directory in D:\xampp\htdocs\op\oc-test\catalog\controller\commonipl\review.php on line 129
+2017-11-04 12:36:44 - PHP Notice:  Undefined index: sorts in D:\xampp\htdocs\op\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 57
+2017-11-04 12:36:44 - PHP Notice:  Undefined index: limits in D:\xampp\htdocs\op\oc-test\storage\vendor\twig\twig\lib\Twig\Environment.php(403) : eval()'d code on line 124

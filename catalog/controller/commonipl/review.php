@@ -124,7 +124,7 @@ class ControllerCommoniplReview extends Controller {
 							
 												$option_value_ids[$product_option['product_option_id']] = $option_value['option_value_id'];		
 												$srcImages[$product_index] = $img;	
-												if(isset($thumList)){
+												if(count($thumList)>0){
 													foreach($thumList as $i=>$thum){
 														$images[$product_option['product_option_id']][] = $imageList[$i];							
 														$array = getimagesize(DIR_IMAGE.$thum); 
